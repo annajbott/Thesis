@@ -2182,20 +2182,7 @@
     <bcf:datasource type="file" datatype="bibtex">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">bravata_systematic_2007</bcf:citekey>
-    <bcf:citekey order="2">foot_demographics_2000</bcf:citekey>
-    <bcf:citekey order="3">sousa_new_2005</bcf:citekey>
-    <bcf:citekey order="4">von_goethe_wilhelm_1829</bcf:citekey>
-    <bcf:citekey order="5">gagliardi_rontgen_1996</bcf:citekey>
-    <bcf:citekey order="6">gagliardi_cardiac_1996</bcf:citekey>
-    <bcf:citekey order="7">webb_introduction_2002</bcf:citekey>
-    <bcf:citekey order="8">leeson_cardiovascular_2011</bcf:citekey>
-    <bcf:citekey order="9">gagliardi_ultrasonography_1996</bcf:citekey>
-    <bcf:citekey order="10">edler_ultrasonic_1957</bcf:citekey>
-    <bcf:citekey order="11">bom_ultrasonic_1971</bcf:citekey>
-    <bcf:citekey order="11">griffith_sector_1974</bcf:citekey>
-    <bcf:citekey order="12">harvey_exercitatio_1628</bcf:citekey>
-    <bcf:citekey order="13">berlin_hedgehog_2013</bcf:citekey>
+    <bcf:citekey order="1">international2003criteria</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
