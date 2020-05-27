@@ -14,6 +14,9 @@
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
+*.DS_Store
+*.Rhistory
+
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
