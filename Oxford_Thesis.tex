@@ -6,6 +6,7 @@
 % Originally by Keith A. Gillow (gillow@maths.ox.ac.uk), 1997
 % Modified by Sam Evans (sam@samuelevansresearch.org), 2007
 % Modified by John McManigle (john@oxfordechoes.com), 2015
+% Modified by Anna James-Bott, 2020-2021
 %
 % This version Copyright (c) 2015-2017 John McManigle
 %
@@ -23,11 +24,11 @@
 % The most common choices should be below.  You can also do other things, like replacing "a4paper" with "letterpaper", etc.
 
 % This one will format for two-sided binding (ie left and right pages have mirror margins; blank pages inserted where needed):
-\documentclass[a4paper,twoside]{ociamthesis}
+%\documentclass[a4paper,twoside]{ociamthesis}
 % This one will format for one-sided binding (ie left margin > right margin; no extra blank pages):
 %\documentclass[a4paper]{ociamthesis}
 % This one will format for PDF output (ie equal margins, no extra blank pages):
-%\documentclass[a4paper,nobind]{ociamthesis}
+\documentclass[a4paper,nobind]{ociamthesis}
 
 
 
@@ -36,7 +37,7 @@
 % generating a PDF to send to the printer!
 
 % This adds a "DRAFT" footer to every normal page.  (The first page of each chapter is not a "normal" page.)
-%\fancyfoot[C]{\emph{DRAFT Printed on \today}}
+\fancyfoot[C]{\emph{DRAFT Printed on \today}}
 
 % This highlights (in blue) corrections marked with (for words) \mccorrect{blah} or (for whole
 % paragraphs) \begin{mccorrection} . . . \end{mccorrection}.  This can be useful for sending a PDF of
@@ -63,7 +64,10 @@
 \renewcommand*{\bibfont}{\raggedright\small}
 
 % Change this to the name of your .bib file (usually exported from a citation manager like Zotero or EndNote).
-\addbibresource{references.bib}
+% \addbibresource{references.bib} % Overall bib file
+\addbibresource{bib_introduction.bib}
+\addbibresource{bib_methods.bib}
+
 
 %\printbibliography[heading=bibintoc,title={\bibtitle}]}
 
@@ -96,10 +100,10 @@
 	\renewcommand{\st}{\textsuperscript{st}}
 	\newcommand{\rd}{\textsuperscript{rd}}
 
-% To make unit shortcuts
-	\newcommand{\ul}{$\mu$l}
-	\newcommand{\ug}{$\mu$g}
-	\newcommand{\uM}{$\mu$M}
+% Must be placed before `minitoc` is loaded!
+\newcommand{\minitocpath}{%
+  minitocdump/% Change the name of the directory.
+}
 
 %%%%% THE ACTUAL DOCUMENT STARTS HERE
 \begin{document}
@@ -167,7 +171,7 @@
 % This lays the groundwork for per-chapter, mini tables of contents.  Comment the following line
 % (and remove \minitoc from the chapter files) if you don't want this.  Un-comment either of the
 % next two lines if you want a per-chapter list of figures or tables.
-\dominitoc % include a mini table of contents
+%\dominitoc % include a mini table of contents
 %\dominilof  % include a mini list of figures
 %\dominilot  % include a mini list of tables
 
@@ -216,7 +220,7 @@
 
 \setlength{\baselineskip}{0pt} % JEM: Single-space References
 
-{\renewcommand*\MakeUppercase[1]{#1}%
+{\renewcommand*\MakeUppercase[1]{#1}
 \printbibliography[heading=bibintoc,title={\bibtitle}]}
 
 

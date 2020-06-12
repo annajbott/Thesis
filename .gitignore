@@ -16,6 +16,7 @@
 *-converted-to.*
 *.DS_Store
 *.Rhistory
+figures_made/
 
 # these rules might exclude image files for figures etc.
 # *.ps

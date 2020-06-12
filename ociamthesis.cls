@@ -438,9 +438,19 @@
 \newcommand{\mccorrect}[1]{\ifcorrections\hl{#1}\else#1\fi}
 
 
+%\definecolor{chaptergrey}{RGB}{0.5,0.5,0.5}
+\definecolor{chaptergrey}{gray}{0.7}
+
 % JEM: adjust start-of-chapter spacing
 \renewcommand{\chapterheadstartvskip}{\vspace*{40pt}}
 \renewcommand{\chapterheadendvskip}{\vspace{30pt}}
+
+%\renewcommand*{\sectfont}{\bfseries}
+\renewcommand*{\chapnumfont}{%
+  \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{30}{90}\selectfont% Default: 100/130 - first number = number size, second = distance down page
+  \color{chaptergrey}%
+}
+
 
 
 % JEM: combine all of the commands you run before appendices start
