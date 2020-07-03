@@ -1,0 +1,20 @@
+\chapter{\label{ch:4-Pipelines}Workflow Generation}
+
+%\minitoc
+
+\section{Computational pipelines}
+A computational pipeline consists of a series of manipulations and transformations, where the output of one element is the input of the next.
+Often these elements are executed in parallel.
+Pipelining -omics data-processing means that tasks that are not interdependent can be executed simultaneously.
+Additionally, multiple samples can be processed in parallel, thereby reducing run time.
+There are many available pipelining frameworks, for example Snakemake, Luigi and Ruffus\cite{goodstadt2010ruffus}.
+
+\subsection{Reproducible workflows}
+In data analysis, particularly in bioinformatics, many users create simple bash or R scripts to execute the specific task at hand.
+However, if this is done often, the user can have an accumulation of these 'throw-away' scripts, which are often named uninformatively and never used again; meaning that the user might create the same script again in the future to perform the same task.
+This is bad practice in terms of efficiency and reproducibility.
+
+A series of computational pipelines and workflows were generated. This allow
+Ruffus and CGAT-core\cite{cribbs2019cgat} will be used as the backbone for the pipelines developed in this work.
+
+\subsection{AMO-1 cells}

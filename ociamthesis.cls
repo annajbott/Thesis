@@ -441,6 +441,10 @@
 %\definecolor{chaptergrey}{RGB}{0.5,0.5,0.5}
 \definecolor{chaptergrey}{gray}{0.7}
 
+% SI unit package
+\usepackage{siunitx}
+\DeclareSIUnit\Molar{M}
+
 % JEM: adjust start-of-chapter spacing
 \renewcommand{\chapterheadstartvskip}{\vspace*{40pt}}
 \renewcommand{\chapterheadendvskip}{\vspace{30pt}}
