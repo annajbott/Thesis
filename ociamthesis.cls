@@ -451,7 +451,7 @@
 
 %\renewcommand*{\sectfont}{\bfseries}
 \renewcommand*{\chapnumfont}{%
-  \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{30}{90}\selectfont% Default: 100/130 - first number = number size, second = distance down page
+  \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{35}{90}\selectfont% Default: 100/130 - first number = number size, second = distance down page
   \color{chaptergrey}%
 }
 

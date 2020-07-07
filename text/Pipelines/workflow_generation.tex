@@ -2,19 +2,82 @@
 
 %\minitoc
 
-\section{Computational pipelines}
-A computational pipeline consists of a series of manipulations and transformations, where the output of one element is the input of the next.
-Often these elements are executed in parallel.
-Pipelining -omics data-processing means that tasks that are not interdependent can be executed simultaneously.
-Additionally, multiple samples can be processed in parallel, thereby reducing run time.
-There are many available pipelining frameworks, for example Snakemake, Luigi and Ruffus\cite{goodstadt2010ruffus}.
+\section{Introduction}
 
 \subsection{Reproducible workflows}
 In data analysis, particularly in bioinformatics, many users create simple bash or R scripts to execute the specific task at hand.
-However, if this is done often, the user can have an accumulation of these 'throw-away' scripts, which are often named uninformatively and never used again; meaning that the user might create the same script again in the future to perform the same task.
-This is bad practice in terms of efficiency and reproducibility.
+% (or even the command line alone)
+However, if this is done often, the user can have an accumulation of these single-use scripts, which are often named uninformatively and never used again.
+Subsequently, the user may create scripts which perform the same function numerous times.
+Additionally, users may just use the command line alone to perform tasks.
+This means that exactly how they performed the analysis is difficult to find or not recorded.
+These are bad practices in terms of efficiency and reproducibility.
+It is much better practice to create well-documented, generalised workflows which can then be applied to multiple different experiments.
+This enables the user to reuse their code more easily and reproduce results, if need be.
+This also allows other researchers to reproduce results or apply the code to their own research.
 
-A series of computational pipelines and workflows were generated. This allow
-Ruffus and CGAT-core\cite{cribbs2019cgat} will be used as the backbone for the pipelines developed in this work.
+In addition to creating generalised, reproducible workflows, it can be beneficial to create more extensive computational pipelines for jobs which require multiple tasks or actions to be performed sequentially.
 
-\subsection{AMO-1 cells}
+\subsection{Computational pipelines}
+A computational pipeline consists of a series of manipulations and transformations, where the output of one element is the input of the next.
+Often these elements are executed in parallel.
+Pipelining `omics' data-processing means that tasks that are not interdependent can be executed simultaneously.
+Additionally, multiple samples can be processed in parallel, thereby reducing run time.
+There are many available pipelining frameworks, for example Snakemake\cite{koster2012snakemake}, Luigi and Ruffus\cite{goodstadt2010ruffus}.
+
+For this work, a series of computational pipelines and workflows were generated.
+Ruffus and CGAT-core\cite{cribbs2019cgat} were used as the backbone for the pipelines developed.
+
+\section{scRNA-Seq pseudoalignment pipeline}
+Fewer pipelines exist for single-cell RNA-Seq compared to bulk RNA-Seq.
+For the Chromium 10X Genomics platform, most of the processing and analysis is automated by Cell Ranger;
+however for other technologies, the workflow is not as well defined.
+A single-cell analysis pipeline was constructed with the aim to produce an easy-to-use, robust and reproducible workflow that works for Drop-Seq as well as 10X technology, which utilises pseudoalignment rather than traditional mapping methods.
+
+\subsection{Psuedoaligment}
+Traditional mapping techniques such as Tophat\cite{trapnell2009tophat} or STAR\cite{dobin2013star}, rely on aligning each read to a reference genome.
+This is generally very time consuming and computationally expensive.
+Another challenge that arises with traditional mapping is the occurrence of multi-mapping, whereby a read cannot be uniquely aligned as it could map equally well to multiple sites in the genome\cite{mortazavi2008mapping}.
+More recently, a series of methods called pseudoaligners have been developed that overcome some of the issues associated with traditional mapping approaches.
+Pseudoalignment (sometimes referred to as quasi-mapping) methods provide a lightweight, alignment-free alternative to traditional mapping.
+It has been shown that information on where exactly inside transcripts sequencing reads may have originated is not required for accurate quantification of transcript abundances\cite{nicolae2010estimation}.
+Rather, only which transcript the read could have originated from is needed and transcript abundances are calculated by computing the compatibility of reads with different transcripts.
+This negates the need for alignment to a reference genome, alleviating the issue of multi-mapping and reducing the computational load.
+Pseudoaligners have been shown to complete data processing of RNA-seq datasets up to 250-times faster than traditional alignment and quantification approaches\cite{bray2016near}.
+Kallisto\cite{bray2016near} and Salmon\cite{patro2017salmon} are tools which implement pseudoalignment.
+They have similar speed and accuracy for bulk RNA-seq data\footnote{\url{https://liorpachter.wordpress.com/2017/09/02/a-rebuttal/}}.
+
+\subsubsection{Pseudoalignment of scRNA-seq}
+Pseudoalignment tools have recently been developed for droplet-based scRNA-seq analysis (dscRNA-seq).
+Additional challenges come with dscRNA-seq data processing, having the extra complication of cellular barcodes (CBs) and unique molecular identifiers (UMIs).
+These tools must handle transcript abundance estimation, as with bulk RNA-seq analysis, but also perform CB detection, collapsing of UMIs (arising from PCR duplication of molecules) and barcode error correction.
+Kallisto BUS\cite{melsted2018barcode} has been developed as an analysis tool and file format specifically for single-cell analysis, alongside BUStools, for processing of the resultant BUS file\cite{melsted2019modular}.
+Salmon Alevin\cite{srivastava2019alevin} has also been developed for single-cell RNA-seq analysis.
+
+\subsubsection{Flow diagram of pipeline-- placeholder}
+
+\subsection{Benchmark}
+Benchmarking measures the performance of a method/software relative to other methods available.
+Run time and the accuracy of results are often the factors considered in a benchmark.
+To be able to calculate the accuracy of results, the `true' results must be known.
+This is difficult in scRNA-seq analysis as no gold standard analysis protocol exists.
+Instead, methods are compared against simulated results which act as the underlying `ground truth'.
+
+\subsubsection{Simulated data}
+Splatter\cite{zappia2017splatter} was used to simulate single-cell counts matrices, using a real single-cell counts matrix to estimate simulation parameters from.
+The simulated counts matrix was randomly assigned cell barcodes and ensembl gene names for the column and rownames respectively, and then used as input for Minnow\cite{sarkar2019minnow} as `ground-truth' data.
+Minnow generates droplet-based scRNA-seq simulated reads, working backwards from a known counts matrix to generating raw sequencing files from which the counts matrix could have originated.
+Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix.
+The simulated reads were used as input for the scRNA-Seq pseudoalignment pipeline and the resulting count matrices outputted by Salmon Alevin and Kallisto BUS were compared to the `ground-truth' data.
+
+\subsubsection{Results}
+
+\subsection{Comparison to published data using other methods..}
+
+\section{scRNA-Seq velocity analysis pipeline}
+
+\subsection{RNA velocity}
+``RNA velocity is a high-dimensional vector that predicts the future state of individual cells on a timescale of hours"\cite{la2018rna}.
+In combination with clustering analysis, the trajectory of a single-cell can be tracked.
+
+%Another RNA velocity workflow has been created\cite{melsted2019modular}, which implements Kallisto BUS and the BUStools command `capture'. This approach will also be explored, as it boasts far superior run time and requires no large bam intermediate files. This could then also be incorporated within the same pipeline as the generation of a counts matrix with very few extra tasks required.
