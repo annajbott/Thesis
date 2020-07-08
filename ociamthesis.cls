@@ -63,6 +63,8 @@
 \def\candidateno#1{\gdef\@candidateno{#1}}
 % Your word count (for master's submissions)
 \def\wordcount#1{\gdef\@wordcount{#1}}
+
+\def\department#1{\gdef\@department{#1}}
 \newif\ifmasterssubmission
 % adds candidate number and word count in place of name and college
 \masterssubmissionfalse
@@ -220,17 +222,19 @@
 \else
   \begin{center}
     { \LARGE {\bfseries {\@title}} \par}
-{\large \vspace*{30mm} {\crest \par} \vspace*{25mm}}
-    {{\Large \@author} \par}
+{\large \vspace*{30mm} {\crest \par} \vspace*{15mm}} %30,25 default
+    {{\Large {\bfseries {\@author}}} \par}
 {\large \vspace*{1ex}
     {{\@college} \par}
 \vspace*{1ex}
+    {{\@department} \par}
+\vspace*{1ex}
     {University of Oxford \par}
-\vspace*{20mm}
+\vspace*{15mm} %default 20
     {{\submittedtext} \par}
 \vspace*{1ex}
-    {\it {\@degree} \par}
-\vspace*{2ex}
+    {\textit {\@degree} \par}
+\vspace*{1ex} % 2ex default
     {\@degreedate}}
   \end{center}
 \fi

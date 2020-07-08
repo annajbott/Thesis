@@ -6,7 +6,6 @@
 
 \subsection{Reproducible workflows}
 In data analysis, particularly in bioinformatics, many users create simple bash or R scripts to execute the specific task at hand.
-% (or even the command line alone)
 However, if this is done often, the user can have an accumulation of these single-use scripts, which are often named uninformatively and never used again.
 Subsequently, the user may create scripts which perform the same function numerous times.
 Additionally, users may just use the command line alone to perform tasks.
@@ -28,7 +27,7 @@ There are many available pipelining frameworks, for example Snakemake\cite{koste
 For this work, a series of computational pipelines and workflows were generated.
 Ruffus and CGAT-core\cite{cribbs2019cgat} were used as the backbone for the pipelines developed.
 
-\section{scRNA-Seq pseudoalignment pipeline}
+\section{scRNA-Seq pseudoalignment pipeline}\label{sec:scRNA_pipeline}
 Fewer pipelines exist for single-cell RNA-Seq compared to bulk RNA-Seq.
 For the Chromium 10X Genomics platform, most of the processing and analysis is automated by Cell Ranger;
 however for other technologies, the workflow is not as well defined.
@@ -54,7 +53,22 @@ These tools must handle transcript abundance estimation, as with bulk RNA-seq an
 Kallisto BUS\cite{melsted2018barcode} has been developed as an analysis tool and file format specifically for single-cell analysis, alongside BUStools, for processing of the resultant BUS file\cite{melsted2019modular}.
 Salmon Alevin\cite{srivastava2019alevin} has also been developed for single-cell RNA-seq analysis.
 
-\subsubsection{Flow diagram of pipeline-- placeholder}
+\subsubsection{Pipeline outline}
+Kallisto BUS or Salmon Alevin performs pseudoalignment and generation of a cell-by-gene expression counts matrix.
+Quality control is performed using Scater\cite{mccarthy2017scater} and alevinQC.
+Clustering is performed using Seurat3\cite{stuart2019comprehensive} and Monocle\cite{trapnell2014dynamics}.
+Clusters are projected onto tSNE and UMAP plots.
+Differentially expressed genes are identified by performing non-parametric Wilcoxon tests on $\log_2 TPM$ expression values and Fisher's exact test for comparing expressing cell frequency, these $p$ values combined using Fisher's method.
+Multiple comparisons are accounted for by performing the Benjamini-Hochberg correction to adjust the false discovery rate.
+
+%% Flow diagram- pipeline outline
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/workflow_generation/flowchart_sc.pdf}
+\caption[scRNA-Seq pseudoalignment pipeline flowchart]{Flowchart outlining scRNA-Seq pseudoalignment pipeline}
+\label{fig:flowchart_scRNA}
+\end{figure}
+%%
 
 \subsection{Benchmark}
 Benchmarking measures the performance of a method/software relative to other methods available.

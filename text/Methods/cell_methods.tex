@@ -11,6 +11,27 @@ AMO-1 cells were cultivated in RPMI-1640 medium (WHERE we get it from), suppleme
 Cells were passaged when they reached approximately 1.5-2 million cells per \si{\ml} (IS THIS THE RIGHT MEASURE??).
 Media was replaced twice a week.
 
+\section{Compounds}
+
+\subsection{Proteasome inhibitors}
+<WHERE were they obtained> etc etc.
+
+\subsection{Epigenetic inhibitors}
+The Oppermann group has an epigenetic compound screening library, consisting of 144 compounds.
+The compounds were obtained XYZ <where did Jim get compounds> SGC????
+A TRIM24 inhibitor was identified as a possible candidate to reverse drug-resistance in AMO-1 cells.
+The structure of the TRIM24 inhibitor is shown below in figure \ref{fig:trim24_structure}.
+
+%% TRIM24 structure
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Methods/trim24_structure.png}
+\caption[TRIM24i structure]{TRIM24 inhibitor chemical structure}
+\label{fig:trim24_structure}
+\end{figure}
+%%
+
+
 
 \section{Bulk RNA-seq}
 \subsection{RNA extraction}
@@ -126,7 +147,7 @@ Fasta files were processed using a CGAT-flow (REF) pipeline, workflow can be fou
 %% XGR and GSEA ????
 
 \subsection{Single-cell RNA-Seq}
-Pipeline etc...
+The computational pipeline outlined in section \ref{sec:scRNA_pipeline} was used to process scRNA data.
 
 \subsection{LC-MS/MS}
 Mass-spectrometry raw data were searched against the UniProtKB human sequence data base and label-free quantitation (LFQ) was performed using MaxQuant Software (v1.5.5.1). Digestion was set to trypsin/P. Search parameters were set to include carbamidomethyl (C) as a fixed modification, oxidation (M), deamidation (NQ), and phosphorylation (STY) as variable modifications. A maximum of 2 missed cleavages were allowed for phosphoproteome analysis and 3 for the GlyGly peptidome analysis, with matching between runs. LFQ quantitation was performed using unique peptides only. Label-free interaction data analysis was performed using Perseus (v1.6.0.2). Results were exported to Microsoft Office Excel Sheets and imported into the R statistical framework (v3.5.1) for further analysis.
