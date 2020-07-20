@@ -3,15 +3,20 @@
 %\minitoc
 
 \section{Overview}
-Multiple myeloma accounts for 1-2\% of all cancers and has the second highest incidence of hematological malignancies, after non-Hodgkin’s lymphoma\cite{international2003criteria}.
+...
 
 % 1
 \section{The adaptive immune system}
-Humans are exposed to millions of potential pathogens every day and therefore require defences to be able to protect themselves against infection. These defences can be innate or adaptive. An example of an innate defence is the skin acting as a physical barrier between the outside world and the body. Another example of an innate defence is non-specific engulfing (phagocytosis) of foreign pathogens by macrophages (a type of white blood cell). Innate responses are relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required- called the adaptive immune response. (REF-mol biology of the cell).
+Humans are exposed to millions of potential pathogens every day and therefore require defences to be able to protect themselves against infection.
+These defences can be innate or adaptive.
+An example of an innate defence is the skin acting as a physical barrier between the outside world and the body.
+Another example of an innate defence is non-specific engulfing (phagocytosis) of foreign pathogens by macrophages (a type of white blood cell).
+Innate responses are relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required- called the adaptive immune response. (REF-mol biology of the cell).
 
 Adaptive immune responses are specific to the pathogen that induced the response and are dependent on B cells and T cells, two major classes of lymphocytes (a class of white blood cell).
 Two classes of adaptive immune responses exist: antibody responses, co-ordinated by B cells, and cell mediated immune responses, co-ordinated by T cells.
-T-cell-mediated immune responses recognise foreign antigens (antibody generators; substances capable of eliciting an immune response by stimulating B or T cell activation) on the surface of cells and can either kill the pathogen-infected cells or stimulate B cells or phagocytes to help eliminate the pathogen.
+T-cell-mediated immune responses recognise foreign antigens (antibody generators;
+substances capable of eliciting an immune response by stimulating B or T cell activation) on the surface of cells and can either kill the pathogen-infected cells or stimulate B cells or phagocytes to help eliminate the pathogen.
 In antibody responses, B cells and plasma cells secrete antibodies, also known as immunoglobulins.
 Immunoglobulins are large Y-shaped proteins, which recognise and bind to the specific foreign antigen on the pathogen which stimulated their production.
 Binding of immunoglobulins to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
@@ -37,17 +42,20 @@ CLP differentiation results in B cells, T cells, natural killer (NK) cells and l
 %%
 
 Most B cells die in the bone marrow soon after developing, however some will develop in the bone marrow, where initial stages of maturation occur and then migrate to secondary lymphoid organs, such as the spleen.
-Within secondary lymphoid organs, numerous critical decisions on B cell fate are made, involving complex transcriptional networks, cell interactions, gene rearrangements, and mutations\cite{roth2014tracking,jourdan2011characterization}.
-Upon antigenic-stimulation, naive B cells differentiate into memory B cells and plasma cells.
+Within secondary lymphoid organs, numerous critical decisions on B cell fate are made, involving complex transcriptional networks, cell interactions, gene rearrangements, and mutations\cite{roth2014tracking, jourdan2011characterization}.
+Upon antigenic-stimulation, naive B cells differentiate into memory B cells or plasma cells.
 Terminally differentiated plasma cells are the final effectors of the B cell lineage, each dedicated to secreting large amounts of a single type of antibody.
 Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in immunoglobulin secretion upregulated, including \textit{XBP-1} and \textit{CHOP}\cite{shapiro2004plasma}, to enable the production of copious amounts of antibody.
-Plasma cells
+Plasma cells appear to consist of two distinct categories: short-lived plasma cells, which have life-spans of several months and are located in extrafollicular locales such as in medullary chords of lymph nodes or the red pulp of the spleen, and long-lived plasma cells, which have life-spans of decades and are mainly found in the bone marrow\cite{bortnick2013and, andraud2012living}.
 
-\subsubsection{Multiple myeloma cells}
-Multiple myeloma is a malignancy of terminally differentiated plasma cells.
+
 
 %1
-\section{Clinical MM}
+\section{Multiple myeloma}
+%2
+\subsection{Multiple myeloma cells}
+Multiple myeloma is a malignancy of terminally differentiated plasma cells.
+It is characterised by aberrant proliferation of clonal, long-lived plasma cells in the bone marrow\cite{anderson2011pathogenesis}.
 
 %2
 \subsection{Epidemiology}
@@ -77,7 +85,7 @@ The International Myeloma Working Group's definition\cite{rajkumar2014internatio
 Greater than 10\% clonal plasma cells located in the bone marrow and one or more myeloma-defining event or biomarker of malignancy.
 Myeloma defining events consist of evidence of end-organ damage that can be attributed to the surplus of M protein and clonal plasma cells, namely the CRAB features:
 %
-% List of myeloma events
+% List of myeloma events (CRAB)
 \begin{itemize}
   \item Hypercalcemia
     \begin{itemize}
@@ -124,7 +132,50 @@ Novel therapeutic advances have contributed to this improvement (Table\ref{tab:t
 \section{Drug resistance in multiple myeloma}
 
 
-\section{Transcriptomics, Epigenomics}
+\section{Transcriptomics, Epigenomics and proteomics}
+It has been shown that changes in the genome, transcriptome, epigenome and proteome all contribute to acquired-drug resistance in myeloma.
+Therefore, to sufficiently investigate the multiple layers driving this development of resistance, a multi-omics approach must be employed.
 
+\subsection{RNA-Seq}
+Modern RNA sequencing (RNA-Seq) implements next generation sequencing (NGS) technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
+
+\subsubsection{Bulk RNA-Seq}
+Bulk RNA-seq measures the average expression across a sample.
+Creating a bulk RNA-seq library involves isolating RNA from a biological sample, filtering for a specific type of RNA (most commonly mRNA), fragmentation of RNA into fragments, reverse transcription of the fragments to generate a complementary DNA (cDNA) library, end repair and adaptor ligation of the cDNA library, followed by PCR amplification ready for sequencing.
+
+% figure of steps needed
+
+\subsubsection{Single-cell RNA-Seq}
+Single-cell RNA-Seq (scRNA-Seq) measures gene expression for each individual cell across a population of cells and therefore provides information on clonal diversity that may be lost when pooling cells into bulk samples.
+Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-Seq techniques, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization} and inDrops\cite{klein2015droplet}.
+scRNA-Seq library preparation shares many steps with bulk RNA-Seq workflow, however preliminary steps are required to isolate single cells and track them (??/ barcode) individually.
+
+For droplet-based scRNA-Seq (dscRNA-Seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
+Below, a droplet-based scRNA-Seq (dscRNA-Seq) method, Drop-seq, is outlined (figure \ref{fig:dropseq}).
+
+\begin{figure}
+\centering\includegraphics[width=0.7\textwidth]{figures_made/drop_seq.png}
+\caption[Drop-seq schematic]{Outline of Drop-seq, a droplet-based scRNA-Seq method.
+Figure adapted from Macosko et al. (2015) \cite{macosko2015highly}.
+A microfluidic device combines two aqueous flows, one containing cells and the other containing barcoded primer beads suspended in lysis buffer.
+The two aqueous channels flow across an oil channel to form aqueous droplets surrounded by oil.
+Relatively few droplets contain both a cell and a bead.
+Following droplet formation, the cell is lysed and its mRNAs are released, which then hybridise to the primers on the bead surface.
+A reagent is added to break up the droplets and the beads are collected and washed.
+The mRNAs are reverse-transcribed into cDNAs, generating a set of ``STAMPS'' (single-cell transcriptomes attached to microparticles) and template switching is used to introduce a PCR handle.
+The barcoded STAMPS can then be amplified using PCR.}
+\label{fig:dropseq}\end{figure}
+%%
+
+
+\subsection{ATAC-Seq}
+...
+
+\subsection{ChIP-Seq}
+...
+
+\subsection{CyTOF}
+
+\subsection{Liquid chromatography with tandem mass spectrometry}
 
 \section{}
