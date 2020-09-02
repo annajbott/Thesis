@@ -1,0 +1,97 @@
+\chapter{\label{ch:5-results}Identifying a lead epigenetic compound}
+% Chapter of dose responses and validation of screen
+
+\section{Identifying inhibitors of interest}
+Preliminary work in section \ref{sec:preliminary} shows an epigenetic compound library screen against PI sensitive and PI resistant AMO-1 cells, in the presence of PI and without PI\@.
+
+\subsection{Bulk RNA-seq}
+Following the compound library screen, a pilot bulk RNA-seq experiment containing WT, aBTZ cells and aCFZ cells in triplicate and single samples of aCFZ and WT cells treated with epigenetic inhibitors, was conducted.
+Cells were treated for 24 hours with either DMSO for cell-line only controls, or an epigenetic inhibitor, before being harvested for bulk RNA-seq.
+Following the initial pilot, bulk RNA-seq was performed again with aCFZ cells and aCFZ cells treated with the six epigenetic inhibitors.
+aCFZ cells were treated with 1\si{\micro\Molar} CBP30, TMP269, GSK959 or T54, 5\si{\micro\Molar} OF1, or 10\si{\micro\Molar} TRIM24i for twenty-four hours, RNA was harvested and bulk RNA-Seq analysis was performed.
+
+
+I combined the DESeq2 \cite{love2014moderated} results for the two experiments, transformed the data to be approximately homoskedastic and removed the batch effects of the two separate experiments using the \textit{limma} package \cite{smyth2005limma}.
+This meant I was able to compare WT cells more easily with aCFZ treated with the epigenetic inhibitors, without performing another costly RNA-seq experiment.
+
+%% Bulk RNA combined PCA
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Results/PCA/PCA_bulk_WT_CFZ_treated_combined_batch_effects_removed.png}
+\caption[Bulk RNA-Seq WT and aCFZ cells epigenetic treated PCA]{PCA plot for two bulk RNA-seq experiments.
+WT and aCFZ cells treated with compounds GSK959 (959), OF1 (OF), TDOS10000054a (T54), TRIM24/BRPF (TRIM24i), SGC-CBP30 (CBP), TMP269 (TMP) and DMSO controls across two bulk RNA-seq experiments.
+Batch effects have been removed.}
+\label{fig:bulk_wt_cfz_epi_treated_pca}
+\end{figure}
+%%
+
+Figure \ref{fig:bulk_wt_cfz_epi_treated_pca} shows a PCA plot for the two combined experiments.
+The first principle component (contributing 67\% of the total variance) seems to be separating along cell type, such that WT cells and WT cells treated with the epigenetic inhibitors are clustering together on the left of the graph, whilst aCFZ cells and aCFZ cells treated with epigenetic inhibitors are located towards the middle and right-hand-side of the graph.
+aCFZ cells treated with the compounds OF-1, T54, TMP269 and GSK959 are closely clustered with control aCFZ cells treated with DMSO.
+This indicates that aCFZ cells treated with OF-1, T54, TMP269 and GSK959 are extremely similar to aCFZ control cells.
+CBP30 and TRIM24i treated aCFZ cells however cluster away from DMSO treated aCFZ controls on PC2 (contributing 23\% of the total variance).
+The clustering of epigenetic inhibitors is reflected in differential expression analysis.
+498 genes were differentially expressed (DE) between CBP30 treated aCFZ cells and DMSO treated aCFZ controls.
+TRIM24i treated aCFZ cells had 579 DE genes compared with aCFZ controls.
+T54 treated aCFZ cells had 19 DE genes, TMP269 treated aCFZ cells had 4 DE genes, GSK959 treated aCFZ cells had 1 DE gene and OF1 treated aCFZ cells had 0 DE genes compared to controls.
+At the concentrations used, CBP30 and TRIM24i had a larger transcriptional effect on carfilzomib resistant cells than the other four inhibitors.
+This allows us to examine the mechanism of action of these drugs in more detail, with richer data available.
+CBP30 and TRIM24i were chosen to take further.
+
+%\section{Validating the compound screen results}
+
+\subsection{Dose response curves}\label{subsec:dose_response}
+The results of the compound screen were validated further by creating dose response curves.
+Firstly WT, aCFZ and aBTZ cells were treated with carfilzomib and bortezomib, to validate sensitivity to PI (figure \ref{fig:dose_response_wt_cfz_carf}).
+[MORE DOSE REPSONSE CURVES-- aBTZ and aCFZ and WT for batch 1 and batch 2 with bort and carf]
+At concentrations above 20\si{\nano\Molar} WT cells were being killed by carfilzomib.
+IC\textsubscript{50}s of WT, aCFZ and aBTZ cells to carfilzomib and bortezomib are shown in Table \ref{tab:carf_bort_IC50}.
+
+[ENTER REAL VALUES!!]
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Cell line             & Drug        & IC\textsubscript{50} (\si{\nano\Molar}) \\ \hline
+\multirow{2}{*}{WT}   & Carfilzomib & 10   \\ \cline{2-3}
+                      & Bortezomib  & 8    \\ \hline
+\multirow{2}{*}{aCFZ} & Carfilzomib & 600  \\ \cline{2-3}
+                      & Bortezomib  & 150  \\ \hline
+\multirow{2}{*}{aBTZ} & Carfilzomib & 200  \\ \cline{2-3}
+                      & Bortezomib  & 500  \\ \hline
+\end{tabular}
+    \caption[AMO-1 cells proteasome inhibitor IC\textsubscript{50}s]{IC\textsubscript{50}s of WT, aCFZ and aBTZ cells to carfilzomib and bortezomib.}
+\label{tab:carf_bort_IC50}
+\end{table}
+
+Next concentrations of TRIM24i and CBP30 were varied against aCFZ, aBTZ and WT cells, in the presence of carfilzomib or bortezomib and without.
+Carfilzomib and bortezomib were kept at 25\si{\nano\Molar} as at this concentration WT cells are killed by PI\@, hence it indicates re-sensitisation to PI at WT levels if killed at this concentration\@.
+
+
+
+
+Figure \ref{fig:dose_response_carf_trim} shows dose response curves for WT and aCFZ cells with carfilzomib and TRIM24/BRP inhibitor.
+AMO-1 cells were treated for 48 hours with varying carfilzomib concentrations from 1\si{\nano\Molar} to 500\si{\nano\Molar}.
+Concentrations were too low to elicit a response in aCFZ resistant cells.
+The IC\textsubscript{50} value for WT cells with carfilzomib was 8.39\si{\nano\Molar}.
+
+%% WT CFZ carfilzomib and trim24 dose response curves
+\begin{figure}[htb]
+%1
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/dose_response/WT_CFZ_carf_1-500nm.png}
+    \caption{Carfilzomib}
+    \label{fig:dose_response_wt_cfz_carf}
+\end{subfigure}
+%
+%\medskip
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/dose_response/WT_CFZ_TRIM_carf_batch1.png}
+    \caption{TRIM24/BRP inhibitor}
+    \label{fig:dose_wt_cfz_trim24}
+\end{subfigure}
+    \caption[Dose response curves]{Dose response curves. \ref{fig:dose_response_wt_cfz_carf} shows WT and aCFZ cell viability with varying carfilzomib concentration from 1\si{\nano\Molar} to 500\si{\nano\Molar}.
+\ref{fig:dose_wt_cfz_trim24} shows WT and aCFZ cell viability with varying TRIM24/BRP inhibitor concentration from 0.78\si{\micro\Molar} to 100\si{\micro\Molar} with and without carfilzomib present (25\si{\nano\Molar}; WT cells died in the presence of carfilzomib).  }
+\label{fig:dose_response_carf_trim}
+\end{figure}
+%%
