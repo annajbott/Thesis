@@ -232,7 +232,8 @@ For droplet-based scRNA-Seq (dscRNA-Seq) methods, single cells are isolated usin
 Below, a droplet-based scRNA-Seq (dscRNA-Seq) method, Drop-seq, is outlined (figure \ref{fig:dropseq}).
 
 \begin{figure}
-\centering\includegraphics[width=0.7\textwidth]{figures_made/drop_seq.png}
+\centering
+\includegraphics[width=0.7\textwidth]{figures_made/drop_seq.png}
 \caption[Drop-seq schematic]{Outline of Drop-seq, a droplet-based scRNA-Seq method.
 Figure adapted from Macosko et al. (2015) \cite{macosko2015highly}.
 A microfluidic device combines two aqueous flows, one containing cells and the other containing barcoded primer beads suspended in lysis buffer.
@@ -246,13 +247,17 @@ The barcoded STAMPS can then be amplified using PCR.}
 %%
 
 
-\subsection{ATAC-Seq}
+\subsection{ATAC-seq}
 ...
 
 \subsection{ChIP-Seq}
-...
+Chromatin immunoprecipitation sequencing (ChIP-seq) is used to analyse protein interactions with DNA.
+At a base-pair resolution, it is used to map DNA-binding proteins and histone modifications.
+Therefore ChIP-seq is often used to determine the the mechanisms of gene regulation of transcription factors, and to study epigenetic mechanisms in detail.
+%It utilises NGS to identify biding sites of DNA-associated proteins, therefore it is often used to determine the mechanisms of transcription factors or chromatin-associated proteins, influencing gene expression.
 
-\subsection{Sequencing}
+
+\subsection{Next generation sequencing}
 ...
 
 \subsection{CyTOF}\label{subsec:cytof-intro}
@@ -260,6 +265,14 @@ The barcoded STAMPS can then be amplified using PCR.}
 
 
 \subsection{Liquid chromatography with tandem mass spectrometry}\label{subsec:lcmsms-intro}
+Liquid chromatography with tandem mass spectrometry (LC-MS/MS) based proteomics is a popular analytical technique to measure the protein abundance of a sample.
+The general steps for LC-MS/MS-based proteomics include: cell lysis, protein extraction, protein digestion using an enzyme to cleave proteins into peptides, peptide purification, and analysis by mass spectrometry.
+The resultant data includes mass and charge (m/z) information and peak intensities.
+Software is then employed which performs database searches and calculates the most likely peptide for each peak.
+From this data, protein abundance can then be calculated and normalised.
+
+LC-MS/MS-based proteomics can also be used to search for specific proteins within the proteome.
+For example, immobilized metal affinity chromatography (IMAC) can be used to enrich for phosphorylated peptides (phosphoproteomics), and anti-ubiquitin antibodies can be used to enrich for ubiquitinated peptides (ubiquitinomics).
 
 \section{Summary}
 
