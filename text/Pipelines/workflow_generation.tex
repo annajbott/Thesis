@@ -17,7 +17,7 @@ This also allows other researchers to reproduce results or apply the code to the
 
 In addition to creating generalised, reproducible workflows, it can be beneficial to create more extensive computational pipelines for jobs which require multiple tasks or actions to be performed sequentially.
 
-\subsection{Computational pipelines}
+\subsection{Computational pipelines}\label{subsec:computational_pipelines}
 A computational pipeline consists of a series of manipulations and transformations, where the output of one element is the input of the next.
 Often these elements are executed in parallel.
 Pipelining `omics' data-processing means that tasks that are not interdependent can be executed simultaneously.
@@ -78,15 +78,172 @@ This is difficult in scRNA-seq analysis as no gold standard analysis protocol ex
 Instead, methods are compared against simulated results which act as the underlying `ground truth'.
 
 \subsubsection{Simulated data}
-Splatter\cite{zappia2017splatter} was used to simulate single-cell counts matrices, using a real single-cell counts matrix to estimate simulation parameters from.
-The simulated counts matrix was randomly assigned cell barcodes and ensembl gene names for the column and rownames respectively, and then used as input for Minnow\cite{sarkar2019minnow} as `ground-truth' data.
+Simulated reads with a know ground truth counts matrix were generated as follows:
+10X (version 2) fastq files of 4k PBMCs from a healthy human donor were downloaded  \footnote{\url{https://support.10xgenomics.com/single-cell-gene-expression/datasets}}.
+These sequencing files were processed using Salmon Alevin.
+The resulting Alevin output folder was used as input for Minnow, using Minnow's alevin-mode.
 Minnow generates droplet-based scRNA-seq simulated reads, working backwards from a known counts matrix to generating raw sequencing files from which the counts matrix could have originated.
-Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix.
-The simulated reads were used as input for the scRNA-Seq pseudoalignment pipeline and the resulting count matrices outputted by Salmon Alevin and Kallisto BUS were compared to the `ground-truth' data.
+The valid cell barcode list (whitelist) for 10X chemistry was used (\textit{737K-august-2016.txt}\footnote{\url{https://github.com/COMBINE-lab/minnow/blob/master/data/737K-august-2016.txt}}).
+Minnow was ran with an error rate of 0.001 and with 12 simulated PCR cycles.
+Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix. \\
 
-\subsubsection{Results}
+The ground-truth counts matrix was converted to a Single Cell Experiment object (SCE) and the simulated reads were used as input for the scRNA-Seq pseudoalignment pipeline.
+The resulting count matrices outputted by Salmon Alevin and Kallisto BUS were converted into SCEs, subset and reordered so that they all contained the same cells and genes, in the same order.
+The Salmon Alevin and Kallisto BUS produced SCEs could then be compared to the ground truth SCE.
 
-\subsection{Comparison to published data using other methods..}
+%Splatter\cite{zappia2017splatter} was used to simulate single-cell counts matrices, using a real single-cell counts matrix to estimate simulation parameters from.
+%The simulated counts matrix was randomly assigned cell barcodes and ensembl gene names for the column and rownames respectively, and then used as input for Minnow\cite{sarkar2019minnow} as `ground-truth' data.
+%Minnow generates droplet-based scRNA-seq simulated reads, working backwards from a known counts matrix to generating raw sequencing files from which the counts matrix could have originated.
+%Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix.
+%The simulated reads were used as input for the scRNA-Seq pseudoalignment pipeline and the resulting count matrices outputted by Salmon Alevin and Kallisto BUS were compared to the `ground-truth' data.
+
+\subsubsection{Run time}
+The simulated reads consisted of 434 million reads.
+Running Salmon Alevin and creating an SCE object took approximately 64 minutes;
+running Kallisto BUS, sorting and creating an SCE object took approximately 24 minutes.
+Using the bustools `count' command to create a counts matrix may have further reduced run time, however more time would be needed to parse it into R and create an SCE object.
+
+\subsubsection{Cell barcode handling}
+The ground-truth data contained 4340 cells.
+Alevin determined a threshold for the initial whitelist (a set of CBs that likely represent non-empty droplets) by finding a `knee' in the knee plot shown in Figure \ref{fig:alevin_knee}.
+This initial whitelist contained 5261 cell barcodes, each observed at least 191 times.
+Following barcode error correction, the final whitelist contained 4340 cells, all of which corresponded to the same CBs as the ground-truth data.
+
+% alevin knee
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/workflow_generation/alevin_knee_plot.png}
+    \caption[Benchmark Salmon Alevin Knee Plot]{Alevin knee plot.
+    This plot displays the number of times each cell barcode is observed, in decreasing order.
+    Finding a `knee' in this plot determines a threshold for the initial whitelist of CBs, which are unlikely to be empty droplets.}
+    \label{fig:alevin_knee}
+\end{figure}
+
+For Kallisto BUS, valid cell barcodes were determined using either emptyDrops (DropletUtils) or by
+using barcodeRanks and calculating the inflection point of a rotated knee plot (where the x- and y- axis are transposed; Figure \ref{fig:bus_knee}).
+The inflection point method, gave a whitelist of 4339 cell barcodes (one fewer than the ground truth number), but all 4339 CBs corresponded to ground truth CBs.
+emptyDrops gave a total cell number of 12037, only 3746 of which were in the ground truth list of 4340 CBs. This was a large overestimate of number of cells present and the whitelist did not contain all of the valid CBs.
+Therefore, using the inflection point of the rotated knee plot was found to be the preferred method of filtering cell barcodes.
+
+% BUS knee
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/workflow_generation/bus_knee_plot.png}
+    \caption[Benchmark Kallisto Bus Rotated Knee Plot]{Kallisto BUS rotated knee plot.
+    This plot shows the number of distinct UMIs against the rank of the barcode.
+    The Pachter lab transpose the x- and y-axis on their knee plot, so that the x-axis displays distinct UMIs and the y-axis displays ranked cell barcodes, according to the number of corresponding UMIs to each CB. This is supposed to be more intuitive, having the number of distinct UMIs as the independent variable rather than cell barcode rank, as number of UMIs determine the cell barcode rank.}
+    \label{fig:bus_knee}
+\end{figure}
+
+\subsubsection{Gene expression predictive accuracy}
+To quantify each tool's accuracy of gene expression, precision, recall and an F1 score were calculated for each gene.
+The F1 score is a measure of a test's accuracy, it is the harmonic mean of precision and recall:
+% F1 score equation
+\begin{equation}
+\begin{aligned}
+\text{precision} & = \frac{tp}{tp + fp}\\
+%
+\text{recall} & = \frac{tp}{tp + fn}\\
+%
+F_{1} & = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{precision + recall}
+\end{aligned}
+\end{equation}
+
+\textit{Where for each gene: tp = number of true positives, fp = number of false positives, fn = number of false negatives.}
+%Carol diagram
+\input{text/Pipelines/carol_fp_tp.tex}
+
+No expression was denoted by 0, and expression by 1.
+When recall or precision was undefined, i.e. a gene in Alevin/BUS matrix or the ground-truth matrix was not expressed by any cell, F score was defined as 0.
+
+The mean F1 scores for Alevin and BUS processed data (Figure \ref{fig:precision_recall_f1_bar}) were extremely similar to each other with scores of 0.93 and 0.95, this was due to the large number of F1 scores equal to 1.
+Figure \ref{fig:westoby_histogram} shows the distribution of F1 scores more clearly.
+Alevin seemed to produce more lower F1 scores than BUS.
+
+% Barcharts. Precision recall and F1 score
+\begin{figure}[h]
+%1
+\centering
+\begin{subfigure}{0.32\textwidth}
+    %\centering
+    \includegraphics[width=\textwidth]{figures/workflow_generation/precision_bar.png}
+    \caption{Precision}
+\end{subfigure}
+%2
+\begin{subfigure}{0.32\textwidth}
+    \includegraphics[width=\textwidth]{figures/workflow_generation/recall_bar.png}
+    \caption{Recall}
+\end{subfigure}
+% 3
+\begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/workflow_generation/F1_bar.png}
+    \caption{F1 Score}
+\end{subfigure}
+\caption[F1, Precision and Recall Bar Charts]{F1 score.
+Two times the product of precision and recall divided by the sum of precision and recall.
+Measure of accuracy for the tools ability to predict gene expression.
+Expression classified by 0 or 1.
+Undefined scores have been removed.
+F1 scores were calculated for each gene across each cell.}
+\label{fig:precision_recall_f1_bar}
+\end{figure}
+%
+% scatter and histogram
+\begin{figure}[h]
+%1
+\begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/workflow_generation/f1_westoby.png}
+    \caption{F1 Score scatter graph}
+    \label{fig:f1_westoby}
+\end{subfigure}
+%2
+\begin{subfigure}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/workflow_generation/f1_histogram.png}
+    \caption{F1 score histogram}
+    \label{fig:f1_hist}
+\end{subfigure}
+\caption[Distribution of F1 scores]{F1 score distributions.
+    \ref{fig:f1_westoby} shows the F1 score for each gene expressed across all 4339 cells.
+    The black bar denotes the mean F1 score for each cell.
+    F1 scores of 0 have been removed.}
+\label{fig:westoby_histogram}
+\end{figure}
+
+\subsubsection{Clustering}
+
+% clustering
+\begin{figure}[ht]
+%1
+\centering
+\begin{subfigure}{0.7\textwidth}
+    \includegraphics[width=0.9\textwidth]{figures/workflow_generation/umap.png}
+    \caption{UMAP}
+    \label{fig:benchmark_UMAP}
+\end{subfigure}
+\medskip
+%2
+\begin{subfigure}{0.7\textwidth}
+    \includegraphics[width=0.9\textwidth]{figures/workflow_generation/tsne.png}
+    \caption{tSNE}
+    \label{fig:benchmark_tsne}
+\end{subfigure}
+\caption[Benchmark Clustering Analysis]{Clustering analysis of the simulated data.
+18 clusters are present in the ground truth data and Alevin and BUS processed data.
+Integrated clustering was performed using Seruat3\cite{stuart2019comprehensive}, using both Uniform Manifold Approximation and Projection (UMAP) and  t-distributed Stochastic Neighbor Embedding (tSNE) dimension reduction techniques.}
+\label{fig:benchmark_clustering}
+\end{figure}
+
+Clustering analysis was performed to visualise how well the tools processed the single-cell data and how clusters compared to ground-truth data.
+Seurat3 integrative analysis was performed so that the clusters of each sample could be directly compared.
+Figure \ref{fig:benchmark_clustering} shows clustering of Alevin, BUS and ground-truth clustered data, using UMAP and tSNE dimension reductions.
+18 clusters are present in all three of the data sets.
+Visual analysis suggests that the two dscRNA-seq quantification tools compare well to the ground-truth and capture most aspects of the data.
+From the benchmark it seems as if both tools are fit for purpose and can accurately quantify gene expression and correctly handle CBs and UMIs.
+
+\afterpage{\clearpage}
+
+%\subsection{Comparison to published data using other methods..}
 
 \section{scRNA-Seq velocity analysis pipeline}
 

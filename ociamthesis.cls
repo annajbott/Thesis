@@ -451,6 +451,9 @@
 
 % subcaption. Can have two figures on same line, subcaptions for each. One central caption for both.
 \usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{afterpage}
 
 % JEM: adjust start-of-chapter spacing
 \renewcommand{\chapterheadstartvskip}{\vspace*{40pt}}
