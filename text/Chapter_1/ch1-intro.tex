@@ -228,8 +228,8 @@ Single-cell RNA-Seq (scRNA-Seq) measures gene expression for each individual cel
 Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-Seq techniques, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization} and inDrops\cite{klein2015droplet}.
 scRNA-Seq library preparation shares many steps with bulk RNA-Seq workflow, however preliminary steps are required to isolate single cells and track them (??/ barcode) individually.
 
-For droplet-based scRNA-Seq (dscRNA-Seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
-Below, a droplet-based scRNA-Seq (dscRNA-Seq) method, Drop-seq, is outlined (figure \ref{fig:dropseq}).
+For droplet-based scRNA-Seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
+Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
 
 \begin{figure}
 \centering
@@ -258,7 +258,9 @@ Therefore ChIP-seq is often used to determine the the mechanisms of gene regulat
 
 
 \subsection{Next generation sequencing}
-...
+Next generation sequencing (NGS), differs from its predecessors in that it is highly scalable and massively parallel.
+With NGS you can rapidly sequence the entire genome if desired.
+It is quicker and cheaper than traditional Sanger sequencing, and progressed data output from the kilobase range up to potentially multiple terabases per run.
 
 \subsection{CyTOF}\label{subsec:cytof-intro}
 ...
@@ -277,6 +279,9 @@ For example, immobilized metal affinity chromatography (IMAC) can be used to enr
 \section{Summary}
 
 \section{Aims}
-This thesis aims to characterise the changes driving the development of proteasome-inhibitor resistance in multiple myeloma and identify possible mechanisms of reversing it.
-Chapter \ref{ch:4-Pipelines} outlines the computational workflows generated to support this work.
-Chapter ...
+This thesis aims to characterise the changes driving proteasome-inhibitor resistance in multiple myeloma and identify possible mechanisms of reversing resistance.
+Chapter \ref{ch:2-litreview} gives background to the project, it reviews the literature surrounding drug resistance in MM and outlines preliminary work performed in the lab, that birthed this project.
+Chapter \ref{ch:3-methods} outlines the methodology used in this work.
+Chapter \ref{ch:4-Pipelines} outlines the computational workflows generated to support this work and gives the results of a benchmark conducted to analyse the effectiveness of a computational pipeline developed.
+Chapter \ref{ch:5-results_dose} describes how a lead epigenetic compounds was selected, analysing results from bulk RNA-seq data and validating previous compound screen results with dose response curves.
+Chapter \ref{ch:6-results_omics} delves deeper into the drivers of changes in drug resistance and the mechanism of action of TRIM24i on resistant cells by looking at an array of multi-omics data.

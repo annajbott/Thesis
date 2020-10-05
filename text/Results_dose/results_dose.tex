@@ -1,4 +1,4 @@
-\chapter{\label{ch:5-results}Identifying a lead epigenetic compound}
+\chapter{\label{ch:5-results_dose}Identifying a lead epigenetic compound}
 % Chapter of dose responses and validation of screen
 
 \section{Identifying inhibitors of interest}
@@ -70,6 +70,11 @@ Carfilzomib and bortezomib were kept at 25\si{\nano\Molar} as at this concentrat
 
 
 
+
+
+
+
+
 Figure \ref{fig:dose_response_carf_trim} shows dose response curves for WT and aCFZ cells with carfilzomib and TRIM24/BRP inhibitor.
 AMO-1 cells were treated for 48 hours with varying carfilzomib concentrations from 1\si{\nano\Molar} to 500\si{\nano\Molar}.
 Concentrations were too low to elicit a response in aCFZ resistant cells.
@@ -93,5 +98,19 @@ The IC\textsubscript{50} value for WT cells with carfilzomib was 8.39\si{\nano\M
     \caption[Dose response curves]{Dose response curves. \ref{fig:dose_response_wt_cfz_carf} shows WT and aCFZ cell viability with varying carfilzomib concentration from 1\si{\nano\Molar} to 500\si{\nano\Molar}.
 \ref{fig:dose_wt_cfz_trim24} shows WT and aCFZ cell viability with varying TRIM24/BRP inhibitor concentration from 0.78\si{\micro\Molar} to 100\si{\micro\Molar} with and without carfilzomib present (25\si{\nano\Molar}; WT cells died in the presence of carfilzomib).  }
 \label{fig:dose_response_carf_trim}
+\end{figure}
+%%
+
+Thirdly, aCFZ cells were pretreated with 20\si{\micro\Molar} TRIM24i for 24 hours and then concentrations of PI were varied (Figure \ref{fig:dose_response_trim24_pretreat}).
+The IC\textsubscript{50} for aCFZ cells pretreated with 20\si{\micro\Molar} TRIM24i for carfilzomib was 14.95\si{\micro\Molar} and for bortezomib was 35.45\si{\micro\Molar}.
+TRIM24i re-sensitises aCFZ cells to both carfilzomib and bortezomib, however with a larger effect for carfilzomib. 
+
+
+%% Dose response, aCFZ pretreat TRIM24i vary carf bort
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Results/dose_response/pretreat_trim24_carf_bort.png}
+\caption[PI dose response curve: aCFZ pretreated with TRIM24i]{Dose response curve for carfilzomib and bortezomib for aCFZ cells pre-treated for 24 hours with TRIM24i.}
+\label{fig:dose_response_trim24_pretreat}
 \end{figure}
 %%

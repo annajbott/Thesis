@@ -454,6 +454,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{afterpage}
+\frenchspacing %% Gets rid of double space after full stop
 
 % JEM: adjust start-of-chapter spacing
 \renewcommand{\chapterheadstartvskip}{\vspace*{40pt}}

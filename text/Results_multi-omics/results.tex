@@ -1,10 +1,18 @@
-\chapter{\label{ch:6-results}Multi-omics characterisation of PI resistance in AMO-1 cells}
+\chapter{\label{ch:6-results_omics}Multi-omics characterisation of PI resistance in AMO-1 cells}
 
 %\minitoc
 
 \section{Introduction}\label{sec:omics-intro}
 Numerous transcriptional changes have been implicated in the development of acquired drug-resistance in MM.
 It is also pertinent to ascertain if the changes seen in the transcriptome are reflected in protein expression.
+Therefore both transcriptional changes and proteomic changes must be studied.
+
+The changes between PI-sensitive (WT) AMO-1 cells and PI-resistant (aCFZ/aBTZ) AMO-1 cells will be looked at.
+In addition, the BRPF1B/TRIM24 dual inhibitor (TRIM24i) was shown in the previous chapter to effectively kill carfilzomib resistant AMO-1 cells in the presence of carfilzomib (but not without carfilzomib), whilst not affecting WT AMO-1 cells.
+Thus suggesting TRIM24i has a mechanism of action that is capable of reversing aCFZ cells' resistance, and re-sensitising them to carfilzomib again.
+aCFZ cells treated with TRIM24i will be compared to control aCFZ cells, to better understand the mechanism of action of TRIM24i.
+Furthermore, these changes must be compared to the differences seen between WT and aCFZ cells.
+Considering TRIM24i seems to make aCFZ cells sensitive to carfilzomib again, it may be the case that it is reversing some of the changes seen between WT and aCFZ cells.
 
 \section{Results}\label{sec:omics-results}
 
@@ -15,9 +23,60 @@ Principle component analysis (PCA) showed differential clustering of the differe
 [PCA of different cell lines, WT, aCFZ, aBTZ]
 
 
-
-
 xyz differentially expressed genes (DEGs) were identified between WT and aCFZ cells.
+
+\subsubsection{TRIM24i reversal}
+To investigate how TRIM24i reverses the resistance phenotype in aCFZ cells, bulk RNA-seq was employed.
+aCFZ cells (100\si{\nano\Molar} carfilzomib) were treated with DMSO or 10\si{\mu\Molar} TRIM24i (in triplicate).
+The results from this experiment were compared against the results from the previous bulk-RNA experiment of WT controls vs aCFZ cells (100\si{\nano\Molar} carfilzomib).
+
+%% PCA, sample-sample clustering, volcano, venn diagram
+%% Transcriptomics figure 1
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/Transcriptomics/bulk_rna_figure1.pdf}
+\caption[WT, aCFZ and TRIM24i reversal, transcriptomics differential expression and clustering]{\textbf{A} shows a PCA plot for WT AMO-1 cells, aCFZ cells (100\si{\nano\Molar} carfilzomib) and aCFZ (100\si{\nano\Molar} carfilzomib) cells treated with 10\si{\mu\Molar} TRIM24i.
+\textbf{B} shows a heatmap of sample-sample distances using hierarchical clustering of the samples.
+\textbf{C} shows volcano plots ($\log_{2}$ fold change vs $-\log_{10}$ Student's T-test $p$-value) for WT vs aCFZ AMO-1 cells (100\si{\nano\Molar} carfilzomib) and for aCFZ cells (100\si{\nano\Molar} carfilzomib) vs aCFZ cells (100\si{\nano\Molar} carfilzomib) treated with 10\si{\mu\Molar} TRIM24i.
+\textbf{D} shows a four-way venn diagram for differentially expressed genes ($|\log_{2}FC| \geq 0.5$) , either up-regulated or down-regulated, between WT and aCFZ cells (CFZ) or aCFZ cells and aCFZ cells treated with TRIM24i (TRIM24).}
+\label{fig:bulk_fig1_de_clustering}
+\end{figure}
+%%
+
+As seen in figure \ref{fig:bulk_fig1_de_clustering}, PCA and sample-sample clustering shows TRIM24i treated aCFZ cells clustering away from aCFZ controls.
+The sample-sample clustering shows TRIM24i treated aCFZ cells clustering closer to WT cells than the aCFZ controls are, suggesting the TRIM24i treatment has made them more similar to WT cells, agreeing with our hypothesis following the dose-response curve results.
+
+
+%% TF heatmap
+%% Transcriptomics figure 2
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Results/Heatmaps/WT_CFZ_TRIM24_combined_TFs_heatmap_cropped.png}
+\caption[Transcription factor heatmap]{Transcription factor heatmap.
+Variance stabilised expression of transcription factors differentially expressed ($p \leq 0.01$) between aCFZ controls and TRIM24i treated aCFZ cells are shown for WT cells, aCFZ controls and TRIM24i treated aCFZ cells.
+Samples from experiment 2 have an asterisk (*) next to them, samples from experiment 1 have no asterisk.
+Batch effects have been removed between experiments}
+\label{fig:bulk_tf_heatmap}
+\end{figure}
+%%
+
+%% TF venn diagrams
+%% Transcriptomics figure 3
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_rna_venn_TFs.pdf}
+\caption[Transcription factor venn diagrams WT, aCFZ control and aCFZ TRIM24i treated]{\textbf{A} shows a PCA plot for WT AMO-1 cells, aCFZ cells (100\si{\nano\Molar} carfilzomib) and aCFZ (100\si{\nano\Molar} carfilzomib) cells treated with 10\si{\mu\Molar} TRIM24i.
+\textbf{B} shows a heatmap of sample-sample distances using hierarchical clustering of the samples.
+\textbf{C} shows volcano plots ($\log_{2}$ fold change vs $-\log_{10}$ Student's T-test $p$-value) for WT vs aCFZ AMO-1 cells (100\si{\nano\Molar} carfilzomib) and for aCFZ cells (100\si{\nano\Molar} carfilzomib) vs aCFZ cells (100\si{\nano\Molar} carfilzomib) treated with 10\si{\mu\Molar} TRIM24i.
+\textbf{D} shows a four-way venn diagram for differentially expressed genes ($|\log_{2}FC| \geq 0.5$) , either up-regulated or down-regulated, between WT and aCFZ cells (CFZ) or aCFZ cells and aCFZ cells treated with TRIM24i (TRIM24).}
+\label{fig:bulk_tf_venn}
+\end{figure}
+%%
+
+Next, transcription factors (TFs) were explored.
+Figure \ref{fig:bulk_tf_heatmap} shows a heatmap for DE ($p \leq 0.01$) transcription factors between aCFZ controls and TRIM24i treated aCFZ cells.
+Figure \ref{fig:bulk_tf_venn} shows a venn diagram for differentially expressed ($p \leq 0.01$) TFs.
+Transcription factors whose expression have been `reversed' by TRIM24i treatment (i.e. TFs that are up-regulated in aCFZ cells compared to WT, and down-regulated in TRIM24i treated aCFZ cells compared to aCFZ controls, and vice versa) are highlighted in the intersection of the venn diagrams.
 
 
 \subsection{Phosphoproteomics}\label{subsec:omics-phospho}
