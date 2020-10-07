@@ -194,20 +194,30 @@ Liquid-chromatography-tandem mass spectrometry (LC-MS/MS) analysis was performed
 In brief, samples were separated on an EASY-Spray PepMap RSLC C18 column (500\si{\mm} × 75\si{\um}, 2\si{\um} particle size; Thermo Scientific) over a 60 min (120 min in the case of the matching proteome) gradient of 2–35\% acetonitrile in 5\% dimethyl sulfoxide (DMSO), 0.1\% formic acid at 250\si{\nano\litre\per\minute}.
 MS1 scans were acquired at a resolution of 60000 at \textit{m/z} 200 and the top 12 most abundant precursor ions were selected for high collision dissociation (HCD) fragmentation.
 
-%%%%%%
-\section{Data Processing}
-\subsection{Bulk RNA-Seq}
-Fasta files were processed using a CGAT-flow (REF) pipeline, workflow can be found at: \url{https://github.com/cgat-developers/cgat-flow/blob/master/cgatpipelines/tools/pipeline_rnaseqdiffexpression.py}. Pseudo-alignment tool, Kallisto (REF), was implemented to pseudo-align reads to the reference human genome sequence (GRCH38 (hg38) assembly) and to construct a counts matrix of samples against transcripts (/GENES??). DESeq2 (REFERENCE) was used for differential expression analysis of the generated  counts  matrix  (using  negative  binomial  generalized  linear  models) within the R statistical framework (v3.5.1).
+\section{CyTOF}
+Get data off ADAM
+\subsection{CyTOF stuff}
 
-%% XGR, GSEA- DNA Binding TFs etc.
+%%%%%%
+\section{Data Processing}\label{sec:data_processing}
+\subsection{Bulk RNA-Seq}
+Fasta files were processed using a CGAT-flow\cite{sims2014cgat} pipeline, workflow can be found at: \url{https://github.com/cgat-developers/cgat-flow/blob/master/cgatpipelines/tools/pipeline_rnaseqdiffexpression.py}.
+The pseudo-alignment tool, Kallisto\cite{bray2016near}, was implemented to pseudo-align reads to the reference human genome sequence (GRCH38 (hg38) assembly) and to construct a counts matrix of samples against transcripts.
+DESeq2\cite{love2014moderated} was used for differential expression analysis of the generated  counts  matrix  (using  negative  binomial  generalized  linear  models) within the R statistical framework (v3.5.1).
+XGR\cite{fang2016xgr}, Reactome\cite{fabregat2017reactome} and KEGG\cite{kanehisa2017kegg} were used to perform pathway analysis, within R\@.
+Org.Hs.eg.db\cite{carlson2019org}, AnnotationDbi\cite{pages2020annotationdbi} and biomaRt\cite{durinck2009mapping} were used for converting between Ensembl IDs, HGNC symbols and ENTREZ IDs.
+
 
 \subsection{Single-cell RNA-Seq}
 The computational pipeline outlined in section \ref{sec:scRNA_pipeline} was used to process scRNA data.
 
 \subsection{LC-MS/MS}
-Mass-spectrometry raw data were searched against the UniProtKB human sequence data base and label-free quantitation (LFQ) was performed using MaxQuant Software (v1.5.5.1). Digestion was set to trypsin/P. Search parameters were set to include carbamidomethyl (C) as a fixed modification, oxidation (M), deamidation (NQ), and phosphorylation (STY) as variable modifications. A maximum of 2 missed cleavages were allowed for phosphoproteome analysis and 3 for the GlyGly peptidome analysis, with matching between runs. LFQ quantitation was performed using unique peptides only. Label-free interaction data analysis was performed using Perseus (v1.6.0.2). Results were exported to Microsoft Office Excel Sheets and imported into the R statistical framework (v3.5.1) for further analysis.
+Mass-spectrometry raw data were searched against the UniProtKB human sequence data base and label-free quantitation (LFQ) was performed using MaxQuant Software (v1.5.5.1).
+Digestion was set to trypsin/P.
+Search parameters were set to include carbamidomethyl (C) as a fixed modification, oxidation (M), deamidation (NQ), and phosphorylation (STY) as variable modifications.
+A maximum of 2 missed cleavages were allowed for phosphoproteome analysis and 3 for the GlyGly peptidome analysis, with matching between runs.
+LFQ quantitation was performed using unique peptides only.
+Label-free interaction data analysis was performed using Perseus (v1.6.0.2).
+Results were exported to Microsoft Office Excel and imported into the R statistical framework (v3.5.1) for further analysis.
 
 
-\section{CyTOF}
-Get data off ADAM
-\subsection{CyTOF stuff}

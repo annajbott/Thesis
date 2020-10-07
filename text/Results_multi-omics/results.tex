@@ -38,7 +38,7 @@ The results from this experiment were compared against the results from the prev
 \caption[WT, aCFZ and TRIM24i reversal, transcriptomics differential expression and clustering]{\textbf{A} shows a PCA plot for WT AMO-1 cells, aCFZ cells (100\si{\nano\Molar} carfilzomib) and aCFZ (100\si{\nano\Molar} carfilzomib) cells treated with 10\si{\mu\Molar} TRIM24i.
 \textbf{B} shows a heatmap of sample-sample distances using hierarchical clustering of the samples.
 \textbf{C} shows volcano plots ($\log_{2}$ fold change vs $-\log_{10}$ Student's T-test $p$-value) for WT vs aCFZ AMO-1 cells (100\si{\nano\Molar} carfilzomib) and for aCFZ cells (100\si{\nano\Molar} carfilzomib) vs aCFZ cells (100\si{\nano\Molar} carfilzomib) treated with 10\si{\mu\Molar} TRIM24i.
-\textbf{D} shows a four-way venn diagram for differentially expressed genes ($|\log_{2}FC| \geq 0.5$) , either up-regulated or down-regulated, between WT and aCFZ cells (CFZ) or aCFZ cells and aCFZ cells treated with TRIM24i (TRIM24).}
+\textbf{D} shows a four-way venn diagram for differentially expressed genes ($|\log_{2}FC| \geq0.5$) , either up-regulated or down-regulated, between WT and aCFZ cells (CFZ) or aCFZ cells and aCFZ cells treated with TRIM24i (TRIM24).}
 \label{fig:bulk_fig1_de_clustering}
 \end{figure}
 %%
@@ -46,6 +46,9 @@ The results from this experiment were compared against the results from the prev
 As seen in figure \ref{fig:bulk_fig1_de_clustering}, PCA and sample-sample clustering shows TRIM24i treated aCFZ cells clustering away from aCFZ controls.
 The sample-sample clustering shows TRIM24i treated aCFZ cells clustering closer to WT cells than the aCFZ controls are, suggesting the TRIM24i treatment has made them more similar to WT cells, agreeing with our hypothesis following the dose-response curve results.
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Transcription factors
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% TF heatmap
 %% Transcriptomics figure 2
@@ -65,18 +68,49 @@ Batch effects have been removed between experiments}
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_rna_venn_TFs.pdf}
-\caption[Transcription factor venn diagrams WT, aCFZ control and aCFZ TRIM24i treated]{\textbf{A} shows a PCA plot for WT AMO-1 cells, aCFZ cells (100\si{\nano\Molar} carfilzomib) and aCFZ (100\si{\nano\Molar} carfilzomib) cells treated with 10\si{\mu\Molar} TRIM24i.
-\textbf{B} shows a heatmap of sample-sample distances using hierarchical clustering of the samples.
-\textbf{C} shows volcano plots ($\log_{2}$ fold change vs $-\log_{10}$ Student's T-test $p$-value) for WT vs aCFZ AMO-1 cells (100\si{\nano\Molar} carfilzomib) and for aCFZ cells (100\si{\nano\Molar} carfilzomib) vs aCFZ cells (100\si{\nano\Molar} carfilzomib) treated with 10\si{\mu\Molar} TRIM24i.
-\textbf{D} shows a four-way venn diagram for differentially expressed genes ($|\log_{2}FC| \geq 0.5$) , either up-regulated or down-regulated, between WT and aCFZ cells (CFZ) or aCFZ cells and aCFZ cells treated with TRIM24i (TRIM24).}
+\caption[Transcription factor venn diagrams: WT vs aCFZ and aCFZ vs aCFZ TRIM24i]{Venn diagrams are shown for up-regulated and down-regulated (DE, $p\leq0.01$) transcription factors (TFs) in WT vs aCFZ cells and aCFZ cells vs TRIM24i treated aCFZ cells.
+The intersection of the venn diagrams are of interest as they represent `reversed' TFs by TRIM24i treatment which make aCFZ resistant cells more like WT cells again.
+The HGNC symbols of the TF genes in each intersection are listed below the venn diagrams.}
 \label{fig:bulk_tf_venn}
 \end{figure}
 %%
 
 Next, transcription factors (TFs) were explored.
-Figure \ref{fig:bulk_tf_heatmap} shows a heatmap for DE ($p \leq 0.01$) transcription factors between aCFZ controls and TRIM24i treated aCFZ cells.
-Figure \ref{fig:bulk_tf_venn} shows a venn diagram for differentially expressed ($p \leq 0.01$) TFs.
-Transcription factors whose expression have been `reversed' by TRIM24i treatment (i.e. TFs that are up-regulated in aCFZ cells compared to WT, and down-regulated in TRIM24i treated aCFZ cells compared to aCFZ controls, and vice versa) are highlighted in the intersection of the venn diagrams.
+Figure \ref{fig:bulk_tf_heatmap} shows a heatmap for DE ($p\leq0.01$) transcription factors between aCFZ controls and TRIM24i treated aCFZ cells.
+Figure \ref{fig:bulk_tf_venn} shows a venn diagram for differentially expressed ($p\leq0.01$) TFs.
+276 TFs were DE between WT and aCFZ cells, 101 of which were up-regulated in aCFZ cells.
+133 TFs were DE between DMSO treated aCFZ cells and TRIM24i treated aCFZ cells, 82 of which were up-regulated in TRIM24i treated aCFZ cells.
+The intersection of the venn diagrams represent TFs which may be considered `reversed' by TRIM24i treatment (i.e. TFs that are up-regulated in WT vs aCFZ, but down-regulated in aCFZ vs TRIM24i treated aCFZ cells, and vice versa).
+This list of TFs is of interest, as some of them are likely to be the master regulators by which TRIM24i exerts its PI resistance reversal effects.
+
+%%%%%%%%%%%%%%%%%%%%
+% Pathway analysis
+%%%%%%%%%%%%%%%%%%%%
+
+Following, transcription factor analysis, pathway analysis was performed (method outlined in section \ref{sec:data_processing}).
+The top 500 DE genes between aCFZ controls and TRIM24i treated aCFZ cells (ordered by fold-change magnitude) were compared to the background 11529 genes.
+Using Reactome, eight significant distinct pathways were identified as enriched (False Discovery Rate (FDR; adj-p) $\leq0.05$).
+Using KEGG, two significant distinct pathways were identified as enriched.
+The enriched pathways are shown in figure \ref{fig:pathway_cfz_trim_barplots}.
+
+% Pathway analysis, reactome KEGG acfz vs acfz trim24
+\begin{figure}[htb]
+%1
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/Transcriptomics/pathway_cfz_trim_reactome.png}
+    \caption{Reactome}
+    \label{fig:pathway_barplot_cfz_trim_reactome}
+\end{subfigure}
+%
+%\medskip
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/Transcriptomics/pathway_cfz_trim_kegg.png}
+    \caption{KEGG}
+    \label{fig:pathway_barplot_cfz_trim_kegg}
+\end{subfigure}
+    \caption[aCFZ TRIM24i pathway analysis barplots]{Pathway analysis of the top 500 differentially expressed genes between aCFZ cells (in 100\si{\nano\Molar} carfilzomib) treated with DMSO and aCFZ cells (in 100\si{\nano\Molar} carfilzomib) treated with 10\si{\micro\Molar} TRIM24i. \ref{fig:pathway_barplot_cfz_trim_reactome} used the Reactome pathway database, it shows all eight significantly enriched pathways (FDR$\leq0.05$). \ref{fig:pathway_barplot_cfz_trim_kegg} used the pathway database, KEGG, only two pathways were significantly enriched, the top 10 are displayed.}
+\label{fig:pathway_cfz_trim_barplots}
+\end{figure}
 
 
 \subsection{Phosphoproteomics}\label{subsec:omics-phospho}
