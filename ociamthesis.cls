@@ -449,6 +449,14 @@
 \usepackage{siunitx}
 \DeclareSIUnit\Molar{M}
 
+\renewcommand{\ul}{\si{\micro\litre}}
+\newcommand{\ml}{\si{\milli\litre}}
+\newcommand{\C}{\si{\degreeCelsius}}
+\newcommand{\mM}{\si{\milli\Molar}}
+
+% colours in table
+\usepackage[table,xcdraw]{xcolor}
+
 % subcaption. Can have two figures on same line, subcaptions for each. One central caption for both.
 \usepackage{subcaption}
 \usepackage{amsmath}

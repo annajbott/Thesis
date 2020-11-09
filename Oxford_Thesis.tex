@@ -28,7 +28,7 @@
 % This one will format for one-sided binding (ie left margin > right margin; no extra blank pages):
 %\documentclass[a4paper]{ociamthesis}
 % This one will format for PDF output (ie equal margins, no extra blank pages):
-\documentclass[a4paper,nobind]{ociamthesis}
+\documentclass[a4paper,nobind, table,xcdraw]{ociamthesis}
 
 
 
@@ -215,8 +215,23 @@ Rheumatology and Musculoskeletal Sciences}
 \include{text/Chapter_2/ch2-litreview}
 \include{text/Methods/cell_methods}
 \include{text/Pipelines/workflow_generation}
-\include{text/Results_dose/results_dose}
-\include{text/Results_multi-omics/results}
+%\include{text/Results_dose/results_dose}
+%\include{text/Results_multi-omics/results}
+\include{text/Systems approaches/system_approaches}
+\include{text/TRIM24i reversal/trim24i_reversal}
+
+
+% structure:
+% General introduction
+% Lit review on drug resistance
+% Methods
+% Workflow generation
+% Systems approaches, WT vs aBTZ vs aCFZ (cell line model) (maybe WT vs WT carf as well, how carf usually works)
+% TRIM24i reversal. everything separate and then integrate.
+% Prolyl tRNA synthesases
+
+
+%
 
 %% APPENDICES %%
 % Starts lettered appendices, adds a heading in table of contents, and adds a
