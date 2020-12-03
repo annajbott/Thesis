@@ -87,7 +87,7 @@
 \usepackage[includehead,hmargin={3.6cm, 2.6cm}, vmargin={2.5cm,2.7cm}, headsep=.8cm,footskip=1.2cm]{geometry}
 \fi
 
-\usepackage{xcolor}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{graphicx} 
 
 \usepackage{fancyhdr}
@@ -448,14 +448,13 @@
 % SI unit package
 \usepackage{siunitx}
 \DeclareSIUnit\Molar{M}
+\sisetup{detect-weight=true, detect-family=true}
 
 \renewcommand{\ul}{\si{\micro\litre}}
 \newcommand{\ml}{\si{\milli\litre}}
 \newcommand{\C}{\si{\degreeCelsius}}
 \newcommand{\mM}{\si{\milli\Molar}}
 
-% colours in table
-\usepackage[table,xcdraw]{xcolor}
 
 % subcaption. Can have two figures on same line, subcaptions for each. One central caption for both.
 \usepackage{subcaption}

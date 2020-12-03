@@ -89,8 +89,8 @@ This list of TFs is of interest, as some of them are likely to be the master reg
 
 Following, transcription factor analysis, pathway analysis was performed (method outlined in section \ref{sec:data_processing}).
 The top 500 DE genes between aCFZ controls and TRIM24i treated aCFZ cells (ordered by fold-change magnitude) were compared to the background 11529 genes.
-Using Reactome, eight significant distinct pathways were identified as enriched (False Discovery Rate (FDR; adj-p) $\leq0.05$).
-Using KEGG, two significant distinct pathways were identified as enriched.
+Using Reactome, eight distinct pathways were identified as significantly enriched (False Discovery Rate (FDR; adj-p) $\leq0.05$).
+Using KEGG, two distinct pathways were identified as significantly enriched.
 The enriched pathways are shown in figure \ref{fig:pathway_cfz_trim_barplots}.
 
 % Pathway analysis, reactome KEGG acfz vs acfz trim24
@@ -108,9 +108,36 @@ The enriched pathways are shown in figure \ref{fig:pathway_cfz_trim_barplots}.
     \caption{KEGG}
     \label{fig:pathway_barplot_cfz_trim_kegg}
 \end{subfigure}
-    \caption[aCFZ TRIM24i pathway analysis barplots]{Pathway analysis of the top 500 differentially expressed genes between aCFZ cells (in 100\si{\nano\Molar} carfilzomib) treated with DMSO and aCFZ cells (in 100\si{\nano\Molar} carfilzomib) treated with 10\si{\micro\Molar} TRIM24i. \ref{fig:pathway_barplot_cfz_trim_reactome} used the Reactome pathway database, it shows all eight significantly enriched pathways (FDR$\leq0.05$). \ref{fig:pathway_barplot_cfz_trim_kegg} used the pathway database, KEGG, only two pathways were significantly enriched, the top 10 are displayed.}
+    \caption[Enriched pathways- aCFZ TRIM24i vs WT]{Pathway analysis of the top 500 differentially expressed genes between aCFZ cells (in 100\si{\nano\Molar} carfilzomib) treated with DMSO and aCFZ cells (in 100\si{\nano\Molar} carfilzomib) treated with 10\si{\micro\Molar} TRIM24i. \ref{fig:pathway_barplot_cfz_trim_reactome} used the Reactome pathway database, it shows all eight significantly enriched pathways (FDR$\leq0.05$). \ref{fig:pathway_barplot_cfz_trim_kegg} used the pathway database, KEGG, only two pathways were significantly enriched, the top 10 are displayed.}
 \label{fig:pathway_cfz_trim_barplots}
 \end{figure}
+
+Pathway analysis was also performed for DE genes that were `reversed' following TRIM24i treatment, to be more like WT again.
+1206 DE `reversed' genes ($p-adj\leq0.01$) (up-regulated/down-regulated in TRIM24i treated aCFZ cells vs aCFZ controls but down-regulated/up-regulated in aCFZ cells vs WT cells) were compared to a background of 13715 genes.
+Using Reactome, 12 distinct pathways were identified as significantly enriched (figure \ref{fig:trim24_reversed_pahtway_barplot_reactome}).
+
+
+
+%% Reversed pathway analysis reactome
+\begin{figure}[hbt]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/Results/Transcriptomics/pathway_reactome_trim24_reversed.png}
+\caption[Enriched pathways- TRIM24i reversed genes]{Barplot of significantly enriched pathways and their FDR.
+Pathway analysis of 1206 genes differentially expressed ($p-adj\leq0.01$) and their expression reversed between WT vs aCFZ and aCFZ vs TRIM24i-treated aCFZ, against a background of 13715 genes, using the Reactome pathway database.)}
+\label{fig:trim24_reversed_pahtway_barplot_reactome}
+\end{figure}
+%%
+
+%% TALK ABOUT UPR and UBC, ATF4 and PERK, ER STRESS-- discussion section ??
+As shown in figures \ref{fig:trim24_reversed_pahtway_barplot_reactome} and \ref{fig:pathway_cfz_trim_barplots}, the unfolded protein response (UPR) and cell death/apoptosis were enriched.
+DE genes involved in the UPR up-regulated by TRIM24i include \textit{ATF3}, \textit{ATF4}, \textit{DDIT3} (CHOP), \textit{ASNS} and \textit{EIF2AK3} (PERK).
+This suggests that TRIM24i promotes cell death by triggering the unfolded protein response and causing ER stress.
+etc etc etc... 
+
+\subsection{Total proteome}\label{subsec:omics-proteome}
+To investigate proteomic changes in drug resistance and the affect of TRIM24i treatment, label-free proteomic analysis by liquid chromatography coupled with tandem mass spectrometry (LC-MS/MS) was employed.
+Phosphoproteomics and ubiquitinomics were performed, both alongside total proteome analysis.
+
 
 
 \subsection{Phosphoproteomics}\label{subsec:omics-phospho}

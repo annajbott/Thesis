@@ -126,7 +126,6 @@ Resuspension buffer & 940 \\ \hline
 10\% non-iodet P40 & 50 \\ \hline
 \rowcolor[HTML]{EFEFEF}
 10\% tween 20 & 10 \\ \hline
-\rowcolor[HTML]{EFEFEF}
 \textbf{Total} & \textbf{1000 (1\ml{})} \\ \hline
 \end{tabular}
 \caption{Lysis buffer recipe}
@@ -290,6 +289,11 @@ The pseudo-alignment tool, Kallisto\cite{bray2016near}, was implemented to pseud
 DESeq2\cite{love2014moderated} was used for differential expression analysis of  counts  matrices  (using  negative  binomial  generalized  linear  models) within the R statistical framework (v3.5.1).
 XGR\cite{fang2016xgr}, Reactome\cite{fabregat2017reactome} and KEGG\cite{kanehisa2017kegg} were used to perform pathway analysis, within R\@.
 Org.Hs.eg.db\cite{carlson2019org}, AnnotationDbi\cite{pages2020annotationdbi} and biomaRt\cite{durinck2009mapping} were used for converting between Ensembl IDs, HGNC symbols and ENTREZ IDs.
+
+\subsection{ATAC-Seq}
+Raw ATAC reads (in fasta file format) were mapped to the GRCh38 reference genome using the CGAT-flow mapping pipeline (\url{https://github.com/cgat-developers/cgat-flow/blob/master/cgatpipelines/tools/pipeline_mapping.py}), using the mapper Bowtie.
+The mapped bam files were then used as input for the CGAT-flow peak calling pipeline ((\url{https://github.com/cgat-developers/cgat-flow/blob/master/cgatpipelines/tools/pipeline_peakcalling.py})).
+Filtering was performed to filter out [what is filterd out!!] and peak calling was implemented using macs2 (v2.2.7)\cite{zhang2008model}.
 
 
 \subsection{Single-cell RNA-Seq}

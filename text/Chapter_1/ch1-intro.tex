@@ -145,7 +145,7 @@ The core is made up of four stacked heptameric ring structures.
 The outer rings are responsible for docking to the 19S cap and for acting as a gate to the inner rings. The inner rings consist of seven $\beta$ subunits, containing inward-facing protease active sites for degrading proteins\cite{kleiger2014perilous, alberts2007molecular} (Figures \ref{fig:26s_proteasome_structure} and  \ref{fig:proteasome_beta_subunits}).
 
  % Proteasome structure diagram
-\begin{figure}[hbt]
+\begin{figure}[ht]
 %1
 \begin{subfigure}[t]{0.5\textwidth}
     \includegraphics[width=\textwidth]{figures/Introduction/26s_proteasome_serif.jpg}
@@ -171,12 +171,14 @@ The outer rings are responsible for docking to the 19S cap and for acting as a g
 ...
 Lit review??
 
-
+%
+\clearpage % flush out floats before this. Very different section
+%
 \section{Transcriptomics, proteomics and epigenomics}
 It has been shown that changes in the genome, transcriptome, epigenome and proteome all contribute to acquired-drug resistance in myeloma.
 Therefore, to sufficiently investigate the multiple layers driving this development of resistance, a multi-omics approach must be employed.
 
-\subsection{The genome}
+\subsection{DNA and the genome}
 The genome is the genetic material of an organism, it consists of deoxyribonucleic acid (DNA).
 DNA consists of two polynucleotide chains (or strands), running anti-parallel to each other, held together in a double helix structure by hydrogen bonds.
 Nucleotides are composed of a five-carbon sugar (deoxyribose for DNA), attached to one or more phosphate group (a single phosphate group in the case of DNA) and a nitrogenous base.
@@ -185,14 +187,59 @@ Nucleotides contain four different types of bases: adenine (A), cytosine (C), gu
 The two DNA chains are held together by hydrogen bonds via complementary base pairing between the bases of the strands, A pairing with T and G pairing with C\@.
 Often sections of DNA are denoted as their sequence of A, C, T and Gs (in order reading from the 5' to 3' direction).
 
+Every individual has approximately 6 billion base pairs of DNA per cell, which would amount to about 2 metres of DNA if laid end-to-end.
+The nucleus of a human cell is approximately 6\si{\micro\meter} in diameter, therefore chromosomal DNA must be folded tightly to fit.
+DNA packaging is a complex tasking involving numerous speciliased proteins:
+Negatively charged DNA is complexed with an octomer of positively charged proteins called histones to form nucleosomes.
+The histone core is made up of eight subunits, two copies of H2A, H2B, H3 and H4 subunits.
+DNA wraps tightly around the histone core 1.65 times.
+Linker DNA connects adjacent nucleosomes, to resemble `beads on a string'.
+Nucleosomes fold tightly to form 30\si{\nm} chromatin fibre, which in turns forms loops averaging 300\si{\nm} in length.
+This fibre is folded and compressed again to form fiber 250\si{\nm} in width with loops of 700\si{\nm} in length.
+Tight coiling of this fiber forms the single chromatids of chromosomes \cite{annunziato2008dna, alberts2002chromosomal}.
+Human cells contain 23 pairs of chromosomes.
+
+% DNA structure and packaging
+\begin{figure}[htb]
+%1
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Introduction/nucleotides_dna_helix.png}
+    \caption{Nucleotide and DNA double helix structure}
+    \label{fig:base_pairs}
+\end{subfigure}
+%\medskip
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Introduction/dna_packaging.png}
+    \caption{DNA packaging}
+    \label{fig:DNA_packaging}
+\end{subfigure}
+    \caption[DNA stucture and packaging.]{\ref{fig:base_pairs} shows the DNA nucleotides and the DNA double helix structure.
+    DNA consists of two polynucleotide chains.
+    Nucleotides are covalently linked to one another, forming a sugar-phosphate backbone.
+    They contain one of four bases adenine (A), cytosine (C), guanine (G) and thymine (T).
+    DNA strands are held together by hydrogen bonds between complementary base pairs, A pairing with T and G pairing with C\@.
+    Sections of DNA are are often read by their sequence of bases from the 5' direction to the 3' direction.
+    \ref{fig:DNA_packaging} shows how chromosomal DNA is packaged in the cell.
+    DNA is wrapped 1.65 times around an octomer of histone proteins, to form a stucture called a nucleosome.
+    Nucleosomes are linked by linker DNA to form a structure that resembles `beads on a string'.
+    Nucleosomes fold to create chromatin fiber.
+    This is turn forms loops and coils tighter and tighter until it makes up the single chromatids of chromosomes.}
+\label{fig:DNA_structure_packaging}
+\end{figure}
+
 The complete genome is made up of coding DNA (genes), non-coding DNA, as well as mitochondrial DNA and ribosomal DNA.
 An alteration in the nucleotide sequence of the genome is called a mutation.
 There are a number of types of mutations, including insertions, deletions, inversions, substitutions and duplications.
 A technique called whole genome sequencing (WGS) can be used to determine the sequence of nucleotides in an individual's DNA and therefore it can be used to determine any variations in the genome.
-However the technique is expensive and many experiments are interested in coding DNA only, so perform RNA-Seq to look at the transcriptome instead.
+% However the technique is expensive and many experiments are interested in coding DNA only, so perform RNA-Seq to look at the transcriptome instead.
 
 % Diagram double helix with bases in the middle. Then one of sequence of ACTG etc.
 % Diagram of DNA genes transcribed to RNA then translated to proteins (pg 301 of textbook is good example)
+
+\subsection{The epigenome}
+Epigenetics is the study of any heritable phenotypic changes that do not involve alterations of the DNA sequence itself.
+Epigenetic changes include histone modifications, DNA methylation and chromatin remodelling.
+These changes occur at the chromatin level and include DNA methylation, histone modification, and chromatin remodelling. These epigenetic changes are described in more detail below:
 
 \subsection{The transcriptome}
 Transcription is the first of many steps in gene expression.
@@ -208,10 +255,6 @@ RNA-seq is frequently used to study the transcriptome (outlined in section \ref{
 Translation...
 
 CyTOF and LC-MS/MS are often used to examine the proteome (section \ref{subsec:cytof-intro} and section \ref{subsec:lcmsms-intro}).
-
-\subsection{The epigenome}
-Epigenetics is the study of any heritable phenotypic changes that do not involve alterations of the DNA sequence itself. [REF]
-...
 
 
 \subsection{RNA-Seq}\label{subsec:rna-seq-intro}
