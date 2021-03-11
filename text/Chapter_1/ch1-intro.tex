@@ -189,7 +189,7 @@ Often sections of DNA are denoted as their sequence of A, C, T and Gs (in order 
 
 Every individual has approximately 6 billion base pairs of DNA per cell, which would amount to about 2 metres of DNA if laid end-to-end.
 The nucleus of a human cell is approximately 6\si{\micro\meter} in diameter, therefore chromosomal DNA must be folded tightly to fit.
-DNA packaging is a complex tasking involving numerous speciliased proteins:
+DNA packaging is a complex task involving numerous speciliased proteins.
 Negatively charged DNA is complexed with an octomer of positively charged proteins called histones to form nucleosomes.
 The histone core is made up of eight subunits, two copies of H2A, H2B, H3 and H4 subunits.
 DNA wraps tightly around the histone core 1.65 times.
@@ -220,18 +220,20 @@ Human cells contain 23 pairs of chromosomes.
     DNA strands are held together by hydrogen bonds between complementary base pairs, A pairing with T and G pairing with C\@.
     Sections of DNA are are often read by their sequence of bases from the 5' direction to the 3' direction.
     \ref{fig:DNA_packaging} shows how chromosomal DNA is packaged in the cell.
-    DNA is wrapped 1.65 times around an octomer of histone proteins, to form a stucture called a nucleosome.
+    DNA wraps 1.65 times around an octomer of histone proteins, to form a stucture called a nucleosome.
     Nucleosomes are linked by linker DNA to form a structure that resembles `beads on a string'.
     Nucleosomes fold to create chromatin fiber.
-    This is turn forms loops and coils tighter and tighter until it makes up the single chromatids of chromosomes.}
+    This is turn forms loops and coils tighter and tighter until it makes up the single chromatids of chromosomes.
+    \\\hspace{\textwidth}Created with BioRender.com.
+    }
 \label{fig:DNA_structure_packaging}
 \end{figure}
 
-The complete genome is made up of coding DNA (genes), non-coding DNA, as well as mitochondrial DNA and ribosomal DNA.
+The complete genome is made up of coding DNA (genes), non-coding DNA, as well as mitochondrial DNA and ribosomal DNA\@.
 An alteration in the nucleotide sequence of the genome is called a mutation.
 There are a number of types of mutations, including insertions, deletions, inversions, substitutions and duplications.
 A technique called whole genome sequencing (WGS) can be used to determine the sequence of nucleotides in an individual's DNA and therefore it can be used to determine any variations in the genome.
-% However the technique is expensive and many experiments are interested in coding DNA only, so perform RNA-Seq to look at the transcriptome instead.
+% However the technique is expensive and many experiments are interested in coding DNA only, so perform RNA-seq to look at the transcriptome instead.
 
 % Diagram double helix with bases in the middle. Then one of sequence of ACTG etc.
 % Diagram of DNA genes transcribed to RNA then translated to proteins (pg 301 of textbook is good example)
@@ -257,27 +259,27 @@ Translation...
 CyTOF and LC-MS/MS are often used to examine the proteome (section \ref{subsec:cytof-intro} and section \ref{subsec:lcmsms-intro}).
 
 
-\subsection{RNA-Seq}\label{subsec:rna-seq-intro}
-Modern RNA sequencing (RNA-Seq) implements next generation sequencing (NGS) technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
+\subsection{RNA-seq}\label{subsec:rna-seq-intro}
+Modern RNA sequencing (RNA-seq) implements next generation sequencing (NGS) technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
 
-\subsubsection{Bulk RNA-Seq}
+\subsubsection{Bulk RNA-seq}
 Bulk RNA-seq measures the average expression across a sample.
 Creating a bulk RNA-seq library involves isolating RNA from a biological sample, filtering for a specific type of RNA (most commonly mRNA), fragmentation of RNA into fragments, reverse transcription of the fragments to generate a complementary DNA (cDNA) library, end repair and adaptor ligation of the cDNA library, followed by PCR amplification ready for sequencing.
 
 % figure of steps needed
 
-\subsubsection{Single-cell RNA-Seq}
-Single-cell RNA-Seq (scRNA-Seq) measures gene expression for each individual cell across a population of cells and therefore provides information on clonal diversity that may be lost when pooling cells into bulk samples.
-Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-Seq techniques, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization} and inDrops\cite{klein2015droplet}.
-scRNA-Seq library preparation shares many steps with bulk RNA-Seq workflow, however preliminary steps are required to isolate single cells and track them (??/ barcode) individually.
+\subsubsection{Single-cell RNA-seq}
+Single-cell RNA-seq (scRNA-seq) measures gene expression for each individual cell across a population of cells and therefore provides information on clonal diversity that may be lost when pooling cells into bulk samples.
+Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-seq techniques, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization} and inDrops\cite{klein2015droplet}.
+scRNA-seq library preparation shares many steps with bulk RNA-seq workflow, however preliminary steps are required to isolate single cells and track them (??/ barcode) individually.
 
-For droplet-based scRNA-Seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
+For droplet-based scRNA-seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
 Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
 
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{figures_made/drop_seq.png}
-\caption[Drop-seq schematic]{Outline of Drop-seq, a droplet-based scRNA-Seq method.
+\caption[Drop-seq schematic]{Outline of Drop-seq, a droplet-based scRNA-seq method.
 Figure adapted from Macosko et al. (2015) \cite{macosko2015highly}.
 A microfluidic device combines two aqueous flows, one containing cells and the other containing barcoded primer beads suspended in lysis buffer.
 The two aqueous channels flow across an oil channel to form aqueous droplets surrounded by oil.
