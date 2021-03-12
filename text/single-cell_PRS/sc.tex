@@ -13,9 +13,8 @@ Therefore, to get an accurate picture of MM, information must be acquired about 
 Historically, the tumour environment has been investigated following the isolation of populations of cells sorted from the tumour and then sequenced using traditional microarray or bulk RNA-seq techniques.
 Bulk techniques measure the average expression across a sample, which is the sum of cell type specific expression weighted by cell type proportions.
 Single-cell techniques measure expression for each individual cell and therefore provide information on clonal diversity that may be lost when pooling cells into bulk samples.
-Furthermore, multiple myeloma is an extremely heterogeneous disease, this is seen both between patients and within an individual’s own tissue.
+Furthermore, multiple myeloma is an extremely heterogeneous disease, this is seen both between patients and within an individual's own tissue.
 Applying single-cell techniques to capture the inter- and intra-individual heterogeneity is fundamental to identifying molecular and cellular signatures that define MM\@.
-
 
 The advent of single-cell technologies has led to a better understanding of the complexity and diversity of the tumour microenvironment.
 Seminal papers from Melnekoff et al. (2017)\cite{melnekoff2017single} and Ledergor et al. (2018)\cite{ledergor2018single} use scRNA-seq to reveal clonal transcriptomic heterogeneity in MM samples.
@@ -27,7 +26,7 @@ They found that MM patients have greater inter-individual transcriptional variat
 They also showed substantial intra-tumour heterogeneity (subclonal structures) of plasma cells in a third of their MM patient cohort.
 These papers established the importance of using single-cell techniques to study MM, as to not miss the underlying clonal heterogeneity.
 However both of these papers focussed soley on plasma cells and did not look at the surrounding bone marrow microenvironment.
-To truly understand the complexities in MM and treatment of MM, interactions between plasma cells and the bone marrow niche must also be explored using single-cell techniques.
+To truly understand the complexities of MM and treatment of MM, interactions between plasma cells and the bone marrow niche must also be explored using single-cell techniques.
 
 
 \section{Experiment overview}
@@ -38,17 +37,71 @@ Samples were treated with 1\si{\micro\Molar} of Halofuginone, NCP26 or DMSO cont
 
 <2019 experiment overview>
 
-\subsection{Analysis Overview}
+\section{Data processing}
 The updated single cell analysis pipeline in section <ENTER section> was used to process the data.
 In short, quality control and filtering of samples was performed, followed by clustering analysis and integration of all samples.
 Next cell types were broadly annotated using the packages SingleR, Clustifyr and scClassify.
-Myeloma cells were identified manually.
-
-\section{Results}
+Myeloma cells were identified manually using known myeloma markers.
 
 \subsection{Quality control and filtering}
+Quality control and filtering was performed on the data.
+The number of UMIs (transcripts) per cell was set to a threshold of 500, so any cells with fewer than 500 UMIs were removed (see figure \ref{fig:QC_log10}).
+The minimum number of genes detected per cell was set to 300 and the maximum 6000.
+Any cells with a gene count outside of this range were removed (see figure \ref{fig:QC_genes_detected}).
+Cells with higher than a 0.1 mitochondrial ratio were removed because a high proportion of mitochondrial genes indicates mitochondrial contamination from dead or dying cells (see figure \ref{fig:QC_mito}).
+
 Halofuginone was used at 1\si{\micro\Molar}, a concentration almost 10 times its IC\textsubscript{50}.
-Therefore at 48 hours many cells had been killed by Halofuginone treatment.
+Therefore at 24 and 48 hours many cells had been killed by Halofuginone treatment.
+The cells that remained were sequenced more deeply than other conditions as can be seen in figure \ref{fig:QC_log10}.
+
+% QC and filtering
+\begin{figure}[pt]
+\centering
+%1
+\begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/genes_detected_density.png}
+    \caption{Genes detected density}
+    \label{fig:QC_genes_detected}
+\end{subfigure}
+%
+\medskip
+\begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/log10_cell_density.png}
+    \caption{Log10 cell density}
+    \label{fig:QC_log10}
+\end{subfigure}
+%
+\medskip
+\begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/mito_ratio_number_genes_vs_number_UMI.png}
+    \caption{Mitochondrial ratio number genes vs number UMI}
+    \label{fig:QC_mito}
+\end{subfigure}
+%
+\medskip
+\begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/novelty.png}
+    \caption{Novelty}
+    \label{fig:QC_novelty}
+\end{subfigure}
+%
+\medskip
+\begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/number_cells_vs_number_UMIs.png}
+    \caption{Novelty}
+    \label{fig:QC_novelty}
+\end{subfigure}
+%
+\medskip
+\begin{subfigure}[t]{0.8\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/UMI_vs_gene.png}
+    \caption{UMI vs gene}
+    \label{fig:QC_umi_vs_gene}
+\end{subfigure}
+%
+\caption[Single-cell quality control and filtering]{Quality control and filtering. Top image in each sub-figure is pre-filtering, bottom image is post-filtering.}
+\label{fig:sc_qc}
+\end{figure}
 
 \subsection{Clustering}
 
@@ -57,16 +110,19 @@ Therefore at 48 hours many cells had been killed by Halofuginone treatment.
 \subsection{Annotation}
 
 %% SCT UMAP annotation
-\begin{figure}[htb]
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{figures_made/SCT_umap_tsne_annotation.png}
-\caption[Single-cell annotation]{SCT integration UMAP and tSNE annotated using SingleR, clustifyr and scClassify cell-type annotation packages.}
+\includegraphics[width=0.9\textwidth]{figures_made/SCT_umap_tsne_annotation.png}
+\caption[Single-cell annotation]{SCT integrated clustering. UMAP and tSNE plots annotated using SingleR, clustifyr and scClassify cell-type annotation packages.}
 \label{fig:sc_annotation}
 \end{figure}
 %%
 
 \subsubsection{Myeloma cell population identification}
 
+\subsubsection{T-cell sub-population identification}
+
+\section{Results}
 
 \subsection{Composition}
 
