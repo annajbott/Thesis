@@ -125,4 +125,50 @@ The cells that remained were sequenced more deeply than other conditions as can 
 \section{Results}
 
 \subsection{Composition}
+Cluster composition is shown in figures \ref{fig:sc_comp_clusters} and \ref{fig:sc_umap_comp}.
+Large number of cells were killed by Halofuginone treatment at both 24 and 48 hours.
+Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected.
 
+%% SCT UMAP cluster composition separated by treatment condition
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Results/single_cell/composition_umap.png}
+\caption[UMAP cluster composition]{SCT integrated UMAP clustering. Cell composition separated by treatment conditions. }
+\label{fig:sc_umap_comp}
+\end{figure}
+%%
+
+
+% Barchart and Dotplot
+\begin{figure}[pt]
+%1
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_dotplot.png}
+    \caption{Dot plot cell proportions}
+    \label{fig:comp_dot}
+\end{subfigure}
+%2
+%\medskip
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_dotplot_nCells.png}
+    \caption{Dot plot total cell number}
+    \label{fig:comp_dot_ncells}
+\end{subfigure}
+%
+\medskip
+%3
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_barchart.png}
+    \caption{Bar chart cell proportions}
+    \label{fig:comp_bar}
+\end{subfigure}
+%4
+\begin{subfigure}[t]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_barchart_nCells.png}
+    \caption{Bar chart total cell number}
+    \label{fig:comp_bar_ncells}
+\end{subfigure}
+%
+\caption[Single-cell cluster composition]{Single-cell cluster composition for each sample, either as a proportion of cells for each sample or raw cell counts.}
+\label{fig:sc_comp_clusters}
+\end{figure}
