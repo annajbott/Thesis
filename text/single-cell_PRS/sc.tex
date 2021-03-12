@@ -104,10 +104,14 @@ The cells that remained were sequenced more deeply than other conditions as can 
 \end{figure}
 
 \subsection{Clustering}
+Seurat was used to cluster each sample individually.
 
 \subsection{Integration}
 
 \subsection{Annotation}
+Following integration, the cells were annotated using singleR, clustifyr and scClassify packages.
+The HumanCellAtlas database was used to inform singleR and clustifyr.
+A large PBMC dataset, comprised of multiple single-cell experiments was used to inform scClassify.
 
 %% SCT UMAP annotation
 \begin{figure}[h]
@@ -119,6 +123,20 @@ The cells that remained were sequenced more deeply than other conditions as can 
 %%
 
 \subsubsection{Myeloma cell population identification}
+Following cell-type annotation using scClassify, clusters 5, 11, 13, 15, 16, 18, 19, 22 and 23 all appear to be B-cell lineages, in varying degree of maturation or disease state.
+Next identification of the myeloma population was required.
+This was performed manually, by plotting the clusters with their expression of known MM markers.
+This can be seen in figure \ref{fig:sc_mm_markers}.
+
+%% SCT UMAP MM features
+\begin{figure}[phtb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures_made/umap_MM_features.png}
+\caption[Single-cell MM features]{SCT integrated UMAP clustering and violin plots for MM markers. \textit{CD38} very bright in myeloma cells. \textit{CD138} expression is pathological and a classic marker of MM cells. \textit{SLAMF7} and \textit{BCMA} are good markers of MM, however are not exclusive to myeloma cells and are also found at other stages of B-cell maturation. Co-expression of either kappa or lambda light chains (not both) seen in MM tissue sections. \textit{CD45}, \textit{CD20} and \textit{CD19} either not expressed or under expressed in myeloma cells compared to other B cell lineages. }
+\label{fig:sc_mm_markers}
+\end{figure}
+%%
+
 
 \subsubsection{T-cell sub-population identification}
 
