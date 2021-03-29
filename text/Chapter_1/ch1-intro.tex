@@ -258,7 +258,6 @@ Translation...
 
 CyTOF and LC-MS/MS are often used to examine the proteome (section \ref{subsec:cytof-intro} and section \ref{subsec:lcmsms-intro}).
 
-
 \subsection{RNA-seq}\label{subsec:rna-seq-intro}
 Modern RNA sequencing (RNA-seq) implements next generation sequencing (NGS) technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
 
@@ -266,7 +265,23 @@ Modern RNA sequencing (RNA-seq) implements next generation sequencing (NGS) tech
 Bulk RNA-seq measures the average expression across a sample.
 Creating a bulk RNA-seq library involves isolating RNA from a biological sample, filtering for a specific type of RNA (most commonly mRNA), fragmentation of RNA into fragments, reverse transcription of the fragments to generate a complementary DNA (cDNA) library, end repair and adaptor ligation of the cDNA library, followed by PCR amplification ready for sequencing.
 
-% figure of steps needed
+%% Diagram of bulk RNA-seq
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Introduction/bulk_rna_library_prep_diagram_alternate.png}
+\caption[Bulk RNA-seq outline]{Outline of bulk RNA-sequencing library prep.
+Cells are lysed and RNA is extracted.
+The specific RNA of interest is selected and enriched, for example selecting for mRNA using polyA selection or ribo-depletion.
+The mRNA is fragmented into smaller pieces of RNA.
+First and second stranded cDNA are reverse transcribed from the RNA fragments using random primers.
+The ends of the cDNA are repaired and dAMP (dA) tails are added to the 3' end of the DNA.
+Adaptors are ligated to the 3' and 5' end of the cDNA.
+These adaptors contain complementary sequences that allow the fragments to hybridize to the flow cell during sequencing.
+Universal (P5/i5) and index (P7/i7) primers are added to the adaptor ligated DNA.
+The libraries are then amplified using PCR and cleaned-up, ready for sequencing.
+}
+\label{fig:bulk_diagram}\end{figure}
+%%
 
 \subsubsection{Single-cell RNA-seq}
 Single-cell RNA-seq (scRNA-seq) measures gene expression for each individual cell across a population of cells and therefore provides information on clonal diversity that may be lost when pooling cells into bulk samples.
@@ -276,11 +291,11 @@ scRNA-seq library preparation shares many steps with bulk RNA-seq workflow, howe
 For droplet-based scRNA-seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
 Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
 
+%% Diagram of drop-seq
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{figures_made/drop_seq.png}
+\includegraphics[width=0.7\textwidth]{figures/Introduction/drop_seq.png}
 \caption[Drop-seq schematic]{Outline of Drop-seq, a droplet-based scRNA-seq method.
-Figure adapted from Macosko et al. (2015) \cite{macosko2015highly}.
 A microfluidic device combines two aqueous flows, one containing cells and the other containing barcoded primer beads suspended in lysis buffer.
 The two aqueous channels flow across an oil channel to form aqueous droplets surrounded by oil.
 Relatively few droplets contain both a cell and a bead.
@@ -295,10 +310,10 @@ The barcoded STAMPS can then be amplified using PCR.}
 \subsection{ATAC-seq}
 ...
 
-\subsection{ChIP-Seq}
-Chromatin immunoprecipitation sequencing (ChIP-seq) is used to analyse protein interactions with DNA.
-At a base-pair resolution, it is used to map DNA-binding proteins and histone modifications.
-Therefore ChIP-seq is often used to determine the the mechanisms of gene regulation of transcription factors, and to study epigenetic mechanisms in detail.
+%\subsection{ChIP-Seq}
+%Chromatin immunoprecipitation sequencing (ChIP-seq) is used to analyse protein interactions with DNA.
+%At a base-pair resolution, it is used to map DNA-binding proteins and histone modifications.
+%Therefore ChIP-seq is often used to determine the the mechanisms of gene regulation of transcription factors, and to study epigenetic mechanisms in detail.
 %It utilises NGS to identify biding sites of DNA-associated proteins, therefore it is often used to determine the mechanisms of transcription factors or chromatin-associated proteins, influencing gene expression.
 
 
