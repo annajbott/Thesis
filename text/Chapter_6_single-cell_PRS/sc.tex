@@ -21,7 +21,7 @@ Seminal papers from Melnekoff et al. (2017)\cite{melnekoff2017single} and Lederg
 Melnekoff et al. (2017) demonstrated the clonal heterogeneity within MM using samples that were collected from eight relapsed MM patients.
 The group performed t-SNE clustering analysis and the samples separated into eight transcriptionally distinct clones, each corresponding to a different patient.
 This highlights the inter-patient differences of MM\@.
-Ledergor et al. (2018) performed a similar study to evaluate clonal het- erogeneity within MM but also had a set of controls with which to compare the MM group.
+Ledergor et al. (2018) performed a similar study to evaluate clonal heterogeneity within MM but also had a set of controls with which to compare the MM group.
 They found that MM patients have greater inter-individual transcriptional variation, where each MM patient possessed a unique and individual plasma cell transcriptional program.
 They also showed substantial intra-tumour heterogeneity (subclonal structures) of plasma cells in a third of their MM patient cohort.
 These papers established the importance of using single-cell techniques to study MM, as to not miss the underlying clonal heterogeneity.
@@ -30,115 +30,71 @@ To truly understand the complexities of MM and treatment of MM, interactions bet
 
 
 \subsection{Experiment overviews}
-Bone marrow samples from MM patients were treated with a DMSO control or six different compounds of interest.
-The six compounds were: MAZ1392 (Halofuginone), NCP26, SGC-GAK, CL... (LOOK UP NAMES).
-My analysis is only focussed on DMSO, Halofuginone and NCP26, however the other samples were included in the analysis and integrated clustering to increase  granularity.
-Samples were treated with 1\si{\micro\Molar} of Halofuginone, NCP26 or DMSO control for 24 and 48 hours.
-
-<2019 experiment overview>
+Two single-cell experiments were performed to explore the effect of various compounds (including Halofuginone and NCP26) on MM patient tissue.
+For experiment 1, bone marrow (BM) samples were collected from a treatment naive <xyz> MM patient.
+The BM samples was treated for 24 hours with 1\si{\micro\Molar} Casin, GSK-J4, Halofuginone, NCP26, SGC-GAK, Verteporfin or a DMSO control, totalling seven conditions.
+For experiment 2, BM samples were collected from a treatment naive <xyz CD56 etc> MM patient.
+The BM samples were treated with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours, and 1\si{\micro\Molar} SGC-GAK, Halofuginone, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 conditions.
+Following compound treatment, 10X single-cell RNA-seq library preparation was performed separately for each experiment, by Dr Philpott, as outlined in section XYZ.
 
 \section{Data processing}
-The updated single cell analysis pipeline in section <ENTER section> was used to process the data.
-In short, quality control and filtering of samples was performed, followed by clustering analysis and integration of all samples.
-Next cell types were broadly annotated using the packages SingleR, Clustifyr and scClassify.
-Myeloma cells were identified manually using known myeloma markers.
+All 18 samples were included in the analysis up to and including the integration and annotation stage of data processing.
+This was to increase the granularity of the data, and allow for easier annotation of clusters.
+Downstream analysis was only performed for DMSO, Halofuginone or NCP26 treated samples.
 
-\subsection{Quality control and filtering}
-Quality control and filtering was performed on the data.
-The number of UMIs (transcripts) per cell was set to a threshold of 500, so any cells with fewer than 500 UMIs were removed (see figure \ref{fig:QC_log10}).
-The minimum number of genes detected per cell was set to 300 and the maximum 6000.
-Any cells with a gene count outside of this range were removed (see figure \ref{fig:QC_genes_detected}).
-Cells with higher than a 0.1 mitochondrial ratio were removed because a high proportion of mitochondrial genes indicates mitochondrial contamination from dead or dying cells (see figure \ref{fig:QC_mito}).
 
-Halofuginone was used at 1\si{\micro\Molar}, a concentration almost 10 times its IC\textsubscript{50}.
-Therefore at 24 and 48 hours many cells had been killed by Halofuginone treatment.
-The cells that remained were sequenced more deeply than other conditions as can be seen in figure \ref{fig:QC_log10}.
+The single cell analysis pipeline outlined in section <ENTER section> was used to process the data.
+Kallisto BUS/ BUStools was used to pseudoalign reads and quantify gene expression.
+Next, quality control and filtering of the samples was performed.
+Poor quality cells are likely to have a low number of genes and UMIs per cell.
+Any cells with fewer than 500 UMIs were removed.
+Cells with a gene count below 300 or above 6000 were removed.
+Cells with a mitochondrial ratio higher than 0.1 were removed (a high proportion of mitochondrial genes indicates mitochondrial contamination from dead or dying cells).
+After quality control and filtering of the data, clustering was performed using Seurat v3, followed by integration of all samples, using Seurat v3 and Harmony.
+The two experiments were too large to integrate across all samples using the Seurat SCTransform normalisation method, therefore a reference-based approach was taken, whereby a subset of samples were selected (based on their cell richness and relevance to the research question) and listed as `reference datasets' for SCTransform normalisation.
+Following integration of the samples, annotation of the cells was performed using a combination of automated packages: SingleR, Clustifyr and scClassify, and manual annotation using known biological markers.
+The HumanCellAtlas database was used to inform singleR and clustifyr annotation.
+scClassify was performed using a pre-trained scClassify model, based on seven PBMC single-cell datasets (including 10X V2, 10X V3, smartSeq, celSeq, dropSeq and inDrops datasets).
+As the reference datasets originated from healthy tissue, they are unable to label pathological cells, such as myeloma cells.
+Myeloma cells were identified manually using a range of biological markers, including: CD38, CD138, SLAMF7 (CD319), BCMA, IGKC, IGLC2, KRAS, CD45, CD20, and CD19.
 
-% QC and filtering
-\begin{figure}[pt]
-\centering
-%1
-\begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/genes_detected_density.png}
-    \caption{Genes detected density}
-    \label{fig:QC_genes_detected}
-\end{subfigure}
-%
-\medskip
-\begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/log10_cell_density.png}
-    \caption{Log10 cell density}
-    \label{fig:QC_log10}
-\end{subfigure}
-%
-\medskip
-\begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/mito_ratio_number_genes_vs_number_UMI.png}
-    \caption{Mitochondrial ratio number genes vs number UMI}
-    \label{fig:QC_mito}
-\end{subfigure}
-%
-\medskip
-\begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/novelty.png}
-    \caption{Novelty}
-    \label{fig:QC_novelty}
-\end{subfigure}
-%
-\medskip
-\begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/number_cells_vs_number_UMIs.png}
-    \caption{Novelty}
-    \label{fig:QC_novelty}
-\end{subfigure}
-%
-\medskip
-\begin{subfigure}[t]{0.8\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/QC/UMI_vs_gene.png}
-    \caption{UMI vs gene}
-    \label{fig:QC_umi_vs_gene}
-\end{subfigure}
-%
-\caption[Single-cell quality control and filtering]{Quality control and filtering. Top image in each sub-figure is pre-filtering, bottom image is post-filtering.}
-\label{fig:sc_qc}
+% Pre RBC dimplots
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/pre_RBC_removal_dimplots.pdf}
+    \caption[Integrated experiments pre-erythrocyte removal]{UMAP dimension plots following integration of samples from experiment 1 and 2.
+    A) Annotated UMAP of integrated experiments 1 and 2. The erythocyte clusters are circled in black.
+    B) UMAP of integrated experiments, cells coloured by the experiment they originated from. The erythrocyte population of cells appears to originate mostly from experiment 2. }
+    \label{fig:umap_pre_RBC}
 \end{figure}
 
-\subsection{Clustering}
-Seurat was used to cluster each sample individually.
+Experiment 2 was found to have an extremely high erythrocyte population (figure \ref{fig:umap_pre_RBC}).
+In addition, many cell populations were expressing erythrocyte specific genes, where we would not expect to see them being expressed, for example MM cells expressing numerous haemoglobin subunit genes.
+The high expression of these erythrocyte genes was found to affect the integration of the two experiments together.
+It is thought that perhaps the BM sample taken for experiment 2 was one of the last samples taken and contained a large amount of blood.
+Library preparation clean-up may have missed many of these cells, leading to ambient erythrocyte RNA being present within many droplets.
+It was decided to remove the cells from the erythrocyte clusters (3, 8, 9, 10, 11, 16) and haemoglobin related genes/ erythrocyte specific genes that seemed to be dominating expression in the integrated dataset.
+Following the removal of these genes and cells, integration and clustering was performed again.
+Harmony was used to re-integrate all samples, using a multi-covariate model, accounting for batch effects for each sample and for the two separate experiments.
+Better integration of the two experiments was achieved (figure \ref{fig:umap_post_RBC}).
 
-\subsection{Integration}
 
-\subsection{Annotation}
-Following integration, the cells were annotated using singleR, clustifyr and scClassify packages.
-The HumanCellAtlas database was used to inform singleR and clustifyr.
-A large PBMC dataset, comprised of multiple single-cell experiments was used to inform scClassify.
-
-%% SCT UMAP annotation
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.9\textwidth]{figures_made/SCT_umap_tsne_annotation.png}
-\caption[Single-cell annotation]{SCT integrated clustering. UMAP and tSNE plots annotated using SingleR, clustifyr and scClassify cell-type annotation packages.}
-\label{fig:sc_annotation}
+% Pre RBC dimplots
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/RBC_removed_dimplots.pdf}
+    \caption[Integrated experiments post-erythrocyte removal]{UMAP dimension plots of experiment 1 and 2 re-integrated after removal of erythrocytes and erythrocyte specfic genes.
+    A) Clustering of integrated data.
+    B) UMAP of integrated experiments, cells coloured by the experiment they originated from.
+    Better overlap of the two experiments. }
+    \label{fig:umap_post_RBC}
 \end{figure}
-%%
 
-\subsubsection{Myeloma cell population identification}
-Following cell-type annotation using scClassify, clusters 5, 11, 13, 15, 16, 18, 19, 22 and 23 all appear to be B-cell lineages, in varying degree of maturation or disease state.
-Next identification of the myeloma population was required.
-This was performed manually, by plotting the clusters with their expression of known MM markers.
-This can be seen in figure \ref{fig:sc_mm_markers}.
+\subsection{Annotation of re-integrated data}
 
-%% SCT UMAP MM features
-\begin{figure}[phtb]
-\centering
-\includegraphics[width=0.8\textwidth]{figures_made/umap_MM_features.png}
-\caption[Single-cell MM features]{SCT integrated UMAP clustering and violin plots for MM markers. \textit{CD38} very bright in myeloma cells. \textit{CD138} expression is pathological and a classic marker of MM cells. \textit{SLAMF7} and \textit{BCMA} are good markers of MM, however are not exclusive to myeloma cells and are also found at other stages of B-cell maturation. Co-expression of either kappa or lambda light chains (not both) seen in MM tissue sections. \textit{CD45}, \textit{CD20} and \textit{CD19} either not expressed or under expressed in myeloma cells compared to other B cell lineages. }
-\label{fig:sc_mm_markers}
-\end{figure}
-%%
+\input{text/Chapter_6_single-cell_PRS/markers_table.tex}
 
-
-\subsubsection{T-cell sub-population identification}
+Feature plots, violin plots, dot plots.
 
 \section{Results}
 

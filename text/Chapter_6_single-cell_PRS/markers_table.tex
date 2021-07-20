@@ -1,15 +1,19 @@
-%! Author = annajames-bott
-%! Date = 20/07/2021
-
-% Preamble
-\documentclass[11pt]{article}
-
-% Packages
-\usepackage{amsmath}
-
-% Document
-\begin{document}
-
-
-
-\end{document}
+\begin{table}[h]
+    \centering
+\begin{tabular}{|p{2cm}|p{6cm}|p{5cm}|}
+\hline
+\textbf{Cell type}     & \textbf{Expressed/ over-expressed}                                                                      & \textbf{Not expressed/ under-expressed} \\ \hline
+Multiple myeloma cells & CD38, CD138, SLAMF7,  BCMA, KRAS, IGKC, IGCL2                                                             & CD20, CD19, CD45 ?                       \\ \hline
+Normal plasma cells    & pc place holder                                                                                           & place                                    \\ \hline
+B cells                & CD38                                                                                                      & b down                                   \\ \hline
+CD4+ T cells           & CCR7, SELL, TCF7, TRAC*, CD3D*                                                                            & cd4 down                                 \\ \hline
+CD8+ T cells           & CD8A, TRAC*,  CD3D*, GZMH+,  GZMB+,  GZMA+,  PRF1+                                                        & cd 8 down                                                         \\ \hline
+NK cells               & KLRB1,  KLRF1, GZMH+,  GZMB+,  GZMA+,  PRF1+                                                              & nk down                                  \\ \hline
+Dendritic cells        & dc up                                                                                                     & dc down                                  \\ \hline
+Monocytes              & mono up                                                                                                   & mono down                                \\ \hline
+etc...                 & else                                                                                                      & else down                                \\ \hline
+\end{tabular}
+\caption[Manual annotation markers]{Manual annotation markers for cell types originating from transcriptomic profiles of bone marrow samples.
+* = General T cell markers, + = Cytotoxic markers}
+\label{tab:annotation_markers}
+\end{table}
