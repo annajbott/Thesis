@@ -69,7 +69,7 @@ Myeloma cells were identified manually using a range of biological markers, incl
 \end{figure}
 
 Experiment 2 was found to have an extremely high erythrocyte population (figure \ref{fig:umap_pre_RBC}).
-In addition, many cell populations were expressing erythrocyte specific genes, where we would not expect to see them being expressed, for example MM cells expressing numerous haemoglobin subunit genes.
+In addition, many other cell populations were expressing erythrocyte specific genes, where we would not expect to see them being expressed, for example MM cells expressing numerous haemoglobin subunit genes.
 The high expression of these erythrocyte genes was found to affect the integration of the two experiments together.
 It is thought that perhaps the BM sample taken for experiment 2 was one of the last samples taken and contained a large amount of blood.
 Library preparation clean-up may have missed many of these cells, leading to ambient erythrocyte RNA being present within many droplets.
@@ -94,7 +94,23 @@ Better integration of the two experiments was achieved (figure \ref{fig:umap_pos
 
 \input{text/Chapter_6_single-cell_PRS/markers_table.tex}
 
-Feature plots, violin plots, dot plots.
+% MM markers vln, feature and dotplots
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/mm_markers_ABC.pdf}
+    \caption[Manual annotation of MM cells]{Annotating MM cell clusters manually using known biological markers.
+    We expect to see expression of CD38, CD138, SLAMF7, BCMA, KRAS, IGKC and IGLC2 by MM cells.
+    We expect to see lower expression of CD38 in MM cells compared to normal plasma cells.
+    We expect to see little or no expression of CD45 and CD19 in the MM cluster, and reduced expression of CD20 in MM cells compared to normal B cells.
+    A) Seurat feature plots showing expression of the above markers.
+    Purple indicates expression of the corresponding gene by a cell.
+    B) A dot plot showing the percentage of cells in a cluster expressing a given gene, and the average expression of that gene for the cluster.
+    C) Violin plots for each cluster and expression levels for each marker listed above.  }
+    \label{fig:mm_markers}
+\end{figure}
+
+% T / NK cells feature plots
+
 
 \section{Results}
 
