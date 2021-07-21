@@ -92,13 +92,26 @@ Better integration of the two experiments was achieved (figure \ref{fig:umap_pos
 
 \subsection{Annotation of re-integrated data}
 
+% automated annoation, scclasify, clustifyr
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/clustifyr_scclassify_annotation.pdf}
+    \caption[Automated annotation of scRNA-seq data]{Automated annotation of MM cell clusters, using the R packages clustifyr and scClassify in combination with reference datasets.
+    The reference dataset HumanCellAtlas was used for clustifyr.
+    scClassify was ran using a pretrained model consisting of seven scRNA-seq PBMC datasets.
+    Clustifyr assigns a cell type to each cluster of cells, scClassify assigns a cell type to each individual cell (labels have been added post-hoc). }
+    \label{fig:annotation_automated}
+\end{figure}
+
+Text about how they give a pretty good idea of which cluster is which, but need to delve deeper with biological knowledge.
+
 \input{text/Chapter_6_single-cell_PRS/markers_table.tex}
 
 % MM markers vln, feature and dotplots
 \begin{figure}[p]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/mm_markers_ABC.pdf}
-    \caption[Manual annotation of MM cells]{Annotating MM cell clusters manually using known biological markers.
+    \caption[Manual annotation of MM cells]{Manual annotation of MM cell clusters using known biological markers.
     We expect to see expression of CD38, CD138, SLAMF7, BCMA, KRAS, IGKC and IGLC2 by MM cells.
     We expect to see lower expression of CD38 in MM cells compared to normal plasma cells.
     We expect to see little or no expression of CD45 and CD19 in the MM cluster, and reduced expression of CD20 in MM cells compared to normal B cells.
@@ -111,7 +124,10 @@ Better integration of the two experiments was achieved (figure \ref{fig:umap_pos
 
 % T / NK cells feature plots
 
+% Use of annotation for new MM datasets
 
+% flush figures out before beginning results section
+\clearpage
 \section{Results}
 
 \subsection{Composition}
