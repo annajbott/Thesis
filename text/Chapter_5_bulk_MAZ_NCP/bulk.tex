@@ -3,29 +3,50 @@
 %\minitoc
 
 \section{Introduction}
-Although MM treatment has improved significantly in the last 10-20 years, still MM is an incurable disease.
+Although MM treatment has improved significantly in the last 10-20 years, MM remains an incurable disease.
 Most MM patients relapse and become resistant to drugs they have previously been treated with.
 Therefore, research into novel therapeutics that can overcome multi-drug resistance and can be used to treat relapsed patients is of great importance.
 A new exciting class of compounds in treating MM have been derived from Febrifugine.
 Febrifugine was first isolated from the Chinese herb Dichroa febrifuga, considered and important herb in traditional Chinese medicine, shown to have antimalarial effects.
-One such derivative, Halofuginone, has been shown to inhibit T Helper 17 (TH17) cell differentiation, by activating the amino acid response (AAR)\cite{sundrud2009halofuginone}.
-Halofuginone inhibits the enzyme glutamyl-prolyl tRNA synthetase (EPRS).
-EPRS is a bifunctional aminoacyl-tRNA synthetase and catalyses the the aminoacylation of glutamic acid and proline tRNA species (i.e. it charges tRNAs with glutamic acid and proline).
-Halofuginone and Febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utlisiation of proline during translation\cite{keller2012halofuginone}.
+One such derivative, Halofuginone, has been shown to inhibit T Helper 17 (TH17) cell differentiation, by activating the amino acid response (AAR)[73]. Halofuginone inhibits the enzyme glutamyl-prolyl tRNA synthetase (EPRS).
+EPRS is a bifunctional aminoacyl-tRNA synthetase (AARS) and catalyses the the aminoacylation of glutamic acid and proline tRNA species (i.e. it charges tRNAs with glutamic acid and proline).
+Halofuginone and Febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utilisation of proline during translation[74].
 This results in an accumulation of uncharged prolyl-tRNAs, giving the same cellular environment as if the cell were proline deficient, triggering the AAR to respond to the apparent proline deprived state.
 
-Multiple Febrifugine derivatives have been synthesized.
-% Dose response curves???
+AARSs are essential in protein synthesis, aiding in building chains of amino acids.
+Human cancer cells often have an increased rate of protein synthesis, this is especially true in multiple myeloma, creating huge amounts of non-functional paraproteins, therefore more reliant on AARSs. This is why MM was thought of as a good candidate for AARS inhibitor treatment.
+Previously, Halofuginone (HF) has shown anti-MM activity in vitro and in-vivo.
+HF induced cytotoxicity and apoptosis in numerous MM cell-lines and primary MM cells.
+HF was also shown to inhibit MM growth and prolong survival in a mouse xenograft MM model\cite{leiba2012halofuginone}.
 
-\subsection{Experiment overview}
-The treatment of drug sensitive and carfilzomib resistant MM cell-lines with four compounds that inhibit  the  prolyl-tRNA  synthetase  active  site  of  EPRS  was investigated using bulk RNA-seq.
-PI-sensitive WT AMO-1 cells and carfilzomib resistant L363 cells (check batch 1 type- are they L363 or AMO-1) were treated with 1\si{\micro\Molar} of MAZ1392 (Halofuginone), NCP26, NCP22 and MAZ1805 or a DMSO control for 6 and 24 hours.
+However, it has been shown that HF’s anti-MM effect can be reduced in the presence of excessive proline.
+Additionally, tumours have more proline than healthy cells <REF>.
+This means that HF has a very narrow therapeutic window.
+Recently, The Mazitschek group have synthesized numerous other compounds which also target the PRS site of EPRS. One such example, coined NCP26, binds to the ATP binding site of PRS and does not compete with proline for the proline site of PRS.
+More PRS inhibitors have been synthesized by the group, including MAZ1805 (Halofuginol) and NCP22.
 
-\section{Compound potency}
+% Ralph drug drawing
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Results/ralph_figure.png}
+    \caption[Halofuginone and NCP26 structures]{Figure by Ralph Mazitschek, kindly agreed (GET PERMISSION).
+    The structures of Halofuginone/MAZ1392 (A) and NCP26 (B).
+    Halofuginone is ATP dependent, proline and tRNA competitive.
+    NCP26 is ATP competitive and proline uncompetitive.
+    }
+    \label{fig:ralph_diagrams}
+\end{figure}
+
+
+
+\section{Results}
 
 \subsection{Dose response curves}
+The effect of the PRS inhibitors (NCP22, NCP26, Halofuginol and Halofuginone) on MM cell viability was investigated using the MM cell lines: AMO-1 and CFZ-R L363.
 
-\section{Bulk RNA-seq Results}
+\subsection{Synergy with existing MM treatment}
+
+\subsection{Bulk RNA-seq}
 
 \subsection{Experiment overview}
 The treatment of drug sensitive and carfilzomib resistant MM cell-lines with four compounds that inhibit  the  prolyl-tRNA  synthetase  active  site  of  EPRS  was investigated using bulk RNA-seq.

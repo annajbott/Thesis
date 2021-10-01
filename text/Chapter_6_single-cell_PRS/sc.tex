@@ -30,18 +30,31 @@ To truly understand the complexities of MM and treatment of MM, interactions bet
 
 
 \subsection{Experiment overviews}
-Two single-cell experiments were performed to explore the effect of various compounds (including Halofuginone and NCP26) on MM patient tissue.
-For experiment 1, bone marrow (BM) samples were collected from a treatment naive <xyz> MM patient.
-The BM samples was treated for 24 hours with 1\si{\micro\Molar} Casin, GSK-J4, Halofuginone, NCP26, SGC-GAK, Verteporfin or a DMSO control, totalling seven conditions.
-For experiment 2, BM samples were collected from a treatment naive <xyz CD56 etc> MM patient.
-The BM samples were treated with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours, and 1\si{\micro\Molar} SGC-GAK, Halofuginone, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 conditions.
-Following compound treatment, 10X single-cell RNA-seq library preparation was performed separately for each experiment, by Dr Philpott, as outlined in section XYZ.
+Three single-cell experiments, comprising samples from four MM patients, were performed to explore the effect of various compounds (including Halofuginone and NCP26) on MM patient tissue.
+The BM samples for experiments 1 and 2 were obtained from two treatment-naive, newly-diagnosed MM patients.
+Experiment 3 comprised samples from two patients, both with relapsed MM, therefore both presenting with a degree of acquired anti-cancer drug resistance.
+For experiment 1, BM samples were treated for 24 hours with 1\si{\micro\Molar} Casin, GSK-J4, Halofuginone, NCP26, SGC-GAK, Verteporfin or a DMSO control, totalling 7 samples.
+For experiment 2, BM samples were treated with with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours; 1\si{\micro\Molar} SGC-GAK, Halofuginone, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 samples.
+For experiment 3, BM samples from patient 3 and 4 were treated for 24 hours with either a DMSO control, 1\si{\micro\Molar} Halofuginone, 1\si{\micro\Molar} NCP26 or 5\si{\micro\Molar} NCP26, totalling 8 samples.
+
+Following compound treatment, single-cell RNA-seq library preparation was performed by Dr Martin Philpott using the Chromium Next GEM Single Cell 3` GEM, Library and Gel Bead Kit v3.1 according to the manufacturer`s instructions.
+Indexed libraries were quantitated by TapeStation, pooled and sequenced on an Illumina NovaSeq 6000 (Novogene, UK).
+
+<GENEWIZ experiment 3 >
+
 
 \section{Data processing}
-All 18 samples were included in the analysis up to and including the integration and annotation stage of data processing.
-This was to increase the granularity of the data, and allow for easier annotation of clusters.
-Downstream analysis was only performed for DMSO, Halofuginone or NCP26 treated samples.
+Initially all four patient samples were processed and integrated together.
+However, integration was found to be poor between treatment naive patients and the relapsed patients.
+This was expected as MM patients` transcriptome has been shown to change considerably following <XYZ> rounds of treatments {REF}.
+Therefore, samples from experiments 1 and 2 (treatment naive patients 1 and 2) were integrated together and samples from experiment 3 (relapsed patients 3 and 4) were integrated together.
 
+Experiments 1 and 2 contained treatment samples that were not of interest to this project.
+However, all samples originated from MM patients, therefore all 18 samples were included in the analysis up to and including the integration and annotation stage of data processing.
+This was to increase the granularity of the data, and allow for easier annotation of clusters.
+Downstream analysis in this work only includes DMSO, Halofuginone or NCP26 treated samples.
+
+\subsection{Analysis overview}
 
 The single cell analysis pipeline outlined in section <ENTER section> was used to process the data.
 Kallisto BUS/ BUStools was used to pseudoalign reads and quantify gene expression.
@@ -52,75 +65,103 @@ Cells with a gene count below 300 or above 6000 were removed.
 Cells with a mitochondrial ratio higher than 0.1 were removed (a high proportion of mitochondrial genes indicates mitochondrial contamination from dead or dying cells).
 After quality control and filtering of the data, clustering was performed using Seurat v3, followed by integration of all samples, using Seurat v3 and Harmony.
 The two experiments were too large to integrate across all samples using the Seurat SCTransform normalisation method, therefore a reference-based approach was taken, whereby a subset of samples were selected (based on their cell richness and relevance to the research question) and listed as `reference datasets' for SCTransform normalisation.
-Following integration of the samples, annotation of the cells was performed using a combination of automated packages: SingleR, Clustifyr and scClassify, and manual annotation using known biological markers.
+Harmony integration was also implemented, using patient and experiment as additional covariates.
+
+
+Cell type annotation was performed by using several automated packages (singleR, clustifyr and scClassify), then by fine-tuning manually using a list of known biological markers.
 The HumanCellAtlas database was used to inform singleR and clustifyr annotation.
 scClassify was performed using a pre-trained scClassify model, based on seven PBMC single-cell datasets (including 10X V2, 10X V3, smartSeq, celSeq, dropSeq and inDrops datasets).
-As the reference datasets originated from healthy tissue, they are unable to label pathological cells, such as myeloma cells.
-Myeloma cells were identified manually using a range of biological markers, including: CD38, CD138, SLAMF7 (CD319), BCMA, IGKC, IGLC2, KRAS, CD45, CD20, and CD19.
+As the reference datasets were based on healthy tissue, they are unable to label pathological cells, like myeloma cells.
+Myeloma cells were identified manually using a range of known markers, for example: CD38, CD138, SLAMF7 and BCMA (see table \ref{tab:annotation_markers}).
 
 % Pre RBC dimplots
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/pre_RBC_removal_dimplots.pdf}
-    \caption[Integrated experiments pre-erythrocyte removal]{UMAP dimension plots following integration of samples from experiment 1 and 2.
-    A) Annotated UMAP of integrated experiments 1 and 2. The erythocyte clusters are circled in black.
-    B) UMAP of integrated experiments, cells coloured by the experiment they originated from. The erythrocyte population of cells appears to originate mostly from experiment 2. }
-    \label{fig:umap_pre_RBC}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/RBC_removal_all_experiments.pdf}
+    \caption[Erythrocyte removal from integrated scRNA-seq datasets]{UMAP dimension plots following integration of samples from experiment 1 and 2 (treatment naive patients), and samples from patients 3 and 4 in experiment 3 (relapsed MM).
+    [A-D] Experiment 1 and 2-newly diagnosed MM patients.
+    [E-H] Experiment 3, patients 3 and 4- relapsed MM patients.
+     [A, B, E, F] Integrated UMAP plots before erythrocyte cell and gene removal. Erythrocyte clusters are circled in A) and E).
+     [C, D, G, H] UMAP plots following removal of erythrocyte cell clusters and genes and re-integration of samples.
+     [B, D, F, H] show the composition of each dataset by experiment or patient.}
+    \label{fig:umap_RBC}
 \end{figure}
 
-Experiment 2 was found to have an extremely high erythrocyte population (figure \ref{fig:umap_pre_RBC}).
+Experiment 2 was found to have an extremely high erythrocyte population (figure \ref{fig:umap_RBC}A and B).
 In addition, many other cell populations were expressing erythrocyte specific genes, where we would not expect to see them being expressed, for example MM cells expressing numerous haemoglobin subunit genes.
-The high expression of these erythrocyte genes was found to affect the integration of the two experiments together.
-It is thought that perhaps the BM sample taken for experiment 2 was one of the last samples taken and contained a large amount of blood.
-Library preparation clean-up may have missed many of these cells, leading to ambient erythrocyte RNA being present within many droplets.
-It was decided to remove the cells from the erythrocyte clusters (3, 8, 9, 10, 11, 16) and haemoglobin related genes/ erythrocyte specific genes that seemed to be dominating expression in the integrated dataset.
-Following the removal of these genes and cells, integration and clustering was performed again.
-Harmony was used to re-integrate all samples, using a multi-covariate model, accounting for batch effects for each sample and for the two separate experiments.
-Better integration of the two experiments was achieved (figure \ref{fig:umap_post_RBC}).
+Many of the variable features that Seurat uses for clustering analysis and dimension reduction were made up of these erythrocyte-specific and haemoglobin genes.
+The high expression of these genes was thought to be affecting the integration of the two experiments together.
+A theory for the presence of the large number of erythrocytes and un-localised erythrocyte gene expression is that perhaps the BM sample taken for experiment 2 was one of the later samples taken from the patient and contained a large amount of blood.
+Library prep clean-up may have missed many of these cells, leading to ambient erythrocyte RNA being present within many droplets.
 
+It was decided to remove the erythrocyte clusters (clusters 3, 8, 9, 10, 11 and 16 in newly diagnosed; clusters 1, 5 and 15 in relapsed) and haemoglobin related genes or erythrocyte specific genes that seemed to be dominating expression in the integrated dataset.
+After the integrated Seurat object had the erythrocyte genes and cells removed, it was split back up into separate Seurat objects for each sample, and integration and clustering was performed again.
+Seurat`s SCTransform with reference datasets and Harmony (using a multi-covariate model, accounting for each different sample and the two different experiments) were used to re-integrate all samples.
+Harmony integration was found to integrate clusters across patients and experiments better than using Seurat`s SCTransform.
+The Harmony integrated datasets were taken forwards and used for cell type annotation.
+Better integration was achieved after removing erythrocytes and erythrocyte-specific genes (see figure \ref{fig:umap_RBC}D).
 
-% Pre RBC dimplots
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/RBC_removed_dimplots.pdf}
-    \caption[Integrated experiments post-erythrocyte removal]{UMAP dimension plots of experiment 1 and 2 re-integrated after removal of erythrocytes and erythrocyte specfic genes.
-    A) Clustering of integrated data.
-    B) UMAP of integrated experiments, cells coloured by the experiment they originated from.
-    Better overlap of the two experiments. }
-    \label{fig:umap_post_RBC}
-\end{figure}
+A large erythrocyte component was also found for patient 4 for in experiment 3 (figure \ref{fig:umap_RBC}E and F).
+The same analysis workflow was applied to experiment 3, removing the erythrocyte cluster and erythrocyte specific genes and re-integrating using Harmony with samples and patients as covariates.
+
+% table cells passing filter
+\input{text/Chapter_6_single-cell_PRS/cells_passing_table.tex}
 
 \subsection{Annotation of re-integrated data}
+
 
 % automated annoation, scclasify, clustifyr
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/clustifyr_scclassify_annotation.pdf}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/automated_markers_ABCD.pdf}
     \caption[Automated annotation of scRNA-seq data]{Automated annotation of MM cell clusters, using the R packages clustifyr and scClassify in combination with reference datasets.
-    The reference dataset HumanCellAtlas was used for clustifyr.
-    scClassify was ran using a pretrained model consisting of seven scRNA-seq PBMC datasets.
-    Clustifyr assigns a cell type to each cluster of cells, scClassify assigns a cell type to each individual cell (labels have been added post-hoc). }
+    [A, B] newly diagnosed MM, [C, D] relapsed MM patients.
+    The output of automated packages clustifyr and scClassify used to aid cell type annotation.
+    Clustifyr assigns a cell type to each cluster of cells, scClassify assigns a cell type to each individual cell (labels have been added post-hoc).
+    Clustifyr was used in conjunction with the HumanCellAtlas reference, and scClassify was ran with a pretrained model trained on seven PBMC single cell RNA-seq datasets.
+    Both references are from healthy datasets so neither are able to identify the myeloma cell population.}
     \label{fig:annotation_automated}
 \end{figure}
 
-Text about how they give a pretty good idea of which cluster is which, but need to delve deeper with biological knowledge.
+R packages clustifyr and scClassify were used to aid in cell type annotation of the integrated datasets, the result of this annotation can be seen in figure \ref{fig:annotation_automated}.
+Because healthy tissue datasets were used as references, the myeloma cluster could not be identified using these packages with these references alone.
+Both packages either incorrectly labelled the MM cell cluster as B cells, or were unable to assign any cell type to the myeloma cluster with any confidence and left it unassigned.
+However, the packages do give a good starting point for more detailed manual annotation using known biological markers.
 
-\input{text/Chapter_6_single-cell_PRS/markers_table.tex}
+
+Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} show how the MM cell clusters were identified.
+From MM cells, you would expect to see expression of CD38, but lower expression than in normal plasma cells.
+You would expect to see high expression of the pathological marker CD138 in MM cells, as well as high expression of SLAMF7, BCMA, KRAS, IGKC and IGL2, however these are not exclusive to the MM cluster.
+You would expect to see little or no expression of CD45 and CD19 in the MM cluster and reduced expression of CD20 in MM cells compared to normal B cells.
+Using the expression of these markers, clusters 2, 7 and 13 were identified as the MM cell population in the newly diagnosed dataset; and cluster 4 was identified as the MM cell population in the relapsed MM dataset.
+
 
 % MM markers vln, feature and dotplots
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Results/single_cell/data_processing/mm_markers_ABC.pdf}
-    \caption[Manual annotation of MM cells]{Manual annotation of MM cell clusters using known biological markers.
-    We expect to see expression of CD38, CD138, SLAMF7, BCMA, KRAS, IGKC and IGLC2 by MM cells.
-    We expect to see lower expression of CD38 in MM cells compared to normal plasma cells.
-    We expect to see little or no expression of CD45 and CD19 in the MM cluster, and reduced expression of CD20 in MM cells compared to normal B cells.
-    A) Seurat feature plots showing expression of the above markers.
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_naive.pdf}
+    \caption[MM cluster manual annotation- newly diagnosed MM]{Manual annotation of MM cell clusters in experiment 1 and 2 (newly diganosed MM) using known MM biological markers.
+    A) Seurat UMAP feature plots showing expression for MM markers.
     Purple indicates expression of the corresponding gene by a cell.
     B) A dot plot showing the percentage of cells in a cluster expressing a given gene, and the average expression of that gene for the cluster.
     C) Violin plots for each cluster and expression levels for each marker listed above.  }
-    \label{fig:mm_markers}
+    \label{fig:mm_markers_naive}
 \end{figure}
+
+% MM markers vln, feature and dotplots
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_relapsed.pdf}
+    \caption[MM cluster manual annotation- relapsed MM]{Manual annotation of MM cell clusters in experiment 3 (relapsed MM) using known biological markers
+    A) Seurat UMAP feature plots showing expression for MM markers.
+    Purple indicates expression of the corresponding gene by a cell.
+    B) A dot plot showing the percentage of cells in a cluster expressing a given gene, and the average expression of that gene for the cluster.
+    C) Violin plots for each cluster and expression levels for each marker listed above. }
+    \label{fig:mm_markers_relapsed}
+\end{figure}
+
+
+\input{text/Chapter_6_single-cell_PRS/markers_table.tex}
 
 % T / NK cells feature plots
 
@@ -130,61 +171,38 @@ Text about how they give a pretty good idea of which cluster is which, but need 
 \clearpage
 \section{Results}
 
-\subsection{Composition}
-Cluster composition is shown in figures \ref{fig:sc_comp_clusters} and \ref{fig:sc_umap_comp}.
+\subsection{Newly diagnosed MM}
+
+% Final product of annotation
+
+\subsubsection{Composition}
+Cluster composition is shown in figures \ref{fig:composition_naive}.
 Large number of cells were killed by Halofuginone treatment at both 24 and 48 hours.
 Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected.
 
 %% SCT UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/Results/single_cell/composition_umap.png}
-\caption[UMAP cluster composition]{SCT integrated UMAP clustering. Cell composition separated by treatment conditions. }
-\label{fig:sc_umap_comp}
+\includegraphics[width=0.7\textwidth]{figures/Results/single_cell/sc_composition_naive.pdf}
+\caption[scRNA-seq composition analysis- newly diagnosed MM]{Composition analysis of newly diagnosed MM.
+    A) UMAP cell composition plots separated by treatment condition.
+    B) Dot plot showing proportion of cells in each cluster for each sample.
+    C) Dot plot showing proportion of cells in each cell class for each sample (as labelled in Figure <XYZ>).
+    * indicates samples originating from experiment 1, no star indicates an experiment 2 origin.}
+\label{fig:composition_naive}
 \end{figure}
 %%
 
+\subsubsection{Differential expression}
+% Effect on MM cells
+% Number of DE genes, pathways enriched. VLN plts - CD138 and DDIT3. AAR
 
-% Barchart and Dotplot
-\begin{figure}[pt]
-%1
-\begin{subfigure}[t]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_dotplot.png}
-    \caption{Dot plot cell proportions}
-    \label{fig:comp_dot}
-\end{subfigure}
-%2
-%\medskip
-\begin{subfigure}[t]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_dotplot_nCells.png}
-    \caption{Dot plot total cell number}
-    \label{fig:comp_dot_ncells}
-\end{subfigure}
-%
-\medskip
-%3
-\begin{subfigure}[t]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_barchart.png}
-    \caption{Bar chart cell proportions}
-    \label{fig:comp_bar}
-\end{subfigure}
-%4
-\begin{subfigure}[t]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/composition_barchart_nCells.png}
-    \caption{Bar chart total cell number}
-    \label{fig:comp_bar_ncells}
-\end{subfigure}
-%
-\caption[Single-cell cluster composition]{Single-cell cluster composition for each sample, either as a proportion of cells for each sample or raw cell counts.}
-\label{fig:sc_comp_clusters}
-\end{figure}
+% Effect on other cell populations- e.g. monocytes, why does it affect monocytes
+
+% Velocity analysis
 
 
-\subsection{Myeloma cells}
-
-\subsection{T cells}
-
-\subsection{Monocytes}
+\subsection{Relapsed MM}
 
 
 \section{Myeloma bone marrow classifier}
