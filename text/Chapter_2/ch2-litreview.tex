@@ -1,67 +1,333 @@
-\chapter{\label{ch:2-litreview}Background}
+\chapter{\label{ch:2-litreview}Aminoacyl tRNA synthetases and Halofuginone}
 
-%\minitoc
-
-\section{Metabolic changes in MM}
-
-\subsection{The amino acid starvation response}
-
-\section{Drug resistance in MM}
-
-\subsection{Genomic changes in drug resistant MM}
-
-
-\subsection{Epigenetic changes in drug resistant MM}
-
-
-\subsection{Metabolic changes in drug resistant MM}
+\section{Introduction}
+Aminoacyl tRNA synthetases (aaRS) are a highly-conserved family of enzymes, responsible for ``charging'' tRNAs with their cognate amino acid.
+Human cytoplasmic aaRSs are either ``free'' as individual species or bound in a macromolecular complex, comprised of eight aaRSs and three auxiliary proteins, known as the multi-tRNA synthetase complex (MSC).
+On top of their canonical enzymatic role, aaRSs also engage in non-enzymatic functions in numerous pathways, including angiogenesis, inflammation and metabolism.
+Often species are released from the MSC to regulate these non-canonical activities.
+aaRSs have been shown to involved in numerous diseases, including cancer.
+Initially, due to their high fidelity and complex evolution over millennia, aaRSs were seen as an attractive drug target for antimicrobials, to enable specifically targeting microbial aaRSs with minimal effects on human cells.
+The mechanism of action of Febrifugine (FF), a quinazoline alkaloid that has long been used as an antimalarial remedy, has recently been revealed; it acts as a competitive inhibitor of ProRS (part of the bifunctional glutamyl-prolyl-tRNA synthetase enzyme; EPRS), responsible for charging tRNA\textsuperscript{pro} with proline.
+Although it has potent antimalarial effects, Febrifugine exhibits high liver and gastrointestinal (GI) toxicity, so cannot be used as a widespread drug, therefore several analogues of Febrifugine were developed in the hope of minimizing toxicity to the host`s cells.
+One such analogue, Halofuginone (HF) was synthesized and was shown to have the most potent antimalarial properties of all the derivatives, with lower toxicity to the host than Febrifugine, but still some liver toxicity and GI side effects remain.
+Halofuginone has been applied to and showed promise in many other non-parasitic diseases too.
+It has received orphan drug status for scleroderma and HIV-Related Kaposi's Sarcoma.
+Recently, Halofuginone`s application in various cancers has become of great interest, including but not limited to: metastatic brain tumours, bladder carcinomas, prostate cancer, renal carcinomas, hepatocellular carcinomas, lung cancer, breast cancer and multiple myeloma.
 
 
-\section{Preliminary work}\label{sec:preliminary}
-% 2
-\subsection{Epigenetic compound library screen}
-REMAKE FIGURE--- LOADS OF SPELLING MISTAKES AND LOOKS AWFUL!!!
-Previously in the Oppermann group laboratory, Dr James Dunford performed a compound screen against WT and proteasome inhibitor-resistant AMO-1 cells with an epigenetic compound library (figure \ref{fig:epigenetic_pie}) and cell viability assays.
+This review will introduce the structure and function of aminoacyl tRNA synthetases, provide an insight into their role in pathology and potential as therapeutic targets.
+EPRS1 and its inhibitors will be the primary focus, and exploring...
 
-%% Pie chart of compound library
+\section{Function and structure of aminoacyl tRNA synthetases}
+
+Aminoacyl tRNA synthetases (aaRS) are an ancient family of ubiquitous enzymes, conserved across three major domains of life (but not present in viruses).
+They can be traced back prior to the ``Last Universal Common Ancestor'' (LUCA) \cite{de2020evolution}.
+aaRSs are essential for protein biosynthesis, and catalyse the first step in translation (see section \ref{subsec:translation}).
+aaRSs catalyse the charging of tRNAs with their cognate amino acid.
+This is a two-step process.
+Firstly, aaRSs catalyse the formation of an aminoacyl-adenylate (activated amino acid) from their corresponding amino acid and an ATP molecule, releasing an inorganic pyrophosphate.
+Next, aaRSs catalyse the reaction between the aminoacyl-adenylate and their cognate tRNA to release an AMP molecule and generate an aminoacyl (charged)-tRNA, ready to be used by the ribosome to decode mRNA (see equation \ref{eqn:aminoacyl}).
+An example of this process would be prolyl-tRNA synthetase (abbreviated to ProRS) charging tRNA\textsuperscript{pro} with proline.
+
+\begin{equation}\label{eqn:aminoacyl}
+\begin{gathered}
+aa + ATP \rightleftharpoons  aa.AMP + PPi \\
+aa.AMP + tRNA^{aa} \longrightarrow  aa.tRNA^{aa} + AMP
+\end{gathered}
+\end{equation}
+
+Eukaryotes have 20 cytoplasmic aaRS and 20 nuclear-encoded mitochondrial aaRS.
+These are localised in distinct cellular compartments.
+aaRSs are often denoted by their one letter amino acid symbol, followed by ARS and either 1 (indicating they are cytoplasmic) or 2 (indicating they are mitochondrial), for example PARS1 for cytoplasmic ProRS.
+This review will focus on cytoplasmic aaRS enzymes.
+aaRS can be divided into two distinct classes based on the structure of the fold of their catalytic domains.
+Class I aaRS enzymes are functional monomers that contain a dinucleotide or Rossman fold (RF) of alternating alpha-helices and parallel beta-sheets.
+This fold is where ATP and amino-acid binding takes place and therefore facilitates the aminoacylation reaction.
+The active site of class I aaRS is marked by the signature motifs ``HIGH'' (His-Ile-Gly-His) and ``KMSKS'' (Lys-Met-Ser-Lys-Ser).
+Within the first half of the RF the HIGH motif helps to correctly position the adenine base of ATP and interacts with the phosphates.
+The second K of the KMSKS motif is thought to be involved in stabilising the transition state for the primary step of aminoacylation \cite{newberry2002structural}.
+Amino acid recognition and binding takes place in the catalytic site when the KMSKS motif is open.
+The KMSKS loop closes after the aaRS binds ATP and the aminoacyl-adenylate is formed \cite{kwon2019aminoacyl}.
+
+
+Class II aaRS enzymes are functional dimers or tetramers with an uncommon catalytic core, comprising seven anti-parallel beta-sheets, flanked by alpha-helices.
+Class II aaRS enzymes are defined by three conserved sequence motifs.
+Motif 1 is located at the interface of the dimer and enables oligomerization.
+Motifs 2 and 3 comprise part of the aminoacylation active site and facilitate amino acid/ ATP binding and adenylate formation.
+Motif 3 binds ATP, and motif 2 is involved in coupling ATP and the amino acid and then transferring the amino acid to the 3`-tRNA \cite{kwon2019aminoacyl}.
+The distinct active-site structures of class I and II enzymes confer markedly different binding mechanisms for the aminoacylation reaction.
+For example, class I aaRSs bind the tRNA acceptor stem via the minor groove side and bind ATP in an extended conformation, whilst class II aaRSs bind the tRNA acceptor stem from the major groove side and bind ATP in a bent conformation.
+The two classes of aaRSs split the twenty amino acids into two groups.
+Val, Leu, Ile, Met, Glu, Gln, Trp, Tyr, Arg and Cys are activated by their cognate class I aaRS; and Gly, Pro, Ala, Thr, Ser, Hist, Asp, Asm, Lys and Phe are activated by their cognate class II aaRS.
+Class I and class II can be further divided into different sub-groups, however that is beyond the scope of this review.
+The structural diversity of aaRSs is likely attributable to the need to exclude similar non-cognate amino acids and to discriminate the correct tRNA isoacceptor.
+
+Both class I and class II aaRSs are multi-domain proteins- in addition to their catalytic domains, they include other domains such as their anti-codon recognition domain or an editing domain.
+The editing domain found in some aaRSs is to ensure that the essential step of aminoacylation in protein biosynthesis is as accurate as possible, so incorrect amino acids can be removed from aminoacyl-adenylates or mischarged tRNAs \cite{kwon2019aminoacyl}.
+Theoretically, it was estimated that mistranslation rate should be approximately 1 in 200 for amino acids differing by just a methyl group (such as valine and isoleucine) \cite{pauling1958festschrift}, however in-vivo work demonstrated that the error frequency is closer to 3 in 10,000 (approximately 1 in 3000) \cite{loftfield1972frequency}.
+This suggested the existence of proof-reading capabilities of aaRSs, to account for the difference between observed and predicted error rates.
+Editing capability has since been shown to be of high functional importance to some aaRSs.
+For example, a study in mice in which there was a missense in the editing domain of AlaRS.
+The impaired proof reading activity of the enzyme lead to an accumulation of misfolded proteins, resulting in the activation of the unfolded protein response and substantial neurodegeneration \cite{lee2006editing}.
+Not all aaRSs possess editing activity, only about half do, however the high specificity of the active site of those aaRSs is enough to alleviate proofreading need.
+
+\subsection{Multi-tRNA synthetase complexes}
+Higher eukaryotes contain macromolecular complexes, which consist of nine enzymes and three auxiliary proteins, known as multi-tRNA synthetase complexes (MSC).
+The 11 cytoplasmic aaRSs not located in the MSC remain free as individual species.
+The nine cytoplasmic aaRS enzymes of the MSC are GluRS (EARS1), ProRS (PARS1), IsoRS (IARS1), MetRS (MARS1), GlnRS (QARS1), LysRS (KARS1), ArgRS (RARS1), AspRS (DARS1), LeuRS (LARS1).
+GluRS and ProRS are covalently fused via triple repeats of WHEP domains to form a bifunctional enzyme, EPRS1.
+The non-enzyme component of the MSC consists of three aminoacyl-tRNA synthetase-interacting multifunctional proteins (AIMP), AIMP1, AIMP2 and AIMP3.
+Human MSCs contain more class II aaRS enzymes than other species, namely DARS1, KARS1, and PARS1, they also contain more auxiliary proteins.
+Human MSC components have several additional domains or motifs (Figure \ref{fig:MSC}A), for instance GST-homology domains in EPRS, MetRS, AIMP1 and 2, and WHEP domains in EPRS and MetRS \cite{kim2019evolution, khan20203, kim2020structures}.
+
+The structure of human MSC has not been fully elucidated, however some sub MSC-complex structures have been revealed.
+LysRS forms a homodimer and is anchored to the N-terminal peptide region of AIMP2 within the main body of the MSC.
+MetRS, AIMP3, EPRS1 and AIMP2 are compactly linked through their GST-homology domains.
+ArgRS, GlnRS and AIMP1 assemble into a heterotrimeric complex \cite{kim2019evolution, khan20203, kim2020structures}.
+A proposed bisymmetrical model of the human MSC, via homodimerization of AspRS and ProRS, is shown in Figure \ref{fig:MSC}B, based on subcomplex and interaction data \cite{cho2015assembly, kaminska2009dissection, mirande2017aminoacyl}.
+This hypothesis proposes that the MSC is a super-complex of two identical, symmetrically arranged subunits (symmetrical along the y-axis in Figure \ref{fig:MSC}B), each containing one copy of the constituent elements, except for LysRS which is present as a dimer in each subunit.
+
+%% Diagram of MSC
 \begin{figure}[htb]
-\centering\includegraphics[width=0.9\textwidth]{figures/Introduction/epigenetic_library_pie.png}
-\caption[Epigenentic compound library pie chart]{The Oppermann group epigenetic compound library.
-Proportions of targets in the 144-compound library. }
-\label{fig:epigenetic_pie}
-\end{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/lit_review/MSC_structure.jpg}
+\caption[Multi-tRNA synthetase structure]{The human multi-tRNA synthetase (MSC) and its components.
+\textbf{A)} The domains of the aminoacyl tRNA synthetases and auxiliary proteins (AIMP1, 2 and 3) making up the human multi-tRNA synthetase (MSC).
+The bifunctional enzyme EPRS1 is made up of the class 1 enzyme GluRS and class II enzyme ProRS (dimer) covalently linked by three WHEP domains.
+\textbf{B)} Cartoon representation of a proposed bisymmetrical model structure of the human multi-tRNA synthetase complex (MSC).
+An adaption of a figure created by Myung Hee Kim and Sunghoon Kim \cite{kim2020structures}.
+}
+\label{fig:MSC}\end{figure}
+
+The function of the MSC was originally thought to be to increase efficiency of protein biosynthesis by localising aaRSs.
+Another proposed function of the MSC was to increase stability of its components.
+It has been shown using systematic depletion analysis that some of the components are in fact intrinsically less stable in isolation and dependent on their neighbours for stability \cite{han2006hierarchical}.
+More recently, examples have emerged where the MSC seems to work as a `molecular reservoir' which can control the release of its components.
+The release of components from the MSC has been linked to numerous non-canonical pathways, including cell signalling, metabolism, inflammation and angiogenesis.
+
+Higher eukaryotes usually have extra-domains at the N- or C- terminus of aaRS enzymes compared with lower eukaryotes and prokaryotes, which may partly contribute to MSC assembly.
+Most human cytoplasmic aaRS enzymes have at least one new sequence extension or domain, most of which are dispensable for enzymatic activity, suggesting they may contribute to the non-canonical roles of aaRS.
+Additionally, aaRSs are often found in the nucleus of cells, where protein biosynthesis does not occur.
+The additional evolutionary complexity in human aaRSs and MSC seems to explain the increased physiological complexity and their functionality in non-enzymatic processes.
+
+Examples of non-canonical MSC functionality include--- LARS1 translocating from the MSC to lysosomes, facilitating mTORC1 activation \cite{han2012leucyl}; KARS1 translocating to the nucleus upon immune activation and activating MITF-dependent gene expression in mast cells \cite{yannay2009lysrs}.
+Another example is EPRS1 release from the MSC in myeloid cells upon IFN-$\gamma$ stimulation \cite{arif2009two}.
+IFN-$\gamma$ induces a network of kinase events (Cdk5, mTORC1 and S6K1 activation) which causes a two-step phosphorylation of two serines in the linker region of human EPRS, and causes its release from the MSC.
+EPRS1 combines with other proteins (namely NSAP1, L13a and GAPDH) to form the cytosolic IFN-$\gamma$ activated inhibitor of translation (GAIT) complex, which represses translation of numerous inflammatory-related transcripts, including VEGFA and ceruloplasmin \cite{arif2018gait}.
+
+
+In addition to the enzymatic components of the MSC, the auxiliary proteins AIMP1, 2 and 3 are also involved in fundamental biological processes.
+AIMPs exhibit non-canonical functions aside from their roles as scaffolds in the MSC.
+AIMPs have been linked to numerous biological processes, including involvement in immune regulation, nervous system functions, viral replication, genome stability, angiogenesis, and cancer.
+AIMP1 interacts with RARS1 and facilitates incoming tRNA substrates to its catalytic site to enhance its enzymatic activity \cite{park1999precursor}.
+In addition to improving amino-acyl synthetase activity, secreted AIMP1 has also been shown to be involved in angiogenesis, inflammation induction, wound closure, and maintaining glucose homeostasis \cite{park2006hormonal}.
+TGF-$\beta$ and the DNA damage response have both been shown to cause phosphorylation of AIMP2 and disassociation from the MSC.
+Released AIMP2 has shown to act as a pro-apoptotic mediator and tumorigenesis suppressor via various pathways \cite{zhou2020roles}.
+AIMP3 largely interacts with MARS1, and under conditions initiating the DNA damage response, MARS1 undergoes a conformational change that releases AIMP3 from the MSC \cite{kwon2011dual}.
+Released AIMP3 acts as a tumour suppressor, translocating to the nucleus and upregulating expression of the tumour suppressor gene p53.
+
+The functional and structural complexity of the MSC is still being revealed.
+The canonical and non-canonical functionality of MSC components promises an unexplored rich source of potential therapeutic targets, but also lends itself to associated pathology.
+
+\section{aaRSs in disease}
+With the diversity of functionality in human aaRSs comes an increase in functionality that can be associated pathologically with human disease.
+Structural and functional variations in aaRSSs' enzymatic and non-enzymatic activities have been linked to various human diseases.
+Changes in gene expression, copy number, mutations and genetic variations of aaRSs have been documented in relation to disease \cite{kwon2019aminoacyl}.
+
+Charcot Marie Tooth (CMT) is a genetically and clinically-presenting heterogeneous group of hereditary peripheral neuropathies.
+CMT is characterised by progressive degeneration of distal sensory and motor neuron function \cite{yao2013aminoacyl}.
+Six aaRSs have been linked to CMT through dominant mono-allelic mutations, including GARS1 and YARS1, which are among numerous genetic-loci to have been linked causally to CMT.
+Drosophila models of CMT have demonstrated that CMT-causing YARS1 mutations lead to a conformational change in YARS1, leading to aberrant interactions with transcriptional regulators in the cell nucleus and aberrant expression of certain transcription factors \cite{bervoets2019transcriptional}.
+
+aaRSs have also been implicated in autoimmune diseases.
+``Anti-synthetase syndrome'' (ASS) is a heterogeneous group of autoimmune diseases, including interstitial lung disease (ILD), arthritis, idiopathic inflammatory myopathies, myositis and Reynaud's phenomenon.
+Autoimmune antibodies against histidyl-, threonyl-, alanyl-, isoleucyl-, phenylalanyl-, glycyl-, tyrosyl-, asparaginyl-tRNA synthetase have been found in approximately 30\% of all autoimmune patients.
+Dysregulation of aaRS has also been noted in other autoimmune diseases, for example multiple sclerosis and immune thrombocytopenia \cite{nie2019roles}.
+
+aaRSs have been linked to viral and bacterial infection.
+For example, it has been shown that viral infection leads to the phosphorylation of EPRS and dissociation from the MSC, ultimately blocking PCBP2-mediated mitochondrial antiviral signalling (MAVS) ubiquitination and inhibiting viral replication \cite{lee2016infection}.
+Additionally, HIV-1 infection leads to KRS release from the MSC, which is partially transported to the nucleus.
+Blocking this release reduced the infectivity of progeny virions, implying that HIV-1 utilizes a dynamic MSC for enhanced viral replication \cite{duchon2017hiv}.
+WARS1 was shown to be increased approximately 27-fold in sepsis patients with a bacterial infection compared with healthy controls. Following a range of infections by various pathogens, host monocytes were shown to rapidly secret WRS.
+The secreted WRS increased cell surface levels of CD40, CD80 and CD86, markers of macrophage activation \cite{ahn2016secreted}.
+
+\subsection{aaRSs in cancer}
+A growing number of studies have implicated aaRSs and MSC components in tumorigenesis.
+Firstly, aaRS enzymatic activity is essential to sustain tumour growth. In cancer metabolism, biosynthesis of aminoacyl-tRNAs has been shown to be highly up-regulated [hu2013heterogeneity].
+In cancer, we see often see dramatic rapid cell growth, this demands an intense increase in overall protein synthesis. To keep up with this demand, the canonical aminoacylation role of aaRSs is crucial as the first step in protein synthesis.
+
+On top of the enzymatic role of aaRSs, their non-canonical functionality has also been associated with both promoting and inhibiting cancer.
+The hallmarks of cancer- enhanced growth signalling and proliferation, vascularization, metastasis, altered metabolism, and immune/tumour microenvironment invasion, all have links to tRNA synthetase function.
+Cancer cells require enhanced growth signalling and proliferation to maintain their rapid growth beyond the capacity of normal cells, several aaRSs have been linked to this aberrant growth signalling.
+GlyRS has been shown to be integral for cancer-promoting neddylation to occur, and reduced MetRS expression resulted in reduced tumorigenicity in p16INK4a-negative breast cancer cells in vivo \cite{mo2016neddylation, deng2020role, kwon2018stabilization}.
+For tumours to grow and metastasize they need to hijack existing vasculature to get blood flow to growing area, or make new vessels by promoting angiogenesis.
+Endothelial cells (EC) exposed to TNF-$\alpha$ or VEGF secrete ThrRS.
+ThrRS promotes EC migration and angiogenesis.
+Inhibition of ThrRS was shown to inhibit angiogenesis, with and without inducing the uncharged tRNA response \cite{williams2013secreted, mirando2015aminoacyl}.
+LysRS has been shown to support metastasis by increasing migration.
+Following phosphorylation by the MAPK pathway, LysRS binds to the 67kDa membrane bound laminin receptor protein (67LR), preventing its degradation and sustaining laminin-dependent migration.
+Once bound to LysRS, 67LR also binds integrin $\alpha$6$\beta$1, which initiates ERK and paxillin signalling, increasing migration by altering cell-cell and cell-ECM adhesion.
+
+aaRSs have also been linked to altering metabolism in cancer.
+To make rampant growth feasible, cancer cells adjust metabolism to meet energy demands and provide building blocks for biosynthesis.
+LeuRS activates the mTORC1 pathway, which controls translation and autophagy.
+Cancer cells utilize the mTORC1 pathway to proliferate more efficiently.
+The mTORC1 pathway also causes phosphorylation of EPRS and the release of it from the MSC.
+In adipocytes, released EPRS interacts with FATP1 and directs it to the plasma membrane.
+Inhibition of FATP1 leads to increased cell viability in breast cancer cell lines, and its expression correlates with decreased patient survival in triple negative breast cancer \cite{mendes2019unraveling}.
+
+\subsection{AIMPs in cancer}
+As well as the association between aaRSs and cancer, AIMPs have also been shown to play a role in signalling pathways relevant to numerous cancers.
+The MSC-bound aaRSs seem to predominantly promote tumorigenic functions when released from the MSC.
+In contrast, the AIMPs bound with them seem to have more tumour-suppressive effects.
+AIMP2 has been shown to be a potent tumour suppressor, working via key regualtors in the p53, c-Myc, Wnt, TGF-$\beta$ and TNF-$\alpha$ signalling pathways.
+Loss of a single allele of AIMP2 in mice resulted in a far higher susceptibility to tumour formation \cite{choi2009multidirectional}.
+AIMP1 has also demonstrated tumour-suppressive effects.
+In mouth xenograft models, administered AIMP1 was found to reduce tumour volume \cite{han2010antitumor, lee2006antitumor}.
+AIMP1 has been shown to induce apoptosis of endothelial cells, such that it supresses tumour vascularization \cite{park2002dose}; it also stimulates anti-tumour immune responses, for example activating natural killer (NK) cells via macrophages, dramatically reducing lung metastasis of melanoma cells \cite{kim2017aminoacyl}.
+AIMP3 activates the tumour-suppressor gene p53 following DNA damage or oncogenic stress.
+Loss of an AIMP3 allele results in higher susceptibility to spontaneous tumour formation \cite{park2005haploinsufficient}.
+
+
+\section{aaRSs as therapeutic targets}
+aaRSs are considered very attractive drug-targets.
+Initially the interest in aaRSs as therapeutic targets arose with the detection of differences between prokaryotic and eukaryotic aaRSs.
+Thus, enabling specific targeting of microbial aaRSs with minimal effect on the homologous human aaRSs, making aaRS inhibitors attractive anti-microbial candidates.
+In the 1990s, Mupirocin (brand name Bactroban) was approved as an antibiotic for the topical treatment of bacterial skin infections.
+Mupirocin selectively inhibits bacterial IleRS, by simultaneously occupying the isoleucine and AMP binding sites and inhibiting aminoacylation \cite{hurdle2005prospects}.
+Mupirocin has shown high selectivity for bacterial IleRS over mammalian IleRS (greater than 8000 fold) \cite{hughes1980interaction}.
+This conferred selectivity seems to be due to only a two-amino acid residue difference in the active site of eukaryotic and prokaryotic IleRS \cite{nakama2001structural}. Another example is Kerydin (Tavaborole or AN2690), an anti-fungal used to treat onychomycosis, which targets fungal LeuRS.
+Kerydin is a boron-containing compound (Benzoxaborole) and the first drug to target an aaRS editing site.
+The boron atom of Kerydin binds to the terminal tRNAleu ribose, trapping tRNAleu in the editing site and causing a non-productive enzyme conformation, which inhibits protein biosynthesis. [[REF]]
+
+
+\subsection{Parasites}
+On top of the success of the druggability of aaRS enzymes for bacterial and fungal infections, aaRSs have also showed promise as an anti-parasitic target.
+Much like cancer, parasites are extremely reliant on protein synthesis to keep up with rapid cell growth and continuous proliferation, so are likely to be more sensitive to disruptions to aminoacylation.
+Additionally, the evolutionary distance between parasitic aaRSs and human aaRSs is quite large, in fact several parasites have bacterial-like protein translation pathways, not shared by humans \cite{pham2014aminoacyl}.
+Numerous aaRSs have previously shown promise as targets for anti-parasitic agents.
+Several naturally occurring compounds target the AsnRS site of parasites, such as \textit{Brugia malayia}, a nematode which causes Lympathic Filariasis.
+\textit{Trypanosoma brucei} has also been shown to be susceptible to aaRS inhibition, for example by Benzoxaboroles targeting LeuRS, or by Aminoquinoles and
+Benzimidazoles targeting MetRs.
+The parasite \textit{Plasmodium falciparum} has been shown to be affected by numerous aaRS inhibitors, including Mupirocin, Cladosporin and Febrifugine derivatives.
+
+\subsection{Febrifugine and its derivatives}
+Dichroa febrifuga has been used for centuries in Chinese medicine as an antimalarial remedy, it is considered one of the 50 fundamental herbs.
+In 1948, two quinazoline alkaloids, named Febrifugine (FF) and Isofebrifugine, were first isolated from the plant Dichroa febrifuga (Figure \ref{fig:FF_IF_HF}) \cite{koepfli1949alkaloids}, as part of a directive to find new anti-malarials from plant sources.
+Although Febrifugine has excellent anti-parasitic activity, it also has strong liver and gastrointestinal toxicity, limiting its use as a widespread therapeutic.
+This motivated the generation of Febrifugine derivatives with the hope of reducing off-target toxicity.
+The medical applications of the long-used traditional anti-parasitic agent Febrifugine and its derivatives have recently attracted much attention.
+Febrifugine derivatives have been used to treat malaria, fibrosis, inflammatory disease and cancer.
+
+%% Structures of FF IF and HF
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/lit_review/compound_sturctures.jpg}
+\caption[Prolyl-tRNA synthetase inhibitor chemical structures]{Chemical structures of prolyl-tRNA synthetase (ProRS/PARS1) inhibitors.
+Febrifugine and isofebrifugine were first isolated from Dichroa febrifuga in 1948.
+Halofuginone is a derivative of Febrifugine, first synthesized in 1967.
+}
+\label{fig:FF_IF_HF}\end{figure}
+
+\subsection{Halofuginone}
+One such analogue, a synthetic racemic halogenated derivative of Febrifugine, Halofuginone (HF; Figure \ref{fig:FF_IF_HF}), was synthesized in 1967 by American Cyanamid Company [zhang2017novel].
+Halofuginone was found to have the most potent anti-malarial activity of the FF analogues in vitro and affected all three stages of \textit{P. falciparum} (ring stages, trophozoites and schizonts) with equal speed, unlike many other chemicals with antimalarial effects.
+The addition of bromine on the quinazoline ring in HF was found not affect the antimalarial properties of FF, whilst lowering the cytotoxicity for host cells compared to FF.
+However, HF does still demonstrate some toxicity to the liver, among other side effects, including diarrhoea and vomiting [pines2015halofuginone].
+In an attempt to reduce the side effects of HF and increase the therapeutic window, trans-enantiomers (2R,3S / +)  and (2S,3R/ - ) of HF have been prepared.
+Although (-)-HF was found to have lower toxicity than its optical antipode, it was also found to be less efficacious than (+)-HF \cite{mordechay2021differential, linder20072r}.
+This suggests that the biological activity and mammalian toxicity of HF reside with the same enantiomer, therefore there is no advantage to using a specific enantiomer over the racemic mixture.
+
+Recently Halofuginone has been researched extensively in association with its applications to non-parasitic diseases.
+HF is FDA-approved as a feed additive for poultry to prevent coccidiosis from the protozoa \textit{coccidian}.
+HF has also received orphan drug status for scleroderma and Duchenne muscular dystrophy.
+HF has undergone clinical trials as a potential therapeutic in a number of conditions, including cancer \cite{halo2012clin, halo2012clin2}.
+
+\subsubsection{Halofuginone's mechanism of action}
+
+Until the last decade, the mechanism of action of Halofuginone was unclear, until two papers from 2009 \cite{sundrud2009halofuginone} and 2012 \cite{keller2012halofuginone} elucidated HF's target and downstream effects.
+Mouse TH17 cells were treated with HF or an inactive derivative, MAZ1310, for 3 or 6 hours and microarray analyses were performed.
+ATF4 target genes were found to be activated by HF expression, including Asns, Chop, eIF4Ebp, Gpt2, as well as amino acid transport genes, such as Slc6a9 and Slc7a3, both patterns that correspond with activation of the amino acid starvation response (AAR).
+Using western blots, the group also showed that GCN2 autophosphorylation was activated by HF treatment, further indicating HF activates the AAR pathway.
+This effect was not limited to TH17 cells, the AAR pathway was also activated by HF treatment in fibroblasts and epithelial cells \cite{sundrud2009halofuginone}.
+However, this paper did not reveal how HF activated the AAR.
+
+In 2012, the group demonstrated that HF and FF activate the AAR by competing with proline as potent inhibitors of tRNA\textsuperscript{pro} charging activity of EPRS1.
+Rabbit reticulocyte lysate (RRL) was used as an in-vitro translation system.
+Following supplementation with excess amino acids, only proline was shown to restore translation inhibited by HF in the RRL system.
+Moreover, HF-derivatives that were shown to be inactive in functional cell-based assays, such as MAZ1320, also lacked activity in the RRL assay.
+Together, this suggests that HF functionality is linked to blocking proline utilization.
+To further demonstrate that HF and FF affect proline utilization, the group synthesized DNAs encoding two epitope-tagged polypeptides, one encoding a proline-dipeptide (ProPep), the second encoding a proline-free peptide (NoProPep).
+HF and FF treatment prevented translation of ProPep, but had no effect on NoProPep translation \cite{keller2012halofuginone}.
+
+Next the group investigated the effect of HF on prolyl-tRNA charging and the bifunctional enzyme EPRS1 (comprised of GluRS and ProRS fused together).
+The addition of EPRS from purified-rat-liver reduced the sensitivity of RRL to HF.
+They then investigated the inverse using siRNA-mediated knockdown to reduce EPRS levels in lung fibroblasts.
+Lung fibroblasts have high levels of EPRS endogenously, so are quite resistant to HF treatment.
+The reduction of EPRS levels sensitized the cells to HF treatment and AAR pathway activation--- GCN2 autophosphorylation was induced as well as ATF4 response genes, such as CHOP and ASNS\@.
+Together this established for the first time that EPRS is a critical target of inhibition for HF and FF, through which the compounds elicit AAR activation.
+The group demonstrated that HF inhibits EPRS in a competitive fashion with proline at the prolyl-tRNA synthetase active site.
+HF binding is an ATP-dependent process.
+ATP directly locks onto and positions HF onto human ProRS so that one part of HF mimics bound proline and the other mimics the 3' end of bound tRNA\textsuperscript{pro} \cite{zhou2013atp}.
+Excess proline addition was shown to abrogate AAR activation and reversed the biological effects of HF \cite{keller2012halofuginone}.
+
+By binding the active site of ProRS, HF blocks proline from binding and inhibits ProRS enzymatic activity.
+This results in an intracellular build-up of unaminoacylated (uncharged) tRNA\textsuperscript{pro}s, mimicking the cellular state of proline deficiency, thus triggering the amino acid starvation response.
+Uncharged tRNAs bind to the protein kinase GCN2 and stimulates its dimerization and autophosphorylation.
+Activated GCN2 phosphorylates eukaryotic translation initiation factor 2A (eIF2$\alpha$), this leads to a reduction in most protein synthesis, whilst increasing translation of ATF4.
+ATF4 is a transcription factor of the cAMP response element binding protein (CREB) and induces the expression of many genes involved in the integrated stress response (for example DDIT3/CHOP), amino acid synthetases and transporters, aminoacyl tRNA synthetases, and autophagy regulators (figure \ref{fig:HF_AAR}) \cite{ye2015gcn2, sundrud2009halofuginone}.
+
+%% AAR and HF cartoon
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/lit_review/AAR.png}
+\caption[Halofuginone and the amino acid response diagram]{A diagram of Halofuginone's (HF) mechanism of action and relationship with the amino acid starvation response (AAR).
+HF binding with the catalytic site of prolyl-tRNA synthetase (ProRS) of the bifunctional aminoacyl-tRNA synthetase, EPRS, causes an accumulation of uncharged tRNAs, mimicking the same cellular environment as if the cell were amino acid deprived.
+Uncharged tRNAs bind to the cellular sensor GCN2 and cause it to autophosphorylate and activate.
+Activated GCN2 then phosphorylates eIF2-$\alpha$.
+eIF2-$\alpha$-p reduces global protein synthesis, except for mRNAs containing an upstream ORF cluster in their 5' untranslated region (UTR) which are efficiently translated upon eIF2-$alpha$ phosphorylation \cite{ye2015gcn2}, including the transcription factor ATF4.
+Upregulated ATF4 results in increased expression of many genes involved in stress responses (e.g. CHOP/DDIT3), amino acid metabolism, amino acid synthetases (e.g. ASNS) and aminoacyl tRNA synthetases.
+Figure created with Biorender.com
+}
+\label{fig:HF_AAR}\end{figure}
 %%
 
-The results from the screen can be seen in figure \ref{fig:compound_screen}.
-Six compounds, shown circled in red, were identified as compounds of interest.
-SGC-CBP30, TRIM24i, OF1 and GSK959 are bromodomain inhibitors, TMP269 is a HDAC inhibitor and TDOSI000054a (T54) is a methyl lysine binder.
-These compounds were of interest as they had little to no effect on WT cells and decreased cell viability of resistant cells in the presence of their respective proteasome inhibitor.
-This indicated that the compounds were not just killing cells with their own distinct mechanism of action, but instead seemed to be reversing proteasome inhibitor resistance and re-sensitising resistant AMO-1 cells to proteasome inhibitors.
-These compounds were then taken forwards and used to treat carfilzomib resistant AMO-1 cells (aCFZ) and bulk RNA-seq perform to try and understand their mechanism of action.
+\subsubsection{Halofuginone's downstream signalling pathways}
+--- TO FILL in ---
+To complete...
 
-%% Compound screen -- remake figure at some point.
-\begin{figure}[hp]
-\centering\includegraphics[width=0.9\textwidth]{figures/Introduction/python_jim_screening_heatmap_annotated.png}
-\caption[Epigenentic compound library screen]{Preliminary epigenetic compound library screen, previously performed in the lab by Dr James Dunford.
-138 epigenetic compounds were screened against proteasome inhibitor sensitive (WT) AMO-1 cells, carfilzomib resistant (aCFZ) and bortezomib resistant AMO-1 cells, in the presence of their respective proteasome inhibitor (+ 100\si{\nano\Molar} B/C ) and without (no B/C).
-Six compounds of interest were identified, circled in red in the figure.}
-\label{fig:compound_screen}
-\end{figure}
-%%
+\subsection{The application of Halofuginone in cancer}
+HF has exhibited anti-cancer effects in numerous studies and different cancers, including metastatic brain tumours, bladder carcinomas, prostate cancer, renal carcinomas, pheochromocytomas, hepatocellular carcinomas, esophageal squamous carcinomas, lung cancer and breast cancer \cite{abramovitch2004halofuginone, elkin1999inhibition, gavish2002growth, genin2008myofibroblasts, gross2003treatment, nagler2004suppression, wang2020significance, demiroglu2020anticarcinogenic, xia2018halofuginone}.
+HF has been shown to exert anti-cancer effects in numerous manners, including reducing tumour growth, reducing angiogenesis, activating autophagy and apoptosis, and disrupting the collagen network of tumours, among other mechanisms.
 
+\subsubsection{Halofuginone and multiple myeloma}
+As mentioned in section \ref{sec:MM}, multiple myeloma (MM) is an incurable cancer of plasma cells.
+Drug resistance is a massive problem in MM, with patients becoming resistant to drugs they've previously been treated with, cycling through treatment and relapse cycles.
+Therefore, identifying novel therapeutics for the treatment of MM is of critical importance.
 
+Following the success of HF treatment in numerous preclinical cancer studies and the phase II study of HIV-related Kaposi's sarcoma \cite{koon2011phase}, Leiba et al. (2012) investigated the treatment of HF in multiple myeloma, both in-vitro and in-vivo \cite{leiba2012halofuginone}.
+17 MM cells lines were treated for 48 hours with a range of HF concentrations.
+HF was shown to induce a reduction in cell viability in a dose-dependent manner across all 17 MM cell lines, with an IC\textsubscript{50} of approximately 100\si{\nano\Molar} in most cell lines.
+The effect of HF on primary cells was then investigated.
+CD138+ cells from BM samples from five MM patients and PBMCs from two healthy donors were treated with a range of HF concentrations.
+A greater dose-dependent reduction in cell viability was seen in the primary MM cells compared to the healthy PBMCs, with an IC\textsubscript{50} ranging from 101-253\si{\nano\Molar} for the MM cells.
+Demonstrating that, at this concentration range, HF specifically inhibits the viability of MM cells while having no significant effect on normal cells; this also gave a therapeutic window for HF in MM.
+Next, the group demonstrated that HF induces apoptosis in MM--- HF treatment triggered caspase 3, 8 and 9 activities in MM cell lines in a dose dependent manner; it increased the quantity of apoptotic cells (Annexin V-FITC apoptosis assay); it caused an accumulation of cells in sub G1 phase of the cell cycle, associated with DNA fragmentation; and it elevated expression of the heat shock protein Hsp-90.
+They also showed that exogenous IL-6 and IGF-1, which are central for MM growth and survival, did not rescue HF-induced cytotoxic effects on MM cell lines, indicating that paracrine MM cell growth and the BM environment are unlikely to reverse the biological effects of HF.
 
-Bromodomains (BRDs) are conserved modular protein-protein interaction domains.
-Primarily, BRDs recognise acetylated lysine (Lys) residues in histone tails.
-Proteins containing bromodomains are epigenetic regulators and regulate gene expression (on their own or as part of a larger complex) via chromatin remodelling, histone modification, histone recognition and transcriptional machinery regulation [REPHRASE].
-Proteins containing BRDs have frequently been seen to be dysregulated in cancer.
-The compound SGC-TRIM24 is a dual inhibitor that targets the bromodomains of TRIM24 and BRPF.
+The group also exhibited the anti-MM effects of HF in-vivo, using in a xenograft model of SCID mice injected with MM.1S cells.
+Once tumours reached sufficient size, mice were treated with either PBS or HF for five days a week for the duration of the experiment.
+HF treatment was found to inhibit tumour growth and increase overall survival compared to the control mice.
 
+From this study, it is clear HF is effective against MM, and could show promise as a potential line of therapy in MM\@.
+The group used MM cell lines, mouse models and primary BM samples from MM patients.
+However, the primary BM samples were compared against healthy donor's PBMC cells and not MM patients own non-myeloma cells, so only limited conclusions can be drawn about HF's specificity for MM cells over normal cells.
+Additionally, the cells were studied in isolation, the effect of HF on the MM immune microenvironment was not investigated.
+Also, the group did not show how HF was exerting its effect, whether, like in other studies HF, is activating the amino acid starvation response and inducing apoptosis, or working in some other way.
+AAR activation results in upregulated levels of the transcription factor ATF4.
+It would be interesting to explore the transcriptional landscape of MM cells and the tumour microenvironment following HF treatment, to see how AAR activation affects this.
 
-( cite: https://www.nature.com/articles/nrm.2016.143)
+\section{Conclusion and future directions}
+Considering aaRSs are such a highly conserved and ancient family of enzymes, it is surprising how much about their structure and function is still unknown.
 
-
-Bromodomains are ``readers'' that bind acetylated lysines in histone tails
-
-
-\subsection{Metabolic compound library screen}
+PROTACs...
