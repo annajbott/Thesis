@@ -167,9 +167,33 @@ The outer rings are responsible for docking to the 19S cap and for acting as a g
 \label{fig:proteasome_and_beta}
 \end{figure}
 
+\subsubsection{Mechanism of action}
+Of the seven proteasome $\beta$ subunits, only $\beta1$, $\beta3$ and $\beta5$ are proteolytically active (Figure \ref{fig:proteasome_beta_subunits}). Proteasome inhibitors are designed to target $\beta5$ as it has been shown as the rate limiting protease for proteasomal protein turnover \cite{besse2019proteasome}. Bortezomib reversibly co-inhibits $\beta5$ and $\beta1$ subunits, whilst carfilzomib irreversibly binds to $\beta5$, with greater selectivity than bortezomib, and at higher doses binds to $\beta2$ as well \cite{besse2019proteasome}.
+
+
+The precise downstream effects of $\beta$ subunit proteasome inhibition are not fully understood, however the unfolded protein response (UPR), NF-$\kappa$B signalling, JNK signalling, apoptotic factors and p53 are thought to be involved in the anti-MM effects \cite{kubiczkova2014proteasome}.
+Specifically, the action of the UPR has been demonstrated as an important mechanism in the anti-MM effect of PIs.
+MM cells secrete large amounts of monoclonal protein, leading to the rapid accumulation of  misfolded proteins within the endoplasmic-reticulum (ER) lumen.
+This results in heightened ER stress, which is compensated by the UPR by reducing global protein translation and up-regulating UPS machinery \cite{wallington2018resistance}.
+Therefore, by inhibiting the proteasome, fewer ubiquitin tagged proteins are degraded and more misfolded proteins accumulate in the ER lumen.
+ER stress is then further increased, causing the UPR to switch from a homeostatic, pro-survival system to a pro-apoptotic pathway \cite{kubiczkova2014proteasome, wallington2018resistance}.
+
+Another important mechanism for PI is the attenuation of NF-$\kappa$B signalling. I$\kappa$B$\alpha$, a specific endogenous inhibitor of the transcription factor NF$\kappa$B, is a protein degraded by the proteasome.
+Inhibition of the proteasome increases levels of I$\kappa$B$\alpha$, thereby abolishing NF$\kappa$B signalling.
+NF$\kappa$B is a key transcription factor in many cancers, contributing to overall tumour growth and chemoresistance.
+NF$\kappa$B has been shown to promote tumour cell proliferation, anti-apoptotic and angiogenic factors \cite{kale2012molecular}.
+
 \section{Drug resistance in multiple myeloma}
-...
-Lit review??
+Although PIs are extremely effective at killing MM cells initially, long-term treatment inevitably results in a drug-resistant relapse.
+Drug resistance is one of the biggest barriers in the treatment of MM.
+Patients follow a pattern of peaks and troughs of treatment cycles, remission and relapse, until all therapies have little effect.
+In order to overcome resistance and increase overall survival of MM patients, the molecular mechanisms of resistance to proteasome inhibitors needs to be understood. This  will aid in the design of novel therapies and inform better use of existing therapies.
+Previous studies on proteasome drug resistance have been performed and certain mechanisms and genes have been identified.
+For example, point mutations have been noted in the \textit{PSMB5} gene (coding for the $\beta5$ subunit of the proteasome), as well as and over-expression of the $\beta5$ subunit \cite{robak2018drug}.
+Other upregulated genes have been identified, for example \textit{ABCB1}, coding for P-glycoprotein, responsible for pumping various substrates out of the cell, often referred to as the multidrug resistant protein 1.
+\textit{XBP1}, involved in the UPR, has been seen to be downregulated in PI resistance \cite{robak2018drug}.
+Although many genes have been identified to be differentially expressed in drug resistant MM, the mechanism is not fully elucidated and further research is imperative in the progression of treatment for multiple myeloma.
+Identifying novel therapeutics effective against MM is of critical importance.
 
 %
 \clearpage % flush out floats before this. Very different section
@@ -339,9 +363,13 @@ For example, immobilized metal affinity chromatography (IMAC) can be used to enr
 \section{Summary}
 
 \section{Aims}
-This thesis aims to characterise the changes driving proteasome-inhibitor resistance in multiple myeloma and identify possible mechanisms of reversing resistance.
-Chapter \ref{ch:2-litreview} gives background to the project, it reviews the literature surrounding drug resistance in MM and outlines preliminary work performed in the lab, that birthed this project.
+This thesis aims to identify novel therapeutics with anti-MM properties, capable of overcoming acquired drug resistance in MM.
+Chapter \ref{ch:2-litreview} introduces the structure and function of aminoacyl-tRNA synthetases (aaRS).
+It then gives examples of aaRSs in disease and therapeutics that target aaRSs, focusing on the prolyl-tRNA synthetase inhibitor, Halofuginone (HF), and reviewing literature of HF's application, particularly in multiple myeloma.
 Chapter \ref{ch:3-methods} outlines the methodology used in this work.
 Chapter \ref{ch:4-Pipelines} outlines the computational workflows generated to support this work and gives the results of a benchmark conducted to analyse the effectiveness of a computational pipeline developed.
-Chapter \ref{ch:5-results_dose} describes how a lead epigenetic compounds was selected, analysing results from bulk RNA-seq data and validating previous compound screen results with dose response curves.
-Chapter \ref{ch:6-results_omics} delves deeper into the drivers of changes in drug resistance and the mechanism of action of TRIM24i on resistant cells by looking at an array of multi-omics data.
+Chapter \ref{ch:5-bulk} investigates the use of ProRS inhibitors in PI-sensitive and PI-resistant MM cell lines.
+Bulk-RNA seq is employed and the transcriptional landscape following ProRS treatment is characterised.
+Chapter \ref{ch:6-sc} investigates ProRS inhibitor treatment of primary BM samples from MM patients at the single cell level.
+Newly-diagnosed and relapsed MM patient tissue is assessed.
+Chapter \ref{ch:7-trna} describes the changes seen in tRNA ... following ProRS inhibition. 
