@@ -278,9 +278,31 @@ There are many types of RNA, such as messenger RNA (mRNA), transfer RNA (tRNA), 
 RNA-seq is frequently used to study the transcriptome (outlined in section \ref{subsec:rna-seq-intro}).
 
 \subsection{The proteome}\label{subsec:translation}
-Translation...
+The proteome is the entire set of proteins that is or can be expressed by an organism.
+mRNAs are translated into protein molecules.
+mRNA is made up of only four different nucleotides, but proteins are made up of 20 amino acids, therefore a direct one-to-one function matching nucleotides to amino acids is impossible.
+Instead, the sequence of mRNA is read in groups of three consecutive nucleotides, called a codon.
+4\textsuperscript{3} gives a possible 64 combinations, therefore some combinations map to the same amino acid (many-to-one function), or signal to terminate translation of the current protein, named a stop codon.
+This genetic code directs the translation from mRNA to protein.
+Translation takes place in the ribosome.
 
-CyTOF and LC-MS/MS are often used to examine the proteome (section \ref{subsec:cytof-intro} and section \ref{subsec:lcmsms-intro}).
+Codons on mRNA do not directly recognize their given amino acid, they require tRNA molecules that bind to both the codon on mRNA and the correct amino acid.
+tRNAs possess an anticodon, a set of three nucleotides complementary to a given codon.
+Firstly, tRNAs are coupled to their cognate amino acid.
+This reaction is catalysed by aminoacyl-tRNA synthetase (aaRS) enzymes.
+aaRSs attach amino acids to the 3' end of tRNA.
+Most cells have a specific aaRS for each amino acid.
+Once the tRNA is charged with the correct amino acid, the tRNA molecule binds to its complementary codon on mRNA.
+Subsequent aminoacylated tRNA molecules bind to mRNA codons.
+A polypeptide chain grows by stepwise addition of amino acid to the C-terminal end.
+The formation of the new peptide bond between amino acids releases the tRNA molecule.
+The peptide chain grows until a stop codon is reached and synthesis of the current protein is complete.
+
+Protein translation is partly regulated by availability of mRNAs, but it also depends on other factors such as RNA silencing and post-transcriptional modifications.
+Proteins have a large array of functions, such as transporting small molecules, catalysing reactions, cell-cell signalling and providing structural support.
+
+Proteomics is the study of the proteome.
+CyTOF and LC-MS/MS are techniques often employed to examine the proteome. %(section \ref{subsec:cytof-intro} and section \ref{subsec:lcmsms-intro}).
 
 \subsection{RNA-seq}\label{subsec:rna-seq-intro}
 Modern RNA sequencing (RNA-seq) implements next generation sequencing (NGS) technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
@@ -372,4 +394,4 @@ Chapter \ref{ch:5-bulk} investigates the use of ProRS inhibitors in PI-sensitive
 Bulk-RNA seq is employed and the transcriptional landscape following ProRS treatment is characterised.
 Chapter \ref{ch:6-sc} investigates ProRS inhibitor treatment of primary BM samples from MM patients at the single cell level.
 Newly-diagnosed and relapsed MM patient tissue is assessed.
-Chapter \ref{ch:7-trna} describes the changes seen in tRNA ... following ProRS inhibition. 
+Chapter \ref{ch:7-trna} describes the changes seen in tRNA ... following ProRS inhibition.
