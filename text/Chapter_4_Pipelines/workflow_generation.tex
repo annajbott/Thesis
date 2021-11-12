@@ -85,7 +85,7 @@ The resulting Alevin output folder was used as input for Minnow, using Minnow's 
 Minnow generates droplet-based scRNA-seq simulated reads, working backwards from a known counts matrix to generating raw sequencing files from which the counts matrix could have originated.
 The valid cell barcode list (whitelist) for 10X chemistry was used (\textit{737K-august-2016.txt}\footnote{\url{https://github.com/COMBINE-lab/minnow/blob/master/data/737K-august-2016.txt}}).
 Minnow was ran with an error rate of 0.001 and with 12 simulated PCR cycles.
-Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix. \\
+Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix.
 
 The ground-truth counts matrix was converted to a Single Cell Experiment object (SCE) and the simulated reads were used as input for the scRNA-Seq pseudoalignment pipeline.
 The resulting count matrices outputted by Salmon Alevin and Kallisto BUS were converted into SCEs, subset and reordered so that they all contained the same cells and genes, in the same order.
@@ -258,6 +258,4 @@ In combination with clustering analysis, the trajectory of a single-cell can be 
 
 %Another RNA velocity workflow has been created\cite{melsted2019modular}, which implements Kallisto BUS and the BUStools command `capture'. This approach will also be explored, as it boasts far superior run time and requires no large bam intermediate files. This could then also be incorporated within the same pipeline as the generation of a counts matrix with very few extra tasks required.
 
-\section{ATAC-seq analysis pipeline}
-
-\section{tRNA-seq analysis pipeline}
+%\section{ATAC-seq analysis pipeline}

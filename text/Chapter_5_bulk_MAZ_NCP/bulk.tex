@@ -37,14 +37,32 @@ More PRS inhibitors have been synthesized by the group, including MAZ1805 (Halof
     \label{fig:ralph_diagrams}
 \end{figure}
 
-
+% Flush figures
+\clearpage
 
 \section{Results}
 
 \subsection{Dose response curves}
 The effect of the PRS inhibitors (NCP22, NCP26, Halofuginol and Halofuginone) on MM cell viability was investigated using the MM cell lines: AMO-1 and CFZ-R L363.
 
-\subsection{Synergy with existing MM treatment}
+\subsection{Synergy with existing MM treatment}\label{subsec:synergy}
+To assess if NCP26 and carfilzomib were synergistic, AMO-1 cells were treated with varying concentrations of NCP26 and Carfilzomib for 72 hours, then presto blue assays were performed to determine cell viability (see figure \ref{fig:synergy}).
+SynergyFinder \cite{zheng2021synergyfinder} was used to calculate the compounds' synergy scores (-4.66 ZIP; -4.18 Loewe; -5.53 Bliss).
+From these values it is unlikely that NCP26 and Carfilzomib work together synergistically.
+NCP26 and carfilzomib seem to have an additive effect together, or slight antagonistic effect.
+This reflects a previous result where Halofuginone showed moderate antagonism with bortezomib \cite{leiba2012halofuginone}.
+
+% synergy figure
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Results/Transcriptomics/synergy.jpg}
+\caption[NCP26 and carfilzomib synergism]{Investigating potential synergy between NCP26 and carfilzomib.
+AMO-1 cells were treated with varying concentration combinations of NCP26 and carfilzomib for 72 hours, then cell viability was determined using presto blue assays.
+\textbf{A)} Dose response curves for NCP26 with different carfilzomib concentrations.
+\textbf{B)} Matrix view of NCP26 and Carfilzomib concentration responses.
+}
+\label{fig:synergy}\end{figure}
+%%
 
 \subsection{Bulk RNA-seq}
 

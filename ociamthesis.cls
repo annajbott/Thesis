@@ -468,13 +468,14 @@
 \renewcommand{\chapterheadstartvskip}{\vspace*{40pt}}
 \renewcommand{\chapterheadendvskip}{\vspace{30pt}}
 
+%\setlength{\parskip}{\baselineskip}%
+%\setlength{\parindent}{0pt}%
+
 %\renewcommand*{\sectfont}{\bfseries}
 \renewcommand*{\chapnumfont}{%
   \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{35}{90}\selectfont% Default: 100/130 - first number = number size, second = distance down page
   \color{chaptergrey}%
 }
-
-
 
 % JEM: combine all of the commands you run before appendices start
 \newcommand{\startappendices}
