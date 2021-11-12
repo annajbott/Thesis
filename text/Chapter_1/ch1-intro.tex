@@ -202,7 +202,7 @@ Identifying novel therapeutics effective against MM is of critical importance.
 It has been shown that changes in the genome, transcriptome, epigenome and proteome all contribute to acquired-drug resistance in myeloma.
 Therefore, to sufficiently investigate the multiple layers driving this development of resistance, a multi-omics approach must be employed.
 
-\subsection{DNA and the genome}
+\subsection{DNA and the genome}\label{subsec:dna}
 The genome is the genetic material of an organism, it consists of deoxyribonucleic acid (DNA).
 DNA consists of two polynucleotide chains (or strands), running anti-parallel to each other, held together in a double helix structure by hydrogen bonds.
 Nucleotides are composed of a five-carbon sugar (deoxyribose for DNA), attached to one or more phosphate group (a single phosphate group in the case of DNA) and a nitrogenous base.
@@ -264,8 +264,28 @@ A technique called whole genome sequencing (WGS) can be used to determine the se
 
 \subsection{The epigenome}
 Epigenetics is the study of any heritable phenotypic changes that do not involve alterations of the DNA sequence itself.
+These changes occur at the chromatin level.
 Epigenetic changes include histone modifications, DNA methylation and chromatin remodelling.
-These changes occur at the chromatin level and include DNA methylation, histone modification, and chromatin remodelling. These epigenetic changes are described in more detail below:
+%These epigenetic changes are described in more detail below.
+
+DNA methylation is the addition of methyl groups to the C5 position of cytosines in DNA.
+This happens extensively at CpG sites (cytosine followed by a guanine).
+Stretches of DNA with a high CpG ratio (CpG islands) are often found in the promoter region of genes.
+Increased DNA methylation at CpG islands results in transcriptional silencing of those genes.
+Genome wide DNA methylation is often examined using DNA-methylation-seq or DNA methylation microarrays.
+
+DNA wraps tightly around histones (section \ref{subsec:dna}), they contribute to the tight packaging of DNA.
+Histone modifications are post-translational modifications.
+They include methylation, acetylation, phosphorylation, ubiquitination and sumoylation.
+Histone modifications affect transcriptional activity either by directly influencing the structure of chromatin and DNA accessibility or by regulating binding of effector molecules to `read' histone marks to mediate downstream biological effects.
+Histone modifications also regulate DNA processes, such as repair, replication and recombination \cite{ bannister2011regulation}.
+Chip-seq can be used to investigate and measure various post-translational histone modifications.
+
+Chromatin remodelling is the process of modifying chromatin architecture to regulate the accessibility of DNA.
+Gene expression is regulated by allowing certain gene regions better access to transcription machinery.
+This is achieved by ATP-dependent chromatin-remodelling complexes moving, ejecting or restructuring nucleosomes.
+ATAC-seq can be used to identify accessible DNA regions.
+
 
 \subsection{The transcriptome}
 Transcription is the first of many steps in gene expression.
@@ -344,7 +364,7 @@ The libraries are then amplified using PCR and cleaned-up, ready for sequencing.
 \subsubsection{Single-cell RNA-seq}
 Single-cell RNA-seq (scRNA-seq) measures gene expression for each individual cell across a population of cells and therefore provides information on clonal diversity that may be lost when pooling cells into bulk samples.
 Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-seq techniques, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization} and inDrops\cite{klein2015droplet}.
-scRNA-seq library preparation shares many steps with bulk RNA-seq workflow, however preliminary steps are required to isolate single cells and track them (??/ barcode) individually.
+scRNA-seq library preparation shares many steps with bulk RNA-seq workflow, however preliminary steps are required to isolate single cells and barcode reads that originated from the cell.
 
 For droplet-based scRNA-seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
 Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
