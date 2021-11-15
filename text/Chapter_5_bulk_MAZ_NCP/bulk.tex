@@ -8,54 +8,87 @@ Most MM patients relapse and become resistant to drugs they have previously been
 Therefore, research into novel therapeutics that can overcome multi-drug resistance and can be used to treat relapsed patients is of great importance.
 A new exciting class of compounds in treating MM have been derived from Febrifugine.
 Febrifugine was first isolated from the Chinese herb Dichroa febrifuga, considered and important herb in traditional Chinese medicine, shown to have antimalarial effects.
-One such derivative, Halofuginone, has been shown to inhibit T Helper 17 (TH17) cell differentiation, by activating the amino acid response (AAR)[73]. Halofuginone inhibits the enzyme glutamyl-prolyl tRNA synthetase (EPRS).
+One such derivative, Halofuginone (HF), has been shown to inhibit T Helper 17 (TH17) cell differentiation, by activating the amino acid response (AAR)\cite{sundrud2009halofuginone}.
+Halofuginone inhibits the enzyme glutamyl-prolyl tRNA synthetase (EPRS).
 EPRS is a bifunctional aminoacyl-tRNA synthetase (AARS) and catalyses the the aminoacylation of glutamic acid and proline tRNA species (i.e. it charges tRNAs with glutamic acid and proline).
-Halofuginone and Febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utilisation of proline during translation[74].
-This results in an accumulation of uncharged prolyl-tRNAs, giving the same cellular environment as if the cell were proline deficient, triggering the AAR to respond to the apparent proline deprived state.
+Halofuginone and Febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utilisation of proline during translation\cite{keller2012halofuginone}.
+This results in an accumulation of uncharged tRNA\textsuperscript{pro}s, giving the same cellular environment as if the cell were proline deficient, triggering the AAR to respond to the apparent proline deprived state.
 
 AARSs are essential in protein synthesis, aiding in building chains of amino acids.
-Human cancer cells often have an increased rate of protein synthesis, this is especially true in multiple myeloma, creating huge amounts of non-functional paraproteins, therefore more reliant on AARSs. This is why MM was thought of as a good candidate for AARS inhibitor treatment.
-Previously, Halofuginone (HF) has shown anti-MM activity in vitro and in-vivo.
+Human cancer cells often have an increased rate of protein synthesis, this is especially true in multiple myeloma, creating huge amounts of non-functional paraprotein, therefore are more reliant on aaRSs.
+As discussed in chapter \ref{ch:2-litreview}, HF has previously shown anti-MM activity in vitro and in-vivo.
 HF induced cytotoxicity and apoptosis in numerous MM cell-lines and primary MM cells.
-HF was also shown to inhibit MM growth and prolong survival in a mouse xenograft MM model\cite{leiba2012halofuginone}.
+HF was also shown to inhibit MM growth and prolong survival in a mouse xenograft MM model.
+However, the mechanism by which HF exerted its affect was not elucidated, and it is not clear if the AAR plays a role in HF's effectiveness in MM.
 
-However, it has been shown that HF’s anti-MM effect can be reduced in the presence of excessive proline.
-Additionally, tumours have more proline than healthy cells <REF>.
-This means that HF has a very narrow therapeutic window.
-Recently, The Mazitschek group have synthesized numerous other compounds which also target the PRS site of EPRS. One such example, coined NCP26, binds to the ATP binding site of PRS and does not compete with proline for the proline site of PRS.
-More PRS inhibitors have been synthesized by the group, including MAZ1805 (Halofuginol) and NCP22.
+It has also been shown that HF's anti-MM effect can be reduced in the presence of excessive proline.
+Tumours have more proline than healthy cells <REF>.
+This means that HF has a very narrow therapeutic window, and exhibits many side effects.
 
 % Ralph drug drawing
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Results/ralph_figure.png}
-    \caption[Halofuginone and NCP26 structures]{Figure by Ralph Mazitschek, kindly agreed (GET PERMISSION).
-    The structures of Halofuginone/MAZ1392 (A) and NCP26 (B).
-    Halofuginone is ATP dependent, proline and tRNA competitive.
-    NCP26 is ATP competitive and proline uncompetitive.
+    \caption[Halofuginone and NCP26 structures]{Diagrams of Halofuginone/MAZ1392 (A) and NCP26 (B) and their chemical structures.
+    Halofuginone is an ATP dependent, proline and tRNA competitive ProRS inhibitor.
+    NCP26 is an ATP competitive and proline uncompetitive ProRS inhibitor.
+    Aminoacylation is an ATP-dependent process, requiring ATP to activate amino acids
+    Figures by Ralph Mazitschek (GET PERMISSION).
     }
     \label{fig:ralph_diagrams}
 \end{figure}
 
+Recently, The Mazitschek group have synthesized numerous other compounds which target the ProRS site of EPRS.
+One such example, NCP26 (figure \ref{fig:ralph_diagrams}), binds to the ATP binding site of PRS and does not compete with proline for the proline site of PRS.
+NCP26 will hopefully alleviate the issues of HF\@.
+More PRS inhibitors have been synthesized by the group, including NCP22.
+
 % Flush figures
 \clearpage
 
-\section{Results}
+\section{Assay results}
 
-\subsection{Dose response curves}
-The effect of the PRS inhibitors (NCP22, NCP26, Halofuginol and Halofuginone) on MM cell viability was investigated using the MM cell lines: AMO-1 and CFZ-R L363.
+\subsection{Halofuginone and NCP26 are cytotoxic to drug sensitive and drug resistant MM cell lines in a dose-dependent manner}
+The effect of the PRS inhibitors NCP22, NCP26, MAZ1805 (Halofuginol) and MAZ1392 (Halofuginone) on cell viability was investigated using the MM cell lines AMO-1 and L363 CFZ-r.
+The cell lines were treated with a range of concentrations of each compound (3.9\si{\nano\Molar}- 1\si{\micro\Molar}).
+Cell viability was assessed using presto-blue assays (section \ref{subsec:method_doseresponse}), and dose response curves were generated (Figures \ref{fig:dose}A and C).
+Halofuginone and NCP26 reduced cell viability of PI-sensitive AMO-1 cells and carfilzomib resistant L363 cells in a dose-dependent fashion.
+For this concentration range, MAZ1805 and NCP22 seemed to have little effect on cell viability of WT or CFZ-r cells, and IC50 values were unable to be calculated.
+Halofuginone was found to be more cytotoxic/potent(??) than NCP26.
 
-\subsection{Synergy with existing MM treatment}\label{subsec:synergy}
-To assess if NCP26 and carfilzomib were synergistic, AMO-1 cells were treated with varying concentrations of NCP26 and Carfilzomib for 72 hours, then presto blue assays were performed to determine cell viability (see figure \ref{fig:synergy}).
+% dose response figure
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Results/dose_response/MAZ_ncp_wt_cfz.jpg}
+\caption[PRS inhibitor dose response curves]{Multiple myeloma (MM) cell lines treated with PRS inhibitors- MAZ1392 (Halofuginone), MAZ1805, NCP26 and NCP22.
+MM cell lines were treated for 48 hours with a range of concentrations (3.91\si{\nano\Molar}-1\si{\micro\Molar}) of PRS inhibitors.
+A) and C) Dose response curves.
+A) and B) WT AMO-1 cells.
+C) and D) Carfilzomib resistant L363 cells.
+B) and D) Proportion of cells viable after 48 hours of 1\si{\micro\Molar} treatment with each agent. }
+\label{fig:dose}
+\end{figure}
+%%
+
+For WT AMO-1 cells, Halofugione had an IC\textsubscript{50} of 141.8nM and NCP26 an IC\textsubscript{50} of 502nM. For CFZ-r cells, Halofuginone had an IC50 of 1185nM, NCP26's IC\textsubscript{50} for CFZ-r was ambiguous, a higher stock concentration would be required for calculation.
+Figure \ref{fig:dose}B and D show the proportion of viable cells following 48 hours of treatment of the PRS inhibitors.
+WT AMO-1 cells were found to be more sensitive to NCP26 and Halofuginone treatment than carfilzomib resistant L363 cells.
+This may indicate some acquired cross-resistance built up from carfilzomib exposure.
+
+\subsection{Carfilzomib and NCP26 have an additive or mild antagonistic effect together}\label{subsec:synergy}
+Drug combinations have proved effective in MM in recent years, for example the combination of bortezomib, lenalidomide, and dexamethasone (VRd) is used extensively for newly diagnosed MM patients.
+Drugs are often used in combination so that outcomes are improved (synergistic efficacy) or to reduce off-target effects and toxicity by minimizing the doses of the drugs (synergistic potency) \cite{meyer2019quantifying}.
+
+To assess if NCP26 and carfilzomib work together synergistically, AMO-1 cells were treated with varying concentrations of NCP26 and Carfilzomib for 72 hours, then presto blue assays were performed to determine cell viability (see figure \ref{fig:synergy}).
 SynergyFinder \cite{zheng2021synergyfinder} was used to calculate the compounds' synergy scores (-4.66 ZIP; -4.18 Loewe; -5.53 Bliss).
 From these values it is unlikely that NCP26 and Carfilzomib work together synergistically.
 NCP26 and carfilzomib seem to have an additive effect together, or slight antagonistic effect.
-This reflects a previous result where Halofuginone showed moderate antagonism with bortezomib \cite{leiba2012halofuginone}.
+This reflects a previous result where HF demonstrated moderate antagonism with the bortezomib \cite{leiba2012halofuginone}.
 
 % synergy figure
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/Results/Transcriptomics/synergy.jpg}
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/synergy.jpg}
 \caption[NCP26 and carfilzomib synergism]{Investigating potential synergy between NCP26 and carfilzomib.
 AMO-1 cells were treated with varying concentration combinations of NCP26 and carfilzomib for 72 hours, then cell viability was determined using presto blue assays.
 \textbf{A)} Dose response curves for NCP26 with different carfilzomib concentrations.
@@ -64,11 +97,47 @@ AMO-1 cells were treated with varying concentration combinations of NCP26 and ca
 \label{fig:synergy}\end{figure}
 %%
 
-\subsection{Bulk RNA-seq}
+% Flush figures
+\clearpage
+
+\section{Bulk RNA-seq}
 
 \subsection{Experiment overview}
-The treatment of drug sensitive and carfilzomib resistant MM cell-lines with four compounds that inhibit  the  prolyl-tRNA  synthetase  active  site  of  EPRS  was investigated using bulk RNA-seq.
-PI-sensitive WT AMO-1 cells and carfilzomib resistant L363 cells (check batch 1 type- are they L363 or AMO-1) were treated with 1\si{\micro\Molar} of MAZ1392 (Halofuginone), NCP26, NCP22 and MAZ1805 or a DMSO control or 100\si{\nano\Molar} Carfilzomib (WT cells only) for 6 and 24 hours.
+The transcriptome of drug-sensitive and drug-resistant MM cells treated with four ProRS inhibitors was investigated using bulk RNA-seq.
+PI-sensitive WT AMO-1 cells and carfilzomib resistant L363 cells (CFZr) were used.
+Cells were treated for 6 and 24 hours with a DMSO control, or 1\si{\micro\Molar} of a ProRS inhibitor (MAZ1392 (Halofuginone), NCP26, NCP22 and MAZ1805 (Halofuginol)).
+WT cells were also treated with 100\si{\nano\Molar} carfilzomib.
+CFZr cells were treated in the presence of 100\si{\nano\Molar} carfilzomib.
+The computational workflow for bulk RNA-seq analysis is outlined in section ...
+
+\subsection{Clustering}
+
+% bulk clustering figure
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_maz_ncp_wt_cfz.jpg}
+\caption[Bulk RNA-seq sample clustering]{Bulk RNA-seq sample clustering.
+WT AMO-1 cells and CFZr L363 cells treated for 6 or 24 hours with a DMSO control, 100nM carfilzomib or 1uM of a PRS inhibitor (MAZ1392/Halofuginone, MAZ1805/Halofuginol, NCP26 and NCP22).
+Clustering analysis of sample-sample distances (A, D and F) and principal component analysis (PCA; B, E and G).
+A) and B) both cell types (WT and CFZr) displayed; D) and E WT AMO-1 only; F) and G) CFZr samples only.
+}
+\label{fig:clustering_bulk}\end{figure}
+%%
+
+Figure \ref{fig:clustering_bulk} shows clustering analysis of the samples.
+Figure \ref{fig:clustering_bulk} A and B show the samples distinctly separate into respective cell types, and this makes up the majority (69\%) of the variance in the dataset.
+Therefore, the different cell types (WT and CFZr) were separated and the datasets analysed individually.
+The less active compounds from IC\textsubscript{50} data, MAZ1805 and NCP22, cluster closely with the DMSO-treated controls.
+The more active inhibitors, NCP26 and Halofuginone, cluster separately from DMSO controls and less active inhibitors, indicating they have elicited a stronger transcriptional response.
+At 6 hours NCP26 and Halofuginone cluster closely together.
+At 24 hours NCP26 and Halofuginone separate more.
+This may suggest that they work slightly differently in the cells, or this could just be reflecting the differences in their potency.
+
+In WT cells, carfilzomib clusters separately from DMSO and the less active inhibitors.
+At 6 hours, carfilzomib is separate from the NCP26 and Halofuginone cluster, but clusters closer at 24 hours.
+This could suggest an initial difference in mechanism of action and transcriptional response to the ProRS inhibitors, but culminating in a similar response as time progresses, such as cell stress and apoptosis markers.
+
+\subsubsection{Pathway analysis of principal components}
 
 \subsection{Effect of carfilzomib on WT cells}
 
