@@ -245,10 +245,45 @@ From the benchmark it seems as if both tools are fit for purpose and can accurat
 
 %\subsection{Comparison to published data using other methods..}
 
-\section{Updated scRNA-seq pipeline}
+\subsection{Updated scRNA-seq pipeline}
 Following the bench-mark it was decided that Kallisto BUS and BUStools would be used to analyse single-cell data.
 This was due to its faster run-time and higher F1 scores.
 The analysis pipeline has been updated continually throughout the project.
+The updated workflow is outlined in figure \ref{fig:updated_sc_workflow}.
+Each major task has been split into its own pipeline.
+The black arrows in Figure \ref{fig:updated_sc_workflow} denote a separate processing pipeline.
+This allows the user to analyse the output after each step, and make changes to parameters as they see fit.
+
+Following sequencing, raw FASTQ files are inputted into Kallisto bus.
+A bus file is generated along with corresponding information about equivalence classes and transcript names.
+Kallisto bustools is used to generate a cell by gene count matrix for each sample.
+These matrices are loaded into R and converted to Single cell experiment (SCE) and Seurat objects.
+Next, quality control (QC) is performed.
+Poor quality cells are removed based on numerous parameters.
+Cells with fewer than a set UMI number (the default is 500), cells with a very low or very high gene count (the default minimum and maximum is 300 and 6000, respectively), and cells with mitochondrial content over a certain ratio (the default is 0.1).
+This is a user-supervised process, which requires fine-tuning after inspecting graphs and quality metrics.
+Parameters can be altered and QC performed again.
+Following quality control, each sample is clustered individually by Seurat, then all samples are integrated together, by either Harmony or Seurat's SCTransform functionality.
+The integrated dataset is then annotated by cell type by the packages scClassfiy, singleR or clustfyr, in combination with a reference dataset or model.
+Often manual annotation by the user (using known biological markers) is required for finer annotation.
+The user can then perform further downstream analysis on the annotated integrated dataset, for example differential expression analysis and composition analysis.
+
+% updated scRNA-seq workflow figure
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/workflow_generation/sc_workflow_updated.jpg}
+\caption[Updated scRNA-seq workflow]{Outline of updated scRNA-seq workflow.
+Each black arrow denotes an independent pipeline.
+Following sequencing raw FASTQ files are processed by Kallisto bus and bustools and cell x gene count matrices are produced for each sample.
+Quality control (QC) is performed, based on a number of parameter thresholds.
+QC often requires user supervision to fun-tune the process.
+Seurat is then used to perform dimensionality reduction techniques and cluster samples individually.
+Harmony and Seurat are implemented to perform sample integration.
+The integrated dataset can then be annotated by cell type using packages cClassfiy, singleR or clustfyr, in combination with a reference dataset or model.
+The user can then perform further downstream analysis on the dataset, for example differential expression analysis.
+}
+\label{fig:updated_sc_workflow}
+\end{figure}
 
 \section{scRNA-Seq velocity analysis pipeline}
 

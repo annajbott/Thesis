@@ -91,18 +91,29 @@ The NEBNext Poly(A) mRNA Magnetic Isolation Module (NEB, USA) was used to enrich
 The molarities of the libraries were determined by electrophoresis on a TapeStation (Agilent, USA).
 
 \section{Single-cell RNA-seq}
-\subsection{Cell encapsulation}
+\subsection{Drop-Seq}
+
+\subsubsection{Cell encapsulation}
 The Drop-Seq protocol\cite{macosko2015highly} was followed for single-cell RNA-seq sample preparation.
 Cells were loaded into a microfluidics cartridge.
 Nadia, an automated microfluidics device (Dolomite Bio, UK), performed cell capture, cell lysis and reverse transcription.
-Reverse transcription reactions were performed using ChemGene beads or (ATDBio beads 2020 onwards!!!!! might need to change if reperform).
+Reverse transcription reactions were performed using ChemGene beads.
 
-\subsection{Library preparation}
+\subsubsection{Library preparation}
 Beads were collected from the device and cDNA amplification was performed.
 The beads were treated with Exo-I prior to PCR.
 The amplified, purified cDNA then underwent tagmentation reactions.
 A TapeStation (Agilent, USA) was used to assess library quality.
 The samples were pooled together and split across multiple sequencing runs.
+
+\subsection{10X Chromium V3}
+Bone marrow samples were collected from two newly diagnosed multiple myeloma patients and two relapsed multiple myeloma patients;
+anonymised human tissue samples used in this project were obtained with informed consent by the HaemBio Tissue Bank (REC reference: 17/SC/0572).
+After Ficoll gradient separation, mononuclear bone marrow cells were diluted to 500,000 cells/\ml{} in RPMI media supplemented with 2\si{\milli\Molar}
+L-glutamine and 10\% FBS and 1\ml{} was added to 15\ml{} polypropylene tubes.
+Compounds were dissolved in DMSO, and 1\ul{} of compound solution was added to achieve a final concentration of 1\si{\micro\Molar} and incubated for 24 hours.
+Cells were counted and single-cell RNA-seq library preparation was performed using the Chromium Next GEM Single Cell 3' GEM, Library and Gel Bead Kit v3.1 according to the manufacturer's instructions.
+Indexed libraries were quantitated by TapeStation, pooled and sequenced on an Illumina NovaSeq 6000 (Novogene, UK).
 
 
 \section{ATAC-seq}\label{sec:methods_atac}

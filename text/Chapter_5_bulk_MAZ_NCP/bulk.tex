@@ -136,9 +136,35 @@ This may suggest that they work slightly differently in the cells, or this could
 
 In WT cells, carfilzomib clusters separately from DMSO and the less active inhibitors.
 At 6 hours, carfilzomib is separate from the NCP26 and Halofuginone cluster, but clusters closer at 24 hours.
-This could suggest an initial difference in mechanism of action and transcriptional response to the ProRS inhibitors, but culminating in a similar response as time progresses, such as cell stress and apoptosis markers.
+This could suggest an initial difference in mechanism of action and transcriptional response to the ProRS inhibitors, but culminating in a similar response as time progresses, such as cell stress and apoptotic markers.
 
-\subsubsection{Pathway analysis of principal components}
+% PCA pathway figure
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_PCs_analysed.jpg}
+\caption[PCA pathway enrichment]{PCA pathway enrichment.
+Pathway enrichment analysis performed using REACTOME of top contributing genes from principal component analysis (PCA).
+A) WT AMO-1 dataset with carfilzomib-treated samples removed.
+PC1 seems to account for the separation between DMSO controls/ less active compounds and the more active ProRS inhibitors (NCP26 and Halofuginone).
+Genes contributing positively towards PC1 are upregulated in NCP26/ Halofuginone compared to controls/ less active compounds.
+Enriched pathways from top genes in PC1 shown beneath PCA plot.
+B) CFZr L363 dataset.
+PC2 seems to account for the separation between DMSO controls/ less active compounds and the more active ProRS inhibitors (NCP26 and Halofuginone).
+Genes contributing negatively towards PC2 (down arrow), are upregulated in NCP26/ Halofuginone compared to controls.
+Pathways enriched from top genes in PC2 shown beneath PCA plot.}
+\label{fig:pca_pathway}
+\end{figure}
+%%
+
+The principal components of the WT AMO-1 and CFZr datasets were examined more closely.
+Carfilzomib-treated samples were removed from the WT dataset, and differential expression, variance stabilising transformation and PCA was performed again.
+This was to ensure that the difference between controls and active ProRS inhibitors was captured in PC1 or PC2 following dimensionality reduction.
+Pathway enrichment analysis was performed for the top genes from the principal components accounting for the difference between controls and Halofuginone/NCP26 treatment (PC1 for WT cells, PC2 for CFZr cells; Figure \ref{fig:pca_pathway}).
+The pathways `ATF4 activates genes in response to ER stress', `Response of GCN2 to amino acid deficiency' and `cytosolic tRNA aminoacylation' were all enriched, suggesting that the amino acid response is activated.
+Additionally, genes involved in the cell cycle and G1/S transition contributed to this treatment-related separation.
+
+\subsection{Drug sensitive MM}
+
 
 \subsection{Effect of carfilzomib on WT cells}
 
