@@ -28,7 +28,7 @@ This means that HF has a very narrow therapeutic window, and exhibits many side 
 % Ralph drug drawing
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Results/ralph_figure.png}
+    \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/ralph_figure.pdf}
     \caption[Halofuginone and NCP26 structures]{Diagrams of Halofuginone/MAZ1392 (A) and NCP26 (B) and their chemical structures.
     Halofuginone is an ATP dependent, proline and tRNA competitive ProRS inhibitor.
     NCP26 is an ATP competitive and proline uncompetitive ProRS inhibitor.
@@ -59,7 +59,7 @@ Halofuginone was found to be more cytotoxic/potent(??) than NCP26.
 % dose response figure
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Results/dose_response/MAZ_ncp_wt_cfz.jpg}
+\includegraphics[width=0.9\textwidth]{figures/Results/dose_response/MAZ_ncp_wt_cfz.pdf}
 \caption[PRS inhibitor dose response curves]{Multiple myeloma (MM) cell lines treated with PRS inhibitors- MAZ1392 (Halofuginone), MAZ1805, NCP26 and NCP22.
 MM cell lines were treated for 48 hours with a range of concentrations (3.91\si{\nano\Molar}-1\si{\micro\Molar}) of PRS inhibitors.
 A) and C) Dose response curves.
@@ -88,7 +88,7 @@ This reflects a previous result where HF demonstrated moderate antagonism with t
 % synergy figure
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/synergy.jpg}
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/synergy.pdf}
 \caption[NCP26 and carfilzomib synergism]{Investigating potential synergy between NCP26 and carfilzomib.
 AMO-1 cells were treated with varying concentration combinations of NCP26 and carfilzomib for 72 hours, then cell viability was determined using presto blue assays.
 \textbf{A)} Dose response curves for NCP26 with different carfilzomib concentrations.
@@ -115,7 +115,7 @@ The computational workflow for bulk RNA-seq analysis is outlined in section ...
 % bulk clustering figure
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_maz_ncp_wt_cfz.jpg}
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_maz_ncp_wt_cfz.pdf}
 \caption[Bulk RNA-seq sample clustering]{Bulk RNA-seq sample clustering.
 WT AMO-1 cells and CFZr L363 cells treated for 6 or 24 hours with a DMSO control, 100nM carfilzomib or 1uM of a PRS inhibitor (MAZ1392/Halofuginone, MAZ1805/Halofuginol, NCP26 and NCP22).
 Clustering analysis of sample-sample distances (A, D and F) and principal component analysis (PCA; B, E and G).
@@ -141,7 +141,7 @@ This could suggest an initial difference in mechanism of action and transcriptio
 % PCA pathway figure
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_PCs_analysed.jpg}
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_PCs_analysed.pdf}
 \caption[PCA pathway enrichment]{PCA pathway enrichment.
 Pathway enrichment analysis performed using REACTOME of top contributing genes from principal component analysis (PCA).
 A) WT AMO-1 dataset with carfilzomib-treated samples removed.
@@ -165,15 +165,67 @@ Additionally, genes involved in the cell cycle and G1/S transition contributed t
 
 \subsection{Drug sensitive MM}
 
+\subsubsection{Differential expression}
+For WT cells at 6 hours, 2119 genes were differentially expressed (adjusted p value< 0.05 and log2FC > 0.5; DE) for NCP26 treated-samples, 3019 DE genes (DEGs) for Halofuginone, 33 DE genes for MAZ1805, 218 DE genes for NCP22, and 983 DE genes for carfilzomib-treated samples compared to DMSO controls.
+At 24 hours, NCP26-treated samples had 3323 DE genes, Halofuginone 3426, MAZ1805 2, NCP22 1, and carfilzomib 2260 DE genes compared to DMSO controls.
+DEGs for NCP26 and Halofuginone treatment are shown in figure xyz.
 
-\subsection{Effect of carfilzomib on WT cells}
+% DE volcano scatter WT %
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/WT/wt_de_volcano_scatter.jpg}
+\caption[Differentially expressed genes WT AMO-1 cells]{Differentially expressed genes (DEGs) for Halofuginone and NCP26 treated WT AMO-1 cells at 6 and 24 hours.
+Scatter plot of genes for 6 hours treated vs 24 hours treated.
+Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
+Volcano plots are also shown.
+Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC < -1).
+Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC > 1).
+Top DEGs are annotated with HGNC symbols.
+}
+\label{fig:wt_de}
+\end{figure}
+%%
 
-\subsection{WT AMO-1 cells}
+PATHWAY enrichment analysis...
+
+AAR genesets `GOBP RESPONSE TO AMINO ACID STARVATION', `REACTOME RESPONSE OF EIF2AK4 GCN2 TO AMINO ACID DEFICIENCY' and `KRIGE AMINO ACID DEPRIVATION' were collated from the Molecular Signatures Database (MSigDb).
+
+
+% AAR heatmap
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/WT/wt_halo_ncp26_aar_heatmap.pdf}
+\caption[Amino acid starvation response genes heatmap WT cells]{Amino acid starvation response (AAR) genes heatmap for WT cells.
+Differentially expressed genes (DEGs) from WT AMO-1 cells intersected with genes involved in the AAR.
+A list of known AAR genes was compiled by collating AAR genesets from the Molecular Signatures Database (MSigDb).
+}
+\label{fig:wt_de}
+\end{figure}
+%%
+
+
+\subsubsection{ProRS mechanism of action compared to the proteasome inhibitor carfilzomib}
+
+
 
 \subsection{Carfilzomib resistant cells}
 
 
-\subsection{Amino acid starvation response}
+% DE volcano scatter WT %
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_de_volcano_scatter.jpg}
+\caption[Differentially expressed genes CFZr L363 cells]{Differentially expressed genes (DEGs) for Halofuginone and NCP26 treated CFZr L363 cells at 6 and 24 hours.
+Scatter plot of genes for 6 hours treated vs 24 hours treated.
+Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
+Volcano plots are also shown.
+Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC < -1).
+Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC > 1).
+Top DEGs are annotated with HGNC symbols.
+}
+\label{fig:cfz_de}
+\end{figure}
+%%
 
 
 %\subsection{Difference between Halofuginone and NCP26}
