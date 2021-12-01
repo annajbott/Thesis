@@ -250,7 +250,7 @@ Following the bench-mark it was decided that Kallisto BUS and BUStools would be 
 This was due to its faster run-time and higher F1 scores.
 The analysis pipeline has been updated continually throughout the project.
 The updated workflow is outlined in figure \ref{fig:updated_sc_workflow}.
-Each major task has been split into its own pipeline.
+Each major task has been split into its own pipeline, each containing multiple minor tasks.
 The black arrows in Figure \ref{fig:updated_sc_workflow} denote a separate processing pipeline.
 This allows the user to analyse the output after each step, and make changes to parameters as they see fit.
 
@@ -271,7 +271,7 @@ The user can then perform further downstream analysis on the annotated integrate
 % updated scRNA-seq workflow figure
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/workflow_generation/sc_workflow_updated.jpg}
+\includegraphics[width=0.9\textwidth]{figures/workflow_generation/sc_workflow.pdf}
 \caption[Updated scRNA-seq workflow]{Outline of updated scRNA-seq workflow.
 Each black arrow denotes an independent pipeline.
 Following sequencing raw FASTQ files are processed by Kallisto bus and bustools and cell x gene count matrices are produced for each sample.

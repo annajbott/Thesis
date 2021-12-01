@@ -175,10 +175,26 @@ Using the expression of these markers, clusters 2, 7 and 13 were identified as t
 
 % Final product of annotation
 
+%% Final annotation
+\begin{figure}[hpt]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/naive_full_annotation.pdf}
+\caption[Newly-diagnosed MM scRNA-seq full annotation]{Fully annotated UMAP clustering analysis of two newly-diagnosed multiple myeloma (MM) patients.
+The MM cell population (circled), consists of three distinct clusters.}
+\label{fig:full_anno_naive}
+\end{figure}
+%%
+
+Figure \ref{fig:full_anno_naive} shows final cell-type annotation for the integrated newly-diagnosed MM patients.
+18 distinct clusters were identified with Seurat embeddings.
+The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
+Using the established MM biological markers (shown in figure \ref{fig:mm_markers_naive}), three distinct MM clusters (2, 7 and 13) were identified.
+
 \subsubsection{Composition}
-Cluster composition is shown in figures \ref{fig:composition_naive}.
-Large number of cells were killed by Halofuginone treatment at both 24 and 48 hours.
-Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected.
+Cluster composition analysis by treatment conditions is shown in figure \ref{fig:composition_naive}.
+Halofuginone treatment at both 24 and 48 hours reduced the proportion of cells in the MM cluster (p<0.00001) compared to DMSO.
+NCP26 treatment at 24 hours reduced the proportion of cells in the MM cluster (p<0.00001).
+Together with dose response curves and cell death assays, this suggests that Halofuginone and NCP26 are selectively killing MM cells to a higher degree than other cell types.
 
 %% SCT UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
@@ -192,6 +208,14 @@ Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected
 \label{fig:composition_naive}
 \end{figure}
 %%
+
+Halofuginone treatment and NCP26 48h treatment were also found to reduce the proportion of cells in the monocyte cluster (p<0.00001), indicating they may have some off-target effects on myeloid cells.
+
+All of the compounds were used at a concentration of 1\si{\micro\Molar}.
+This is approximately 10 times the concentration of Halofuginone's IC50 value on MM cell lines and two times NCP26's IC50 value...
+
+Large number of cells were killed by Halofuginone treatment at both 24 and 48 hours.
+Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected.
 
 \subsubsection{Differential expression}
 % Effect on MM cells

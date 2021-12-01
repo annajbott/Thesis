@@ -6,11 +6,14 @@
 Although MM treatment has improved significantly in the last 10-20 years, MM remains an incurable disease.
 Most MM patients relapse and become resistant to drugs they have previously been treated with.
 Therefore, research into novel therapeutics that can overcome multi-drug resistance and can be used to treat relapsed patients is of great importance.
-A new exciting class of compounds in treating MM have been derived from Febrifugine.
-Febrifugine was first isolated from the Chinese herb Dichroa febrifuga, considered and important herb in traditional Chinese medicine, shown to have antimalarial effects.
-One such derivative, Halofuginone (HF), has been shown to inhibit T Helper 17 (TH17) cell differentiation, by activating the amino acid response (AAR)\cite{sundrud2009halofuginone}.
+
+There is a new exciting class of compounds for the treatment of many diseases, including numerous cancers.
+This class of compounds are analogues of, and have been derived from the drug Febrifugine.
+Febrifugine is the biologically active component of the herb \textit{Dichroa febrifuga}, which is considered one of the fundamental herbs in traditional Chinese medicine.
+Febrifugine was shown to have strong anti-malarial effects.
+One such Febrifugine derivative, Halofuginone (HF), has been shown to inhibit T Helper 17 (TH17) cell differentiation, by activating the amino acid response (AAR)\cite{sundrud2009halofuginone}.
 Halofuginone inhibits the enzyme glutamyl-prolyl tRNA synthetase (EPRS).
-EPRS is a bifunctional aminoacyl-tRNA synthetase (AARS) and catalyses the the aminoacylation of glutamic acid and proline tRNA species (i.e. it charges tRNAs with glutamic acid and proline).
+EPRS is a bifunctional aminoacyl-tRNA synthetase (AARS) and catalyses the the aminoacylation of glutamic acid and proline tRNA species (such that it charges its cognate tRNAs with glutamic acid and proline).
 Halofuginone and Febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utilisation of proline during translation\cite{keller2012halofuginone}.
 This results in an accumulation of uncharged tRNA\textsuperscript{pro}s, giving the same cellular environment as if the cell were proline deficient, triggering the AAR to respond to the apparent proline deprived state.
 
@@ -29,18 +32,20 @@ This means that HF has a very narrow therapeutic window, and exhibits many side 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/ralph_figure.pdf}
-    \caption[Halofuginone and NCP26 structures]{Diagrams of Halofuginone/MAZ1392 (A) and NCP26 (B) and their chemical structures.
+    \caption[Halofuginone and NCP26 structures]{Diagrams of Halofuginone/MAZ1392 (a) and NCP26 (b) and their chemical structures.
     Halofuginone is an ATP dependent, proline and tRNA competitive ProRS inhibitor.
     NCP26 is an ATP competitive and proline uncompetitive ProRS inhibitor.
-    Aminoacylation is an ATP-dependent process, requiring ATP to activate amino acids
-    Figures by Ralph Mazitschek (GET PERMISSION).
+    Aminoacylation is an ATP-dependent process, requiring ATP to activate amino acids.
+    Figures by Ralph Mazitschek.
     }
     \label{fig:ralph_diagrams}
 \end{figure}
 
 Recently, The Mazitschek group have synthesized numerous other compounds which target the ProRS site of EPRS.
-One such example, NCP26 (figure \ref{fig:ralph_diagrams}), binds to the ATP binding site of PRS and does not compete with proline for the proline site of PRS.
-NCP26 will hopefully alleviate the issues of HF\@.
+One such example, NCP26 (figure \ref{fig:ralph_diagrams}), binds to the ATP binding site of ProRS, inhibiting utilization of ATP.
+NCP26 does not compete with proline for the active site of ProRS, unlike Febrifugine and Halofuginone.
+Aminoacylation is an ATP-dependent process so blocking ATP binding inhibits this process, and also leads to an accumulation of uncharged tRNA\textsuperscript{pro}s.
+NCP26 will hopefully alleviate the issues associated with HF treatment.
 More PRS inhibitors have been synthesized by the group, including NCP22.
 
 % Flush figures
@@ -62,10 +67,10 @@ Halofuginone was found to be more cytotoxic/potent(??) than NCP26.
 \includegraphics[width=0.9\textwidth]{figures/Results/dose_response/MAZ_ncp_wt_cfz.pdf}
 \caption[PRS inhibitor dose response curves]{Multiple myeloma (MM) cell lines treated with PRS inhibitors- MAZ1392 (Halofuginone), MAZ1805, NCP26 and NCP22.
 MM cell lines were treated for 48 hours with a range of concentrations (3.91\si{\nano\Molar}-1\si{\micro\Molar}) of PRS inhibitors.
-A) and C) Dose response curves.
-A) and B) WT AMO-1 cells.
-C) and D) Carfilzomib resistant L363 cells.
-B) and D) Proportion of cells viable after 48 hours of 1\si{\micro\Molar} treatment with each agent. }
+a) and c) Dose response curves.
+a and b) WT AMO-1 cells.
+c) and d) Carfilzomib resistant L363 cells.
+b) and d) Proportion of cells viable after 48 hours of 1\si{\micro\Molar} treatment with each agent.}
 \label{fig:dose}
 \end{figure}
 %%
@@ -118,15 +123,15 @@ The computational workflow for bulk RNA-seq analysis is outlined in section ...
 \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_maz_ncp_wt_cfz.pdf}
 \caption[Bulk RNA-seq sample clustering]{Bulk RNA-seq sample clustering.
 WT AMO-1 cells and CFZr L363 cells treated for 6 or 24 hours with a DMSO control, 100nM carfilzomib or 1uM of a PRS inhibitor (MAZ1392/Halofuginone, MAZ1805/Halofuginol, NCP26 and NCP22).
-Clustering analysis of sample-sample distances (A, D and F) and principal component analysis (PCA; B, E and G).
-A) and B) both cell types (WT and CFZr) displayed; D) and E WT AMO-1 only; F) and G) CFZr samples only.
+Clustering analysis of sample-sample distances (a, c and e) and principal component analysis (PCA; b, d and f).
+a) and b) both cell types (WT and CFZr) displayed; c) and d) WT AMO-1 only; e) and f) CFZr samples only.
 }
 \label{fig:clustering_bulk}\end{figure}
 %%
 
 Figure \ref{fig:clustering_bulk} shows clustering analysis of the samples.
 Figure \ref{fig:clustering_bulk} A and B show the samples distinctly separate into respective cell types, and this makes up the majority (69\%) of the variance in the dataset.
-Therefore, the different cell types (WT and CFZr) were separated and the datasets analysed individually.
+Therefore, the different cell types (WT and CFZr) were separated and analysed individually.
 
 The less active compounds from IC\textsubscript{50} data, MAZ1805 and NCP22, cluster closely with the DMSO-treated controls.
 The more active inhibitors, NCP26 and Halofuginone, cluster separately from DMSO controls and less active inhibitors, indicating they have elicited a stronger transcriptional response.
@@ -173,7 +178,7 @@ DEGs for NCP26 and Halofuginone treatment are shown in figure xyz.
 % DE volcano scatter WT %
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/WT/wt_de_volcano_scatter.jpg}
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/WT/wt_de_volcano_scatter.pdf}
 \caption[Differentially expressed genes WT AMO-1 cells]{Differentially expressed genes (DEGs) for Halofuginone and NCP26 treated WT AMO-1 cells at 6 and 24 hours.
 Scatter plot of genes for 6 hours treated vs 24 hours treated.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
@@ -188,9 +193,6 @@ Top DEGs are annotated with HGNC symbols.
 
 PATHWAY enrichment analysis...
 
-AAR genesets `GOBP RESPONSE TO AMINO ACID STARVATION', `REACTOME RESPONSE OF EIF2AK4 GCN2 TO AMINO ACID DEFICIENCY' and `KRIGE AMINO ACID DEPRIVATION' were collated from the Molecular Signatures Database (MSigDb).
-
-
 % AAR heatmap
 \begin{figure}[p]
 \centering
@@ -198,14 +200,31 @@ AAR genesets `GOBP RESPONSE TO AMINO ACID STARVATION', `REACTOME RESPONSE OF EIF
 \caption[Amino acid starvation response genes heatmap WT cells]{Amino acid starvation response (AAR) genes heatmap for WT cells.
 Differentially expressed genes (DEGs) from WT AMO-1 cells intersected with genes involved in the AAR.
 A list of known AAR genes was compiled by collating AAR genesets from the Molecular Signatures Database (MSigDb).
+The colour scale shows $\log_{2}$ fold change of expression for each treated sample, compared to its DMSO time control.
+Red indicates an upregulated gene and blue a downregulated gene.
 }
-\label{fig:wt_de}
+\label{fig:wt_aar_heatmap}
 \end{figure}
 %%
 
+AAR genesets `GOBP RESPONSE TO AMINO ACID STARVATION', `REACTOME RESPONSE OF EIF2AK4 GCN2 TO AMINO ACID DEFICIENCY' and `KRIGE AMINO ACID DEPRIVATION' were collated from the Molecular Signatures Database (MSigDb), making up a list of <XYZ number> unique genes.
+This list of AAR genes was intersected with genes that were differentially expressed for any of the ProRS inhibitor-treated samples (i.e NCP26 vs DMSO and Halofuginone vs DMSO at 6 or 24 hours).
+Figure \ref{fig:wt_aar_heatmap} shows a heatmap of DE AAR genes for WT AMO-1 cells.
+The AAR transcription factors \textit{ATF3}, \textit{DDIT3} (CHOP), \textit{CEBPB} and \textit{CEBPG} are all markedly upregulated following NCP26 and Halofuginone treatment.
+Genes coding for aminoacyl tRNA synthetases are also shown to be upregulated, such as \textit{WARS1}, \textit{SARS1} and \textit{CARS1}.
+Amino acid transporters, such as \textit{SLC7A11}, were also upregulated following ProRS treatment.
 
-\subsubsection{ProRS mechanism of action compared to the proteasome inhibitor carfilzomib}
+Figure <ref> 5.8 shows a heatmap for the response genes for ATF4 (genesets `REACTOME ATF4 ACTIVATES GENES IN RESPONSE TO ENDOPLASMIC RETICULUM STRESS' and `ATF4 Q2') and DEG genes for ProRS inhibitors.
 
+%%% FIGURE FOR ATF4 response genes
+
+Taken together it is clear that the amino acid starvation response is activated in MM cells by NCP26 and HF treatment.
+
+%% vs carfilzomib
+\subsubsection{ProRS inhibitors vs carfilzomib}
+The mechanism of action of proteome inhibitors has been extensively studied and well described.
+Figure \ref{fig:clustering_bulk}d demonstrates similarities at 24 hours between the transcriptional effects of ProRS inhibitors and the proteasome inhibitor carfilzomib on AMO-1 cells.
+It also demonstrates ProRS and carfilzomib-treated samples separation at 6 hours, highlighting differences in their initial mechanism of action.
 
 
 \subsection{Carfilzomib resistant cells}
@@ -214,7 +233,7 @@ A list of known AAR genes was compiled by collating AAR genesets from the Molecu
 % DE volcano scatter WT %
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_de_volcano_scatter.jpg}
+\includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_de_volcano_scatter.pdf}
 \caption[Differentially expressed genes CFZr L363 cells]{Differentially expressed genes (DEGs) for Halofuginone and NCP26 treated CFZr L363 cells at 6 and 24 hours.
 Scatter plot of genes for 6 hours treated vs 24 hours treated.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
@@ -224,6 +243,18 @@ Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC > 1).
 Top DEGs are annotated with HGNC symbols.
 }
 \label{fig:cfz_de}
+\end{figure}
+%%
+
+% AAR heatmap
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_halo_ncp26_aar_heatmap.pdf}
+\caption[Amino acid starvation response genes heatmap CFZr cells]{Amino acid starvation response (AAR) genes heatmap for CFZr cells.
+Differentially expressed genes (DEGs) from CFZr AMO-1 cells intersected with genes involved in the AAR.
+A list of known AAR genes was compiled by collating AAR genesets from the Molecular Signatures Database (MSigDb).
+}
+\label{fig:cfz_aar_heatmap}
 \end{figure}
 %%
 
