@@ -183,8 +183,8 @@ DEGs for NCP26 and Halofuginone treatment are shown in figure xyz.
 Scatter plot of genes for 6 hours treated vs 24 hours treated.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
 Volcano plots are also shown.
-Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC < -1).
-Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC > 1).
+Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}$FC < -1).
+Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}$FC > 1).
 Top DEGs are annotated with HGNC symbols.
 }
 \label{fig:wt_de}
@@ -207,16 +207,32 @@ Red indicates an upregulated gene and blue a downregulated gene.
 \end{figure}
 %%
 
-AAR genesets `GOBP RESPONSE TO AMINO ACID STARVATION', `REACTOME RESPONSE OF EIF2AK4 GCN2 TO AMINO ACID DEFICIENCY' and `KRIGE AMINO ACID DEPRIVATION' were collated from the Molecular Signatures Database (MSigDb), making up a list of <XYZ number> unique genes.
+AAR genesets `GOBP RESPONSE TO AMINO ACID STARVATION', `REACTOME RESPONSE OF EIF2AK4 GCN2 TO AMINO ACID DEFICIENCY' and `KRIGE AMINO ACID DEPRIVATION' were collated from the Molecular Signatures Database (MSigDb), making up a list of 166 unique genes.
 This list of AAR genes was intersected with genes that were differentially expressed for any of the ProRS inhibitor-treated samples (i.e NCP26 vs DMSO and Halofuginone vs DMSO at 6 or 24 hours).
 Figure \ref{fig:wt_aar_heatmap} shows a heatmap of DE AAR genes for WT AMO-1 cells.
 The AAR transcription factors \textit{ATF3}, \textit{DDIT3} (CHOP), \textit{CEBPB} and \textit{CEBPG} are all markedly upregulated following NCP26 and Halofuginone treatment.
 Genes coding for aminoacyl tRNA synthetases are also shown to be upregulated, such as \textit{WARS1}, \textit{SARS1} and \textit{CARS1}.
 Amino acid transporters, such as \textit{SLC7A11}, were also upregulated following ProRS treatment.
 
-Figure <ref> 5.8 shows a heatmap for the response genes for ATF4 (genesets `REACTOME ATF4 ACTIVATES GENES IN RESPONSE TO ENDOPLASMIC RETICULUM STRESS' and `ATF4 Q2') and DEG genes for ProRS inhibitors.
+A list of 287 unique genes activated by \textit{ATF4} was compiled from the genesets: `REACTOME ATF4 ACTIVATES GENES IN RESPONSE TO ENDOPLASMIC RETICULUM STRESS' and `ATF4 Q2' (genes having at least one occurrence of the transcription factor binding site V.ATF4 Q2 in the regions spanning up to 4 kb around their transcription starting sites).
+Figure \ref{fig:wt_atf4_heatmap} shows a heatmap for ATF4 activated genes and genes DE by NCP26 and Halofuginone.
+Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and Halofuginone.
+Of the 287 genes in the list, 165 were differentially expressed ($log_{2}$FC > 0.5 and p\textsubscript{adj}<0.05) following NCP26 or Halofuginone treatment.
 
-%%% FIGURE FOR ATF4 response genes
+
+% ATF4 heatmap
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/WT/wt_halo_ncp26_atf4_heatmap.pdf}
+\caption[Heatmap of \textit{ATF4} activated genes for ProRS treated WT cells]{Heatmap of \textit{ATF4}activated genes for WT cells treated with NCP26 and Halofuginone.
+Differentially expressed genes (DEGs) from WT AMO-1 cells intersected with \textit{ATF4} activated genes.
+A list of genes activated by the transcription factor \textit{ATF4} was compiled by collating genesets from the Molecular Signatures Database (MSigDb).
+The colour scale shows $\log_{2}$ fold change of expression for each treated sample, compared to its DMSO time control.
+Red indicates an upregulated gene and blue a downregulated gene.
+}
+\label{fig:wt_atf4_heatmap}
+\end{figure}
+%%
 
 Taken together it is clear that the amino acid starvation response is activated in MM cells by NCP26 and HF treatment.
 
