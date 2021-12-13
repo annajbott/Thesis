@@ -140,8 +140,8 @@ At 24 hours NCP26 and Halofuginone separate more.
 This may suggest that they work slightly differently in the cells, or this could just be reflecting the differences in their potency.
 
 In WT cells, carfilzomib clusters separately from DMSO and the less active inhibitors.
-At 6 hours, carfilzomib is separate from the NCP26 and Halofuginone cluster, but clusters closer at 24 hours.
-This could suggest an initial difference in mechanism of action and transcriptional response to the ProRS inhibitors, but culminating in a similar response as time progresses, such as cell stress and apoptotic markers.
+At 6 hours, carfilzomib is separate from the NCP26 and Halofuginone cluster, but clusters more closely at 24 hours.
+This could suggest an initial difference in mechanism of action and transcriptional response to the ProRS inhibitors, but culminating in a similar response as time progresses, such as cell stress and cell death pathways.
 
 % PCA pathway figure
 \begin{figure}[htb]
@@ -173,8 +173,8 @@ Additionally, genes involved in the cell cycle and G1/S transition contributed t
 \subsubsection{Differential expression}
 For WT cells at 6 hours, 2119 genes were differentially expressed (adjusted p value< 0.05 and log2FC > 0.5; DE) for NCP26 treated-samples, 3019 DE genes (DEGs) for Halofuginone, 33 DE genes for MAZ1805, 218 DE genes for NCP22, and 983 DE genes for carfilzomib-treated samples compared to DMSO controls.
 At 24 hours, NCP26-treated samples had 3323 DE genes, Halofuginone 3426, MAZ1805 2, NCP22 1, and carfilzomib 2260 DE genes compared to DMSO controls.
-DEGs for NCP26 and Halofuginone treatment are shown in figure xyz.
-
+DEGs for NCP26 and Halofuginone treatment are shown in figure \ref{fig:wt_de}.
+%
 % DE volcano scatter WT %
 \begin{figure}[htb]
 \centering
@@ -190,8 +190,37 @@ Top DEGs are annotated with HGNC symbols.
 \label{fig:wt_de}
 \end{figure}
 %%
+Genes highly differentially expressed by the ProRS inhibitors are coloured and annotated with their gene symbol.
+Numerous genes involved in stress response pathways can be seen to be upregulated following NCP26 and Halofuginone treatment, including \textit{TRIB3}, \textit{JUN} and \textit{ATF3}.
+Additionally, various histone genes are upregulated.
+Some genes involved in cell cycle progression, such as \textit{CDKN1A}, are downregulated following ProRS inhibition.
 
-PATHWAY enrichment analysis...
+The transcriptional changes for 6 hours of exposure to NCP26 were correlated with proteomic changes for the same treatment condition (figure \ref{fig:proteomic_rna_scatter}).
+The proteomic data was supplied by collaborators [COLLABORATORs names here].
+% scatter plot proteomics vs rna-seq %
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/WT/rna_vs_proteomics_ncp26_6h_scatter.pdf}
+\caption[]{Scatterplot of proteomic and RNA-seq datasets depicting changes after 6 hr NCP26 exposure to AMO-1 cells.
+Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) in both RNA-seq and proteomic datasets.
+\textit{ATF4} targets TRIB3 and INHBE were the proteins with the highest increase in abundance ($\log_{2}$FC = 0.64 and INHBE  $\log_{2}$FC = 0.58) in the proteomic dataset and were significantly upregulated in the RNA-seq dataset, following NCP26 treatment.
+}
+\label{fig:proteomic_rna_scatter}
+\end{figure}
+%%
+%
+Consistent with a mechanism of a global reduction of protein synthesis (with the exception of preferential translation of \textit{ATF4}) upon the ISR induction and eIF2$\alpha$ phosphorylation, very few proteins with an increased abundance were identified (52 proteins with a $\log_{2}$ fold-change between 0.2 and 0.64).
+Additionally, a larger shift of proteins with lower abundance in NCP26 treated samples compared to DMSO controls was found.
+This correlates with transcriptional data where more DEGs were downregulated than upregulated for all ProRS treatment conditions compared to DMSO controls.
+Also, in-fitting with this mechanism, selective \textit{ATF4} target genes are upregulated, such as \textit{TRIB3} and \textit{INHBE} (as seen highlighted in figure \ref{fig:proteomic_rna_scatter}).
+This shows a dominant role of the integrated stress response at 6 hours on the transcriptomic and proteomic level.
+
+
+\subsubsection{Pathway enrichment analysis}
+Pathway enrichment analysis was performed for the top DEGs for NCP26 and Halofuginone treatment.
+REACTOME and Gene ontology biological processes (GOBP) pathways were explored.
+FIGURE OF PATHWAY analyses.
+
 
 % AAR heatmap
 \begin{figure}[p]
@@ -207,17 +236,18 @@ Red indicates an upregulated gene and blue a downregulated gene.
 \end{figure}
 %%
 
-AAR genesets `GOBP RESPONSE TO AMINO ACID STARVATION', `REACTOME RESPONSE OF EIF2AK4 GCN2 TO AMINO ACID DEFICIENCY' and `KRIGE AMINO ACID DEPRIVATION' were collated from the Molecular Signatures Database (MSigDb), making up a list of 166 unique genes.
+The effects of NCP26 and Halofuginone treatment on the amino acid starvation response was examined in more detail.
+AAR genesets `GOBP response to amino acid starvation', `REACTOME response of EIF2AK4/GCN2 to amino acid deficiency' and `KRIGE amino acid deprivation' were collated from the Molecular Signatures Database (MSigDb), making up a list of 166 unique genes.
 This list of AAR genes was intersected with genes that were differentially expressed for any of the ProRS inhibitor-treated samples (i.e NCP26 vs DMSO and Halofuginone vs DMSO at 6 or 24 hours).
 Figure \ref{fig:wt_aar_heatmap} shows a heatmap of DE AAR genes for WT AMO-1 cells.
 The AAR transcription factors \textit{ATF3}, \textit{DDIT3} (CHOP), \textit{CEBPB} and \textit{CEBPG} are all markedly upregulated following NCP26 and Halofuginone treatment.
 Genes coding for aminoacyl tRNA synthetases are also shown to be upregulated, such as \textit{WARS1}, \textit{SARS1} and \textit{CARS1}.
 Amino acid transporters, such as \textit{SLC7A11}, were also upregulated following ProRS treatment.
 
-A list of 287 unique genes activated by \textit{ATF4} was compiled from the genesets: `REACTOME ATF4 ACTIVATES GENES IN RESPONSE TO ENDOPLASMIC RETICULUM STRESS' and `ATF4 Q2' (genes having at least one occurrence of the transcription factor binding site V.ATF4 Q2 in the regions spanning up to 4 kb around their transcription starting sites).
+A list of 287 unique genes activated by \textit{ATF4} was compiled from the genesets: `REACTOME ATF4 activates genes in response to endoplasmic reticulum stress' and `ATF4 Q2' (genes having at least one occurrence of the transcription factor binding site V.ATF4 Q2 in the regions spanning up to 4 kb around their transcription starting sites).
 Figure \ref{fig:wt_atf4_heatmap} shows a heatmap for ATF4 activated genes and genes DE by NCP26 and Halofuginone.
 Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and Halofuginone.
-Of the 287 genes in the list, 165 were differentially expressed ($log_{2}$FC > 0.5 and p\textsubscript{adj}<0.05) following NCP26 or Halofuginone treatment.
+Of the 287 genes in the list, 165 were differentially expressed ($\lvert log_{2} \rvert$FC > 0.5 and p\textsubscript{adj}<0.05) following NCP26 or Halofuginone treatment.
 
 
 % ATF4 heatmap
@@ -242,7 +272,21 @@ The mechanism of action of proteome inhibitors has been extensively studied and 
 Figure \ref{fig:clustering_bulk}d demonstrates similarities at 24 hours between the transcriptional effects of ProRS inhibitors and the proteasome inhibitor carfilzomib on AMO-1 cells.
 It also demonstrates ProRS and carfilzomib-treated samples separation at 6 hours, highlighting differences in their initial mechanism of action.
 
+% ATF4 heatmap
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/Transcriptomics/WT/carf_halo_ncp_comparison_figure.pdf}
+\caption[ProRS inhibitors compared with Carfilzomib's mechanism of action]{ProRS inhibitors compared with Carfilzomib's mechanism of action.
+a) Venn diagrams showing overlapping differentially expressed genes (DEGs; upregulated or downregulated following treatment)at 6 and 24 hours.
+b) Scatter plots showing correlation of carfilzomib DEGs against Halofuginone or NCP26 DEGs.
+c) Pathway analysis (Gene onotology biological processes; GOBP) for top upregulated genes.
+d) Heatmap of selected differentially expressed genes upon carfilzomib, Halofuginone and NCP26 treatment.
+}
+\label{fig:wt_carf_compare}
+\end{figure}
+%%
 
+\afterpage{\clearpage}
 \subsection{Carfilzomib resistant cells}
 
 
@@ -275,5 +319,30 @@ A list of known AAR genes was compiled by collating AAR genesets from the Molecu
 %%
 
 
-%\subsection{Difference between Halofuginone and NCP26}
+% ATF4 heatmap
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_halo_ncp26_atf4_heatmap.pdf}
+\caption[Heatmap of \textit{ATF4} activated genes for ProRS treated CFZr cells]{Heatmap of \textit{ATF4}activated genes for CFZr L363 cells treated with NCP26 and Halofuginone.
+\textit{ATF4} activated genes, which are differentially expressed following NCP26 or Halofuginone treatment at 6 or 24 hours.
+A list of genes activated by the transcription factor \textit{ATF4} was compiled by collating genesets from the Molecular Signatures Database (MSigDb).
+The colour scale shows $\log_{2}$ fold change of expression for each treated sample, compared to its DMSO time control.
+Red indicates an upregulated gene and blue a downregulated gene.
+}
+\label{fig:cfz_atf4_heatmap}
+\end{figure}
+%%
 
+\section{Summary}
+NCP26 and Halofuginone have been shown to reduce cell viability of drug sensitive and drug resistant MM cell lines in a dose-dependent manner.
+
+A general shift towards lower protein abundance and downregulation of gene expression has been shown to occur following exposure of MM cells to NCP26, indicating activation of components of the integrated stress response.
+However, \textit{ATF4} target genes were shown to be upregulated and larger in abundance following NCP26 and Halofuginone treatment.
+\textit{ATF4} is the master regulator of amino acid metabolism.
+It is activated by amino acid deprivation.
+Halofuginone and NCP26 treatment caused increased expression of \textit{ATF4} in both drug sensitive and PI-resistant MM cell lines.
+Expression of numerous genes involved in the amino acid starvation and integrated stress response were markedly increased following Halofuginone and NCP26 treatment.
+\textit{DDIT3} and downstream pro-apoptotic genes' expression was increased following NCP26 and HF treatment.
+
+Together this data shows that the ProRS inhibitors NCP26 and Halofuginone activate the amino acid starvation response in MM cell lines.
+It also demonstrates that apoptotic pathways are activated following AAR activation, indicating that the cytotoxic effects of NCP26 and Halofuginone in MM cell lines are attributable in part to AAR activation and its downstream apoptotic mechanisms.
