@@ -171,7 +171,7 @@ Additionally, genes involved in the cell cycle and G1/S transition contributed t
 \subsection{Drug sensitive MM}
 
 \subsubsection{Differential expression}
-For WT cells at 6 hours, 2119 genes were differentially expressed (adjusted p value< 0.05 and log2FC > 0.5; DE) for NCP26 treated-samples, 3019 DE genes (DEGs) for Halofuginone, 33 DE genes for MAZ1805, 218 DE genes for NCP22, and 983 DE genes for carfilzomib-treated samples compared to DMSO controls.
+For WT cells at 6 hours, 2119 genes were differentially expressed ($\lvert log_{2}FC \rvert$ > 0.5 and p\textsubscript{adj}<0.05; DE) for NCP26 treated-samples, 3019 DE genes (DEGs) for Halofuginone, 33 DE genes for MAZ1805, 218 DE genes for NCP22, and 983 DE genes for carfilzomib-treated samples compared to DMSO controls.
 At 24 hours, NCP26-treated samples had 3323 DE genes, Halofuginone 3426, MAZ1805 2, NCP22 1, and carfilzomib 2260 DE genes compared to DMSO controls.
 DEGs for NCP26 and Halofuginone treatment are shown in figure \ref{fig:wt_de}.
 %
@@ -183,8 +183,8 @@ DEGs for NCP26 and Halofuginone treatment are shown in figure \ref{fig:wt_de}.
 Scatter plot of genes for 6 hours treated vs 24 hours treated.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
 Volcano plots are also shown.
-Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}$FC < -1).
-Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}$FC > 1).
+Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC < -1$).
+Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC > 1$).
 Top DEGs are annotated with HGNC symbols.
 }
 \label{fig:wt_de}
@@ -209,7 +209,7 @@ Red points indicate genes which are differentially expressed (p\textsubscript{ad
 \end{figure}
 %%
 %
-Consistent with a mechanism of a global reduction of protein synthesis (with the exception of preferential translation of \textit{ATF4}) upon the ISR induction and eIF2$\alpha$ phosphorylation, very few proteins with an increased abundance were identified (52 proteins with a $\log_{2}$ fold-change between 0.2 and 0.64).
+Consistent with a mechanism of a global reduction of protein synthesis (with the exception of preferential translation of \textit{ATF4}) upon  ISR induction and eIF2$\alpha$ phosphorylation, very few proteins with an increased abundance were identified (52 proteins with a $\log_{2}$ fold-change between 0.2 and 0.64).
 Additionally, a larger shift of proteins with lower abundance in NCP26 treated samples compared to DMSO controls was found.
 This correlates with transcriptional data where more DEGs were downregulated than upregulated for all ProRS treatment conditions compared to DMSO controls.
 Also, in-fitting with this mechanism, selective \textit{ATF4} target genes are upregulated, such as \textit{TRIB3} and \textit{INHBE} (as seen highlighted in figure \ref{fig:proteomic_rna_scatter}).
@@ -286,10 +286,15 @@ d) Heatmap of selected differentially expressed genes upon carfilzomib, Halofugi
 \end{figure}
 %%
 
-\afterpage{\clearpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% CFZ L363 %%%%%%%%%
+\clearpage
 \subsection{Carfilzomib resistant cells}
 
-
+\subsubsection{Differential expression}
+For CFZr L363 cells at 6 hours, 1165 genes were DE for NCP26 treated-samples, 2424 DE genes (DEGs) for Halofuginone, 222 DE genes for MAZ1805, and 0 DE genes for NCP22-treated samples compared to DMSO controls.
+At 24 hours, NCP26-treated samples had 852 DE genes, Halofuginone 256 DE, and MAZ1805 and NCP22 no DE genes compared to DMSO controls.
+DEGs for NCP26 and Halofuginone treatment are shown in figure \ref{fig:cfz_de}.
 % DE volcano scatter WT %
 \begin{figure}[htb]
 \centering
@@ -298,13 +303,36 @@ d) Heatmap of selected differentially expressed genes upon carfilzomib, Halofugi
 Scatter plot of genes for 6 hours treated vs 24 hours treated.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
 Volcano plots are also shown.
-Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC < -1).
-Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& logFC > 1).
+Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC < -1$).
+Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC > 1$).
 Top DEGs are annotated with HGNC symbols.
 }
 \label{fig:cfz_de}
 \end{figure}
 %%
+Numerous genes involved in the AAR can be seen to be upregulated following NCP26 and Halofuginone treatment, including \textit{TRIB3}, \textit{ATF3}, \textit{CHAC1}, \textit{INHBE}, \textit{PSAT1}, \textit{ASNS} and \textit{SESN2}.
+As well as amino acid transporters \textit{SLC7A11} and \textit{SLC6A9}, and tRNA aminoacyl synthetase \textit{WARS1}.
+
+\subsubsection{Pathway enrichment analysis}
+Pathway enrichment analysis was performed for the top DE genes for NCP26 and Halofuginone treated samples compared to DMSO controls (figure \ref{fig:cfz_pathway}).
+Multiple pathways relating to endoplasmic reticulum stress and apoptosis were enriched following ProRS inhibition.
+`Cellular repsonse to amino acid starvation' was enriched, along with `amino acid transport', indicating that NCP26/Halofuginone likely activate the amino acid starvation response in the CFZ resistant MM cells.
+Additionally the pathway `response to unfolded protein' was enriched.
+The unfolded protein response is part of the integrated stress response so shares many of the same effectors as the AAR, such as \textit{DDIT3/CHOP} overexpression.
+
+% Pathway analysis %
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/Results/Transcriptomics/CFzr/CFZ_pathway_analysis.eps}
+\caption[Pathway analysis for ProRS inhibitor-treated CFZr cells]{Pathway analysis for ProRS treated CFZr cells at 24 hours [CHECK].
+Gene ontology biological processes (GOBP) was performed for the top DE genes.
+}
+\label{fig:cfz_pathway}
+\end{figure}
+%
+The amino acid response was investigated in more detail for the PI-resistant cell line.
+Figure \ref{fig:cfz_aar_heatmap} shows a heatmap of differentially expressed genes for NCP26/Halofuginone treated CFZr cells at 6 or 24 hours, which are known members of the AAR (collated from MSigDbl; as seen above).
+
 
 % AAR heatmap
 \begin{figure}[p]
@@ -323,16 +351,18 @@ A list of known AAR genes was compiled by collating AAR genesets from the Molecu
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_halo_ncp26_atf4_heatmap.pdf}
-\caption[Heatmap of \textit{ATF4} activated genes for ProRS treated CFZr cells]{Heatmap of \textit{ATF4}activated genes for CFZr L363 cells treated with NCP26 and Halofuginone.
+\caption[Heatmap of \textit{ATF4} activated genes for ProRS treated CFZr cells]{Heatmap of \textit{ATF4} activated genes for CFZr L363 cells treated with NCP26 and Halofuginone.
 \textit{ATF4} activated genes, which are differentially expressed following NCP26 or Halofuginone treatment at 6 or 24 hours.
 A list of genes activated by the transcription factor \textit{ATF4} was compiled by collating genesets from the Molecular Signatures Database (MSigDb).
-The colour scale shows $\log_{2}$ fold change of expression for each treated sample, compared to its DMSO time control.
+The colour scale shows $\log_{2}$ fold change of expression for each treated sample, compared to the corresponding DMSO control.
 Red indicates an upregulated gene and blue a downregulated gene.
 }
 \label{fig:cfz_atf4_heatmap}
 \end{figure}
 %%
 
+% flush figures
+\clearpage
 \section{Summary}
 NCP26 and Halofuginone have been shown to reduce cell viability of drug sensitive and drug resistant MM cell lines in a dose-dependent manner.
 
@@ -343,6 +373,7 @@ It is activated by amino acid deprivation.
 Halofuginone and NCP26 treatment caused increased expression of \textit{ATF4} in both drug sensitive and PI-resistant MM cell lines.
 Expression of numerous genes involved in the amino acid starvation and integrated stress response were markedly increased following Halofuginone and NCP26 treatment.
 \textit{DDIT3} and downstream pro-apoptotic genes' expression was increased following NCP26 and HF treatment.
+Western blot data from collaborators has also demonstrated that NCP26 and Halofuginone elicit canonical ISR activation with GCN2 and eIF2$\alpha$ phosphorylation in a dose-dependent manner (figure \ref{fig:sup_western}).
 
 Together this data shows that the ProRS inhibitors NCP26 and Halofuginone activate the amino acid starvation response in MM cell lines.
 It also demonstrates that apoptotic pathways are activated following AAR activation, indicating that the cytotoxic effects of NCP26 and Halofuginone in MM cell lines are attributable in part to AAR activation and its downstream apoptotic mechanisms.
