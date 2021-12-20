@@ -70,7 +70,7 @@ All drug concentrations/combinations were performed in triplicate.
 Cells were treated with DMSO in triplicate as 100\% viability controls.
 
 \section{Bulk RNA-seq}
-\subsection{RNA extraction}
+\subsection{RNA extraction}\label{subsec:rna_extraction}
 RNA was extracted and purified using the Direct-Zol RNA MiniPrep kit (Zymo, USA), following the manufacturer's protocol.
 In brief, for each sample, approximately 100,000 cells were lysed in 300\ul{} of TRIzol and the lysate was transferred to a microcentrifuge tube.
 300\ul{} of ethanol was added to the lysed samples and vortexed.
@@ -115,7 +115,122 @@ Compounds were dissolved in DMSO, and 1\ul{} of compound solution was added to a
 Cells were counted and single-cell RNA-seq library preparation was performed using the Chromium Next GEM Single Cell 3' GEM, Library and Gel Bead Kit v3.1 according to the manufacturer's instructions.
 Indexed libraries were quantitated by TapeStation, pooled and sequenced on an Illumina NovaSeq 6000 (Novogene, UK).
 
+\section{QuantM tRNA-seq}
+Approximately 1 million cells were collected per sample and seeded overnight in six-well plates.
+Cells were treated with 700\si{\nano\Molar} NCP26, 300\si{\nano\Molar} Halofuginone or 2\si{\micro\Molar} ProSA.
+Controls were treated with equal volumes of DMSO.
+Cells were collected at time =0, time = 3 hours or time = 6 hours.
+Samples were centrifuged at 300g for 5 minutes, the supernatant was discarded and the pellets were resuspended in 300\ul{} of Trizol.
+RNA was extracted as above (section \ref{subsec:rna_extraction}) and quantified using a nanodrop.
+Concentrations ranged from  189.7\si{\ng}/\ul{} to 398.85\si{\ng}/\ul{}.
 
+QuantM tRNA-seq as outlined in \cite{pinkard2020quantitative} was used for library preparation with significant adaptations made to the protocol.
+Each sample was normalised to 500\si{\ng} total RNA in 2.65\ul{} of nuclease-free water.
+Samples were deacylated with deacylation buffer (Tris-HCl pH9.0; final concentration 20mM) and incubated at 37\C{} for 45 minutes.
+Samples were not demethylated.
+
+\subsubsection{Annealing and ligating adapters}
+The samples were transferred to LoBind PCR plates, and 10\si{\pico\Molar} of 3` adaptor and 2.5\si{\pico\Molar} of each 5' adaptor (A, U, C and G) were added (1\ul{} of mix that is 10\si{\micro\Molar} for 3` and 2.5\si{\micro\Molar} for 5`).
+The plate was incubated at 95\C{} for 2 minutes in a thermocycler.
+1\ul{} of 5x annealing buffer (table \ref{tab:5x_annealing_buffer}) was added to each sample and the plate was incubated at 37\C{} for 15 minutes.
+% Annealing buffer
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Annealing buffer} & \textbf{Volume (\ul{})} \\ \hline
+\rowcolor[HTML]{EFEFEF}
+1\si{\Molar}  Tris-HCl (pH 8.0) & 250 \\ \hline
+0.5\si{\Molar}  EDTA (pH 8.0) & 50 \\ \hline
+\rowcolor[HTML]{EFEFEF}
+1\si{\Molar}  MgCl\textsubscript{2} & 400 \\ \hline
+Nuclease-free water & 9200 \\ \hline
+\rowcolor[HTML]{EFEFEF}
+\textbf{Total} & \textbf{10,000 (10\ml{})} \\ \hline
+\end{tabular}
+\caption{Annealing buffer recipe}
+\label{tab:5x_annealing_buffer}
+\end{table}
+%%
+%
+Ligataion of the adapters to the tRNA was performed.
+0.5\ul{} T4 RNA ligase 2 (NEB), 1\ul{} 10x reaction buffer and 3.2\ul{} nuclease-free water was added to each 5.3\ul{} of sample, to total a final volume of 10\ul{} (0.5U/\ul{}).
+The plate was placed in a thermocycler and incubated at 37\C{} for an hour, and then 4\C{} for an hour.
+The ligated samples were then transferred to 1.5\ml{} eppendorfs.
+
+\subsubsection{RNA precipitation}\label{subsubsec:rna_precip}
+1.5\ul{} GlycoBlue was added to each tube.
+Each sample was made up to 100\ul{} with nuclease-free water.
+10\ul{} of 3\si{\Molar} sodium acetate (pH 5.2) and 250\ul{} 100\% ethanol was added to each tube and vortexed.
+Samples were precipitated overnight at -80\C{}.
+The following morning, tubes were centrifuged at >12,000g at 4\C{} for 30 minutes to form a pellet.
+2 washes were performed with ice-cold, freshly prepared 75\% ethanol, spinning for 10 minutes at 12,000g.
+All ethanol was removed with an extra 10 second top speed spin, and 10 minutes of air drying with the tube cap off.
+
+\subsubsection{Hybridization of RT primer}
+Samples were resuspended in 10\ul{} nuclease-free water and transferred to a PCR plate.
+1\ul{} 10\si{\micro\Molar} RT primer <PRIMER TABLE of sequences ref AT BOTTOM>, 1\ul{} 10\si{\micro\Molar} dNTP mix, and 1\ul{} nuclease free water was added to each sample.
+The PCR plate was placed in a thermocyler and incubated at 70\C{} for 2 minutes.
+
+\subsubsection{cDNA synthesis}
+cDNA was synthesised using SuperScript IV Reverse Transcriptase (Invitrogen), following the manufacturer's instructions.
+4\ul{} 5x SuperScript IV buffer, 1\ul{} 100mM DTT, 1\ul SuperScript IV Reverse Transcriptase and 0.25\ul{} RNase Nxgen inhibitor (Lucigen) was added to each sample (totalling 19.25\ul{}).
+The plate was heated in a thermocycler at 55\C{} for an hour.
+19.25\ul{} 0.2N NaOH (final concentration 0.1N) was added to each sample, and heated in a thermocycler at 98\C{} for 20 minutes to hydrolyze RNA.
+The samples were then transferred to 1.5\ml{} eppendorfs.
+Ethanol precipitation was performed overnight (as in section \ref{subsubsec:rna_precip}), and nucleic acids were resuspended in 12\ul{}.
+
+\subsubsection{Separating cDNA libraries}
+Two 18-well 10\% Criterion TBE-Urea Polyacrylamide Gels (Bio-Rad) were used to separate cDNA libraries, following the manufacturer's instructions.
+1X TBE (89\si{\milli\Molar} Tris, 89\si{\milli\Molar} boric acid, 2\si{\milli\Molar} EDTA) was used as running buffer.
+5x sample buffer (89\si{\milli\Molar} Tris, 89\si{\milli\Molar} boric acid, 2\si{\milli\Molar}, 12\% Ficoll 400, 0.01\% bromophenol blue, 0.02\% xylene cyanole FF, 7\si{\Molar} urea) was made up, and 3\ul{} was added to each sample.
+20\ul{} 1xTBE, 2\ul{} PCR marker (N3234; NEB) and 5.5\ul{} 5x sample buffer was mixed and used as a ladder for each gel.
+cDNA libraries and ladders were pipetted into their corresponding well and the gels were ran for approximately an hour at 90V.
+Gel were removed and placed back into their plastic tray for staining.
+Gels were covered in excess 1xTBE and 3\ul{} SYBR gold (Invitrogen) was added to each tray and stained for 15 minutes on a mixing tray.
+Gels were excised on 300 (????)\si{\nano\Molar} UV light.
+A clean scalpel was used to cut out gel between 75nt and 300nt, the region representing tRNAs, and to place in labelled eppendorfs.
+Eppendorfs were placed in the fridge overnight.
+
+A 25-gauge needle was used to pierce holes at the bottom of 500\ul{} eppendorfs.
+The pierced 500\ul{} eppendorfs were nested inside 1.5\ml{} eppendorfs, and gel pieces were transferred into their corresponding, labelled nested tube.
+The nested eppendorfs were centrifuged at 18,500g for 5 minutes, until the gel was completely sheared into the bottom tube.
+The 500\ul{} eppendorfs were discarded.
+400\ul{} of DNA extraction buffer (table \ref{tab:extraction_buffer}) was added to each 1.5\ml{} eppendorf and the tubes were frozen on dry ice for 30 minutes.
+The tubes were placed on a rotator overnight at room temperature.
+% extraction buffer
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{DNA extraction buffer} & \textbf{Volume (\ul{})} \\ \hline
+\rowcolor[HTML]{EFEFEF}
+4\si{\Molar}  NaCl & 1500 \\ \hline
+1\si{\Molar}  Tris-HCl (pH 8.0) & 200 \\ \hline
+\rowcolor[HTML]{EFEFEF}
+0.5\si{\Molar}  EDTA  & 40 \\ \hline
+Deionised water & 18260 \\ \hline
+\rowcolor[HTML]{EFEFEF}
+\textbf{Total} & \textbf{20000 (20\ml{})} \\ \hline
+\end{tabular}
+\caption{Extraction buffer recipe}
+\label{tab:extraction_buffer}
+\end{table}
+%
+
+UltraFree MC-VV centrifugal filters with a 0.1\si{\micro\Molar} pore were used to remove small gel pieces.
+The filters were pre-wet with 7\ul{} DNA extraction buffer, and the gel/ extraction buffer slurry was transferred to them.
+Tubes were spun at 20,000g for 3 minutes.
+The filter columns were discarded.
+1.5\ul{} GlycoBlue and 500\ul{} propan-2-ol was added to each tube and precipitated on dry ice for 30 minutes.
+The samples were centrifuged at 18,500g at 4\C{} for 30 minutes, and washed once with 70\% ethanol for 5 minutes.
+Ethanol was removed completely and air dried for 10 minutes.
+Samples were resuspended in 12\ul{} nuclease-free water.
+
+\subsubsection{Circularization}
+
+
+%%%%%%%% ATAC %%%%%%%%%
 \section{ATAC-seq}\label{sec:methods_atac}
 
 \subsection{Cell lysis}
@@ -142,7 +257,7 @@ The supernatant (cytoplasm) was discarded, leaving the nuclei pellet.
 1\si{\Molar}  MgCl\textsubscript{2} & 150 \\ \hline
 Nuclease-free water & 49,250 \\ \hline
 \rowcolor[HTML]{EFEFEF}
-\textbf{Total} & \textbf{50,000 (50\ml{})} \\ \hline
+\textbf{Total} & \textbf{50000 (50\ml{})} \\ \hline
 \end{tabular}
 \caption{Resuspension buffer recipe}
 \label{tab:resuspension_buffer}

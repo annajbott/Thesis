@@ -272,7 +272,23 @@ The mechanism of action of proteome inhibitors has been extensively studied and 
 Figure \ref{fig:clustering_bulk}d demonstrates similarities at 24 hours between the transcriptional effects of ProRS inhibitors and the proteasome inhibitor carfilzomib on AMO-1 cells.
 It also demonstrates ProRS and carfilzomib-treated samples separation at 6 hours, highlighting differences in their initial mechanism of action.
 
-% ATF4 heatmap
+The similarities and differences between ProRS inhibitors and carfilzomib were studied in more detail.
+As seen by x-y trends of scatter plots and number of overlapping genes in venn diagrams (figure \ref{fig:wt_carf_compare}a and b), ProRS inhibitors and carfilzomib treatment are more similar at 24 hours, and share more DEGs (compared to DMSO controls), than at 6 hours.
+
+
+Carfilzomib treatment resulted in a pronounced induction of the heat shock response, changes to ubiquitin mediated processes and protein folding, in line with the well-defined cellular changes as a result of proteasome inhibition.
+At 6 hours, some ISR effectors, such as \textit{ATF3} and \textit{JUN}, are upregulated by carfilzomib and NCP26/Halofuginone treatment.
+%Suggesting that ProRS inhibitors may have a distinct enough mechanism of action to bypass proteasome resistance.
+
+At 24 hours, CFZ and ProRS inhibitor treatment seem to culminate in similar end-stage stress, cell cycle changes and apoptotic mechanisms.
+Both ProRS inhibition and CFZ treatment result in pathway enrichment of `cell cycle arrest', `negative regulation of cell proliferation', `positive regulation of apoptosis process' and `type 1 interferon signalling pathway'.
+Figure \ref{fig:wt_carf_compare}d shows a heatmap of NCP26, Halofuginone and CFZ for $\log_{2}FC$ compared to DMSO controls at 6 and 24 hours for selected genes, belonging to various pathways/ classes.
+NCP26 and Halofuginone demonstrate similar effects on myeloma markers as CFZ, such as downregulating the MM pathological marker \textit(SDC1/ CD138).
+CFZ is an established anti-MM therapy approved in the clinic, therefore this is promising for the effectiveness of ProRS inhibitors in MM.
+
+
+
+% carf vs proRS heatmap
 \begin{figure}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/Transcriptomics/WT/carf_halo_ncp_comparison_figure.pdf}
@@ -330,9 +346,8 @@ Gene ontology biological processes (GOBP) was performed for the top DE genes.
 \label{fig:cfz_pathway}
 \end{figure}
 %
-The amino acid response was investigated in more detail for the PI-resistant cell line.
+The amino acid response was investigated more closely for the PI-resistant cell line.
 Figure \ref{fig:cfz_aar_heatmap} shows a heatmap of differentially expressed genes for NCP26/Halofuginone treated CFZr cells at 6 or 24 hours, which are known members of the AAR (collated from MSigDbl; as seen above).
-
 
 % AAR heatmap
 \begin{figure}[p]
@@ -345,7 +360,8 @@ A list of known AAR genes was compiled by collating AAR genesets from the Molecu
 \label{fig:cfz_aar_heatmap}
 \end{figure}
 %%
-
+A strong elicitation of the AAR can be seen following NCP26 and Halofuginone treatment.
+The transcription factors \textit{CEBPG}, \textit{CEBPB}, \textit{ATF3}, \textit{DDIT3} are strongly upregulated, along with amino acid transporter \textit{SLC7A11} and tRNA aminoacyl synthetase \textit{WARS1}. 
 
 % ATF4 heatmap
 \begin{figure}[p]
@@ -360,6 +376,9 @@ Red indicates an upregulated gene and blue a downregulated gene.
 \label{fig:cfz_atf4_heatmap}
 \end{figure}
 %%
+
+CFZ-resistant L363 cells show a similar engagement of the AAR and apoptotic mechanisms following NCP26 and Halofuginone treatment.
+Thus targeting the ProRS could be a potential effective strategy in overcoming PI drug resistance in MM\@.
 
 % flush figures
 \clearpage
