@@ -196,7 +196,7 @@ Halofuginone treatment at both 24 and 48 hours reduced the proportion of cells i
 NCP26 treatment at 24 hours reduced the proportion of cells in the MM cluster (p<0.00001).
 Together with dose response curves and cell death assays, this suggests that Halofuginone and NCP26 are selectively killing MM cells to a higher degree than other cell types.
 
-%% SCT UMAP cluster composition separated by treatment condition
+%%  UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/sc_composition_naive2_barchart.pdf}
@@ -222,12 +222,76 @@ Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected
 % Effect on MM cells
 % Number of DE genes, pathways enriched. VLN plts - CD138 and DDIT3. AAR
 
+%%  AAR violin and feature plots
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/naive_aar_vln_ftp.pdf}
+\caption[scRNA-seq differentially expressed AAR genes- newly diagnosed patients]{A selection of differentially expressed AAR genes in newly diagnosed patients treated with ProRS inhibitors.
+    a) Violin plots showing expression of selected amino acid starvation response (AAR) genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
+    b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
+The myeloma cell population is circled in the first panel.}
+\label{fig:naive_aar_vln_ftp}
+\end{figure}
+%%
+
+%%  other markers violin and feature plots
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/naive_pathological_vln_ftp.pdf}
+\caption[scRNA-seq differentially expressed MM markers- newly diagnosed patients]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly diagnosed patients treated with ProRS inhibitors.
+    a) Violin plots showing expression of selected genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
+    b) Feature plots of UMAP clustering, showing gene expression of MM pathological marker \textit{CD138} and apoptotic marker \textit{TNFRSF10B}.
+The myeloma cell population is circled in the first panel.
+Halofugione and NCP26 treatment reduce \textit{CD138} expression and increase \textit{TNFRSF10B} expression in the MM clusters.}
+\label{fig:naive_path_vln_ftp}
+\end{figure}
+%%
+
 % Effect on other cell populations- e.g. monocytes, why does it affect monocytes
 
 % Velocity analysis
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Relapsed MM}
 
+%% Final annotation relapse
+\begin{figure}[hpt]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_full_annotation.pdf}
+\caption[Relapsed MM scRNA-seq full annotation]{Fully annotated UMAP clustering analysis of two relapsed multiple myeloma (MM) patients.
+The MM cell population is circled.}
+\label{fig:full_anno_relapse}
+\end{figure}
+%%
 
+Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the integrated relapsed MM patients.
+15 distinct clusters were identified with Seurat embeddings.
+The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
+Using the established MM biological markers (shown in figure \ref{fig:mm_markers_relapsed}), one distinct MM cluster (cluster 4) was identified.
+The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and in their normal immune cells.
+
+\subsubsection{Composition}
+Cluster composition analysis for relapsed MM by treatment is shown in figure \ref{fig:composition_relapse}.
+1\si{\micro\Molar} and 5\si{\micro\Molar} NCP26 treatment reduced the proportion of cells in the MM cluster compared to the DMSO control.
+There is insufficient evidence (p>0.05) to say Halofuginone affected the proportion of cells in the MM cluster.
+However, Halofuginone significantly reduced the proportion of cells in the myeloid and B cell clusters.
+This perhaps indicates that in clinical relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
+This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma. 
+
+
+%% RELAPSE UMAP cluster composition separated by treatment condition
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/sc_composition_relapse_barchart.pdf}
+\caption[scRNA-seq composition analysis- relapsed MM]{Composition analysis of relapsed MM cells treated for 24 hours with ProRS inhibitors.
+    a) UMAP cell composition plots separated by treatment condition.
+    b) Dot plot showing proportion of cells in each cluster for each sample.
+    c) Dot plot showing proportion of cells in each cell class for each sample (as labelled in Figure \ref{fig:full_anno_relapse}).
+    d) The proportion of cells in the MM cluster only (stars above bars indicate significant at p<0.01 compared to DMSO control).
+NCP26 treatment reduces the proportion of cells in the MM cluster (p<0.01).}
+\label{fig:composition_relapse}
+\end{figure}
+%%
+
+\clearpage
 \section{Myeloma bone marrow classifier}

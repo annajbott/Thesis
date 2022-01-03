@@ -1,15 +1,15 @@
-\chapter{\label{ch:4-Pipelines}Computational workflow generation}
+\chapter{\label{ch:4-Pipelines}Computational method development}
 
 %\minitoc
 
 \section{Introduction}
 
 \subsection{Reproducible workflows}
-In data analysis, particularly in bioinformatics, many users create simple bash or R scripts to execute the specific task at hand.
-However, if this is done often, the user can have an accumulation of these single-use scripts, which are often named uninformatively and never used again.
-Subsequently, the user may create scripts which perform the same function numerous times.
-Additionally, users may just use the command line alone to perform tasks.
-This means that exactly how they performed the analysis is difficult to find or not recorded.
+In data analysis, particularly in bioinformatics, many users often create simple bash or R scripts to execute the specific task at hand.
+However, if this is done frequently, the user will have an accumulation of these single-use scripts, which are often named uninformatively and never used again.
+This may mean the user creates numerous scripts which perform the same function.
+Another example of a bad practice is using the command line alone to perform tasks.
+This means that exactly how the analysis was performed is not recorded and may be lost or difficult to find later.
 These are bad practices in terms of efficiency and reproducibility.
 It is much better practice to create well-documented, generalised workflows which can then be applied to multiple different experiments.
 This enables the user to reuse their code more easily and reproduce results, if need be.
