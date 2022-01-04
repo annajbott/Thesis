@@ -219,14 +219,48 @@ Large number of cells were killed by Halofuginone treatment at both 24 and 48 ho
 Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected.
 
 \subsubsection{Differential expression}
-% Effect on MM cells
-% Number of DE genes, pathways enriched. VLN plts - CD138 and DDIT3. AAR
+% Number of DE genes
+% separate into NCP26 and HF??
+Next, differential gene expression was investigated using Seurat's FindMarkers function.
+Following 24 hour 1\si{\micro\Molar} NCP26 treatment, 1515 genes were differentially expressed (DE; p\textsubscript{adj}< 0.05) in the myeloma cell population in experiment 1, and 1294 genes in experiment 2, compared to DMSO\@.
+Figure \ref{fig:naive_deg_bar} shows the breakdown of DEGs per cell type for NCP26 and HF treatment.
+24 hour 1\si{\micro\Molar} NCP26 treatment had very little transcriptional effect on many of the other immune cell types, for example T, B and NK cells, where the number of DEGs is more than 10 times smaller than for MM cells.
+This corroborates the composition analysis, whereby MM cells seem more sensitive to ProRS inhibition than other immune cell types.
+However, monocytes also have
+
+% NCP26 HF more selective for MM cells
+
+In MM cells, 73 genes were DE following Halofuginone treatment in experiment 1, and 1318 genes in experiment 2.
+This reflects results seen in the composition analysis (figure \ref{fig:composition_naive}), whereby we saw very few cells remaining in the MM cluster for experiment 1.
+Due to the low cell number, there is less statistical power and diversity across the cells, therefore you would likely see fewer statistically significant DEGs for this cluster.
+
+MM cells have a large number of DEGs for NCP26 treated samples, and HF-treated in experiment 2.
+In contrast, many of the other immune cell types, for example T and B cells, have much fewer genes differentially expressed by NCP26 treatment (figure \ref{fig:naive_deg_bar}).
+This supports
+
+HF dosing too high, IC50 etc. Kill off MM cells and myeloid cells, at this dosing range see more T cells with high numbers of DEGs, etc.
+
+
+%%  DE barchart
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
+\caption[scRNA-seq DEGs per cell type]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
+Cell type annotation corresponding to figure \ref{fig:full_anno_naive}.
+Experiment 1 and experiment 2 denote separate experiments, each containing BM samples from different newly-diagnosed MM patients.}
+\label{fig:naive_deg_bar}
+\end{figure}
+
+% something abiut 48 hour a lot of cell killing, not enough cells remaining for sufficient power
+% number of DE genes with treatment for each cell population
+
+% pathways enriched
 
 %%  AAR violin and feature plots
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_aar_vln_ftp.pdf}
-\caption[scRNA-seq differentially expressed AAR genes- newly diagnosed patients]{A selection of differentially expressed AAR genes in newly diagnosed patients treated with ProRS inhibitors.
+\caption[scRNA-seq differentially expressed AAR genes- newly diagnosed patients]{A selection of differentially expressed AAR genes in newly diagnosed patients treated with ProRS inhibitors for 24 hours.
     a) Violin plots showing expression of selected amino acid starvation response (AAR) genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
 The myeloma cell population is circled in the first panel.}
@@ -238,7 +272,7 @@ The myeloma cell population is circled in the first panel.}
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_pathological_vln_ftp.pdf}
-\caption[scRNA-seq differentially expressed MM markers- newly diagnosed patients]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly diagnosed patients treated with ProRS inhibitors.
+\caption[scRNA-seq differentially expressed MM markers- newly diagnosed patients]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly diagnosed patients treated with ProRS inhibitors for 24 hours.
     a) Violin plots showing expression of selected genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of MM pathological marker \textit{CD138} and apoptotic marker \textit{TNFRSF10B}.
 The myeloma cell population is circled in the first panel.
@@ -252,23 +286,23 @@ Halofugione and NCP26 treatment reduce \textit{CD138} expression and increase \t
 % Velocity analysis
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
 \subsection{Relapsed MM}
+Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the integrated relapsed MM patients.
+15 distinct clusters were identified.
+The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
+Using the established MM biological markers (shown in figure \ref{fig:mm_markers_relapsed}), one distinct MM cluster (cluster 4) was identified.
+The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and in their normal immune cells.
 
 %% Final annotation relapse
 \begin{figure}[hpt]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_full_annotation.pdf}
 \caption[Relapsed MM scRNA-seq full annotation]{Fully annotated UMAP clustering analysis of two relapsed multiple myeloma (MM) patients.
-The MM cell population is circled.}
+15 distinct clusters were identified, one of which was identified as the MM population (circled).}
 \label{fig:full_anno_relapse}
 \end{figure}
 %%
-
-Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the integrated relapsed MM patients.
-15 distinct clusters were identified with Seurat embeddings.
-The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
-Using the established MM biological markers (shown in figure \ref{fig:mm_markers_relapsed}), one distinct MM cluster (cluster 4) was identified.
-The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and in their normal immune cells.
 
 \subsubsection{Composition}
 Cluster composition analysis for relapsed MM by treatment is shown in figure \ref{fig:composition_relapse}.
