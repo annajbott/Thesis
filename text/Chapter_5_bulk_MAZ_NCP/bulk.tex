@@ -51,15 +51,17 @@ More PRS inhibitors have been synthesized by the group, including NCP22.
 % Flush figures
 \clearpage
 
-\section{Assay results}
+\section{Cell-based assay results}
+
+%%% Carf dose response curve to check sensitive and resistant to carf
 
 \subsection{Halofuginone and NCP26 are cytotoxic to drug sensitive and drug resistant MM cell lines in a dose-dependent manner}
-The effect of the PRS inhibitors NCP22, NCP26, MAZ1805 (Halofuginol) and MAZ1392 (Halofuginone) on cell viability was investigated using the MM cell lines AMO-1 and L363 CFZ-r.
+The effect of the PRS inhibitors NCP22, NCP26, MAZ1805 (Halofuginol) and MAZ1392 (Halofuginone; HF) on cell viability was investigated using the MM cell lines AMO-1 and L363 CFZ-r.
 The cell lines were treated with a range of concentrations of each compound (3.9\si{\nano\Molar}- 1\si{\micro\Molar}).
-Cell viability was assessed using presto-blue assays (section \ref{subsec:method_doseresponse}), and dose response curves were generated (Figures \ref{fig:dose}A and C).
+Cell viability was assessed using presto-blue assays (section \ref{subsec:method_doseresponse}), and dose response curves were generated (Figures \ref{fig:dose}a and \ref{fig:dose}c).
 Halofuginone and NCP26 reduced cell viability of PI-sensitive AMO-1 cells and carfilzomib resistant L363 cells in a dose-dependent fashion.
-For this concentration range, MAZ1805 and NCP22 seemed to have little effect on cell viability of WT or CFZ-r cells, and IC50 values were unable to be calculated.
-Halofuginone was found to be more cytotoxic/potent(??) than NCP26.
+For this concentration range, MAZ1805 and NCP22 seemed to have little effect on cell viability of WT or CFZ-r cells, and IC\textsubscript{50} values were unable to be calculated.
+Halofuginone was found to be more potent than NCP26.
 
 % dose response figure
 \begin{figure}[h]
@@ -75,10 +77,10 @@ b) and d) Proportion of cells viable after 48 hours of 1\si{\micro\Molar} treatm
 \end{figure}
 %%
 
-For WT AMO-1 cells, Halofugione had an IC\textsubscript{50} of 141.8nM and NCP26 an IC\textsubscript{50} of 502nM. For CFZ-r cells, Halofuginone had an IC50 of 1185nM, NCP26's IC\textsubscript{50} for CFZ-r was ambiguous, a higher stock concentration would be required for calculation.
-Figure \ref{fig:dose}B and D show the proportion of viable cells following 48 hours of treatment of the PRS inhibitors.
+For WT AMO-1 cells, Halofugione had an IC\textsubscript{50} of 141.8nM and NCP26 an IC\textsubscript{50} of 502nM. For CFZ-r cells, Halofuginone had an IC50 of 1185nM and NCP26's IC\textsubscript{50} was ambiguous, a higher stock concentration would be required for calculation.
+Figure \ref{fig:dose}b and \ref{fig:dose}d show the proportion of viable cells following 48 hours of treatment of the PRS inhibitors.
 WT AMO-1 cells were found to be more sensitive to NCP26 and Halofuginone treatment than carfilzomib resistant L363 cells.
-This may indicate some acquired cross-resistance built up from carfilzomib exposure.
+This may indicate some acquired cross-resistance built up from carfilzomib exposure or inherent resistance in the L363 cell line over the AMO-1 cell line.
 
 \subsection{Carfilzomib and NCP26 have an additive or mild antagonistic effect together}\label{subsec:synergy}
 Drug combinations have proved effective in MM in recent years, for example the combination of bortezomib, lenalidomide, and dexamethasone (VRd) is used extensively for newly diagnosed MM patients.
@@ -203,7 +205,7 @@ The proteomic data was supplied by collaborators [COLLABORATORs names here].
 \includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/WT/rna_vs_proteomics_ncp26_6h_scatter.pdf}
 \caption[]{Scatterplot of proteomic and RNA-seq datasets depicting changes after 6 hr NCP26 exposure to AMO-1 cells.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) in both RNA-seq and proteomic datasets.
-\textit{ATF4} targets TRIB3 and INHBE were the proteins with the highest increase in abundance ($\log_{2}$FC = 0.64 and INHBE  $\log_{2}$FC = 0.58) in the proteomic dataset and were significantly upregulated in the RNA-seq dataset, following NCP26 treatment.
+Folllowing NCP26 treatment, TRIB3 and INHBE (both \textit{ATF4} targets) were the proteins with the highest increase in abundance ($\log_{2}$FC = 0.64 and INHBE  $\log_{2}$FC = 0.58) in the proteomic dataset and both were significantly upregulated in the RNA-seq dataset.
 }
 \label{fig:proteomic_rna_scatter}
 \end{figure}

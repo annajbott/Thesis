@@ -222,6 +222,18 @@ Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected
 % Number of DE genes
 % separate into NCP26 and HF??
 Next, differential gene expression was investigated using Seurat's FindMarkers function.
+At 48 hours we see substantial cell death, therefore the 24 hour time point will be mainly focussed on.
+%
+%%  DE barchart
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
+\caption[scRNA-seq DEGs per cell type]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
+Cell type annotation corresponding to figure \ref{fig:full_anno_naive}.
+Experiment 1 and experiment 2 denote separate experiments, each containing BM samples from different newly-diagnosed MM patients.}
+\label{fig:naive_deg_bar}
+\end{figure}
+
 Following 24 hour 1\si{\micro\Molar} NCP26 treatment, 1515 genes were differentially expressed (DE; p\textsubscript{adj}< 0.05) in the myeloma cell population in experiment 1, and 1294 genes in experiment 2, compared to DMSO\@.
 Figure \ref{fig:naive_deg_bar} shows the breakdown of DEGs per cell type for NCP26 and HF treatment.
 24 hour 1\si{\micro\Molar} NCP26 treatment had very little transcriptional effect on many of the other immune cell types, for example T, B and NK cells, where the number of DEGs is more than 10 times smaller than for MM cells.
@@ -234,7 +246,7 @@ This reflects results seen in the composition analysis (figure \ref{fig:composit
 Due to the low cell number, there is less statistical power and diversity across the cells, therefore you would likely see fewer statistically significant DEGs for this cluster.
 Unlike NCP26 treatment, for 24 hour 1\si{\micro\Molar} HF treatment we see a large number of DEGs in B, T and NK cell clusters.
 This likely reflects the differences in potency between NCP26 and HF\@.
-HF is approximately <CHECK NUMBER> 5 times more potent than NCP26.
+HF is approximately five times more potent than NCP26.
 This fits with composition analysis, where HF showed a great deal of cell killing in the myeloid and MM cluster.
 At lower doses (i.e. NCP26 at 1\si{\micro\Molar}) of ProRS inhibition we see clear evidence of greater transcriptional effects on MM cells and monocytes over other immune subtypes.
 However at higher doses (i.e. Halofuginone at 1\si{\micro\Molar}) we see substantial cell killing of MM cells and monocytes and larger transcriptional effects on other immune subtypes.
@@ -247,27 +259,15 @@ Ideally, the experiment would be performed over the course of three days at a lo
 However, human bone marrow samples do not last very well in extended culture, therefore acute treatment was the preferred method.
 
 
-%%  DE barchart
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
-\caption[scRNA-seq DEGs per cell type]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
-Cell type annotation corresponding to figure \ref{fig:full_anno_naive}.
-Experiment 1 and experiment 2 denote separate experiments, each containing BM samples from different newly-diagnosed MM patients.}
-\label{fig:naive_deg_bar}
-\end{figure}
-
-% something abiut 48 hour a lot of cell killing, not enough cells remaining for sufficient power
-% number of DE genes with treatment for each cell population
-
+\subsubsection{Pathway analysis}
 % pathways enriched
 
 %%  AAR violin and feature plots
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_aar_vln_ftp.pdf}
-\caption[scRNA-seq differentially expressed AAR genes- newly diagnosed patients]{A selection of differentially expressed AAR genes in newly diagnosed patients treated with ProRS inhibitors for 24 hours.
-    a) Violin plots showing expression of selected amino acid starvation response (AAR) genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
+\caption[scRNA-seq differentially expressed AAR genes- newly diagnosed patients]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
+    a) Violin plots showing expression of selected AAR genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
 The myeloma cell population is circled in the first panel.}
 \label{fig:naive_aar_vln_ftp}
@@ -332,6 +332,9 @@ NCP26 treatment reduces the proportion of cells in the MM cluster (p<0.01).}
 \label{fig:composition_relapse}
 \end{figure}
 %%
+
+\subsection{Monocyte/macrophage analysis}
+% look up INF-gamma etc. VEGFA
 
 \clearpage
 \section{Myeloma bone marrow classifier}
