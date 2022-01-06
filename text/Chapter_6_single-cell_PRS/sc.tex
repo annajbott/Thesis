@@ -260,8 +260,26 @@ However, human bone marrow samples do not last very well in extended culture, th
 
 
 \subsubsection{Pathway analysis}
-% pathways enriched
+Pathway enrichment analysis was performed for the top 200 upregulated and top 200 downregulated DEGs in the MM cluster, following Halofuginone and NCP26 treatment (figure \ref{fig:naive_mm_pathway_analysis}).
+%%  SC MM pathway analysis-- might need to up font size
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/naive_mm_pathway_analysis.pdf}
+\caption[scRNA-seq MM cluster pathway analysis]{Pathway analysis (Gene onotology biological processes; GOBP) of the MM cluster.
+    a) and b) Halofuginone treatment.
+    c) and d) NCP26 treatment.
+a) and c) GOBP pathway analysis performed using top 200 upregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2FC}>0$) ranked by fold change.
+b) and d) GOBP pathway analysis performed using top 200 downregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2FC}<0$) ranked by fold change.}
+\label{fig:naive_mm_pathway_analysis}
+\end{figure}
+%%
 
+For NCP26 and Halofuginone treatment of MM cells, pathways related to ER-stress and apoptosis are enriched.
+The unfolded protein response- another member of the ISR, which shares many effectors with AAR- is also enriched.
+This supports our bulk RNA-seq results that the AAR response is activated following NCP26 and Halofuginone treatment.
+
+Figure \ref{fig:naive_aar_vln_ftp} shows a more detailed exploration of AAR genes and their expression in MM cells, as well as the immune microenvironment.
+%
 %%  AAR violin and feature plots
 \begin{figure}[htb]
 \centering
@@ -269,11 +287,19 @@ However, human bone marrow samples do not last very well in extended culture, th
 \caption[scRNA-seq differentially expressed AAR genes- newly diagnosed patients]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
     a) Violin plots showing expression of selected AAR genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
+Feature plots are split into three panels based on treatment condition (DMSO, Halofuginone and NCP26).
 The myeloma cell population is circled in the first panel.}
 \label{fig:naive_aar_vln_ftp}
 \end{figure}
 %%
-
+Figure \ref{fig:naive_aar_vln_ftp}a shows \textit{ATF4} target genes' expression increased in HF and NCP26 treated samples compared to DMSO in MM cells.
+tRNA aminoacyl synthetase genes (\textit{WARS1} and \textit{SARS1}) are also over-expressed in MM cells following ProRS inhibitor treatment.
+Figure \ref{fig:naive_aar_vln_ftp}b shows selected AAR genes' expression for the entire UMAP clustering plot, separated by treatment condition.
+Markedly increased expression of \textit{ATF3} and \textit{TRIB3} can be seen localised to MM cells and monocytes for HF and NCP26 treatment.
+Increased expression of \textit{DDIT3} and \textit{GADD34} can be seen across a few different clusters, however it is most pronounced in the MM and monocyte clusters.
+Additionally, the apoptotic mediator \textit{TNFRSF10B}, positively regulated by DDIT3, is upregulated in MM cells and monocytes (figure \ref{fig:naive_path_vln_ftp}b).
+Indicating that, although aaRSs are ubiquitous enzymes and ProRS inhibitors cause some degree of activation of the AAR in all cells, they are cytotoxically more selective for MM cells, and lead to an apoptotic cascade of events preferentially.
+%
 %%  other markers violin and feature plots
 \begin{figure}[htb]
 \centering
@@ -286,6 +312,9 @@ Halofugione and NCP26 treatment reduce \textit{CD138} expression and increase \t
 \label{fig:naive_path_vln_ftp}
 \end{figure}
 %%
+Moreover, figure \ref{fig:naive_path_vln_ftp} demonstrates that NCP26 and HF have profound anti-MM effects on MM cells.
+NCP26 and HF treatment markedly reduce expression of MM pathological marker \textit{CD138} in MM cells.
+
 
 % Effect on other cell populations- e.g. monocytes, why does it affect monocytes
 
