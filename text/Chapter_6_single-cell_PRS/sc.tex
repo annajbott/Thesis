@@ -314,7 +314,9 @@ Halofugione and NCP26 treatment reduce \textit{CD138} expression and increase \t
 %%
 Moreover, figure \ref{fig:naive_path_vln_ftp} demonstrates that NCP26 and HF have profound anti-MM effects on MM cells.
 NCP26 and HF treatment markedly reduce expression of MM pathological marker \textit{CD138} in MM cells.
-
+Additionally NCP26 and HF treatment reduced expression of \textit{IGKC} and \textit{IGLC2}, the genes coding for the constant regions of immunoglobulin light chains, Kappa and Lambda.
+Previously these genes have been implicated in MM outcome.
+% https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6771956/
 
 % Effect on other cell populations- e.g. monocytes, why does it affect monocytes
 
@@ -325,10 +327,6 @@ NCP26 and HF treatment markedly reduce expression of MM pathological marker \tex
 \subsection{Relapsed MM}
 Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the integrated relapsed MM patients.
 15 distinct clusters were identified.
-The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
-Using the established MM biological markers (shown in figure \ref{fig:mm_markers_relapsed}), one distinct MM cluster (cluster 4) was identified.
-The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and in their normal immune cells.
-
 %% Final annotation relapse
 \begin{figure}[hpt]
 \centering
@@ -338,16 +336,14 @@ The relapsed patients show substantial transcriptional differences to treatment-
 \label{fig:full_anno_relapse}
 \end{figure}
 %%
+The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
+Using the established MM biological markers (shown in figure \ref{fig:mm_markers_relapsed}), one distinct MM cluster (cluster 4) was identified.
+The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and in their normal immune cells.
+
+
 
 \subsubsection{Composition}
 Cluster composition analysis for relapsed MM by treatment is shown in figure \ref{fig:composition_relapse}.
-1\si{\micro\Molar} and 5\si{\micro\Molar} NCP26 treatment reduced the proportion of cells in the MM cluster compared to the DMSO control.
-There is insufficient evidence (p>0.05) to say Halofuginone affected the proportion of cells in the MM cluster.
-However, Halofuginone significantly reduced the proportion of cells in the myeloid and B cell clusters.
-This perhaps indicates that in clinical relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
-This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma. 
-
-
 %% RELAPSE UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
 \centering
@@ -361,6 +357,12 @@ NCP26 treatment reduces the proportion of cells in the MM cluster (p<0.01).}
 \label{fig:composition_relapse}
 \end{figure}
 %%
+1\si{\micro\Molar} and 5\si{\micro\Molar} NCP26 treatment reduced the proportion of cells in the MM cluster compared to the DMSO control.
+There is insufficient evidence (p>0.05) to say Halofuginone affected the proportion of cells in the MM cluster.
+However, Halofuginone significantly reduced the proportion of cells in the myeloid and B cell clusters.
+This perhaps indicates that in clinical relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
+This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma. 
+
 
 \subsection{Monocyte/macrophage analysis}
 % look up INF-gamma etc. VEGFA
