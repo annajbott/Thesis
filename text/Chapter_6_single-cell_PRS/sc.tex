@@ -228,7 +228,7 @@ At 48 hours we see substantial cell death, therefore the 24 hour time point will
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
-\caption[scRNA-seq DEGs per cell type]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
+\caption[scRNA-seq DEGs per cell type- newly-diagnosed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
 Cell type annotation corresponding to figure \ref{fig:full_anno_naive}.
 Experiment 1 and experiment 2 denote separate experiments, each containing BM samples from different newly-diagnosed MM patients.}
 \label{fig:naive_deg_bar}
@@ -362,6 +362,31 @@ There is insufficient evidence (p>0.05) to say Halofuginone affected the proport
 However, Halofuginone significantly reduced the proportion of cells in the myeloid and B cell clusters.
 This perhaps indicates that in clinical relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
 This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma. 
+
+
+\subsubsection{Differential expression}
+% Number of DE genes
+Next, differential gene expression was investigated for the relapsed MM patients.
+As we can see in figure \ref{fig:umap_RBC} there are not many cells originating from patient 3, therefore cells originating from patient 4 will be mainly focussed on.
+%
+%%  DE barchart relapse
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/Results/single_cell/relapse_DEGs_barchart.pdf}
+\caption[scRNA-seq DEGs per cell type- relapsed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for a relapsed MM patient (patient 4 only) treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
+Cell type annotation corresponding to figure \ref{fig:full_anno_relapse}.}
+\label{fig:relapse_deg_bar}
+\end{figure}
+
+1073 genes were DE in the MM cell cluster following 24-hour 1\si{\micro\Molar} HF treatment.
+157 and 801 genes were DE in the MM cell cluster following 24-hour 1\si{\micro\Molar}  and 5\si{\micro\Molar} NCP26 treatment, respectively.
+The breakdown of DEGs per cell type for NCP26 and HF treatment is shown in figure \ref{fig:relapse_deg_bar}.
+
+In contrast to the newly-diagnosed MM data, many of the other immune subtypes are differentially expressed to similar degrees as MM cells by ProRS inhibition.
+Additionally, the myeloid cell cluster has more DEGs than MM cells for 1\si{\micro\Molar} and 5\si{\micro\Molar}  NCP26 treatment.
+Myeloid cells have fewer DEGs than MM cells for HF treatment, however figure \ref{fig:composition_relapse} demonstrates substantial cell killing of myeloid cells by HF treatment, therefore you may not expect as many statistically significant DEGs for the few cells remaining in the cluster.
+This may indicate that NCP26 and HF are not as selective for MM cells for relapsed patients as they are for newly-diagnosed MM\@.
+
 
 
 \subsection{Monocyte/macrophage analysis}
