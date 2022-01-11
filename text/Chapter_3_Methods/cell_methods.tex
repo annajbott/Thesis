@@ -69,7 +69,7 @@ Drugs were diluted once in media (usually 1 in 100), then into the final plate w
 All drug concentrations/combinations were performed in triplicate.
 Cells were treated with DMSO in triplicate as 100\% viability controls.
 
-\section{Bulk RNA-seq}
+\section{Bulk RNA-seq}\label{sec:bulk_lib_prep}
 \subsection{RNA extraction}\label{subsec:rna_extraction}
 RNA was extracted and purified using the Direct-Zol RNA MiniPrep kit (Zymo, USA), following the manufacturer's protocol.
 In brief, for each sample, approximately 100,000 cells were lysed in 300\ul{} of TRIzol and the lysate was transferred to a microcentrifuge tube.
@@ -485,7 +485,7 @@ Get data off ADAM
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Data Processing}\label{sec:data_processing}
-\subsection{Bulk RNA-seq}
+\subsection{Bulk RNA-seq}\label{subsec:bulk_data_pro}
 Fasta files were processed using a CGAT-flow\cite{sims2014cgat} pipeline, the workflow can be found at: \url{https://github.com/cgat-developers/cgat-flow/blob/master/cgatpipelines/tools/pipeline_rnaseqdiffexpression.py}.
 The pseudo-alignment tool, Kallisto\cite{bray2016near}, was implemented to pseudo-align reads to the reference human genome sequence (GRCH38 (hg38) assembly) and to construct a counts matrix of samples against transcripts.
 DESeq2\cite{love2014moderated} was used for differential expression analysis of  counts  matrices  (using  negative  binomial  generalized  linear  models) within the R statistical framework (v3.5.1).
