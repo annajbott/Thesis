@@ -316,6 +316,19 @@ Figure \ref{fig:clustering_bulk}d demonstrates similarities at 24 hours between 
 It also demonstrates ProRS and carfilzomib-treated samples separation at 6 hours, highlighting differences in their initial mechanism of action.
 
 The similarities and differences between ProRS inhibitors and carfilzomib were studied in more detail.
+% carf vs proRS venn diagram, scatter and heat
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/Transcriptomics/WT/carf_halo_ncp_comparison_figure.pdf}
+\caption[ProRS inhibitors compared with Carfilzomib's mechanism of action]{ProRS inhibitors compared with Carfilzomib's mechanism of action.
+a) Venn diagrams showing overlapping differentially expressed genes (DEGs; upregulated or downregulated following treatment)at 6 and 24 hours.
+b) Scatter plots showing correlation of carfilzomib DEGs against Halofuginone or NCP26 DEGs.
+c) Pathway analysis (Gene ontology biological processes; GOBP) for top upregulated genes.
+d) Heatmap of selected differentially expressed genes upon carfilzomib, Halofuginone and NCP26 treatment.
+}
+\label{fig:wt_carf_compare}
+\end{figure}
+%%
 As seen by x-y trends of scatter plots and number of overlapping genes in venn diagrams (figure \ref{fig:wt_carf_compare}a and b), ProRS inhibitors and carfilzomib treatment are more similar at 24 hours, and share more DEGs (compared to DMSO controls), than at 6 hours.
 Somewhat obviously, NCP26 and HF share more overlapping DEGs with eachother than with CFZ\@.
 HF shares more overlapping DEGs with CFZ than NCP26.
@@ -328,41 +341,26 @@ At 6 hours, some ISR effectors, such as \textit{ATF3} and \textit{JUN}, are upre
 At 24 hours, CFZ and ProRS inhibitor treatment seem to culminate in similar end-stage stress, cell cycle changes and apoptotic mechanisms.
 Both ProRS inhibition and CFZ treatment result in pathway enrichment of `cell cycle arrest', `negative regulation of cell proliferation', `positive regulation of apoptosis process' and `type 1 interferon signalling pathway'.
 %Both HF and CFZ treatment is shown to result in enrichment of angiogenic pathways;
-%this is consistent with other preclinical studies, whereby HF induced anti-angiogenic effects. 
+%this is consistent with other preclinical studies, whereby HF induced anti-angiogenic effects.
 Figure \ref{fig:wt_carf_compare}d shows a heatmap of NCP26, Halofuginone and CFZ for $\log_{2}FC$ compared to DMSO controls at 6 and 24 hours for selected genes, belonging to various pathways/ classes.
 NCP26 and Halofuginone demonstrate similar effects on myeloma markers as CFZ, such as downregulating the MM pathological marker \textit(SDC1/ CD138).
 CFZ is an established anti-MM therapy approved in the clinic, therefore this is promising for the effectiveness of ProRS inhibitors in MM.
 
-
-
-% carf vs proRS heatmap
-\begin{figure}[p]
-\centering
-\includegraphics[width=\textwidth]{figures/Results/Transcriptomics/WT/carf_halo_ncp_comparison_figure.pdf}
-\caption[ProRS inhibitors compared with Carfilzomib's mechanism of action]{ProRS inhibitors compared with Carfilzomib's mechanism of action.
-a) Venn diagrams showing overlapping differentially expressed genes (DEGs; upregulated or downregulated following treatment)at 6 and 24 hours.
-b) Scatter plots showing correlation of carfilzomib DEGs against Halofuginone or NCP26 DEGs.
-c) Pathway analysis (Gene onotology biological processes; GOBP) for top upregulated genes.
-d) Heatmap of selected differentially expressed genes upon carfilzomib, Halofuginone and NCP26 treatment.
-}
-\label{fig:wt_carf_compare}
-\end{figure}
-%%
 
 % OVERLAPPING ER stress, SAME NICHE = why tyhey dont work synergistically. good replacement maybe
 % Not different enough to work synergistically, but different enough to kill resistant MM
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% CFZ L363 %%%%%%%%%
-\clearpage
-\subsection{Carfilzomib resistant cells}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\afterpage{\clearpage}
+\subsection{Carfilzomib-resistant cells}
 
 \subsubsection{Differential expression}
-For CFZr L363 cells at 6 hours, 1165 genes were DE for NCP26 treated-samples, 2424 DE genes (DEGs) for Halofuginone, 222 DE genes for MAZ1805, and 0 DE genes for NCP22-treated samples compared to DMSO controls.
+For CFZr L363 cells at 6 hours, 1165 genes were DE for NCP26 treated-samples, 2424 DEGs for Halofuginone, 222 DEGs for MAZ1805, and 0 DE genes for NCP22-treated samples compared to DMSO control samples.
 At 24 hours, NCP26-treated samples had 852 DE genes, Halofuginone 256 DE, and MAZ1805 and NCP22 no DE genes compared to DMSO controls.
-DEGs for NCP26 and Halofuginone treatment are shown in figure \ref{fig:cfz_de}.
 % DE volcano scatter WT %
-\begin{figure}[htb]
+\begin{figure}[bht]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_de_volcano_scatter.pdf}
 \caption[Differentially expressed genes CFZr L363 cells]{Differentially expressed genes (DEGs) for Halofuginone and NCP26 treated CFZr L363 cells at 6 and 24 hours.
@@ -376,15 +374,16 @@ Top DEGs are annotated with HGNC symbols.
 \label{fig:cfz_de}
 \end{figure}
 %%
-Numerous genes involved in the AAR can be seen to be upregulated following NCP26 and Halofuginone treatment, including \textit{TRIB3}, \textit{ATF3}, \textit{CHAC1}, \textit{INHBE}, \textit{PSAT1}, \textit{ASNS} and \textit{SESN2}.
-As well as amino acid transporters \textit{SLC7A11} and \textit{SLC6A9}, and tRNA aminoacyl synthetase \textit{WARS1}.
+DEGs for NCP26 and Halofuginone treatment are shown in figure \ref{fig:cfz_de}.
+Numerous genes involved in the AAR can be seen to be upregulated following NCP26 and Halofuginone treatment, including \textit{TRIB3}, \textit{ATF3}, \textit{CHAC1}, \textit{INHBE}, \textit{PSAT1}, \textit{ASNS} and \textit{SESN2};
+Amino acid transporters \textit{SLC7A11} and \textit{SLC6A9}, and tRNA aminoacyl synthetase \textit{WARS1} are also upregulated.
 
 \subsubsection{Pathway enrichment analysis}
 Pathway enrichment analysis was performed for the top DE genes for NCP26 and Halofuginone treated samples compared to DMSO controls (figure \ref{fig:cfz_pathway}).
 Multiple pathways relating to endoplasmic reticulum stress and apoptosis were enriched following ProRS inhibition.
 `Cellular repsonse to amino acid starvation' was enriched, along with `amino acid transport', indicating that NCP26/Halofuginone likely activate the amino acid starvation response in the CFZ resistant MM cells.
 Additionally the pathway `response to unfolded protein' was enriched.
-The unfolded protein response is part of the integrated stress response so shares many of the same effectors as the AAR, such as \textit{DDIT3/CHOP} overexpression.
+The unfolded protein response is part of the integrated stress response so shares many of the same effectors as the AAR, such as \textit{DDIT3/CHOP}.
 
 % Pathway analysis %
 \begin{figure}[htb]
@@ -397,7 +396,7 @@ Gene ontology biological processes (GOBP) was performed for the top DE genes.
 \end{figure}
 %
 The amino acid response was investigated more closely for the PI-resistant cell line.
-Figure \ref{fig:cfz_aar_heatmap} shows a heatmap of differentially expressed genes for NCP26/Halofuginone treated CFZr cells at 6 or 24 hours, which are known members of the AAR (collated from MSigDbl; as seen above).
+Figure \ref{fig:cfz_aar_heatmap} shows a heatmap of DEGs for NCP26/Halofuginone treated CFZr cells at 6 or 24 hours, which are known members of the AAR (collated from MSigDbl- as above).
 
 % AAR heatmap
 \begin{figure}[p]
@@ -411,7 +410,8 @@ A list of known AAR genes was compiled by collating AAR genesets from the Molecu
 \end{figure}
 %%
 A strong elicitation of the AAR can be seen following NCP26 and Halofuginone treatment.
-The transcription factors \textit{CEBPG}, \textit{CEBPB}, \textit{ATF3}, \textit{DDIT3} are strongly upregulated, along with amino acid transporter \textit{SLC7A11} and tRNA aminoacyl synthetase \textit{WARS1}. 
+The transcription factors \textit{CEBPG}, \textit{CEBPB}, \textit{ATF3}, \textit{DDIT3} are strongly upregulated, along with amino acid transporter \textit{SLC7A11} and tRNA aminoacyl synthetase \textit{WARS1}.
+Other AAR genes are strongly upregulated with ProRS inhibitor treatment, such as \textit{ASS1}, \textit{ASNS}, \textit{CHAC1}, \textit{PSAT1}, \textit{PPP1R15A/GADD34}and \textit{TRIB3}.
 
 % ATF4 heatmap
 \begin{figure}[p]
@@ -427,22 +427,37 @@ Red indicates an upregulated gene and blue a downregulated gene.
 \end{figure}
 %%
 
-CFZ-resistant L363 cells show a similar engagement of the AAR and apoptotic mechanisms following NCP26 and Halofuginone treatment.
-Thus targeting the ProRS could be a potential effective strategy in overcoming PI drug resistance in MM\@.
+A list of 287 unique genes activated by \textit{ATF4} was compiled from the genesets: `REACTOME ATF4 activates genes in response to endoplasmic reticulum stress' and `ATF4 Q2' (genes having at least one occurrence of the transcription factor binding site V.ATF4 Q2 in the regions spanning up to 4 kb around their transcription starting sites).
+Figure \ref{fig:cfz_atf4_heatmap} shows a heatmap for ATF4 activated genes and genes DE by NCP26 and Halofuginone in CFZr cells.
+Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and Halofuginone.
+Of the 287 genes activated by \textit{ATF4} in the list, 157 genes were differentially expressed with NCP26 or Halofuginone treatment.
+This indicates that many \textit{ATF4} downstream targets are being mediated, indicating that \textit{ATF4} has high transcriptional activity.
+
+CFZ-resistant L363 cells show a similar engagement of the AAR and activation of \textit{ATF4}-mediated genes as PI-sensitive AMO-1 cells, following NCP26/HF treatment.
+Additionally many downstream apoptotic mechanisms are enriched, indicating the initiation of cell death by AAR activation.
+Taken with the cytotoxicity dose response data, this demonstrates that ProRS inhibitors are capable of killing PI-resistant MM cell lines.
+Thus targeting the ProRS could be a potential effective strategy in overcoming PI drug resistance in clinical MM\@.
 
 % flush figures
 \clearpage
 \section{Summary}
-NCP26 and Halofuginone have been shown to reduce cell viability of drug sensitive and drug resistant MM cell lines in a dose-dependent manner.
+NCP26 and Halofuginone have been shown to reduce cell viability of drug sensitive and PI-resistant MM cell lines in a dose-dependent manner.
+It has been shown that NCP26 and carfilzomib are not synergistically cytotoxic together.
+This reflects a previous study where HF and bortezomib were found to be moderately antagonistic in combination.
+Therefore, administering a PI and ProRS inhibitor in combination would likely offer no increased benefit to patients.
+This is likely due to similar mechanisms of activating ER stress pathways.
+However from the dose response data, it is clear that ProRS inhibitors are cytotoxic against PI-resistant MM cell lines.
+Indicating that their mechanism of actions are still distinct enough that NCP26 and HF have an effect on CFZ resistant cells.
+Together with the previous result of HF interacting synergistically with lenalidomide and dexamethasone\cite{leiba2012halofuginone}, this could support a case for using ProRS inhibitors as a replacement for PIs once patients have relapsed and stop responding to proteasome inhibition.
 
-A general shift towards lower protein abundance and downregulation of gene expression has been shown to occur following exposure of MM cells to NCP26, indicating activation of components of the integrated stress response.
-However, \textit{ATF4} target genes were shown to be upregulated and larger in abundance following NCP26 and Halofuginone treatment.
+From omics data, a general shift towards lower protein abundance and downregulation of gene expression has been demonstrated following exposure of MM cells to ProRS inhibitors.
+This indicates activation of components of the ISR to halt global protein synthesis (with the exception of \textit{ATF4} target genes).
+\textit{ATF4} target genes were shown to be upregulated and larger in abundance following NCP26 and Halofuginone treatment.
 \textit{ATF4} is the master regulator of amino acid metabolism.
 It is activated by amino acid deprivation.
 Halofuginone and NCP26 treatment caused increased expression of \textit{ATF4} in both drug sensitive and PI-resistant MM cell lines.
-Expression of numerous genes involved in the amino acid starvation and integrated stress response were markedly increased following Halofuginone and NCP26 treatment.
-\textit{DDIT3} and downstream pro-apoptotic genes' expression was increased following NCP26 and HF treatment.
-Western blot data from collaborators has also demonstrated that NCP26 and Halofuginone elicit canonical ISR activation with GCN2 and eIF2$\alpha$ phosphorylation in a dose-dependent manner (figure \ref{fig:sup_western}).
-
+Expression of numerous genes involved in the AAR and ISR were markedly increased following Halofuginone and NCP26 treatment.
+\textit{DDIT3} and other downstream pro-apoptotic genes were over expressed following NCP26 and HF treatment.
+Western blot data from collaborators has demonstrated that NCP26 and Halofuginone elicit canonical ISR activation with GCN2 and eIF2$\alpha$ phosphorylation in a dose-dependent manner (figure \ref{fig:sup_western}).
 Together this data shows that the ProRS inhibitors NCP26 and Halofuginone activate the amino acid starvation response in MM cell lines.
-It also demonstrates that apoptotic pathways are activated following AAR activation, indicating that the cytotoxic effects of NCP26 and Halofuginone in MM cell lines are attributable in part to AAR activation and its downstream apoptotic mechanisms.
+It also demonstrates that apoptotic pathways are activated following AAR activation, indicating that the cytotoxic effects of NCP26 and Halofuginone in MM cell lines are attributable (in part) to AAR activation and its downstream apoptotic mechanisms.
