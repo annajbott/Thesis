@@ -149,11 +149,11 @@ Using the expression of these markers, clusters 2, 7 and 13 were identified as t
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_naive.pdf}
-    \caption[MM cluster manual annotation- newly diagnosed MM]{Manual annotation of MM cell clusters in experiment 1 and 2 (newly diganosed MM) using known MM biological markers.
-    A) Seurat UMAP feature plots showing expression for MM markers.
-    Purple indicates expression of the corresponding gene by a cell.
-    B) A dot plot showing the percentage of cells in a cluster expressing a given gene, and the average expression of that gene for the cluster.
-    C) Violin plots for each cluster and expression levels for each marker listed above.  }
+    \caption[MM cluster manual annotation- newly diagnosed MM]{Manual annotation of multiple myeloma (MM) cell clusters in experiment 1 and 2 (newly-diagnosed patients) using known MM biological markers.
+    a) Seurat UMAP feature plots showing MM marker expression.
+    Grey indicates no expression and purple indicates expression.
+    b) A dot plot showing for each cluster the percentage of cells expressing a given marker and the average expression.
+    c) Violin plots showing gene expression for each cluster.}
     \label{fig:mm_markers_naive}
 \end{figure}
 
@@ -161,11 +161,11 @@ Using the expression of these markers, clusters 2, 7 and 13 were identified as t
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_relapsed.pdf}
-    \caption[MM cluster manual annotation- relapsed MM]{Manual annotation of MM cell clusters in experiment 3 (relapsed MM) using known biological markers
-    A) Seurat UMAP feature plots showing expression for MM markers.
-    Purple indicates expression of the corresponding gene by a cell.
-    B) A dot plot showing the percentage of cells in a cluster expressing a given gene, and the average expression of that gene for the cluster.
-    C) Violin plots for each cluster and expression levels for each marker listed above. }
+    \caption[MM cluster manual annotation- relapsed MM]{Manual annotation of MM cell clusters in experiment 3 (relapsed MM) using known biological markers.
+    a) Seurat UMAP feature plots showing MM marker expression.
+    Grey indicates no expression and purple indicates expression.
+    b) A dot plot showing for each cluster the percentage of cells expressing a given marker and the average expression.
+    c) Violin plots showing gene expression for each cluster. }
     \label{fig:mm_markers_relapsed}
 \end{figure}
 
@@ -180,7 +180,7 @@ Using the expression of these markers, clusters 2, 7 and 13 were identified as t
 \clearpage
 \section{Results}
 
-\subsection{Newly diagnosed MM}
+\subsection{Newly-diagnosed MM}
 
 % Final product of annotation
 
@@ -194,15 +194,16 @@ The MM cell population (circled), consists of three distinct clusters.}
 \end{figure}
 %%
 
-Figure \ref{fig:full_anno_naive} shows final cell-type annotation for the integrated newly-diagnosed MM patients.
-18 distinct clusters were identified with Seurat embeddings.
-The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
+Figure \ref{fig:full_anno_naive} shows final cell-type annotation for the newly-diagnosed MM integrated dataset.
+18 distinct clusters were identified using Seurat embeddings.
+The expected major immune clusters were identified (such as B cells, T cells, NK cells and myeloid cells.)
 Using the established MM biological markers (shown in figure \ref{fig:mm_markers_naive}), three distinct MM clusters (2, 7 and 13) were identified.
 
 \subsubsection{Composition}
-Cluster composition analysis by treatment conditions is shown in figure \ref{fig:composition_naive}.
-Halofuginone treatment at both 24 and 48 hours reduced the proportion of cells in the MM cluster (p<0.00001) compared to DMSO.
-NCP26 treatment at 24 hours reduced the proportion of cells in the MM cluster (p<0.00001).
+Cluster composition analysis by treatment condition is shown in figure \ref{fig:composition_naive}.
+Halofuginone treatment at both 24 and 48 hours reduced the proportion of cells in the MM cluster (p<0.00001) compared to DMSO, for both experiment 1 and 2.
+NCP26 treatment at 24 hours reduced the proportion of cells in the MM cluster (p<0.00001), for both experiment 1 and 2.
+HF and NCP26 treatment increase the proportion of cells in the CD4+ T cell, CD8+ T cell and B cell clusters.
 Together with dose response curves and cell death assays, this suggests that Halofuginone and NCP26 are selectively killing MM cells to a higher degree than other cell types.
 
 %%  UMAP cluster composition separated by treatment condition
@@ -219,19 +220,18 @@ Together with dose response curves and cell death assays, this suggests that Hal
 \end{figure}
 %%
 
-Halofuginone treatment and NCP26 48h treatment were also found to reduce the proportion of cells in the monocyte cluster (p<0.00001), indicating they may have some off-target effects on myeloid cells.
+Halofuginone treatment and 48-hour NCP26 treatment were also found to reduce the proportion of cells in the monocyte and neutrophil cluster (p<0.00001), indicating they may have some off-target effects on myeloid cells.
 
 All of the compounds were used at a concentration of 1\si{\micro\Molar}.
-This is approximately 10 times the concentration of Halofuginone's IC50 value on MM cell lines and two times NCP26's IC50 value...
-
-Large number of cells were killed by Halofuginone treatment at both 24 and 48 hours.
-Clusters 0, 1 and 5 (T-cells, monocytes and MM cells) seem particularly affected.
+This is approximately 10 times the concentration of Halofuginone's IC\textsubscript{50} value on MM cell lines and two times NCP26's IC\textsubscript{50} value.
+As you can see, large number of cells were killed by Halofuginone treatment at both 24 and 48 hours.
+This could be a dosing issue
 
 \subsubsection{Differential expression}
 % Number of DE genes
 % separate into NCP26 and HF??
 Next, differential gene expression was investigated using Seurat's FindMarkers function.
-At 48 hours we see substantial cell death, therefore the 24 hour time point will be mainly focussed on.
+At 48 hours there is substantial cell death, therefore the 24-hour time point will be mainly focussed on.
 %
 %%  DE barchart
 \begin{figure}[htb]
@@ -243,12 +243,13 @@ Experiment 1 and experiment 2 denote separate experiments, each containing BM sa
 \label{fig:naive_deg_bar}
 \end{figure}
 
-Following 24 hour 1\si{\micro\Molar} NCP26 treatment, 1515 genes were differentially expressed (DE; p\textsubscript{adj}< 0.05) in the myeloma cell population in experiment 1, and 1294 genes in experiment 2, compared to DMSO\@.
+Following 24-hour 1\si{\micro\Molar} NCP26 treatment, 1515 genes were differentially expressed (DE; p\textsubscript{adj}< 0.05) in the myeloma cell population in experiment 1, and 1294 genes in experiment 2, compared to DMSO\@.
 Figure \ref{fig:naive_deg_bar} shows the breakdown of DEGs per cell type for NCP26 and HF treatment.
 24 hour 1\si{\micro\Molar} NCP26 treatment had very little transcriptional effect on many of the other immune cell types, for example T, B and NK cells, where the number of DEGs is more than 10 times smaller than for MM cells.
-This corroborates the composition analysis, whereby MM cells seem more sensitive to ProRS inhibition than other immune cell types.
-However, 2016 and 1485 genes were seen to be DE with NCP26 treatment in the monocyte cluster for experiment 1 and 2, respectively.
-This also follows the composition analysis and indicates that perhaps NCP26 may not be selective for MM cells over myeloid cells.
+This corroborates the composition analysis, where MM cells seem more sensitive to ProRS inhibition than other immune cell types.
+However, there were 2016 and 1485 genes DE in the monocyte cluster following NCP26 treatment in experiment 1 and 2, respectively.
+This reflects the composition analysis, where the proportion of cells in the monocyte cluster was markedly reduced.
+This could indicate that NCP26 is not be selective for MM cells over myeloid cells.
 
 In MM cells, 73 genes were DE following Halofuginone treatment in experiment 1, and 1318 genes in experiment 2.
 This reflects results seen in the composition analysis (figure \ref{fig:composition_naive}), whereby we saw very few cells remaining in the MM cluster for experiment 1.
@@ -257,11 +258,11 @@ Unlike NCP26 treatment, for 24 hour 1\si{\micro\Molar} HF treatment we see a lar
 This likely reflects the differences in potency between NCP26 and HF\@.
 HF is approximately five times more potent than NCP26.
 This fits with composition analysis, where HF showed a great deal of cell killing in the myeloid and MM cluster.
+
 At lower doses (i.e. NCP26 at 1\si{\micro\Molar}) of ProRS inhibition we see clear evidence of greater transcriptional effects on MM cells and monocytes over other immune subtypes.
 However at higher doses (i.e. Halofuginone at 1\si{\micro\Molar}) we see substantial cell killing of MM cells and monocytes and larger transcriptional effects on other immune subtypes.
 This together with the composition analysis, proves NCP26 and Halofuginone are selective for MM cells over most healthy immune cells, except for monocytes.
-
-However, this could be a dosing problem.
+However, this could be a problem with the doses used for treatment.
 1\si{\micro\Molar} is almost 10 times greater than Halofuginone's IC\textsubscript{50} and two times greater than NCP26's IC\textsubscript{50}.
 This experiment should be performed at a lower concentration to ascertain if NCP26 and Halofuginone are more selective for MM cells or monocytes.
 Ideally, the experiment would be performed over the course of three days at a lower concentration, as in our cell line studies.
@@ -307,7 +308,10 @@ Figure \ref{fig:naive_aar_vln_ftp}b shows selected AAR genes' expression for the
 Markedly increased expression of \textit{ATF3} and \textit{TRIB3} can be seen localised to MM cells and monocytes for HF and NCP26 treatment.
 Increased expression of \textit{DDIT3} and \textit{GADD34} can be seen across a few different clusters, however it is most pronounced in the MM and monocyte clusters.
 Additionally, the apoptotic mediator \textit{TNFRSF10B}, positively regulated by DDIT3, is upregulated in MM cells and monocytes (figure \ref{fig:naive_path_vln_ftp}b).
-Indicating that, although aaRSs are ubiquitous enzymes and ProRS inhibitors cause some degree of activation of the AAR in all cells, they are cytotoxically more selective for MM cells, and lead to an apoptotic cascade of events preferentially.
+Indicating that, although aaRSs are ubiquitous enzymes and ProRS inhibitors cause some degree of activation of the AAR in all cells, they are cytotoxically more selective for MM cells, and lead to an apoptotic cascade of events, preferentially over other cell types.
+\textit{CDKN1A} is also overexpressed in MM cells following NCP26 and HF treatment.
+\textit{CDKN1A} is a target gene of \textit{ATF4} and arrests cell cycle progression by inhibiting the activity of cyclin-dependent kinases.
+HF has previously been show to cause cell cycle arrest and accumulating cells in the G\textsubscript{0}/G\textsubscript{1} phase of cell cycle.
 %
 %%  other markers violin and feature plots
 \begin{figure}[htb]
@@ -366,16 +370,15 @@ NCP26 treatment reduces the proportion of cells in the MM cluster (p<0.01).}
 %%
 1\si{\micro\Molar} and 5\si{\micro\Molar} NCP26 treatment reduced the proportion of cells in the MM cluster compared to the DMSO control.
 % Effect of NCP26 on other clusters. myeloid
-There is insufficient evidence (p>0.05) to say Halofuginone affected the proportion of cells in the MM cluster.
+There is insufficient evidence (p>0.05) to conclude if Halofuginone treatment affected the proportion of cells in the MM cluster.
 However, Halofuginone significantly reduced the proportion of cells in the myeloid and B cell clusters.
-This perhaps indicates that in clinical relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
-This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma. 
-
+This perhaps indicates that in relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
+This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma.
 
 \subsubsection{Differential expression}
 % Number of DE genes
 Next, differential gene expression was investigated for the relapsed MM patients.
-As we can see in figure \ref{fig:umap_RBC} there are not many cells originating from patient 3, therefore cells originating from patient 4 will be mainly focussed on.
+%As we can see in figure \ref{fig:umap_RBC} there are not many cells originating from patient 3, therefore cells originating from patient 4 will be %mainly focussed on.
 %
 %%  DE barchart relapse
 \begin{figure}[htb]

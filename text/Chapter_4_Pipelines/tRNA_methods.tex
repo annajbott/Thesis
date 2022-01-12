@@ -1,3 +1,101 @@
+\section{tRNA-seq analysis pipeline}\label{sec:trna_methods}
 
+\subsection{Introduction}
+Transfer RNAs (tRNAs) are non-coding RNAs that transport amino acids to ribosomes during translation, to implement the genetic code.
+Most genomes contain distinct tRNAs for all 61 codons and these are encoded across multiple sites throughout the genome.
+Sequencing tRNAs is challenging both experimentally and computationally.
+The main experimental challenges arise from a stable secondary and tertiary structure, making library preparation difficult \cite{kim1973three}.
+Therefore, efficient library preparation methods must be employed to overcome the ridged structure of tRNA, which usually limits the use of standard library prep methods for sequencing \cite{shigematsu2017yamat}.
+Computationally, the challenges come from overcoming the reverse transcription errors introduced by chemical modifications and accurately mapping reads to tRNA genomic regions, given their multiple genomic loci \cite{hoffmann2018accurate}.
+Typically, most mapping strategies for gene expression analysis only report read alignments with unique best matches and thus discard reads mapping to tRNA altogether.
+As a consequence, specialist mapping strategies to accurately map tRNAs have been proposed \cite{selitsky2015tdrmapper, loher2017mintmap, gebert2017unitas}.
+Specifically, Hoffmann et al (2018) proposed a two pass mapping strategy that first maps reads to a tRNA masked genome then secondly these unmapped reads are aligned directly to merged tRNA clusters \cite{hoffmann2018accurate}.
 
-\section{tRNA-seq analysis pipeline}
+Computational workflows for small RNA-seq data analysis have been developed previously \cite{wu2017srnanalyzer}.
+However, there are currently a limited number specifically focused on tRNA data analysis.
+While there have been low-throughput implementations to aid tRNA analysis, such as tDRmapper \cite{selitsky2015tdrmapper}, tRF2Cancer \cite{zheng2016trf2cancer}, SPORTS1.0 \cite{shi2018sports1} and MINTmap \cite{loher2017mintmap}, there is now a significant unmet requirement for high-throughput approaches to analyse tRNA data.
+Firstly, it is desirable to have a single pipeline with the flexibility to perform read quality control, mapping to both general genomic and tRNA features, and the ability to perform qualitative and quantitative analyses on tRNAs within a sample.
+Secondly, with decreasing sequencing costs, it is now common for small RNA-seq libraries to consist of many biological and technical repeats and be sequenced at a much greater depth than mRNA-seq libraries.
+Thirdly, an appropriate level of detailed reporting output is critical for biological interpretation, which should include appropriate visualisation and publication quality figures.
+
+\subsection{tRNAnalysis- pipeline outline}
+A tRNA analysis pipeline (tRNAnalysis) was constructed with the aim to meet the demands of tRNA-seq analysis listed above.
+tRNAnalysis is written using the Computational Genomics Analysis Toolkit (CGAT) core workflow manager \cite{cribbs2019cgat}.
+All analysis modules are seamlessly integrated and tRNAnalysis runs from a single launch command, whilst still also being able to maintain the modularity of running any individual task within the pipeline, if so desired.
+tRNAnalysis implements best practice mapping strategies to allow accurate mapping of tRNA reads \cite{hoffmann2018accurate}.
+The pipeline is optimised so that it can process all input fastq files in parallel, produce detailed logging information, and can be locally run or executed in parallel across a high-performance cluster.
+tRNAnalysis can be installed using Conda and a Docker image is also provided with all of the software and packages installed.
+Users can therefore use the pipeline without having to install numerous dependencies.
+Finally, tRNAnalysis provides a user-friendly html report to visualise qualitative and quantitative outputs.
+Given that the report is written in R using Rmarkdown, the report is easily extensible and customisable, thus providing a user-friendly approach for visualising the analysis.
+
+The workflow is written predominantly in Python and R, using Ruffus decorators \cite{goodstadt2010ruffus}, and the CGAT-core workflow manager \cite{cribbs2019cgat}, allowing for automatic cluster submission and parallelisation.
+The pipeline runs via a single command line interface, providing appropriate default settings, with the option to customise configuration parameters and job resources as required.
+
+The main steps in the analysis are:
+\begin{itemize}
+  \item Read pre-processing and quality control
+  \item Mapping of reads
+  \item tRNA quantitative and qualitative analysis
+  \item Downstream analyses and report generation
+\end{itemize}
+
+\subsubsection{Read pre-processing and quality control}
+tRNAnalysis accepts raw sequencing data (single-end fastq files) as input and integrates several tools for read quality checking and filtering, including CGAT tools \cite{sims2014cgat}, FastQC \cite{andrewfastqc} and FastQ Screen \cite{wingett2018fastq}.
+Given the short length nature of small RNA library preparation, Trimmomatic \cite{bolger2014trimmomatic} is used for adapter removal and to filter reads that fall short of quality thresholds.
+The quality metrics for each sample are then summarised with MultiQC \cite{ewels2016multiqc}.
+
+\subsubsection{Mapping of reads}
+The pre-processed fastq files and a list of gencode annotations are used as the input for mapping.
+The gencode annotations are supplemented with automatically downloaded RNA repeats (including RNA, tRNA, rRNA, snRNA, srpRNA) from the UCSC database \cite{karolchik2004ucsc}.
+Firstly, mapping is performed against the genome using Bowtie \cite{langmead2009ultrafast} to obtain a global representation of RNA types.
+For effective tRNA mapping, tRNAnalysis implements the best-practice mapping strategy proposed by Hoffmann et al (2018), in which tRNA loci are masked from the genome and instead, intron-less tRNA precursor sequences are appended as artificial chromosomes \cite{hoffmann2018accurate}.
+In first-pass mapping, reads that overlap the boundaries of mature tRNAs are extracted.
+In a subsequent round of mapping, the remaining reads are mapped to a tRNA-masked target genome that is augmented by representative mature tRNA sequences.
+
+\subsubsection{tRNA qualitative and quantitative analysis}
+tRNAnalysis provides RNA profile analysis that summarises the output of the read alignments mapping to various RNA sequences (e.g. miRNA, piRNA, snoRNA, lncRNA) by counting reads to features with featureCounts \cite{liao2014featurecounts}.
+Plots are then generated for each sample, where the positional coverage counts are plotted relative to the exon, upstream and downstream regions of the tRNAs.
+These plots can then be used to infer the levels of tRNA fragments within a sample.
+Using the nomenclature first proposed by Selitsky et al. (2015), if the primary tRNA sequence is < 41 nts and $\geq$ 28 nts, then it is defined as a tRNA-half, while if it is > 14 nts and < 28 nts then it is defined as a tRNA-fragment \cite{selitsky2015small}.
+The frequency of read end site relative to the tRNA length is calculated and plotted as bar graphs for each tRNA cluster type.
+For quantitative measurement of tRNA differences between groups of samples, tRNAnalysis implements DESeq2 to perform differential expression analysis \cite{love2014moderated}.
+Finally, given there can be large sequence variations between tRNAs from different tissues as a consequence of RNA modifications \cite{hoffmann2018accurate, vilmi2005sequence, lin2019trnaviz}, any nucleotide misincorporations in the mapped reads are determined.
+In order to accurately distinguish sequencing errors for true mismatches, \textit{samtools mpileup} is employed to collate summary information in the mapped bam file and then likelihoods of misincorporation are calculated.
+This information is stored in a bcf file that is then parsed by \textit{bcftools call}, which performs variant calling for each tRNA sequence \cite{li2009sequence}.
+The output is then stored as a vcf file and normalised for indels, then filtered for sequencing depth.
+
+\subsubsection{Visualisation}
+In order to visualise the output of tRNAnalysis, summary statistics are generated and then reports of these summaries are rendered in html format for visualisation using the Rmarkdown framework.
+Publication ready reports include figures such as coverage plots, volcano plots of differential expressed tRNAs, tables detailing tRNA modifications and bar graphs of tRNA frequencies.
+Once these standard reports have been generated, exploratory data analysis can be performed by modifying the Rmarkdown code, allowing for bespoke analysis, tweaking some parameters or to generate more specific publication-quality images.
+
+\subsection{Simulated data}
+tRNAnalysis accuracy was assessed using simulated read data.
+Splatter \cite{zappia2017splatter} was used to generate a simulated counts matrix, sampling over a negative binomial distribution with two conditions and three replicates.
+A fasta file was generated which contained miRNA, tRNA cluster, and mRNA sequences, which was randomly sampled in a ratio of 10:34:1 for each RNA species, respectively.
+The simulated counts matrix from splatter and the mixed RNA-species fasta file were used as input for Polyester \cite{frazee2015polyester}.
+Polyester was ran with an error rate per base of 0.003 to generate simulated RNA-seq read fasta files.
+Next, CGAT-apps \cite{sims2014cgat} was used to convert the fasta files to fastq files with uniform quality scores.
+The simulated fastq files were then used as input for tRNAnalysis.
+
+\subsubsection{Performance metrics}
+
+The accuracy of tRNAnalysis was evaluated using the simulated data above.
+Receiver operating characteristic (ROC) curves, precision, accuracy and F1 scores were generated, comparing differential expression between the tRNAnalysis processed simulated data to the known ground truth count matrices.
+The area under the curve (AUC) was found to be 0.91.
+The precision was 0.92, recall 0.64 and F1 score 0.76 using a p-value of 0.05, demonstrating a high level of accuracy (figure \ref{fig:trna_f1_roc}).
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/workflow_generation/trna_f1_roc.pdf}
+\caption[tRNAnalysis performance metrics]{tRNAnalysis performance metrics.
+Simulated data ground truth counts matrix compared to tRNAnalysis-processed data.
+Classifying for whether a feature is differentially expressed or not by varying the $\log_{2}FC$ threshold.
+a) Receiver Operator Curve (ROC) showing the accuracy of tRNAnalysis to perform differential expression. (Area Under the Curve (AUC), 0.91).
+b: Recall and precision.
+c) F1 score.}
+\label{fig:trna_f1_roc}
+\end{figure}
+
+We use the Chiou et al (2018) [11] dataset to illustrate the functionality of our pipeline.
