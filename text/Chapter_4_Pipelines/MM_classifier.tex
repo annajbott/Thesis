@@ -1,0 +1,27 @@
+\section{Myeloma bone marrow classifier}\label{sec:MM_classifier}
+
+Using the two scRNA-seq MM BM datasets from chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM\@.
+
+
+In chapter \ref{ch:6-sc}, two scRNA-seq MM BM datasets are investigated.
+For these datasets, references based on healthy tissue were used to inform annotation packages: clustifyr, scclassify and singleR.
+As the references originated from healthy tissue, they were unable to label pathological myeloma cells, and MM cells had to be identified manually using known biological markers.
+
+Many studies separate MM cells from other immune types prior to sequencing, for example Zavidiji et al. (2020) exclusively studying the immune microenvironment and excluding MM cells (GEO accession number GSE124310)\cite{zavidij2020single}, or 
+The expression of \texit{CD138} and \texit{CD45} are often used as markers to separate MM cells from non-MM cells.
+Although CD138 expression is considered a hallmark of MM cells, markedly decreased CD138 expression has been observed in relapsed MM, and this has also been correlated to worse overall survival outcomes \cite{kawano2012multiple}.
+Therefore, by separating cells based on \texit{CD138} and other markers' expression, clonal populations of MM may be excluded.
+Perhaps the MM cells contributing the most to disease progression.
+Additionally,
+
+Lose information on the surrounding microenvironment.
+etc. etc.
+
+CD138 expression is a hallmark of plasma cells and multiple myeloma cells. However, decreased expression of CD138 is frequently observed in plasma cells of myeloma patients, although the clinical significance of this is unclear. To evaluate the significance of low expression of CD138 in MM, we examined the phenotypes of MM cells expressing low levels of CD138. Flow cytometric analysis of primary MM cells revealed a significant decrease in CD138 expression in patients with relapsed/progressive disease compared with untreated MM patients. \cite{kawano2012multiple}
+
+\subsection{Classfier testing}
+% GSM5687372 GSE188632
+In order to to test the performance of the MM classifiers, publically available MM scRNA-seq data was downloaded from GEO\@.
+The test data comprises one PBMC sample from a relapsed and refractory MM patient (GEO accession number \textit{GSE188632}).
+The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna}.
+

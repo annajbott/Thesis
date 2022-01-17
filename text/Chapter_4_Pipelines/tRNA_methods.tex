@@ -18,8 +18,8 @@ Firstly, it is desirable to have a single pipeline with the flexibility to perfo
 Secondly, with decreasing sequencing costs, it is now common for small RNA-seq libraries to consist of many biological and technical repeats and be sequenced at a much greater depth than mRNA-seq libraries.
 Thirdly, an appropriate level of detailed reporting output is critical for biological interpretation, which should include appropriate visualisation and publication quality figures.
 
-\subsection{tRNAnalysis- pipeline outline}
-A tRNA analysis pipeline (tRNAnalysis) was constructed with the aim to meet the demands of tRNA-seq analysis listed above.
+\subsection{Pipeline outline}
+A tRNA analysis pipeline (tRNAnalysis) was constructed with the aim to meet the demands of tRNA-seq analysis.
 tRNAnalysis is written using the Computational Genomics Analysis Toolkit (CGAT) core workflow manager \cite{cribbs2019cgat}.
 All analysis modules are seamlessly integrated and tRNAnalysis runs from a single launch command, whilst still also being able to maintain the modularity of running any individual task within the pipeline, if so desired.
 tRNAnalysis implements best practice mapping strategies to allow accurate mapping of tRNA reads \cite{hoffmann2018accurate}.
@@ -71,16 +71,15 @@ Publication ready reports include figures such as coverage plots, volcano plots 
 Once these standard reports have been generated, exploratory data analysis can be performed by modifying the Rmarkdown code, allowing for bespoke analysis, tweaking some parameters or to generate more specific publication-quality images.
 
 \subsection{Simulated data}
-tRNAnalysis accuracy was assessed using simulated read data.
+The accuracy of tRNAnalysis was assessed using simulated read data.
 Splatter \cite{zappia2017splatter} was used to generate a simulated counts matrix, sampling over a negative binomial distribution with two conditions and three replicates.
-A fasta file was generated which contained miRNA, tRNA cluster, and mRNA sequences, which was randomly sampled in a ratio of 10:34:1 for each RNA species, respectively.
+Biostrings \cite{pages2013package} was used to generate a fasta file containing sequences from miRNAs, full-length coding mRNAs and tRNA clusters.
 The simulated counts matrix from splatter and the mixed RNA-species fasta file were used as input for Polyester \cite{frazee2015polyester}.
 Polyester was ran with an error rate per base of 0.003 to generate simulated RNA-seq read fasta files.
-Next, CGAT-apps \cite{sims2014cgat} was used to convert the fasta files to fastq files with uniform quality scores.
-The simulated fastq files were then used as input for tRNAnalysis.
+Next, CGAT-apps \cite{sims2014cgat} was used to convert the output fasta files into fastq files with uniform quality scores.
+The simulated fastq files were then used as input for tRNAnalysis to assess its performance.
 
 \subsubsection{Performance metrics}
-
 The accuracy of tRNAnalysis was evaluated using the simulated data above.
 Receiver operating characteristic (ROC) curves, precision, accuracy and F1 scores were generated, comparing differential expression between the tRNAnalysis processed simulated data to the known ground truth count matrices.
 The area under the curve (AUC) was found to be 0.91.
@@ -98,4 +97,15 @@ c) F1 score.}
 \label{fig:trna_f1_roc}
 \end{figure}
 
-We use the Chiou et al (2018) [11] dataset to illustrate the functionality of our pipeline.
+\subsection{Reproduce published tRNA-seq analysis}
+Next, tRNAnalysis was applied to real data originating from a published paper.
+tRNA-seq data from Chiou et al. (2018) \cite{chiou2018selective} was used to illustrate the functionality of our pipeline.
+
+This dataset comprises samples isolated from activated T cells and their associated extracellular vesicles.
+Using tRNAnalysis, we were able to confirm the main findings of Chiou et al. (2018), mainly that specific tRNA fragments are enriched in extracellular vesicles and released by activated T cells (Figure 2).
+Furthermore, we were able to present a more comprehensive evaluation of the different tRNA types within the extracellular vesicles (Figure 2).
+For each set of input files, interactive plots were created to show the coverage of reads over different types of tRNA fragments.
+For example, we plot coverage of our reads collapsed across the full length of all tRNAs (Figure 2A), which is further divided into coverage across codons (not shown) and amino acids (Figure 2B).
+Furthermore, we also report the relative proportion of tRNA fragments (Figure 2C) and tRNA halves (Figure 2D) in each of the input samples.
+Graphical comparisons between samples and relative controls are shown wherever possible.
+For example, the differential expression analysis is fully customisable by the user and generates comparative reports depending on the specific contrast supplied (Figure 3).
