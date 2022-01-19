@@ -1,27 +1,32 @@
 \section{Myeloma bone marrow classifier}\label{sec:MM_classifier}
+\subsection{Introduction}
 
-Using the two scRNA-seq MM BM datasets from chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM\@.
-
-
-In chapter \ref{ch:6-sc}, two scRNA-seq MM BM datasets are investigated.
-For these datasets, references based on healthy tissue were used to inform annotation packages: clustifyr, scclassify and singleR.
-As the references originated from healthy tissue, they were unable to label pathological myeloma cells, and MM cells had to be identified manually using known biological markers.
-
-Many studies separate MM cells from other immune types prior to sequencing, for example Zavidiji et al. (2020) exclusively studying the immune microenvironment and excluding MM cells (GEO accession number GSE124310)\cite{zavidij2020single}, or 
-The expression of \texit{CD138} and \texit{CD45} are often used as markers to separate MM cells from non-MM cells.
+Many MM studies utilising scRNA-seq separate MM cells from other immune types prior to sequencing, using biological markers.
+For example Zavidiji et al. (2020) exclusively study the immune microenvironment of MM by isolating CD138\textsuperscript{-} and CD45\textsuperscript{+} BM cell fractions, to exclude MM cells \cite{zavidij2020single}.
+Many other studies sequence only MM cells, for example Cohen et al. (2021) who sort cells prior to sequencing, isolating MM cells by magnetic CD138\textsuperscript{+} bead enrichment and sorting antibody stained CD138\textsuperscript{+}/CD38\textsuperscript{+} cells \cite{cohen2021identification}.
 Although CD138 expression is considered a hallmark of MM cells, markedly decreased CD138 expression has been observed in relapsed MM, and this has also been correlated to worse overall survival outcomes \cite{kawano2012multiple}.
-Therefore, by separating cells based on \texit{CD138} and other markers' expression, clonal populations of MM may be excluded.
-Perhaps the MM cells contributing the most to disease progression.
-Additionally,
+Therefore, by separating cells based on the expression of CD138 and other markers, clonal populations of MM may be excluded.
+Perhaps also the MM cells contributing the most to disease progression.
+Additionally, as discussed in chapter \ref{ch:6-sc}, MM cells interact with their immune microenvironment and are supported as they grow by immune cells.
+Therefore, by sorting MM patients' cells prior to sequencing substantial information is lost.
 
-Lose information on the surrounding microenvironment.
-etc. etc.
+In chapter \ref{ch:6-sc} two scRNA-seq experiments were performed.
+For these experiments, no cell sorting took place and the whole BM niche was sequenced.
+However, this meant that cell types had to be determined computationally.
+For annotation of these datasets, references based on healthy tissue were used to inform annotation packages: clustifyr, scclassify and singleR.
+As the references originated from healthy tissue, they were unable to label pathological myeloma cells, and MM cells had to be identified manually using known biological markers.
+This took considerable time and required significant biological knowledge.
+An MM classifier or model that could automate cell-type annotation for MM patient BM sample scRNA-sequencing would save time for researchers and ensure MM cells lacking CD138 expression are not missed by traditional cell sorting techniques.
 
-CD138 expression is a hallmark of plasma cells and multiple myeloma cells. However, decreased expression of CD138 is frequently observed in plasma cells of myeloma patients, although the clinical significance of this is unclear. To evaluate the significance of low expression of CD138 in MM, we examined the phenotypes of MM cells expressing low levels of CD138. Flow cytometric analysis of primary MM cells revealed a significant decrease in CD138 expression in patients with relapsed/progressive disease compared with untreated MM patients. \cite{kawano2012multiple}
+\subsection{Classifer building}
+Using the two scRNA-seq datasets from chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM\@.
+The log-normalised expression data for the integrated newly-diagnosed MM dataset and integrated relapsed dataset (count matrices Ensembl gene names x cell barcodes), and a vector corresponding to their manual cell annotations, were used as input for scclassify's \texttt{train\char`_scClassify} function.
+
+% Heterogenous, however BM across 4 patients
 
 \subsection{Classfier testing}
 % GSM5687372 GSE188632
 In order to to test the performance of the MM classifiers, publically available MM scRNA-seq data was downloaded from GEO\@.
-The test data comprises one PBMC sample from a relapsed and refractory MM patient (GEO accession number \textit{GSE188632}).
+The test data comprises one PBMC sample from a relapsed and refractory MM patient, which contains both MM and immune cells (GEO accession number \textit{GSE188632}).
 The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna}.
 
