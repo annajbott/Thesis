@@ -13,20 +13,55 @@ Therefore, by sorting MM patients' cells prior to sequencing substantial informa
 In chapter \ref{ch:6-sc} two scRNA-seq experiments were performed.
 For these experiments, no cell sorting took place and the whole BM niche was sequenced.
 However, this meant that cell types had to be determined computationally.
-For annotation of these datasets, references based on healthy tissue were used to inform annotation packages: clustifyr, scclassify and singleR.
+For annotation of these datasets, references based on healthy tissue were used to inform annotation packages: clustifyr, scClassify and singleR.
 As the references originated from healthy tissue, they were unable to label pathological myeloma cells, and MM cells had to be identified manually using known biological markers.
 This took considerable time and required significant biological knowledge.
 An MM classifier or model that could automate cell-type annotation for MM patient BM sample scRNA-sequencing would save time for researchers and ensure MM cells lacking CD138 expression are not missed by traditional cell sorting techniques.
 
-\subsection{Classifer building}
+\subsection{Classifer building}\label{subsec:MM_classifier_model_building}
 Using the two scRNA-seq datasets from chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM\@.
-The log-normalised expression data for the integrated newly-diagnosed MM dataset and integrated relapsed dataset (count matrices Ensembl gene names x cell barcodes), and a vector corresponding to their manual cell annotations, were used as input for scclassify's \texttt{train\char`_scClassify} function.
+The log-normalised expression data for the integrated newly-diagnosed MM dataset and integrated relapsed dataset (count matrices Ensembl gene names x cell barcodes), and a vector corresponding to their manual cell annotations, were used as input for scClassify's \texttt{train\char`_scClassify} function.
 
 % Heterogenous, however BM across 4 patients
 
-\subsection{Classfier testing}
+\subsection{Classifier testing}
 % GSM5687372 GSE188632
 In order to to test the performance of the MM classifiers, publically available MM scRNA-seq data was downloaded from GEO\@.
 The test data comprises one PBMC sample from a relapsed and refractory MM patient, which contains both MM and immune cells (GEO accession number \textit{GSE188632}).
-The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna}.
+The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna} (figure \ref{fig:mm_class_umap}a).
+% UMAP clutsifyr and scClassify HCA PBMC
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_umap_HCA_joint.pdf}
+\caption[Public scRNA-seq data clustering]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references from healthy tissue.
+a) UMAP clustering.
+b) Clustifyr annotation performed with the HumanCellAtlas (HCA) reference.
+c) scClassify annotation performed with the joint PBMC model as training data.
+}
+\label{fig:mm_class_umap}
+\end{figure}
+%
+Firstly, the data was annotated using scClassify with the healthy PBMC scClassify model and clustifyr with the HumanCellAtlas reference (figures \ref{fig:mm_class_umap}b and \ref{fig:mm_class_umap}c).
+Both packages assigned the majority of cells to monocytes or other myeloid cell types.
+Clusters 5 and 13 seem to be made up of cytoxic lymphoid cells.
+Using the HCA reference, clustifyr labelled clusters 4,7 9 and 10 as B cells.
+Clusters 7 and 10 were left unassigned using scClassify with the PBMC training model.
+% Figure of it annotated with HCA and PBMC
 
+Next, the scRNA-seq data was annotated using scClassify and clustifyr with the models and references generated above (section \ref{subsec:MM_classifier_model_building}).
+
+% cd138, cd45 and bcma
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_feature_cd138_bcma_cd45.pdf}
+\caption[Public scRNA-seq data bioligical MM markers featureplots]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) biological MM markers featureplots.
+\textit{CD19} and \textit{CD20} were not expressed in this dataset.
+a) \textit{CD138} expression- cluster 4, 7, 9 and 10 mainly expressing \textit{CD138}.
+b) \textit{CD45} expression- clusters 7, 9 and 10 not expressing \textit{CD45}.
+c) \textit{BCMA} expression- clusters 4, 7, and 9 mainly \textit{BCMA}.
+}
+\label{fig:mm_class_ftp_cd138_cd45_bcma}
+\end{figure}
+%
+
+Cluster 4 CD138\textsubscript{+} but also CD45\textsuperscript{+}
