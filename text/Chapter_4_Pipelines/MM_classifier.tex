@@ -28,20 +28,23 @@ The log-normalised expression data for the integrated newly-diagnosed MM dataset
 % GSM5687372 GSE188632
 In order to to test the performance of the MM classifiers, publically available MM scRNA-seq data was downloaded from GEO\@.
 The test data comprises one PBMC sample from a relapsed and refractory MM patient, which contains both MM and immune cells (GEO accession number \textit{GSE188632}).
-The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna} (figure \ref{fig:mm_class_umap}a).
+The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna} (figure \ref{fig:mm_class_umap_annotate}a).
 % UMAP clutsifyr and scClassify HCA PBMC
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_umap_HCA_joint.pdf}
-\caption[Public scRNA-seq data clustering]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references from healthy tissue.
+\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_annotation_a_e.pdf}
+\caption[Public scRNA-seq data clustering and annotation]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references: from healthy tissue (b and c), and using MM classifiers (d-f) generated above.
 a) UMAP clustering.
 b) Clustifyr annotation performed with the HumanCellAtlas (HCA) reference.
 c) scClassify annotation performed with the joint PBMC model as training data.
+d) scClassify annotation performed using classifier built with newly-diagnosed MM patient dataset.
+e) scClassify annotation performed using classifier built with relapsed MM patient dataset.
+f) scClassify annotation performed using classifier built with joint newly-diagnosed/relapsed MM patient dataset.
 }
-\label{fig:mm_class_umap}
+\label{fig:mm_class_umap_annotate}
 \end{figure}
 %
-Firstly, the data was annotated using scClassify with the healthy PBMC scClassify model and clustifyr with the HumanCellAtlas reference (figures \ref{fig:mm_class_umap}b and \ref{fig:mm_class_umap}c).
+Firstly, the data was annotated using scClassify with the healthy PBMC scClassify model and clustifyr with the HumanCellAtlas reference (figures \ref{fig:mm_class_umap_annotate}b and \ref{fig:mm_class_umap_annotate}c).
 Both packages assigned the majority of cells to monocytes or other myeloid cell types.
 Clusters 5 and 13 seem to be made up of cytoxic lymphoid cells.
 Using the HCA reference, clustifyr labelled clusters 4,7 9 and 10 as B cells.
@@ -53,12 +56,13 @@ Next, the scRNA-seq data was annotated using scClassify and clustifyr with the m
 % cd138, cd45 and bcma
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_feature_cd138_bcma_cd45.pdf}
+\includegraphics[width=0.7\textwidth]{figures/workflow_generation/MM_classifier_feature_cd138_bcma_cd45.pdf}
 \caption[Public scRNA-seq data bioligical MM markers featureplots]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) biological MM markers featureplots.
 \textit{CD19} and \textit{CD20} were not expressed in this dataset.
 a) \textit{CD138} expression- cluster 4, 7, 9 and 10 mainly expressing \textit{CD138}.
 b) \textit{CD45} expression- clusters 7, 9 and 10 not expressing \textit{CD45}.
 c) \textit{BCMA} expression- clusters 4, 7, and 9 mainly \textit{BCMA}.
+d) \textit{IGKC} expression- clusters 4, 7, 9 and 10 have the highest expression of \textit{IGKC}.
 }
 \label{fig:mm_class_ftp_cd138_cd45_bcma}
 \end{figure}
