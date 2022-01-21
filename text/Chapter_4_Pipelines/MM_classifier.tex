@@ -2,56 +2,86 @@
 \subsection{Introduction}
 
 Many MM studies utilising scRNA-seq separate MM cells from other immune types prior to sequencing, using biological markers.
-For example Zavidiji et al. (2020) exclusively study the immune microenvironment of MM by isolating CD138\textsuperscript{-} and CD45\textsuperscript{+} BM cell fractions, to exclude MM cells \cite{zavidij2020single}.
-Many other studies sequence only MM cells, for example Cohen et al. (2021) who sort cells prior to sequencing, isolating MM cells by magnetic CD138\textsuperscript{+} bead enrichment and sorting antibody stained CD138\textsuperscript{+}/CD38\textsuperscript{+} cells \cite{cohen2021identification}.
+For example Zavidiji et al. (2020) exclusively studied the immune microenvironment of MM by isolating CD138\textsuperscript{-} and CD45\textsuperscript{+} BM cell fractions, to exclude MM cells \cite{zavidij2020single}.
+Many other studies sequence only MM cells, for example Cohen et al. (2021) who sorted cells prior to sequencing, isolating MM cells by magnetic CD138\textsuperscript{+} bead enrichment and staining CD138\textsuperscript{+}/CD38\textsuperscript{+} cells with antibodies \cite{cohen2021identification}.
 Although CD138 expression is considered a hallmark of MM cells, markedly decreased CD138 expression has been observed in relapsed MM, and this has also been correlated to worse overall survival outcomes \cite{kawano2012multiple}.
 Therefore, by separating cells based on the expression of CD138 and other markers, clonal populations of MM may be excluded.
 Perhaps also the MM cells contributing the most to disease progression.
 Additionally, as discussed in chapter \ref{ch:6-sc}, MM cells interact with their immune microenvironment and are supported as they grow by immune cells.
-Therefore, by sorting MM patients' cells prior to sequencing substantial information is lost.
+Therefore, by sorting MM patients' cells prior to sequencing, substantial information may be lost.
 
 In chapter \ref{ch:6-sc} two scRNA-seq experiments were performed.
 For these experiments, no cell sorting took place and the whole BM niche was sequenced.
 However, this meant that cell types had to be determined computationally.
 For annotation of these datasets, references based on healthy tissue were used to inform annotation packages: clustifyr, scClassify and singleR.
-As the references originated from healthy tissue, they were unable to label pathological myeloma cells, and MM cells had to be identified manually using known biological markers.
+As the references originated from healthy tissue, they were unable to label the pathological myeloma cells, and MM cells had to be identified manually using known biological markers.
 This took considerable time and required significant biological knowledge.
-An MM classifier or model that could automate cell-type annotation for MM patient BM sample scRNA-sequencing would save time for researchers and ensure MM cells lacking CD138 expression are not missed by traditional cell sorting techniques.
+An MM classifier or model that could automate cell-type annotation for MM patient BM sample scRNA-sequencing would save time for researchers and could encourage studies where the whole BM niched is sequenced, ensuring clonal MM populations lacking CD138 expression are not missed by traditional cell sorting techniques.
+This could also help remove some of the ambiguity of defining certain cell clusters.
 
-\subsection{Classifer building}\label{subsec:MM_classifier_model_building}
-Using the two scRNA-seq datasets from chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM\@.
-The log-normalised expression data for the integrated newly-diagnosed MM dataset and integrated relapsed dataset (count matrices Ensembl gene names x cell barcodes), and a vector corresponding to their manual cell annotations, were used as input for scClassify's \texttt{train\char`_scClassify} function.
-
-% Heterogenous, however BM across 4 patients
+\subsection{Classifier building}\label{subsec:MM_classifier_model_building}
+Using the two scRNA-seq datasets from chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM samples.
+scClassify's function \texttt{train\char`_scClassify} was used to train reference models for scClassify annotation.
+Log-normalised expression data and a vector corresponding to each cell's manually defined cell-type annotation was used as input for model training.
+Three models were generated.
+The first model was trained using the newly-diagnosed MM patient dataset, the second using the relapsed MM dataset, and the third was trained using  both datasets.
+Cell type annotations for the classifier references were broader classes than the detailed/full annotation in chapter \ref{ch:6-sc}, to minimise the number of cells being listed as `intermediate' where significant overlap exists between cell subtypes.
+% UMAP- build classifiers.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/workflow_generation/classifier_building.pdf}
+\caption[Classifier annotation building]{Cell type annotation for classifier building.
+Cell types were made more general and broad than full annotation in chapter \ref{ch:6-sc}.
+a) Newly-diagnosed (naive) MM dataset.
+b) Relapsed MM dataset.}
+\label{fig:classifier_building}
+\end{figure}
+%
+These annotations can be seen in figure \ref{fig:classifier_building}.
 
 \subsection{Classifier testing}
 % GSM5687372 GSE188632
 In order to to test the performance of the MM classifiers, publically available MM scRNA-seq data was downloaded from GEO\@.
-The test data comprises one PBMC sample from a relapsed and refractory MM patient, which contains both MM and immune cells (GEO accession number \textit{GSE188632}).
-The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna} (figure \ref{fig:mm_class_umap_annotate}a).
+The test data comprises one PBMC sample from a relapsed and refractory MM (RRMM) patient, which contains both MM and immune cells (GEO accession number \textit{GSE188632}).
+
+The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna}.
+16 distinct cell clusters were identified using Seurat (figure \ref{fig:mm_class_umap_annotate}a).
 % UMAP clutsifyr and scClassify HCA PBMC
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_annotation_a_e.pdf}
-\caption[Public scRNA-seq data clustering and annotation]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references: from healthy tissue (b and c), and using MM classifiers (d-f) generated above.
+\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_umap_HCA_joint.pdf}
+\caption[Public scRNA-seq data clustering and annotation]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references: from healthy tissue.
 a) UMAP clustering.
 b) Clustifyr annotation performed with the HumanCellAtlas (HCA) reference.
 c) scClassify annotation performed with the joint PBMC model as training data.
-d) scClassify annotation performed using classifier built with newly-diagnosed MM patient dataset.
-e) scClassify annotation performed using classifier built with relapsed MM patient dataset.
-f) scClassify annotation performed using classifier built with joint newly-diagnosed/relapsed MM patient dataset.
 }
 \label{fig:mm_class_umap_annotate}
 \end{figure}
 %
-Firstly, the data was annotated using scClassify with the healthy PBMC scClassify model and clustifyr with the HumanCellAtlas reference (figures \ref{fig:mm_class_umap_annotate}b and \ref{fig:mm_class_umap_annotate}c).
+Firstly, the data was annotated using scClassify and clustifyr with healthy tissue references (PBMC model and HumanCellAtlas reference; figures \ref{fig:mm_class_umap_annotate}b and \ref{fig:mm_class_umap_annotate}c).
 Both packages assigned the majority of cells to monocytes or other myeloid cell types.
-Clusters 5 and 13 seem to be made up of cytoxic lymphoid cells.
-Using the HCA reference, clustifyr labelled clusters 4,7 9 and 10 as B cells.
-Clusters 7 and 10 were left unassigned using scClassify with the PBMC training model.
-% Figure of it annotated with HCA and PBMC
+Clustifyr-HCA assigned clusters 4, 5, 11 and 13 as NK cells, whilst scClassify-PBMC assigned clusters 5 and 13 as T cells and cluster 11 as NK cells.
+Clusters 7 and 10 were left unassigned using clustifyr-HCA annotation, whilst clusters 4, 7, 9 and 10 were labelled as B cells by scClassify-PBMC.
+From these annotations alone it is unclear which cluster is the MM cell population.
 
-Next, the scRNA-seq data was annotated using scClassify and clustifyr with the models and references generated above (section \ref{subsec:MM_classifier_model_building}).
+Next, the scRNA-seq data was annotated using the MM dataset-trained references generated above.
+%
+% scclassify annotation with MM classifier
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_annotation_scclassify.pdf}
+\caption[Public scRNA-seq data MM classifier annotation]{scClassify annotation performed on public scRNA-seq data (GEO accession number \textit{GSE188632}) using MM classifier models generated above.
+a) Newly-diagnosed (naive) MM patient dataset.
+b) Relapsed MM patient dataset.
+c) Joint newly-diagnosed/relapsed MM patient dataset.
+}
+\label{fig:mm_classifier_scclassify_annotate}
+\end{figure}
+All three models identified some cells as MM cells.
+The model built using the naive MM dataset identified the majority of cells in clusters 7, 9 and 10 as MM cells.
+The relapsed MM model identified cells in clusters 4, 7, 9 and 10 as MM cells.
+The joint model mainly identified clusters 7, 9, and 10 as MM cells, and some cells in cluster 4 as MM cells. 
+
 
 % cd138, cd45 and bcma
 \begin{figure}[htb]
@@ -68,4 +98,4 @@ d) \textit{IGKC} expression- clusters 4, 7, 9 and 10 have the highest expression
 \end{figure}
 %
 
-Cluster 4 CD138\textsubscript{+} but also CD45\textsuperscript{+}
+% Cluster 4 CD138\textsubscript{+} but also CD45\textsuperscript{+}
