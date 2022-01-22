@@ -64,7 +64,7 @@ Clustifyr-HCA assigned clusters 4, 5, 11 and 13 as NK cells, whilst scClassify-P
 Clusters 7 and 10 were left unassigned using clustifyr-HCA annotation, whilst clusters 4, 7, 9 and 10 were labelled as B cells by scClassify-PBMC.
 From these annotations alone it is unclear which cluster is the MM cell population.
 
-Next, the scRNA-seq data was annotated using the MM dataset-trained references generated above.
+Next, the scRNA-seq data was annotated using the MM dataset-trained references generated above (figure \ref{fig:mm_classifier_scclassify_annotate}).
 %
 % scclassify annotation with MM classifier
 \begin{figure}[htb]
@@ -77,25 +77,54 @@ c) Joint newly-diagnosed/relapsed MM patient dataset.
 }
 \label{fig:mm_classifier_scclassify_annotate}
 \end{figure}
-All three models identified some cells as MM cells.
+%
+All three models assigned some cells as MM cells (pink cells in figure \ref{fig:mm_classifier_scclassify_annotate}).
 The model built using the naive MM dataset identified the majority of cells in clusters 7, 9 and 10 as MM cells.
 The relapsed MM model identified cells in clusters 4, 7, 9 and 10 as MM cells.
-The joint model mainly identified clusters 7, 9, and 10 as MM cells, and some cells in cluster 4 as MM cells. 
+The joint model mainly identified clusters 7, 9, and 10 as MM cells, and some cells in cluster 4 as MM cells.
+All three models seem to agree with each other and scClassify-PBMC's assignment of non-MM cells, with clusters 5 and 13 being assigned as T cells, cluster 11 as NK cells and the rest of non-MM cells clusters as myeloid cells.
 
-
+To assess if the models' MM cell classifications were correct, the expression of MM biological markers was examined (figure \ref{fig:mm_class_ftp_cd138_cd45_bcma}).
+%\textit{CD19} and \textit{CD20} were not expressed in the dataset.
 % cd138, cd45 and bcma
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/workflow_generation/MM_classifier_feature_cd138_bcma_cd45.pdf}
 \caption[Public scRNA-seq data bioligical MM markers featureplots]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) biological MM markers featureplots.
-\textit{CD19} and \textit{CD20} were not expressed in this dataset.
 a) \textit{CD138} expression- cluster 4, 7, 9 and 10 mainly expressing \textit{CD138}.
 b) \textit{CD45} expression- clusters 7, 9 and 10 not expressing \textit{CD45}.
 c) \textit{BCMA} expression- clusters 4, 7, and 9 mainly \textit{BCMA}.
 d) \textit{IGKC} expression- clusters 4, 7, 9 and 10 have the highest expression of \textit{IGKC}.
+Expression of \textit{CD19} and \textit{CD20} was not detected in this dataset.
+There was minimal expression of \textit{SLAMF7}.
 }
 \label{fig:mm_class_ftp_cd138_cd45_bcma}
 \end{figure}
 %
+%%%% <PAST OR PRESENT TENSE>
+\textit{CD138} and \textit{BCMA} are expressed by clusters 4, 7, 9 and 10.
+\textit{IGKC} is highly expressed by clusters 4, 7, 9 and 10.
+Clusters 7, 9 and 10 are \textit{CD45}\textsuperscript{-}, cluster 4 is \textit{CD45}\textsuperscript{+}.
+Therefore, clusters 4, 7, 9 and 10 are MM cells.
+Clusters 7, 9 and 10 are \textit{CD45}\textsuperscript{-} MM cells, and cluster 4 is mainly comprised of \textit{CD45}\textsuperscript{+} MM cells.
+Therefore all three MM models were correct assigning clusters 7, 9 and 10 as MM cells.
 
-% Cluster 4 CD138\textsubscript{+} but also CD45\textsuperscript{+}
+To quantify each model's accuracy of classifying MM cells, precision, recall and an F1 score were calculated for each of the three models (figure \ref{fig:mm_class_accuracy_bar}).
+%
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/workflow_generation/precision_recall_f1_barchart.png}
+\caption[MM classifier accuracy]{MM cell classifier performance.
+Precision, recall and F1 scores for the three models ability to correctly assign cells as MM cells; where true positive indicates a cell from the MM clusters (4, 7, 9 and 10) being labelled as `MM\char`_cell' by the model, false positive- a cell from any non-MM cluster being assigned the `MM\char`_cell' label, false negative- a cell from one of the MM clusters being assigned any label other than `MM\char`_cell'.
+}
+\label{fig:mm_class_accuracy_bar}
+\end{figure}
+%
+All three models had very high precision values: 0.998, 0.965, 0.987, for naive, relapsed and joint, respectively.
+%Precision represents correct positive predictions relative to total positive predictions.
+All models had very few false positives, i.e. the models did not label many non-MM cells as MM cells.
+The recall score of the models was not as high, indicating that there were more false negatives and the models assign some cells in the MM cluster as non-MM cells types.
+The model with the highest F1 score (0.778) was the model generated using the relapsed MM dataset only.
+The GEO dataset originated from a RRMM patient, therefore it makes sense that the relapsed MM model was the most accurate at labelling MM cells.
+
+% significant T cell and B cell depletion in RRMM.
