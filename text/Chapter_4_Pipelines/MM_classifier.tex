@@ -1,19 +1,18 @@
 \section{Myeloma bone marrow classifier}\label{sec:MM_classifier}
 \subsection{Introduction}
 
-Many MM studies utilising scRNA-seq separate MM cells from other immune types prior to sequencing, using biological markers.
+Many MM studies that utilise scRNA-seq separate MM cells from other immune types prior to sequencing, using biological markers.
 For example Zavidiji et al. (2020) exclusively studied the immune microenvironment of MM by isolating CD138\textsuperscript{-} and CD45\textsuperscript{+} BM cell fractions, to exclude MM cells \cite{zavidij2020single}.
 Many other studies sequence only MM cells, for example Cohen et al. (2021) who sorted cells prior to sequencing, isolating MM cells by magnetic CD138\textsuperscript{+} bead enrichment and staining CD138\textsuperscript{+}/CD38\textsuperscript{+} cells with antibodies \cite{cohen2021identification}.
 Although CD138 expression is considered a hallmark of MM cells, markedly decreased CD138 expression has been observed in relapsed MM, and this has also been correlated to worse overall survival outcomes \cite{kawano2012multiple}.
-Therefore, by separating cells based on the expression of CD138 and other markers, clonal populations of MM may be excluded.
-Perhaps also the MM cells contributing the most to disease progression.
+Therefore, by separating cells based on the expression of CD138 and other markers, clonal populations of MM may be excluded (also perhaps the MM cells contributing the most to disease progression.)
 Additionally, as discussed in chapter \ref{ch:6-sc}, MM cells interact with their immune microenvironment and are supported as they grow by immune cells.
-Therefore, by sorting MM patients' cells prior to sequencing, substantial information may be lost.
+Therefore, by sorting MM patient cells prior to sequencing, substantial information may be lost.
 
-In chapter \ref{ch:6-sc} two scRNA-seq experiments were performed.
+In chapter \ref{ch:6-sc}, two scRNA-seq experiments were performed.
 For these experiments, no cell sorting took place and the whole BM niche was sequenced.
-However, this meant that cell types had to be determined computationally.
-For annotation of these datasets, references based on healthy tissue were used to inform annotation packages: clustifyr, scClassify and singleR.
+Therefore, cell types had to be determined computationally.
+For annotation of these datasets, references based on healthy tissue were used to inform R annotation packages: clustifyr, scClassify and singleR.
 As the references originated from healthy tissue, they were unable to label the pathological myeloma cells, and MM cells had to be identified manually using known biological markers.
 This took considerable time and required significant biological knowledge.
 An MM classifier or model that could automate cell-type annotation for MM patient BM sample scRNA-sequencing would save time for researchers and could encourage studies where the whole BM niched is sequenced, ensuring clonal MM populations lacking CD138 expression are not missed by traditional cell sorting techniques.
@@ -25,7 +24,9 @@ scClassify's function \texttt{train\char`_scClassify} was used to train referenc
 Log-normalised expression data and a vector corresponding to each cell's manually defined cell-type annotation was used as input for model training.
 Three models were generated.
 The first model was trained using the newly-diagnosed MM patient dataset, the second using the relapsed MM dataset, and the third was trained using  both datasets.
-Cell type annotations for the classifier references were broader classes than the detailed/full annotation in chapter \ref{ch:6-sc}, to minimise the number of cells being listed as `intermediate' where significant overlap exists between cell subtypes.
+These models will be referred to as `naive', `relapsed' and `joint'.
+The manual annotations used to train the models were much broader than the detailed annotations given in \ref{ch:6-sc}.
+This is to minimise the number of cells being labelled as `intermediate' where significant overlap exists between cell subtypes
 % UMAP- build classifiers.
 \begin{figure}[htb]
 \centering
@@ -37,15 +38,15 @@ b) Relapsed MM dataset.}
 \label{fig:classifier_building}
 \end{figure}
 %
-These annotations can be seen in figure \ref{fig:classifier_building}.
+These broad annotations can be seen in figure \ref{fig:classifier_building}.
 
 \subsection{Classifier testing}
 % GSM5687372 GSE188632
 In order to to test the performance of the MM classifiers, publically available MM scRNA-seq data was downloaded from GEO\@.
 The test data comprises one PBMC sample from a relapsed and refractory MM (RRMM) patient, which contains both MM and immune cells (GEO accession number \textit{GSE188632}).
 
-The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in sectioned \ref{subsec:updated_scrna}.
-16 distinct cell clusters were identified using Seurat (figure \ref{fig:mm_class_umap_annotate}a).
+The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in section \ref{subsec:updated_scrna}.
+16 distinct cell clusters were identified using Seurat (Figure \ref{fig:mm_class_umap_annotate}a).
 % UMAP clutsifyr and scClassify HCA PBMC
 \begin{figure}[htb]
 \centering
@@ -58,13 +59,16 @@ c) scClassify annotation performed with the joint PBMC model as training data.
 \label{fig:mm_class_umap_annotate}
 \end{figure}
 %
-Firstly, the data was annotated using scClassify and clustifyr with healthy tissue references (PBMC model and HumanCellAtlas reference; figures \ref{fig:mm_class_umap_annotate}b and \ref{fig:mm_class_umap_annotate}c).
-Both packages assigned the majority of cells to monocytes or other myeloid cell types.
+Firstly, the data was annotated using scClassify and clustifyr with healthy tissue references- a PBMC model and the HumanCellAtlas (HCA) reference (Figures \ref{fig:mm_class_umap_annotate}b and \ref{fig:mm_class_umap_annotate}c).
+Both packages labelled the majority of cell clusters as monocytes or other myeloid cell types.
 Clustifyr-HCA assigned clusters 4, 5, 11 and 13 as NK cells, whilst scClassify-PBMC assigned clusters 5 and 13 as T cells and cluster 11 as NK cells.
 Clusters 7 and 10 were left unassigned using clustifyr-HCA annotation, whilst clusters 4, 7, 9 and 10 were labelled as B cells by scClassify-PBMC.
-From these annotations alone it is unclear which cluster is the MM cell population.
+From the combination of the two annotations it seems like clusters 5 and 13 are T cells, cluster 11 is NK cells, and clusters 0, 1, 2, 3, 6, 8, 12 and 14 are myeloid cells.
+However, from these annotations alone, it is unclear which clusters are the MM cell population.
 
-Next, the scRNA-seq data was annotated using the MM dataset-trained references generated above (figure \ref{fig:mm_classifier_scclassify_annotate}).
+alone it is unclear which cluster is the MM cell population.
+
+Next, the scRNA-seq data was annotated using the MM dataset-trained model classifiers generated above (Figure \ref{fig:mm_classifier_scclassify_annotate}).
 %
 % scclassify annotation with MM classifier
 \begin{figure}[htb]
@@ -78,13 +82,14 @@ c) Joint newly-diagnosed/relapsed MM patient dataset.
 \label{fig:mm_classifier_scclassify_annotate}
 \end{figure}
 %
-All three models assigned some cells as MM cells (pink cells in figure \ref{fig:mm_classifier_scclassify_annotate}).
-The model built using the naive MM dataset identified the majority of cells in clusters 7, 9 and 10 as MM cells.
-The relapsed MM model identified cells in clusters 4, 7, 9 and 10 as MM cells.
-The joint model mainly identified clusters 7, 9, and 10 as MM cells, and some cells in cluster 4 as MM cells.
+%
+scClassify identified some cells as MM cells using all three models (the pink cells in figure \ref{fig:mm_classifier_scclassify_annotate}).
+The naive model annotation identified the majority of cells in clusters 7, 9 and 10 as MM cells.
+The relapsed model annotation identified cells in clusters 4, 7, 9 and 10 as MM cells.
+The joint model annotation mainly identified clusters 7, 9, and 10 as MM cells, and some cells in cluster 4 as MM cells.
 All three models seem to agree with each other and scClassify-PBMC's assignment of non-MM cells, with clusters 5 and 13 being assigned as T cells, cluster 11 as NK cells and the rest of non-MM cells clusters as myeloid cells.
 
-To assess if the models' MM cell classifications were correct, the expression of MM biological markers was examined (figure \ref{fig:mm_class_ftp_cd138_cd45_bcma}).
+To assess if the models' MM cell classifications were correct, MM marker expression was examined (Figure \ref{fig:mm_class_ftp_cd138_cd45_bcma}).
 %\textit{CD19} and \textit{CD20} were not expressed in the dataset.
 % cd138, cd45 and bcma
 \begin{figure}[htb]
@@ -102,14 +107,15 @@ There was minimal expression of \textit{SLAMF7}.
 \end{figure}
 %
 %%%% <PAST OR PRESENT TENSE>
-\textit{CD138} and \textit{BCMA} are expressed by clusters 4, 7, 9 and 10.
-\textit{IGKC} is highly expressed by clusters 4, 7, 9 and 10.
-Clusters 7, 9 and 10 are \textit{CD45}\textsuperscript{-}, cluster 4 is \textit{CD45}\textsuperscript{+}.
+\textit{CD138} and \textit{BCMA} were shown to be expressed by clusters 4, 7, 9 and 10.
+\textit{IGKC} was highly expressed by clusters 4, 7, 9 and 10.
+Clusters 7, 9 and 10 did not express \textit{CD45}.
 Therefore, clusters 4, 7, 9 and 10 are MM cells.
 Clusters 7, 9 and 10 are \textit{CD45}\textsuperscript{-} MM cells, and cluster 4 is mainly comprised of \textit{CD45}\textsuperscript{+} MM cells.
-Therefore all three MM models were correct assigning clusters 7, 9 and 10 as MM cells.
+Therefore, all three MM model annotations were correct in assigning clusters 7, 9 and 10 as MM cells.
+However, the naive and joint models incorrectly assigned many of the \textit{CD45}\textsuperscript{+} MM cells in cluster 4 as intermediate cell-types or as myeloid cells.
 
-To quantify each model's accuracy of classifying MM cells, precision, recall and an F1 score were calculated for each of the three models (figure \ref{fig:mm_class_accuracy_bar}).
+To quantify each model's accuracy of classifying MM cells, precision, recall and F1 scores were calculated for each of the three models (Figure \ref{fig:mm_class_accuracy_bar}).
 %
 \begin{figure}[htb]
 \centering
@@ -120,11 +126,18 @@ Precision, recall and F1 scores for the three models ability to correctly assign
 \label{fig:mm_class_accuracy_bar}
 \end{figure}
 %
-All three models had very high precision values: 0.998, 0.965, 0.987, for naive, relapsed and joint, respectively.
+All three models had very high precision values: 0.998, 0.965, 0.987, for the naive, relapsed and joint models, respectively.
 %Precision represents correct positive predictions relative to total positive predictions.
-All models had very few false positives, i.e. the models did not label many non-MM cells as MM cells.
-The recall score of the models was not as high, indicating that there were more false negatives and the models assign some cells in the MM cluster as non-MM cells types.
+This reflects that there were very few false positives- the models did not label many non-MM cells as MM cells.
+The recall score of the models was not as high, indicating there were more false negatives- the models assigned numerous cells in the MM clusters as non-MM cells types.
 The model with the highest F1 score (0.778) was the model generated using the relapsed MM dataset only.
-The GEO dataset originated from a RRMM patient, therefore it makes sense that the relapsed MM model was the most accurate at labelling MM cells.
+This is a good score, indicating that the relapsed model was fairly accurate at classifying MM cells in the test dataset.
+The GEO dataset originated from a RRMM patient, therefore it is logical that the relapsed model was the most accurate at labelling MM cells.
+MM patients' transcriptomes change considerably throughout the course of disease progression and treatment cycles, hence why the naive dataset (although being extremely cell rich- with over 60,000 cells) had the lowest recall score and was not able to classify MM cells as well as the other models.
+This should be bore in mind when using the MM classifiers in future, applying the correct classifier to the correct dataset, such that the naive model is applied to newly-diagnosed MM patient datasets and the relapsed model to RRMM patient datasets.
+In addition, as shown in the joint model, scClassify models can be trained using multiple datasets.
+As more MM scRNA-seq experiments are performed and (their data made publically available), the models can be added to with more MM scRNA-seq annotations.
+With more patients samples, this would make the classifiers more accurately represent the heterogeneity seen in MM, and therefore more accurately annotate future MM datasets.
+
 
 % significant T cell and B cell depletion in RRMM.
