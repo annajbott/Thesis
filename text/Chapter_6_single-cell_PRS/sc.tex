@@ -136,45 +136,81 @@ These packages give a good starting point for more detailed manual annotation.
 However, currently they are not a complete substitute for manual annotation using underlying biological knowledge of cell markers.
 For example, both references originate from healthy tissue, therefore the myeloma cluster could not be identified using clustifyr, scClassify and these healthy references alone.
 Both packages either incorrectly labelled the MM cluster as B cells, or were unable to assign any cell type to the myeloma cluster with any confidence and left it unassigned.
-Thus, the MM cluster had to be identified manually using known MM pathological markers.
+Thus, the MM clusters had to be identified manually using MM biological knowledge.
 
-Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} show how the MM cell clusters were identified.
-From MM cells, you would expect to see expression of CD38, but lower expression than in normal plasma cells.
-You would expect to see high expression of the pathological marker CD138 in MM cells, as well as high expression of SLAMF7, BCMA, KRAS, IGKC and IGL2, however these are not exclusive to the MM cluster.
-You would expect to see little or no expression of CD45 and CD19 in the MM cluster and reduced expression of CD20 in MM cells compared to normal B cells.
-Using the expression of these markers, clusters 2, 7 and 13 were identified as the MM cell population in the newly diagnosed dataset; and cluster 4 was identified as the MM cell population in the relapsed MM dataset.
-
-
+Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} demonstrate the MM cell identification process, using the expression of certain pathological markers.
 % MM markers vln, feature and dotplots
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_naive.pdf}
     \caption[MM cluster manual annotation- newly diagnosed MM]{Manual annotation of multiple myeloma (MM) cell clusters in experiment 1 and 2 (newly-diagnosed patients) using known MM biological markers.
-    a) Seurat UMAP feature plots showing MM marker expression.
+    a) UMAP feature plots of MM marker expression.
     Grey indicates no expression and purple indicates expression.
-    b) A dot plot showing for each cluster the percentage of cells expressing a given marker and the average expression.
-    c) Violin plots showing gene expression for each cluster.}
+    b) A dot plot of the percentage of cells expressing a given marker and the average expression (for each cluster).
+    c) Violin plots of gene expression for each cluster.}
     \label{fig:mm_markers_naive}
 \end{figure}
-
+%
 % MM markers vln, feature and dotplots
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_relapsed.pdf}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_relapsed2.pdf}
     \caption[MM cluster manual annotation- relapsed MM]{Manual annotation of MM cell clusters in experiment 3 (relapsed MM) using known biological markers.
-    a) Seurat UMAP feature plots showing MM marker expression.
-    Grey indicates no expression and purple indicates expression.
-    b) A dot plot showing for each cluster the percentage of cells expressing a given marker and the average expression.
-    c) Violin plots showing gene expression for each cluster. }
+    a) UMAP feature plots of MM marker expression.
+    b) A dot plot of the percentage of cells expressing a given marker and the average expression (for each cluster).
+    c) Violin plots of gene expression for each cluster. }
     \label{fig:mm_markers_relapsed}
 \end{figure}
+%
+For MM cells, you would expect to see some expression of \textit{CD38}, but lower expression than in normal plasma cells.
+You would expect to see high expression of \textit{CD138} in MM cells, as well as high expression of \textit{SLAMF7}, \textit{BCMA}, \textit{KRAS}, \textit{IGKC} and \textit{IGL2}, however these are not exclusive to the MM cluster.
+You would expect to see little or no expression of \textit{CD45} and \textit{CD19} in the MM cluster and reduced expression of \textit{CD20} in MM cells compared to normal B cells.
+You may also expect to see expression of \textit{CD56} in abnormal plasma cells, however this is not always detected at the RNA level.
+Other common markers used to identify MM cells include, \textit{CD81}, \textit{B2M} and \textit{CD117}.
+Using the expression of a combination of these markers, clusters 2, 7 and 13 were identified as the MM cell population in the newly diagnosed dataset and cluster 4 was identified as MM cells in the relapsed MM dataset.
 
+However, from marker expression alone, the identity of clusters 9 and 12 in the relapsed dataset were unclear.
+Both clusters 9 and 12 seem to belong to a B-cell lineage.
+Cluster 12 demonstrates increased \textit{CD20} expression, indicating they could be mature B cells.
+However, clusters 4 and 9 have an increased expression of \textit{IGKC}, compared to non-B cell clusters.
+Indicating that perhaps, all B-cell clusters (4, 9 and 12) in the relapsed dataset, may be in fact MM cells.
+It has previously been shown that MM possess a level of plasticity, that could allow de-differentiation into other cell lineages \cite{kotouvcek2014myeloma}, this may account for the \textit{CD20} expression of cluster 12.
 
-\input{text/Chapter_6_single-cell_PRS/markers_table.tex}
+Due to the uncertainty of cell-type identity in the relapsed dataset, based on MM marker expression alone, inferCNV \cite{patel2014single, infercnv2014} was employed to detect large-scale chromosomal copy number variations (CNVs) and help inform annotation.
+The raw counts expression matrix of the relapsed, integrated Seurat object was used as input for inferCNV\@.
+`Normal' cells (that is: myeloid cells, T cells and NK cells) were used as references for for the relative expression intensity of the suspected malignant cell clusters (clusters 4, 9 and 12).
+A Cutoff value of 0.1 was used for the analysis, to account for the sparsity of droplet-based 3' scRNA-sequencing.
+%
+% inferCNV
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/inferCNV_relapse.pdf}
+    \caption[inferCNV- relapsed MM]{InferCNV results for the relapsed MM dataset.
+    [a and b] InferCNV heatmaps.
+        The top panel shows expression values for the reference `normal' cells.
+        The bottom panel shows expression values for the suspected malignant cells (clusters 4, 9 and 12).
+        Red indicates chromosomal region amplifications and blue indicates chromosomal region deletions.
+    a) De-noised inferCNV results.
+    b) Hidden Markov-Model (HMM) copy number variation (CNV) region predictions.
+        Chromosomal deletions predicted for chromosome 13 and chromosomal duplications/gains predicted in chromosomes 11 and 19 for clusters 4 and 9.
+        Gains also predicted in chromosome 3 and 9 for cluster 4.
+    c) UMAP featureplots demonstrating chromosome 13 loss and chromosomes 3, 9 and 11 duplications.
+    }
+    \label{fig:inferCNV_relapse}
+\end{figure}
+%
+Figure \ref{fig:inferCNV_relapse} shows the inferCNV results for the relapsed dataset.
+Myeloma-defining CNVs were seen in both cluster 4 and 9, including chromosome 13 deletion, gain of chromosomes 11 and 19.
+The inferCNV results also demonstrate that there are different genetic MM subclones within the population, as cluster 4 alone show regional gain of chromosomes 3, 7, 9 and 16.
+This fits with the <FISH - ask martin for ORBID> data for the relapsed patients, whereby they had chromosome 13 deletions...
+Therefore, it can be concluded that clusters 4 and 9 are MM subclonal populations.
 
-% T / NK cells feature plots
+InferCNV was also used on the naive dataset (Figure \ref{fig:inferCNV_naive}) to check for CNVs.
 
-% Use of annotation for new MM datasets
+% marker annotation table where  to put
+%\input{text/Chapter_6_single-cell_PRS/markers_table.tex}
+
+% appendix annotation for other clusters - ?
 
 % flush figures out before beginning results section
 \clearpage
@@ -275,7 +311,7 @@ Pathway enrichment analysis was performed for the top 200 upregulated and top 20
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_mm_pathway_analysis.pdf}
-\caption[scRNA-seq MM cluster pathway analysis]{Pathway analysis (Gene onotology biological processes; GOBP) of the MM cluster.
+\caption[scRNA-seq MM cluster pathway analysis (newly-diagnosed MM)]{Pathway analysis (Gene ontology biological processes; GOBP) of the MM cluster.
     a) and b) Halofuginone treatment.
     c) and d) NCP26 treatment.
 a) and c) GOBP pathway analysis performed using top 200 upregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2FC}>0$) ranked by fold change.
@@ -345,16 +381,17 @@ Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the inte
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_full_annotation.pdf}
 \caption[Relapsed MM scRNA-seq full annotation]{Fully annotated UMAP clustering analysis of two relapsed multiple myeloma (MM) patients.
-15 distinct clusters were identified, one of which was identified as the MM population (circled).}
+15 distinct clusters were identified.
+Two subclones of MM were identified (circled; clusters 4 and 9).}
 \label{fig:full_anno_relapse}
 \end{figure}
 %%
-The expected major immune clusters were identified (such as B cells, T cells and myeloid cells.)
-Using the established MM biological markers (shown in Figure \ref{fig:mm_markers_relapsed}), one distinct MM cluster (cluster 4) was identified.
-The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and in their normal immune cells.
+The expected major immune clusters were identified (such as B cells, NK cells, T cells and myeloid cells.)
+Using the established MM biological markers (shown in Figure \ref{fig:mm_markers_relapsed}), and inferCNV results, two distinct MM subclones (cluster 4 and cluster 9) were identified.
+The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and their immune microenvironment.
 
 \subsubsection{Composition}
-Cluster composition analysis for relapsed MM by treatment is shown in figure \ref{fig:composition_relapse}.
+Cluster composition analysis for relapsed MM by treatment is shown in Figure \ref{fig:composition_relapse}.
 %% RELAPSE UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
 \centering
@@ -368,12 +405,14 @@ NCP26 treatment reduces the proportion of cells in the MM cluster (p<0.01).}
 \label{fig:composition_relapse}
 \end{figure}
 %%
-1\si{\micro\Molar} and 5\si{\micro\Molar} NCP26 treatment reduced the proportion of cells in the MM cluster compared to the DMSO control.
+1\si{\micro\Molar} and 5\si{\micro\Molar} NCP26 treatment reduced the proportion of cells in MM cluster 4 compared to the DMSO control.
 % Effect of NCP26 on other clusters. myeloid
-There is insufficient evidence (p>0.05) to conclude if Halofuginone treatment affected the proportion of cells in the MM cluster.
+There is insufficient evidence (p>0.05) to conclude if Halofuginone treatment affected the proportion of cells in MM cluster 4.
 However, Halofuginone significantly reduced the proportion of cells in the myeloid and B cell clusters.
 This perhaps indicates that in relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
 This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma.
+
+None of the ProRS inhibitors reduced the proportion of cells in MM cluster 9.
 
 \subsubsection{Differential expression}
 % Number of DE genes
@@ -389,15 +428,58 @@ Cell type annotation corresponding to Figure \ref{fig:full_anno_relapse}.}
 \label{fig:relapse_deg_bar}
 \end{figure}
 
-1073 genes were DE in the MM cell cluster following 24-hour 1\si{\micro\Molar} HF treatment.
+1073 genes were DE in MM cell cluster 4 following 24-hour 1\si{\micro\Molar} HF treatment.
 157 and 801 genes were DE in the MM cell cluster following 24-hour 1\si{\micro\Molar}  and 5\si{\micro\Molar} NCP26 treatment, respectively.
 The breakdown of DEGs per cell type for NCP26 and HF treatment is shown in Figure \ref{fig:relapse_deg_bar}.
 
+4, 1, and 3 genes were DE in MM cluster 9 by Halofuginone, 1\si{\micro\Molar} NCP26  and 5\si{\micro\Molar} NCP26 treatment, respectively.
+Together with the composition analysis, this indicates that the cluster 9 MM subclone may be more resistant to ProRS inhibition than the other myeloma subclone.
+
 In contrast to the newly-diagnosed MM data, many of the other immune subtypes are differentially expressed to similar degrees as MM cells by ProRS inhibition.
 Additionally, the myeloid cell cluster has more DEGs than MM cells for 1\si{\micro\Molar} and 5\si{\micro\Molar}  NCP26 treatment.
-Myeloid cells have fewer DEGs than MM cells for HF treatment, however Figure \ref{fig:composition_relapse} demonstrates substantial cell killing of myeloid cells by HF treatment, therefore you may not expect as many statistically significant DEGs for the few cells remaining in the cluster.
-This may indicate that NCP26 and HF are not as selective for MM cells for relapsed patients as they are for newly-diagnosed MM\@.
+Myeloid cells have fewer DEGs than cluster 4 MM cells for HF treatment, however Figure \ref{fig:composition_relapse} demonstrates substantial cell killing of myeloid cells by HF treatment, therefore you may not expect as many statistically significant DEGs for the few cells remaining in the cluster.
+This could indicate that NCP26 and HF are not as selective for MM cells in relapsed MM as they are for newly-diagnosed MM, and that the ProRS inhibitors may not be very effective against some resistant myeloma subclones.
 
+% Pathway
+\subsubsection{Pathway analysis}
+Pathway enrichment analysis was performed for the top 200 upregulated and top 200 downregulated DEGs in MM cluster 4, following Halofuginone and NCP26 treatment (Figure \ref{fig:relapse_mm_pathway_analysis}).
+Pathway analysis could not be performed for MM cluster 9, as there are too few DEGs.
+%%%%
+%%  Pathway analysis
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_mm_pathway_analysis.pdf}
+\caption[scRNA-seq MM cluster pathway analysis (relapsed MM)]{Pathway analysis (Gene ontology biological processes; GOBP) of MM cluster 4 in RRMM dataset.
+GOBP pathway analysis performed using top 200 upregulated or downregulated DEGs for ProRS inhibitor (1\si{\micro\Molar} Halofuginone and 1\si{\micro\Molar} or 5\si{\micro\Molar}  NCP26) treatment compared to DMSO control treatment for MM cluster 4.
+}
+\label{fig:relapse_mm_pathway_analysis}
+\end{figure}
+%%
+Genes involved in translation pathways are downregulated following ProRS inhibition, as well as cell cycle pathways.
+Cell death, apoptotic and cell cycle pathways are enriched following ProRS inhibition.
+This follows literature and previous sections, whereby AAR activation triggers cell cycle changes, cell death and a global reduction in the translational machinery.
+Interestingly, for all three treatments mRNA splicing is enriched, indicating a potential spliceosomal mechanism for these inhibitors.
+
+Figure \ref{fig:relapse_aar_vln_ftp} shows AAR gene expression in relapsed myeloma cells, as well as the surrounding immune cells.
+%
+%%  AAR violin and feature plots
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_aar_vln_ftp.pdf}
+\caption[scRNA-seq differentially expressed AAR genes- relapsed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
+    a) Violin plots showing AAR gene expression in MM cell cluster 4.
+    a) Violin plots showing AAR gene expression in MM cell cluster 9.
+    b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{DDIT3} and \textit{GADD34}.
+Feature plots are split into four panels based on treatment condition.
+The myeloma subclones are circled in the first panel.
+}
+\label{fig:relapse_aar_vln_ftp}
+\end{figure}
+%%
+AAR gene expression in MM cluster 4 follows the typical patterns of ProRS inhibition, as seen in the naive dataset and bulk RNA-seq data, increased expression of \textit{ATF3}, \textit{GADD34}, \textit{GADD45A}, \textit{DDIT3} and amino acid transporters, and decreased expression of some AAR-related genes such as \textit{DDIT4}.
+However, for the other myeloma subclonal population (cluster 9), ProRS inhibitor treatment did not seem to fit with previous data.
+For example, \textit{ATF3}, \textit{GADD34} and \textit{SLC38A2} are upregulated in cluster 9 following NCP26 treatment, however many other AAR genes' expression levels remain unaffected by treatment.
+Additionally, some AAR gene expression levels change inversely to how they behave in previous data, for example ProRS inhibition causes upregulation of \textit{DDIT4} and \textit{FAU} in cluster 9, where previously HF and NCP26 treatment has been shown to cause downregulation of these genes in myeloma cells.
 
 
 \subsection{Monocyte/macrophage analysis}
