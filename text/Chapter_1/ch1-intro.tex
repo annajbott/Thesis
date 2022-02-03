@@ -211,8 +211,7 @@ Patients follow a pattern of peaks and troughs of treatment cycles, remission an
 \includegraphics[width=\textwidth]{figures/Introduction/treatment_cycles.pdf}
 \caption[MM treatment cycles]{MM treatment cycles and disease progression over time.
 All MM patients begin with precursor states Monoclonal Gammopathy of Unknown Significance (MGUS) and/or smoldering multiple myeloma (SMM) prior to a malignant transformation to symptomatic/active MM.
-Patients undergo cycles of treatment, remission and relapse until eventually becoming relapsed and refractory (RRMM).
-
+Patients undergo cycles of treatment, remission and relapse until eventually becoming relapsed and refractory (RRMM) and no longer respond to treatment.
 }
 \label{fig:treatment_cycles}
 \end{figure}
@@ -225,17 +224,17 @@ Other upregulated genes have been identified, for example \textit{ABCB1}, coding
 \textit{XBP1}, involved in the UPR, has been seen to be downregulated in PI resistance \cite{robak2018drug}.
 Although many genes have been identified to be differentially expressed in drug resistant MM, the mechanism is not fully elucidated and further research is imperative in the progression of treatment for multiple myeloma.
 
-Another avenue to increase patient survival, would be to identify novel therapeutics, effective against MM, which are capable of overcoming acquired anti-cancer drug resistance.
-Therapeutics with a novel mechanism of action are likely to be more effective for relapsed and refractory MM (RRMM) patients than new drugs belonging to the same class of drug as a drug they have previously been treated with.
-This is because there would be less overlap of mechanisms of action.
-
+Another avenue to increase MM survival, would be to identify novel therapeutics effective against MM, which are capable of overcoming acquired anti-cancer drug resistance.
+By increasing the arsenal of drugs available to treat MM, the time until patients become refractory and no longer respond to treatment could be prolonged.
+Therapeutics with a novel mechanism of action are likely to be more effective for MM patients who have undergone several treatment cycles than drugs belonging to the same class as drugs they have previously been treated with.
+Novel therapeutics would have less overlap of mechanism of action with existing drugs, therefore there would be less cross-resistance.
 
 %
 \afterpage{\clearpage} % flush out floats before this. Very different section
 %
 \section{Transcriptomics, proteomics and epigenomics}
-It has been shown that changes in the genome, transcriptome, epigenome and proteome all contribute to acquired-drug resistance in myeloma.
-Therefore, to sufficiently investigate the multiple layers driving this development of resistance, a multi-omics approach must be employed.
+It has been shown that changes in the genome, transcriptome, epigenome and proteome all contribute to disease progression and drug resistance in MM.
+Therefore, to sufficiently investigate the multiple layers driving MM and to assess the effectiveness of new therapeutics, a multi-omics approach must be employed.
 
 \subsection{DNA and the genome}\label{subsec:dna}
 The genome is the genetic material of an organism, it consists of deoxyribonucleic acid (DNA).
@@ -371,8 +370,31 @@ Proteins have a large array of functions, such as transporting small molecules, 
 Proteomics is the study of the proteome.
 CyTOF and LC-MS/MS are techniques often employed to examine the proteome. %(section \ref{subsec:cytof-intro} and section \ref{subsec:lcmsms-intro}).
 
+\subsection{Sequencing}
+DNA is often referred to as the `genetic master code', therefore the ability to decode the order of nucelic acids has been seen as a highly desirable feat since its discovery.
+Sequencing is the process of determining the sequence of nucleotides of nucleic acid residues.
+Over the last half-century, large numbers of researchers and vast sums of money have been applied to facilitate the techniques and technologies to decode DNA and RNA molecules' nucleotide sequence \cite{heather2016sequence}.
+Over this time, massive technological innovations have been developed.
+The most commonly used `first-generation' DNA-sequencing technology, Sanger sequencing, was developed in 1977 \cite{sanger1977dna}.
+Sanger sequencing, or the `chain termination method', chain-termination PCR is performed with a mix of regular nucleotides (deoxynucleotide triphosphates; dNTPs) and fluorescently-labelled, chain-terminating dNTPs (dideoxynucleotide triphosphates; ddNTPs), using the DNA of interest as a template.
+During the extension step of PCR, when DNA polymerase incorporates a ddNTP randomly, extension ceases.
+This creates greater than a million copies of the DNA sequence of interest, all terminated at random lengths by the ddNTPs.
+Capillary gel electrophoresis is then used to separate the extension products by size.
+The gel is then read to determine the sequence.
+By reading the gel bands from smallest to largest, the 5' to 3' sequence of the original DNA strand can be inferred.
+Sanger sequencing was used by the Human Genome Project, an international research effort to determine the DNA sequence of the entire human genome \cite{pennisi2001human}.
+The whole project took approximately 13 years to complete, and was reported to have cost \$3 billion.
+
+Sanger sequencing dominated the sequencing world for over 30 years, until the advent of `Next-generation sequencing' (NGS; now being dubbed `second-generation sequencing', with the advent of newer technologies).
+NGS differs from its predecessors in that it is highly scalable and massively parallel.
+With NGS you can rapidly sequence the entire human genome in one day, for just under \$5000.
+It is quicker and cheaper than traditional Sanger sequencing, and has progressed data output from the kilobase range up to potentially multiple terabases per run.
+Today, the largest and most commonly used NGS sequencing technology platform is Illumina, who own around 80\% of the global sequencing market.
+
+NGS can be used to study the transcriptome, using RNA-seq techniques; the epigenome, using techniques such as ChIP-seq or ATAC-seq; or the genome using techniques such as whole genome sequencing (WGS).
+
 \subsection{RNA-seq}\label{subsec:rna-seq-intro}
-Modern RNA sequencing (RNA-seq) implements next generation sequencing (NGS) technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
+Modern RNA sequencing (RNA-seq) implements NGS technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
 
 \subsubsection{Bulk RNA-seq}
 Bulk RNA-seq measures the average expression across a sample.
@@ -420,8 +442,7 @@ The barcoded STAMPS can then be amplified using PCR.}
 %%
 
 
-\subsection{ATAC-seq}
-...
+% \subsection{ATAC-seq}
 
 %\subsection{ChIP-Seq}
 %Chromatin immunoprecipitation sequencing (ChIP-seq) is used to analyse protein interactions with DNA.
@@ -430,35 +451,28 @@ The barcoded STAMPS can then be amplified using PCR.}
 %It utilises NGS to identify biding sites of DNA-associated proteins, therefore it is often used to determine the mechanisms of transcription factors or chromatin-associated proteins, influencing gene expression.
 
 
-\subsection{Next generation sequencing}
-Next generation sequencing (NGS), differs from its predecessors in that it is highly scalable and massively parallel.
-With NGS you can rapidly sequence the entire genome if desired.
-It is quicker and cheaper than traditional Sanger sequencing, and progressed data output from the kilobase range up to potentially multiple terabases per run.
-
-\subsection{CyTOF}\label{subsec:cytof-intro}
-...
+%\subsection{CyTOF}\label{subsec:cytof-intro}
 
 
-\subsection{Liquid chromatography with tandem mass spectrometry}\label{subsec:lcmsms-intro}
-Liquid chromatography with tandem mass spectrometry (LC-MS/MS) based proteomics is a popular analytical technique to measure the protein abundance of a sample.
-The general steps for LC-MS/MS-based proteomics include: cell lysis, protein extraction, protein digestion using an enzyme to cleave proteins into peptides, peptide purification, and analysis by mass spectrometry.
-The resultant data includes mass and charge (m/z) information and peak intensities.
-Software is then employed which performs database searches and calculates the most likely peptide for each peak.
-From this data, protein abundance can then be calculated and normalised.
+%\subsection{Liquid chromatography with tandem mass spectrometry}\label{subsec:lcmsms-intro}
+%Liquid chromatography with tandem mass spectrometry (LC-MS/MS) based proteomics is a popular analytical technique to measure the protein abundance of a sample.
+%The general steps for LC-MS/MS-based proteomics include: cell lysis, protein extraction, protein digestion using an enzyme to cleave proteins into peptides, peptide purification, and analysis by mass spectrometry.
+%The resultant data includes mass and charge (m/z) information and peak intensities.
+%Software is then employed which performs database searches and calculates the most likely peptide for each peak.
+%From this data, protein abundance can then be calculated and normalised.
 
-LC-MS/MS-based proteomics can also be used to search for specific proteins within the proteome.
-For example, immobilized metal affinity chromatography (IMAC) can be used to enrich for phosphorylated peptides (phosphoproteomics), and anti-ubiquitin antibodies can be used to enrich for ubiquitinated peptides (ubiquitinomics).
+%LC-MS/MS-based proteomics can also be used to search for specific proteins within the proteome.
+%For example, immobilized metal affinity chromatography (IMAC) can be used to enrich for phosphorylated peptides (phosphoproteomics), and anti-ubiquitin antibodies can be used to enrich for ubiquitinated peptides (ubiquitinomics).
 
-\section{Summary}
+%\section{Summary}
 
-\section{Aims}
-This thesis aims to identify novel therapeutics with anti-MM properties, capable of overcoming acquired drug resistance in MM.
+\section{Thesis aims}
+This thesis aims to identify novel therapeutics with anti-MM properties, capable of overcoming acquired drug resistance in MM\@.
 Chapter \ref{ch:2-litreview} introduces the structure and function of aminoacyl-tRNA synthetases (aaRS).
 It then gives examples of aaRSs in disease and therapeutics that target aaRSs, focusing on the prolyl-tRNA synthetase inhibitor, Halofuginone (HF), and reviewing literature of HF's application, particularly in multiple myeloma.
 Chapter \ref{ch:3-methods} outlines the methodology used in this work.
-Chapter \ref{ch:4-Pipelines} outlines the computational workflows generated to support this work and gives the results of a benchmark conducted to analyse the effectiveness of a computational pipeline developed.
+Chapter \ref{ch:4-Pipelines} outlines the computational method development generated to support this work and gives results of benchmarks conducted to analyse the effectiveness of computational pipelines and classifiers developed.
 Chapter \ref{ch:5-bulk} investigates the use of ProRS inhibitors in PI-sensitive and PI-resistant MM cell lines.
 Bulk-RNA seq is employed and the transcriptional landscape following ProRS treatment is characterised.
-Chapter \ref{ch:6-sc} investigates ProRS inhibitor treatment of primary BM samples from MM patients at the single cell level.
-Newly-diagnosed and relapsed MM patient tissue is assessed.
-Chapter \ref{ch:7-trna} describes the changes seen in tRNA ... following ProRS inhibition.
+Chapter \ref{ch:6-sc} explores ProRS inhibitor treatment of primary BM samples from MM patients at the single cell level.
+The effectiveness against newly-diagnosed and relapsed MM patient tissue is investigated.
