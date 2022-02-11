@@ -269,7 +269,7 @@ Often manual annotation by the user (using known biological markers) is required
 The user can then perform further downstream analysis on the annotated integrated dataset, for example differential expression analysis and composition analysis.
 
 % updated scRNA-seq workflow figure
-\begin{figure}[htb]
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/workflow_generation/sc_workflow.pdf}
 \caption[Updated scRNA-seq workflow]{Outline of updated scRNA-seq workflow.
@@ -285,12 +285,28 @@ The user can then perform further downstream analysis on the dataset, for exampl
 \label{fig:updated_sc_workflow}
 \end{figure}
 
+\afterpage{\clearpage}
 \section{scRNA-Seq velocity analysis pipeline}
 
 \subsection{RNA velocity}
-``RNA velocity is a high-dimensional vector that predicts the future state of individual cells on a timescale of hours"\cite{la2018rna}.
-In combination with clustering analysis, the trajectory of a single-cell can be tracked.
+scRNA-seq gene expression analyses capture only a static snapshot of the transcriptome in time.
+In a seminal paper by La Manno et al. (2018), RNA velocity methods were introduced with the aim of revealing the rate and direction of change of the transcriptome during dynamic processes, such as embryonic development or cellular dynamics following drug treatment \cite{la2018rna}.
+In-line with previous observations, the authors found that between 15 and 25\% of scRNA-seq reads contain unspliced intronic sequences.
+Using this knowledge, they found that the balance between unspliced and spliced mRNAs can be predictive of cellular state progression, and can be used to directly estimate the time derivative of gene expression on a timescale of hours.
+Therefore, using RNA velocity in combination with clustering analysis, the trajectory of a single cell can be tracked.
+This paper introduced Velocyto for RNA velocity analysis.
+Since its inception in 2018, numerous tools have been developed for RNA velocity analysis \cite{la2018rna, weng2021vetra, bergen2020generalizing, melsted2019modular}.
 
-%Another RNA velocity workflow has been created\cite{melsted2019modular}, which implements Kallisto BUS and the BUStools command `capture'. This approach will also be explored, as it boasts far superior run time and requires no large bam intermediate files. This could then also be incorporated within the same pipeline as the generation of a counts matrix with very few extra tasks required.
+\subsection{Pipeline outline}
+A modular RNA velocity analysis workflow was constructed based around the kallisto BUStools (kb-python wrapper) velocity workflow \cite{melsted2019modular}.
+The user requires an Ensembl reference GTF file and DNA fasta file for the species of interest, and their raw fastq read files as input.
+Firstly, an RNA velocity index is generated from the GTF and fasta file.
+Kb count is then used to generate spliced and unspliced transcript count matrices and a loom file.
+The resulting loom files are imported into R, and after some cell barcode manipulation, combined with existing gene-expression-based Seurat objects.
+This gives a Seurat object containing gene-expression data, UMAP/tSNE embeddings and spliced/unspliced RNA velocity counts.
+If the RNA workflow is combined with an annotated seurat object, the trajectory of individuals cells can then be mapped onto UMAP plots with pre-defined cell-type annotations.
+The pipeline is deposited on GitHub and can be found here: \url{https://github.com/annajbott/pipeline_kb_velo}.
 
-%\section{ATAC-seq analysis pipeline}
+% tRNA workflow
+\afterpage{\clearpage}
+\input{text/Chapter_4_Pipelines/tRNA_methods.tex}
