@@ -348,7 +348,8 @@ The proteome is the entire set of proteins that is or can be expressed by an org
 mRNAs are translated into protein molecules.
 mRNA is made up of only four different nucleotides, but proteins are made up of 20 amino acids, therefore a direct one-to-one function matching nucleotides to amino acids is impossible.
 Instead, the sequence of mRNA is read in groups of three consecutive nucleotides, called a codon.
-4\textsuperscript{3} gives a possible 64 combinations, therefore some combinations map to the same amino acid (many-to-one function), or signal to terminate translation of the current protein, named a stop codon.
+The three positions of a codon, and each position with four possible base options (A, C, U and G), gives a total of 64 different permutations (i.e. 4\textsuperscript{3}).
+Therefore, some combinations map to the same amino acid (many-to-one function), or signal to terminate translation of the current protein, named a stop codon.
 This genetic code directs the translation from mRNA to protein.
 Translation takes place in the ribosome.
 
@@ -390,18 +391,31 @@ NGS differs from its predecessors in that it is highly scalable and massively pa
 With NGS you can rapidly sequence the entire human genome in one day, for just under \$5000.
 It is quicker and cheaper than traditional Sanger sequencing, and has progressed data output from the kilobase range up to potentially multiple terabases per run.
 Today, the largest and most commonly used NGS sequencing technology platform is Illumina, who own around 80\% of the global sequencing market.
+NGS can be used to study the transcriptome, using RNA-seq techniques (Section \ref{subsec:rna-seq-intro}); the epigenome, using techniques such as ChIP-seq or ATAC-seq; or the genome using techniques such as whole genome sequencing (WGS).
 
-NGS can be used to study the transcriptome, using RNA-seq techniques; the epigenome, using techniques such as ChIP-seq or ATAC-seq; or the genome using techniques such as whole genome sequencing (WGS).
+Recently, long-read technologies are becoming more prominent in the sequencing field.
+Illumina short-read sequencing limits read length to between 50 and 300 base pairs (bp)\@.
+This read length is too short to detect more than 70\% of human genome structural variation.
+Moreover, some of the most mutation-prone regions of the genome are inaccessible due to repeating or GC-heavy content, limiting sequence coverage and leaving large regions of the genome critically understudied \cite{logsdon2020long}.
+Long-read technologies are capable of generating continuous sequences ranging from 10 kilobases to several megabases, enabling the sequencing of full-length transcripts.
+The two main emerging long-read technologies are PacBio single-molecule real-time (SMRT) sequencing\cite{wenger2019accurate} and Oxford Nanopore Technologies (ONT) sequencing\cite{ip2015minion, jain2016oxford}, together marking the birth of `third-generation sequencing' (TGS).
+Both PacBio and ONT sequencing sequence single DNA molecules, rather than a pool of PCR-amplified fragments.
+PacBio sequencing employs a sequencing-by-synthesis strategy (similar to Illumina sequencing), with circular DNA templates to improve accuracy.
+ONT sequences a native linear single-stranded DNA molecule by measuring current changes as bases are threaded through a nanopore \cite{weirather2017comprehensive}.
+Whilst TGS technologies have the advantage of longer read length, the methods are also plagued by higher base-calling error rates and lower throughput than NGS technologies \cite{weirather2017comprehensive, philpott2021nanopore}.
+Therefore, this makes applying TGS to single-cell RNA-seq especially challenging.
+Due to the lower through-put, fewer cells can be reported on at a comparable read-depth to NGS technologies;
+and due to the high base-calling error rate, inaccurate cellular and molecular barcode assignment can complicate associating mRNA reads with their cell of origin.
 
 \subsection{RNA-seq}\label{subsec:rna-seq-intro}
-Modern RNA sequencing (RNA-seq) implements NGS technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
+Most modern RNA sequencing (RNA-seq) implements NGS technology to analyse RNA across the transcriptome of a biological sample and allows for the quantification of gene expression.
 
 \subsubsection{Bulk RNA-seq}
 Bulk RNA-seq measures the average expression across a sample.
 Creating a bulk RNA-seq library involves isolating RNA from a biological sample, filtering for a specific type of RNA (most commonly mRNA), fragmentation of RNA into fragments, reverse transcription of the fragments to generate a complementary DNA (cDNA) library, end repair and adaptor ligation of the cDNA library, followed by PCR amplification ready for sequencing.
 
 %% Diagram of bulk RNA-seq
-\begin{figure}
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/Introduction/bulk_rna_library_prep_diagram_alternate.png}
 \caption[Bulk RNA-seq outline]{Outline of bulk RNA-sequencing library prep.
@@ -420,14 +434,10 @@ The libraries are then amplified using PCR and cleaned-up, ready for sequencing.
 
 \subsubsection{Single-cell RNA-seq}
 Single-cell RNA-seq (scRNA-seq) measures gene expression for each individual cell across a population of cells and therefore provides information on clonal diversity that may be lost when pooling cells into bulk samples.
-Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-seq techniques, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization} and inDrops\cite{klein2015droplet}.
+Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-seq techniques developed, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization}, scCOLOR-seq\cite{philpott2021nanopore} and inDrops\cite{klein2015droplet}.
 scRNA-seq library preparation shares many steps with bulk RNA-seq workflow, however preliminary steps are required to isolate single cells and barcode reads that originated from the cell.
-
-For droplet-based scRNA-seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
-Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
-
 %% Diagram of drop-seq
-\begin{figure}
+\begin{figure}[hb]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/Introduction/drop_seq.png}
 \caption[Drop-seq schematic]{Outline of Drop-seq, a droplet-based scRNA-seq method.
@@ -440,6 +450,8 @@ The mRNAs are reverse-transcribed into cDNAs, generating a set of ``STAMPS'' (si
 The barcoded STAMPS can then be amplified using PCR.}
 \label{fig:dropseq}\end{figure}
 %%
+For droplet-based scRNA-seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
+Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
 
 
 % \subsection{ATAC-seq}
