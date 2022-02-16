@@ -6,48 +6,104 @@
 ...
 
 % 1
-\section{The adaptive immune system}
-Humans are exposed to millions of potential pathogens every day and therefore require defences to be able to protect themselves against infection.
+\section{The immune system}
+Humans are exposed to millions of potential pathogens every day and would die without defences to be able to protect themselves from infection.
 These defences can be innate or adaptive.
 An example of an innate defence is the skin acting as a physical barrier between the outside world and the body.
-Another example of an innate defence is non-specific engulfing (phagocytosis) of foreign pathogens by macrophages (a type of white blood cell).
-Innate responses are relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required- called the adaptive immune response. (REF-mol biology of the cell).
+Innate responses are non-specific and relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required- called the adaptive immune response.
+%Another example of an innate defence is non-specific engulfing (phagocytosis) of foreign pathogens by macrophages (a type of white blood cell).
+Both innate and adaptive immune responses rely on cells produced by the hematopoetic system.
+Hematopoiesis is the process in which the body produces blood.
+Postnatally the major hematopoetic organs are bone marrow, lymph nodes, the spleen and the thymus.
 
-Adaptive immune responses are specific to the pathogen that induced the response and are dependent on B cells and T cells, two major classes of lymphocytes (a class of white blood cell).
-Two classes of adaptive immune responses exist: antibody responses, co-ordinated by B cells, and cell mediated immune responses, co-ordinated by T cells.
-T-cell-mediated immune responses recognise foreign antigens (antibody generators;
-substances capable of eliciting an immune response by stimulating B or T cell activation) on the surface of cells and can either kill the pathogen-infected cells or stimulate B cells or phagocytes to help eliminate the pathogen.
-In antibody responses, B cells and plasma cells secrete antibodies, also known as immunoglobulins.
-Immunoglobulins are large Y-shaped proteins, which recognise and bind to the specific foreign antigen on the pathogen which stimulated their production.
-Binding of immunoglobulins to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
-Additionally, antibody binding makes it easier for phagocytic cells to ingest the pathogen.
-%%%%%%
-
-
-%2
-\subsection{Plasma cells}
-%3
-\subsubsection{Plasma cell development}
-Stem cells are precursor cells which can give rise to at least one type of differentiated (mature) cell, with the capability of indefinite self-renewal.
-Hematopoietic stem cells (HSC) are stem cells that give rise to all the cells of the hematopoietic system.
-Two predominant cell populations are produced by HSCs: the common myeloid progenitor (CMP) and the common lymphocyte progenitor (CLP).
-CMP differentiation produces erythrocytes (red blood cells), mast cells, monocytes, macrophages, neutrophils, eosinophils, basophils and myeloid dendritic cells.
-CLP differentiation results in B cells, T cells, natural killer (NK) cells and lymphoid dendritic cells.
-
+\subsection{Hematopoietic stem cell cell differentiation}
+All blood cells originate from multipotent hematopoietic stem cells (HSCs), located in the bone marrow (BM).
+%
+%%%
 %% Immune cell figure
-\begin{figure}
-\centering\includegraphics[width=0.7\textwidth]{figures/Introduction/immune_cells.png}
-\caption[Hematopoietic system cell differentiation]{Hematopoietic stem cell (HSC) cell differentiation. HSCs divide into myeloid or lymphoid progenitor cells. Dendritic cells and a number of precursor states have been ommitted. }
+\begin{figure}[htb]
+\centering\includegraphics[width=\textwidth]{figures/Introduction/immune_cells.pdf}
+\caption[Hematopoietic system cell differentiation]{Hematopoietic stem cell (HSC) cell differentiation.
+Multipotent HSCs divide and either self-renew or commit to common myeloid or common lymphoid progenitor cells.
+The committed progenitor cells then further commit to progressive restrictive progenitors, then finally differentiated cells such as B cells, T cells, macrophages and erythrocytes.
+In adult mammals, all cells shown develop in the bone marrow, except for T cells, which develop in the thymus, and macrophages, which develop from blood monocytes.
+Numerous dendritic cell phenotypes exist, they can be derived from lymphoid and myeloid progenitors, as well as monocytes.}
 \label{fig:HSC_differentiation}\end{figure}
 %%
+Stem cells are precursor cells which can give rise to at least one type of differentiated (mature) cell, with the capability of indefinite self-renewal.
+HSCs divide to either generate more HSCs (self-renewal) or committed progenitor cells.
+HSCs are thought to go through stages of progressive restrictive commitments, until they eventually become fully differentiated blood cells such as NK cells, T cells and macrophages (Figure \ref{fig:HSC_differentiation}).
+Firstly, HSCs lose self-renewal capacity, they then commit to either a myeloid or lymphoid fate.
+Myeloid progenitors give rise to monocytes, macrophages, granulocytes (neutrophils, eosinophils, basophils), mast cells, megakaryocytes and erythrocytes (red blood cells).
+Lymphoid progenitors give rise to NK cells, T cells and B cells.
+Both myeloid progenitors and lymphoid progenitors can produce dendritic cells (DCs).
+Each stage of commitment correlates with changes in expression of specific genes and transcriptional regulators, for the given subset of blood cells \cite{seita2010hematopoietic}.
 
+\subsection{The innate immune response}
+The innate immune response, or `non-specific immunity', is the first defence a host has to prevent infection from invading pathogens.
+Innate immunity comprises physical barriers, such as tight junctions in the skin and epithelial/mucous membranes, as well as defensive cell-coordinated responses.
+Once foreign pathogens enter the host, numerous signalling cascades are initiated.
+Host cells are able to recognise foreign microbials by characteristic features, known as pathogen-associated molecular patterns (PAMPs).
+Once PAMPs are recognised by host pattern recognition receptors (PRRs), inflammatory responses are triggered and the invading pathogen is targeted for phagocytosis.
+Phagocytic cells, for example neutrophils, monocytes and macrophages (Figure \ref{fig:HSC_differentiation}), non-specifically engulf foreign pathogens, and use a combination of toxic molecules, degradative enzymes and antimicrobial peptides to kill the invaders.
+Additionally, various cytokines and inflammatory mediators are released.
+Natural killer (NK) cells directly kill host cells infected by a virus.
+
+In addition to its role preventing infection and eliminating invading pathogens, the innate immune response also stimulates the acquired immune response.
+Dendritic cells act as a functional link between innate immunity and the adaptive immune response.
+DCs become activated after they phagocytose microbes, they then cleave the microbial proteins, which bind to MHC proteins and together are transported to their cell surface.
+The activated DCs then carry the peptide-MHC complexes to lymphoid organs, which in combination with DC-secreted cytokines and expression of co-stimulatory proteins and cell-cell adhesion molecules, activate T cells to initiate the adaptive immune response.
+Innate immunity is a fast response (minutes to hours), whilst adaptive immunity takes longer (days to weeks).
+
+\subsection{The adaptive immune response}
+Adaptive immune responses are specific to the pathogen that induced the response.
+Adaptive immunity is dependent on millions of B cells and T cells clones.
+Each clone shares a unique cell-surface receptor that can bind to a specific pathogen antigen.
+These receptors are incredibly antigen selective, they can distinguish between optical isomers of the same molecule, and proteins differing by one single amino acid.
+Two classes of adaptive immune responses exist: antibody responses, co-ordinated by B cells, and cell mediated immune responses, co-ordinated by T cells.
+%The success of the adaptive immune system is dependent on the ability to respond to a diverse number of different antigenic stimuli and the long-term effectiveness of this response.
+%
+\subsubsection{T cells}
+T cells are predominantly produced in the thymus (hence their name).
+T cells are activated by fragments of partially proteolysed antigens displayed on the surface of antigen presenting cells (APCs), for example dendritic cells or macrophages.
+T cells recognise these fragments with their cell-surface T cell receptors (TCRs)\@.
+All effector T cells interact with other host cells in the body, therefore have a short range of effect.
+
+There are three main classes of T cells: cytotoxic (T\textsubscript{C}) T cells, helper T (T\textsubscript{H}) cells and regulatory T (T\textsubscript{reg}) cells.
+Effector cytotoxic T cells express CD8 co-receptors (CD8\textsuperscript{+} T cells) and act like NK cells by directly killing infected host cells, protecting against intracellular pathogens.
+Effector helper and regulatory T cells express CD4 co-receptors (CD4\textsuperscript{+} T cells).
+Helper T cells work by activating other host cells in the innate and adaptive immune system, for example, by activating B cells to secrete antibodies and undergo class switching, by helping activate macrophages to destroy intracellular pathogens, recruiting neutrophils and promoting pro-inflammatory cytokine production, and inducing naive cytotoxic T cells to become effector cells.
+Helper T cells can be further divided into T\textsubscript{H}1, T\textsubscript{H}2, T\textsubscript{FH} and T\textsubscript{H}17 subclasses.
+Regulatory T cells have the opposite function to helper T cells.
+T\textsubscript{reg}s prevent an excessive immune response that could be potentially harmful to the body.
+The development, activation and function of other immune cell types is suppressed by T\textsubscript{reg}s by secreting suppressive cytokines such as TGF$\beta$ and IL10, and inhibitory cell-surface proteins.
+This means that the response to harmless ingested or inhaled antigens is limited.
+
+%
+\subsubsection{B cells}
+B cells and Plasma cells produce antibodies, also known as immunoglobulins (Igs).
+Newly formed B cells insert their first Igs into their plasma membrane, where they act as B cell receptors (BCRs).
+Each B cell has approximately 100,000 BCRs.
+Immunoglobulins are large Y-shaped proteins. 
+
+
+which recognise and bind to the specific foreign antigen on the pathogen which stimulated their production.
+Binding of immunoglobulins to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
+Additionally, antibody binding makes it easier for phagocytic cells to ingest the pathogen.
+
+Upon antigenic-stimulation, B cells proliferate and differentiate into either antibody-secreting effector cells (known as plasma cells), or memory B cells, which are long-lived, quiescent cells that possess the ability to `remember' past pathogens and respond quickly to the antigen \cite{palm2019remembrance}.
+Terminally differentiated plasma cells are the final effectors of the B cell lineage.
+
+%%%%%%
+
+\subsection{Plasma cells}
+%3
 Most B cells die in the bone marrow soon after developing, however some will develop in the bone marrow, where initial stages of maturation occur and then migrate to secondary lymphoid organs, such as the spleen.
 Within secondary lymphoid organs, numerous critical decisions on B cell fate are made, involving complex transcriptional networks, cell interactions, gene rearrangements, and mutations\cite{roth2014tracking, jourdan2011characterization}.
 Upon antigenic-stimulation, naive B cells differentiate into memory B cells or plasma cells.
 Terminally differentiated plasma cells are the final effectors of the B cell lineage, each dedicated to secreting large amounts of a single type of antibody.
 Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in immunoglobulin secretion upregulated, including \textit{XBP-1} and \textit{CHOP}\cite{shapiro2004plasma}, to enable the production of copious amounts of antibody.
 Plasma cells appear to consist of two distinct categories: short-lived plasma cells, which have life-spans of several months and are located in extrafollicular locales such as in medullary chords of lymph nodes or the red pulp of the spleen, and long-lived plasma cells, which have life-spans of decades and are mainly found in the bone marrow\cite{bortnick2013and, andraud2012living}.
-
 
 
 %1
@@ -61,7 +117,7 @@ Under normal conditions, plasma cells produce antibodies that fight infection as
 However malignant plasma cells (MM cells) produce large amounts of abnormal antibodies that are unable to fight infection, coined `paraproteins' or `M proteins' (Figure \ref{fig:m_spike}).
 
 %% M spike
-\begin{figure}
+\begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Introduction/M_spike.pdf}
 \caption[M spike diagram]{Diagram of serum protein electrophoresis (SPEP) for a normal individual and for a multiple myeloma (MM) patient.
