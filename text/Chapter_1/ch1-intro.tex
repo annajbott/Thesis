@@ -81,8 +81,11 @@ This means that the response to harmless ingested or inhaled antigens is limited
 
 %
 \subsubsection{B cells}
-B cells and Plasma cells produce immunoglobulins (Igs).
-Immunoglobulins (Ig) are typically large Y-shaped proteins, consisting of two identical heavy chains and two identical light chains (Figure \ref{fig:immunoglobulins_diagram}a).
+B cells and plasma cells produce immunoglobulins (Igs).
+Immunoglobulins (Ig) are typically large Y-shaped proteins.
+The function of immunoglobulin molecules is to recognise and bind specific foreign antigens on pathogens.
+Binding of immunoglobulins to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
+Additionally, immunoglobulin binding makes it easier for phagocytic cells to ingest the pathogen.
 %%
 %% Antibody figure
 \begin{figure}[htb]
@@ -101,7 +104,8 @@ IgE and IgM have no hinge regions and are composed of four heavy chain constant 
 IgA and IgM are shown in their dimer and pentamer polymer formations, however other polymer formations are also found in the body.}
 \label{fig:immunoglobulins_diagram}\end{figure}
 %%
-%
+
+Igs consist  of two identical heavy chains and two identical light chains (Figure \ref{fig:immunoglobulins_diagram}a).
 Each heavy and light chain has a constant region and a variable region.
 Heavy chains consist of one variable domain, and three or four constant domains.
 Light chains consist of one variable domain and one constant domain.
@@ -114,8 +118,9 @@ These domains are frequently mutated to allow for even more diversity of antigen
 
 Humans produce five isotypes of immunoglobulins: IgM, IgD, IgG, IgA and IgE (named after their respective heavy chain type; Figure \ref{fig:immunoglobulins_diagram}b).
 Igs can either be membrane-bound (mIgs) on the cell-surface or secreted (sIgs, also called antibodies).
-Newly formed B cells produce IgMs only.
-IgM molecules are inserted into their plasma membrane, where they act as B-cell receptors (BCRs) \cite{friess2018structural}.
+Naive B cells do not produce antibodies, only mIgs.
+IgM molecules are the first immunoglobulins produced by newly formed B cells.
+Membrane IgMs (mIgMs) associate with two signalling proteins Ig-$\alpha$ and Ig-$\beta$; these complexes are known as B-cell antigen receptors (BCRs) \cite{friess2018structural, dylke2007role}.
 
 % During B cell development in the bone marrow, each B cell's antigen
 Each B cell's individual Ig antigen-binding site is determined by a process called V(D)J recombination, whereby separate Ig gene segments are joined together.
@@ -124,69 +129,66 @@ Each light chain locus consists of one or more coding sequence for constant (C) 
 The heavy chain locus contains these elements plus an added diversity (D) gene segment.
 These gene segments are rearranged and brought together by site-specific recombination, aided by V(D)J recombinase enzyme.
 The RNA that codes for the whole Ig polypetide chain is produced by co-transcribing the constant regions and variable regions together.
-From all the potential combinations of V, D and J gene segments, in theory, over 1.5 million different antigen-binding sites could be made
-Moreover, diversity of antigen-binding site is further increased by junctional diversification, whereby variable numbers of nucleotides are lost or randomly inserted at joining sites.
+From all the potential combinations of V, D and J gene segments, in theory, over 1.5 million different antigen-binding sites could be made.
+Diversity of antigen-binding sites is further increased by junctional diversification, whereby variable numbers of nucleotides are lost or randomly inserted at joining sites.
 This can increase diversity of variable coding sequences by $10^8$ fold.
-However, this process can also shift the reading frame to produce non-functional genes, meaning the given B cell cannot produce functioning Ig and subsequently die in the bone marrow.
-Once a B cell can produce functional Igs, the V(D)J recombination process is switched off, and it only makes Igs with the same antigen-binding site.
+However, this process can also shift the reading frame to produce non-functional genes.
+B cells that produce non-functioning Igs subsequently die in the bone marrow.
+Additionally, B cells that produce BCRs that bind too strongly to self-antigens in the BM undergo another round of V(D)J recombination to alter specificity; if this fails again then B cells die by apoptosis.
+Once a B cell can produce functional Igs, the V(D)J recombination process is switched off, and it only makes Igs with the same antigen specificity.
 
-\subsubsection{B cell maturation}
-As B cells develop and leave the bone marrow to populate peripheral lymphoid tissues, they start to express IgD in addition to IgM and form IgD BCRs, they are then known as mature naive B cells.
-The IgM and IgD BCRs on these cells will contain the same antigen-binding site, but with different constant heavy chains.
+\subsection{B cell maturation}
+Most B cells die in the bone marrow soon after developing, however some will develop in the bone marrow, where initial stages of maturation occur and then migrate to secondary lymphoid organs, such as the spleen.
+Within secondary lymphoid organs, numerous critical decisions on B cell fate are made, involving complex transcriptional networks, cell interactions, gene rearrangements, and mutations\cite{roth2014tracking, jourdan2011characterization}.
+As B cells develop and leave the bone marrow to populate peripheral lymphoid tissues, they start to express IgD in addition to IgM and form IgD BCRs, and are known as mature naive B cells.
+The IgM and IgD BCRs on mature naive B cells will all contain the same antigen-binding site.
 B cells require antigen stimulation to fully differentiate.
-Upon antigen stimulation, mature naive B cells are activated to become Ig-secreting effector cells (plasma cells) or memory B cells.
+Upon antigen stimulation, mature naive B cells are activated to become Ig-secreting effector B cells (plasma cells) or memory B cells.
+Terminally differentiated plasma cells are the final effectors of the B cell lineage.
+Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in antibody secretion upregulated, including \textit{XBP-1} and \textit{CHOP}\cite{shapiro2004plasma}, to enable the production of copious amounts of antibody.
 Antibodies recognise and bind to the specific foreign antigen on the pathogen which stimulated their production.
 Binding of antibodies to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
 Additionally, antibody binding makes it easier for phagocytic cells to ingest the pathogen.
 
 Initially, effector B cells only secrete primary Igs (IgM and IgD) that have low binding affinity for antigens.
 However, further antigenic-stimulation, helper T cell activation, various cytokine secretions and activation-induced-deaminase (AID) enzyme activity, leads to processes which increase binding affinity of plasma cells (affinity maturation) and diversify Ig isotype production (class switching).
+
+\subsubsection{Affinity maturation}
+Affinity maturation occurs through a process known as somatic hypermutation, whereby activated B cells form germinal centers and their variable regions mutate at a rate approximately a million times greater than spontaneous mutations.
+The enzyme AID is required for this process.
+Not many of the Igs that undergo hypermutation will have a stronger affinity for the antigen present.
+However, B cells produce BCRs and antibodies, both of which contain the same antigen-binding site.
+The B cells with a higher affinity antigen-binding site for the given antigen, will be preferentially stimulated at their BCRs.
+This is in turn means that clones with increased affinity will preferentially proliferate and survive over other B cells with worse affinity (similar to how natural selection works in population genetics).
+Most other B cells in the germinal center will undergo apoptosis and die.
+After numerous repeated cycles of this process, the remaining effector B cell clones will have increasingly higher affinity for the antigen.
+
+\subsubsection{Class switching}
+Class switching often occurs after somatic hypermutation has taken place, however they are independent processes, and class switching can take place without having already undergone somatic hypermutation \cite{mak2014b}.
 Various cytokines produced by activated T helper cells, such as IFN$\gamma$ produced by T\textsubscript{H}1 cells, IL-4 produced by T\textsubscript{H}2/T\textsubscript{FH} cells and IL-21 produced by T\textsubscript{FH}, can promote B cell class/isotype switching.
 Class switching allows effector B cells to produce the secondary class of Igs: IgD, IgA and IgE\@.
-
-Class switching is dependent on the mechanism switch recombination, where the constant heavy chain region undergoes a number of DNA cutting/rejoining events that bring any of the secondary Igs constant heavy chain exons adjacent to heavy VDJ exon.
+Class switching is dependent on the mechanism `switch recombination', where the constant heavy chain region undergoes a number of DNA cutting/rejoining events that bring any of the secondary Igs constant heavy chain exons adjacent to heavy VDJ exon \cite{mak2014b}.
 The mechanism is not yet fully understood, however AID is necessary to facilitate class switching.
-Class switching often occurs after somatic hypermutation has taken place, however they are independent processes, and class switching can take place without having already undergone somatic hypermutation.
-Although isotype switching is independent of somatic hypermutation and can occur without it, most B cells that express Igs of new isotypes have already undergone somatic hypermutation.
-
-%Initially, effector B cells will only secrete primary Igs (IgM and IgD), until antigenic stimulation and helper T cell activation, stimulate B cells to undergo class switching and they are then able to produce the secondary class of Igs: IgD, IgA and IgE\@.
-These effector B cells will then be able to produce all classes of Igs, all retaining their original specific antigen-binding site.
+Daughter cells from the same effector B cell will then be able to produce different isotypes of Igs, but all retaining their original specific antigen-binding site.
 Each Ig isotype has different immune functionality.
 For example, the tail of IgG molecules can bind to macrophages and neutrophils, aiding in phagocytosis of microorganisms; IgE molecules can bind to mast cells and basophils; IgA molecules are the main antobody in bodily secretions.
-By each Ig class retaining the same antigen-binding site, this means that a specific antigen-binding site for a pathogen can be distributed amongst the various isotypes and can therefore acquire each classes biological properties.
-
-Affinity maturation occurs through a process known as somatic hypermutation, whereby activated B cells form germinal centers and their variable regions mutate at a rate about a million times faster than spontaneous mutations.
-The enzyme AID is required for this process.
-
-
-
-Somatic hypermutation
-Affinity maturation
-Secondary repertoire
-
-
-% Each B cell has approximately 100,000 BCRs.
+By each Ig class retaining the same antigen-binding site, this means that a specific antigen-binding site for a pathogen can be distributed amongst the various isotypes.
+Therefore, a pathogen can be fought using the array of each isotype's biological properties.
 
 % Secreted bind to phagocytes with tail
-
-Ig recognise and bind to the specific foreign antigen on the pathogen which stimulated their production.
-Binding of immunoglobulins to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
-Additionally, antibody binding makes it easier for phagocytic cells to ingest the pathogen.
+Prior to antigenic-stimulation, V(D)J recombination increases the diversity of a human's primary Ig repertoire, and allows for production of an almost limitless pool of antibodies.
+Once a B cell is activated, class switching increases the diversity of Ig isotypes available to a cell and therefore the capacity of immune functionality, and affinity maturation/somatic hypermutation greatly increases the affinity of antigen-binding sites for the given antigen.
 
 Upon antigenic-stimulation, B cells proliferate and differentiate into either antibody-secreting effector cells (known as plasma cells), or memory B cells, which are long-lived, quiescent cells that possess the ability to `remember' past pathogens and respond quickly to the antigen \cite{palm2019remembrance}.
-Terminally differentiated plasma cells are the final effectors of the B cell lineage.
 
+\subsubsection{Immunological memory}
+Following antigenic-stimulation, B cells proliferate and differentiate into either antibody-secreting plasma cells or memory B cells.
+Memory B cells are long-lived, quiescent cells that possess the ability to `remember' past pathogens and respond quickly to the antigen \cite{palm2019remembrance}.
+Additionally, plasma cells appear to consist of two distinct categories: short-lived plasma cells, which have life-spans of several months and are located in extrafollicular locales such as in medullary chords of lymph nodes or the red pulp of the spleen, and long-lived plasma cells (LLPCs), which have life-spans of decades and are mainly found in the bone marrow\cite{bortnick2013and, andraud2012living}.
+There is evidence that LLPCs as well as memory B cells contribute to immunological memory and fast and effective responses to repeat antigen contact \cite{ionescu2019memory}.
+Immunological memory is the basis for the success of vaccinations, where previous exposure to a weakened/dead microorganism or its protein/toxins stimulates an immune response and `readies' the body for if it comes in contact with the full disease.
+A secondary immune response to an antigen (either due to vaccination or previous infection), will often have a shorter lag period than a primary immune response, as there are pre-existing B and/or T cells with specificity for the antigen.
 %%%%%%
-
-\subsection{Plasma cells}
-%3
-Most B cells die in the bone marrow soon after developing, however some will develop in the bone marrow, where initial stages of maturation occur and then migrate to secondary lymphoid organs, such as the spleen.
-Within secondary lymphoid organs, numerous critical decisions on B cell fate are made, involving complex transcriptional networks, cell interactions, gene rearrangements, and mutations\cite{roth2014tracking, jourdan2011characterization}.
-Upon antigenic-stimulation, naive B cells differentiate into memory B cells or plasma cells.
-Terminally differentiated plasma cells are the final effectors of the B cell lineage, each dedicated to secreting large amounts of a single type of antibody.
-Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in immunoglobulin secretion upregulated, including \textit{XBP-1} and \textit{CHOP}\cite{shapiro2004plasma}, to enable the production of copious amounts of antibody.
-Plasma cells appear to consist of two distinct categories: short-lived plasma cells, which have life-spans of several months and are located in extrafollicular locales such as in medullary chords of lymph nodes or the red pulp of the spleen, and long-lived plasma cells, which have life-spans of decades and are mainly found in the bone marrow\cite{bortnick2013and, andraud2012living}.
-
 
 %1
 \section{Multiple myeloma}\label{sec:MM}
@@ -615,7 +617,7 @@ Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
 %For example, immobilized metal affinity chromatography (IMAC) can be used to enrich for phosphorylated peptides (phosphoproteomics), and anti-ubiquitin antibodies can be used to enrich for ubiquitinated peptides (ubiquitinomics).
 
 %\section{Summary}
-
+\afterpage{\clearpage}
 \section{Thesis aims and chapter outline}
 This thesis aims to identify novel therapeutics with anti-MM properties, capable of overcoming acquired drug resistance in MM\@.
 
