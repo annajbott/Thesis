@@ -20,10 +20,8 @@ Thirdly, an appropriate level of detailed reporting output is critical for biolo
 
 \subsection{Pipeline outline}
 A tRNA analysis pipeline (tRNAnalysis) was constructed with the aim to meet the demands of tRNA-seq analysis.
-tRNAnalysis is written using the Computational Genomics Analysis Toolkit (CGAT) core workflow manager \cite{cribbs2019cgat}.
-All analysis modules are seamlessly integrated and tRNAnalysis runs from a single launch command, whilst still also being able to maintain the modularity of running any individual task within the pipeline, if so desired.
+tRNAnalysis is written using the Computational Genomics Analysis Toolkit (CGAT) core workflow manager \cite{cribbs2019cgat}, therefore all input fastq files can be processed simultaneously, a detailed log is generated, and the pipeline can be locally run or executed in parallel across a high-performance cluster.
 tRNAnalysis implements best practice mapping strategies to allow accurate mapping of tRNA reads \cite{hoffmann2018accurate}.
-The pipeline is optimised so that it can process all input fastq files in parallel, produce detailed logging information, and can be locally run or executed in parallel across a high-performance cluster.
 tRNAnalysis can be installed using Conda and a Docker image is also provided with all of the software and packages installed.
 Users can therefore use the pipeline without having to install numerous dependencies.
 Finally, tRNAnalysis provides a user-friendly html report to visualise qualitative and quantitative outputs.
@@ -32,6 +30,7 @@ Given that the report is written in R using Rmarkdown, the report is easily exte
 The workflow is written predominantly in Python and R, using Ruffus decorators \cite{goodstadt2010ruffus}, and the CGAT-core workflow manager \cite{cribbs2019cgat}, allowing for automatic cluster submission and parallelisation.
 The pipeline runs via a single command line interface, providing appropriate default settings, with the option to customise configuration parameters and job resources as required.
 
+\noindent
 The main steps in the analysis are:
 \begin{itemize}
   \item Read pre-processing and quality control
@@ -83,7 +82,7 @@ The simulated fastq files were then used as input for tRNAnalysis to assess its 
 The accuracy of tRNAnalysis was evaluated using the simulated data above.
 Receiver operating characteristic (ROC) curves, precision, accuracy and F1 scores were generated, comparing differential expression between the tRNAnalysis processed simulated data to the known ground truth count matrices.
 The area under the curve (AUC) was found to be 0.91.
-The precision was 0.92, recall 0.64 and F1 score 0.76 using a p-value of 0.05, demonstrating a high level of accuracy (figure \ref{fig:trna_f1_roc}).
+The precision was 0.92, recall 0.64 and F1 score 0.76 using a p-value of 0.05, demonstrating a high level of accuracy (Figure \ref{fig:trna_f1_roc}).
 
 \begin{figure}[htb]
 \centering

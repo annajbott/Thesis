@@ -77,6 +77,10 @@ To be able to calculate the accuracy of results, the `true' results must be know
 This is difficult in scRNA-seq analysis as no gold standard analysis protocol exists.
 Instead, methods are compared against simulated results which act as the underlying `ground truth'.
 
+A benchmark was conducted using simulated data, utilising the pseudoalignment pipeline outlined above.
+Kallisto BUS/BUStools and Salmon Alevin pseudoalignment methods were both implemented and their performance compared to one another.
+Both pseudoalignment tools have previously been compared to traditional mapping tools \cite{melsted2018barcode, srivastava2019alevin} and both showed comparable accuracy levels, therefore this benchmark does not include the performance of traditional mapping methods.
+
 \subsubsection{Simulated data}
 Simulated reads with a know ground truth counts matrix were generated as follows:
 10X (version 2) fastq files of 4k PBMCs from a healthy human donor were downloaded  \footnote{\url{https://support.10xgenomics.com/single-cell-gene-expression/datasets}}.
@@ -249,8 +253,8 @@ From the benchmark it seems as if both tools are fit for purpose and can accurat
 Following the bench-mark it was decided that Kallisto BUS and BUStools would be used to analyse single-cell data.
 This was due to its faster run-time and higher F1 scores.
 The analysis pipeline has been updated continually throughout the project.
-The updated workflow is outlined in figure \ref{fig:updated_sc_workflow}.
-Each major task has been split into its own pipeline, each containing multiple minor tasks.
+The updated workflow is outlined in Figure \ref{fig:updated_sc_workflow}.
+Each major task has been split into separate lightweight pipelines, each containing multiple minor tasks.
 The black arrows in Figure \ref{fig:updated_sc_workflow} denote a separate processing pipeline.
 This allows the user to analyse the output after each step, and make changes to parameters as they see fit.
 
@@ -271,7 +275,7 @@ The user can then perform further downstream analysis on the annotated integrate
 % updated scRNA-seq workflow figure
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/workflow_generation/sc_workflow.pdf}
+\includegraphics[width=\textwidth]{figures/workflow_generation/sc_workflow.pdf}
 \caption[Updated scRNA-seq workflow]{Outline of updated scRNA-seq workflow.
 Each black arrow denotes an independent pipeline.
 Following sequencing raw FASTQ files are processed by Kallisto bus and bustools and cell x gene count matrices are produced for each sample.
