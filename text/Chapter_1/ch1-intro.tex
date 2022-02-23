@@ -3,20 +3,35 @@
 %\minitoc
 
 \section{Overview}
-...
+Multiple myeloma (MM) is an incurable cancer of plasma cells.
+Multiple myeloma accounts for 1-2\% of all cancers and 10\% of all hematological malignancies \cite{international2003criteria}.
+In 2020, it was estimated that the total worldwide incidence of MM was 160,000 \cite{ludwig2020multiple}.
+Over the last two decades, several new classes of drugs have been approved for treatment in MM, including proteasome inhibitors (PIs), Immunomodulatory imide drugs (IMiDs) and monoclonal antibodies.
+Subsequently a drastic improvement in survival rates has been seen--- median survival time for newly diagnosed MM patients has almost doubled in the last 10 years \cite{kazandjian2016look}.
+However, MM still remains an incurable disease, with patients eventually relapsing and becoming resistant to drugs they have previously been treated with.
+Drug resistance is one of the biggest barriers in the treatment of MM.
+Therefore, the generation of novel compounds effective against MM is incredibly important to extend progression-free survival of patients and work towards finding a cure to MM\@.
+This thesis aims to identify novel drugs effective against MM, which are capable of overcoming drug resistance to conventional MM therapies.
+It also aims to characterise the transcriptional landscape of MM, following treatment with these novel compounds, to ascertain the mechanism of action in MM and identify any potential side effects of treatment.
+Additionally, MM is very heterogenous disease with prominent interactions with the surrounding immune microenvironment, therefore MM cells must be examined at the single-level along with other cells residing in the bone marrow niche, to fully capture the heterogenity and immune interactions we see in myeloma.
+
+This introduction will give a brief overview of the immune system, multiple myeloma (MM), and current MM treatments.
+The genome, epigenome, transcriptome and proteome will be introduced, followed by a review of the technological advancements and informatics tools used to decode them.
+Chapter 2 introduces the enzyme class: aminoacyl tRNA synthetases (aaRS) and reviews literature regarding their role in disease and the application of therapeutics targeting enzymes in this class.
+Next, literature surrounding the drug Halofuginone, a Prolyl-tRNA synthetase (ProRS) inhibitor, is reviewed and its application in MM is considered.
 
 % 1
 \section{The immune system}
 Humans are exposed to millions of potential pathogens every day and would die without defences to be able to protect themselves from infection.
 These defences can be innate or adaptive.
 An example of an innate defence is the skin acting as a physical barrier between the outside world and the body.
-Innate responses are non-specific and relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required- called the adaptive immune response.
+Innate responses are non-specific and relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required- called the adaptive immune response \cite{alberts2007molecularimmune}.
 %Another example of an innate defence is non-specific engulfing (phagocytosis) of foreign pathogens by macrophages (a type of white blood cell).
 Both innate and adaptive immune responses rely on cells produced by the hematopoetic system.
-Hematopoiesis is the process in which the body produces blood.
+Hematopoiesis is the process in which the body produces blood \cite{alberts2007molecularstem}.
 Postnatally the major hematopoetic organs are bone marrow, lymph nodes, the spleen and the thymus.
 
-\subsection{Hematopoietic stem cell cell differentiation}
+\subsection{Hematopoietic stem cell differentiation}
 All blood cells originate from multipotent hematopoietic stem cells (HSCs), located in the bone marrow (BM).
 %
 %%%
@@ -35,49 +50,51 @@ HSCs divide to either generate more HSCs (self-renewal) or committed progenitor 
 HSCs are thought to go through stages of progressive restrictive commitments, until they eventually become fully differentiated blood cells such as NK cells, T cells and macrophages (Figure \ref{fig:HSC_differentiation}).
 Firstly, HSCs lose self-renewal capacity, they then commit to either a myeloid or lymphoid fate.
 Myeloid progenitors give rise to monocytes, macrophages, granulocytes (neutrophils, eosinophils, basophils), mast cells, megakaryocytes and erythrocytes (red blood cells).
-Lymphoid progenitors give rise to NK cells, T cells and B cells.
-Both myeloid progenitors and lymphoid progenitors can produce dendritic cells (DCs).
+Lymphoid progenitors give rise to natural killer (NK) cells, T cells and B cells.
+Both myeloid progenitors and lymphoid progenitors can produce dendritic cells (DCs) \cite{alberts2007molecularstem}.
 Each stage of commitment correlates with changes in expression of specific genes and transcriptional regulators, for the given subset of blood cells \cite{seita2010hematopoietic}.
 
 \subsection{The innate immune response}
-The innate immune response, or `non-specific immunity', is the first defence a host has to prevent infection from invading pathogens.
+The innate immune response, or `non-specific immunity', is the first defence a host has to prevent infection from invading pathogens \cite{alberts2007molecularimmune}.
+Innate immunity is found in all species, from early multi-cellular organisms to humans \cite{hoffmann2013innate}.
 Innate immunity comprises physical barriers, such as tight junctions in the skin and epithelial/mucous membranes, as well as defensive cell-coordinated responses.
 Once foreign pathogens enter the host, numerous signalling cascades are initiated.
 Host cells are able to recognise foreign microbials by characteristic features, known as pathogen-associated molecular patterns (PAMPs).
 Once PAMPs are recognised by host pattern recognition receptors (PRRs), inflammatory responses are triggered and the invading pathogen is targeted for phagocytosis.
 Phagocytic cells, for example neutrophils, monocytes and macrophages (Figure \ref{fig:HSC_differentiation}), non-specifically engulf foreign pathogens, and use a combination of toxic molecules, degradative enzymes and antimicrobial peptides to kill the invaders.
 Additionally, various cytokines and inflammatory mediators are released.
-Natural killer (NK) cells directly kill host cells infected by a virus.
+NK cells directly kill host cells infected by a virus \cite{alberts2007molecularimmune} and an array of tumour cells \cite{hoffmann2013innate}.
 
 In addition to its role preventing infection and eliminating invading pathogens, the innate immune response also stimulates the acquired immune response.
 Dendritic cells act as a functional link between innate immunity and the adaptive immune response.
 DCs become activated after they phagocytose microbes, they then cleave the microbial proteins, which bind to MHC proteins and together are transported to their cell surface.
 The activated DCs then carry the peptide-MHC complexes to lymphoid organs, which in combination with DC-secreted cytokines and expression of co-stimulatory proteins and cell-cell adhesion molecules, activate T cells to initiate the adaptive immune response.
-Innate immunity is a fast response (minutes to hours), whilst adaptive immunity takes longer (days to weeks).
+Innate immunity is a fast response (minutes to hours), whilst adaptive immunity takes longer (days to weeks) \cite{alberts2007molecularimmune}.
 
 \subsection{The adaptive immune response}
+During evolution, vertebrates have also developed adaptive immune responses, in addition to innate responses \cite{hoffmann2013innate}.
 Adaptive immune responses are specific to the pathogen that induced the response.
 Adaptive immunity is dependent on millions of B cells and T cells clones.
 Each clone shares a unique cell-surface receptor that can bind to a specific pathogen antigen.
 These receptors are incredibly antigen selective, they can distinguish between optical isomers of the same molecule, and proteins differing by one single amino acid.
-Two classes of adaptive immune responses exist: antibody responses, co-ordinated by B cells, and cell mediated immune responses, co-ordinated by T cells.
+Two classes of adaptive immune responses exist: antibody responses, co-ordinated by B cells, and cell mediated immune responses, co-ordinated by T cells \cite{alberts2007molecularimmune}.
 %The success of the adaptive immune system is dependent on the ability to respond to a diverse number of different antigenic stimuli and the long-term effectiveness of this response.
 %
 \subsubsection{T cells}
 T cells are predominantly produced in the thymus (hence their name).
 T cells are activated by fragments of partially proteolysed antigens displayed on the surface of antigen presenting cells (APCs), for example dendritic cells or macrophages.
 T cells recognise these fragments with their cell-surface T cell receptors (TCRs)\@.
-All effector T cells interact with other host cells in the body, therefore have a short range of effect.
+All effector T cells interact with other host cells in the body, therefore have a short range of effect \cite{alberts2007molecularimmune}.
 
 There are three main classes of T cells: cytotoxic (T\textsubscript{C}) T cells, helper T (T\textsubscript{H}) cells and regulatory T (T\textsubscript{reg}) cells.
 Effector cytotoxic T cells express CD8 co-receptors (CD8\textsuperscript{+} T cells) and act like NK cells by directly killing infected host cells, protecting against intracellular pathogens.
-Effector helper and regulatory T cells express CD4 co-receptors (CD4\textsuperscript{+} T cells).
+Effector helper and regulatory T cells express CD4 co-receptors (CD4\textsuperscript{+} T cells) \cite{luckheeram2012cd4}.
 Helper T cells work by activating other host cells in the innate and adaptive immune system, for example, by activating B cells to secrete antibodies and undergo class switching, by helping activate macrophages to destroy intracellular pathogens, recruiting neutrophils and promoting pro-inflammatory cytokine production, and inducing naive cytotoxic T cells to become effector cells.
-Helper T cells can be further divided into T\textsubscript{H}1, T\textsubscript{H}2, T\textsubscript{FH} and T\textsubscript{H}17 subclasses.
+Helper T cells can be further divided into T\textsubscript{H}1, T\textsubscript{H}2, T\textsubscript{FH} and T\textsubscript{H}17 subclasses \cite{alberts2007molecularimmune,luckheeram2012cd4}.
 Regulatory T cells have the opposite function to helper T cells.
 T\textsubscript{reg}s prevent an excessive immune response that could be potentially harmful to the body.
-The development, activation and function of other immune cell types is suppressed by T\textsubscript{reg}s by secreting suppressive cytokines such as TGF$\beta$ and IL10, and inhibitory cell-surface proteins.
-This means that the response to harmless ingested or inhaled antigens is limited.
+The development, activation and function of other immune cell types is suppressed by T\textsubscript{reg}s by secreting suppressive cytokines such as TGF$\beta$ and interleukin (IL)-10, and inhibitory cell-surface proteins.
+This means that the response to harmless ingested or inhaled antigens is limited \cite{alberts2007molecularimmune}.
 
 %
 \subsubsection{B cells}
@@ -85,7 +102,7 @@ B cells and plasma cells produce immunoglobulins (Igs).
 Immunoglobulins (Ig) are typically large Y-shaped proteins.
 The function of immunoglobulin molecules is to recognise and bind specific foreign antigens on pathogens.
 Binding of immunoglobulins to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
-Additionally, immunoglobulin binding makes it easier for phagocytic cells to ingest the pathogen.
+Additionally, Ig binding makes it easier for phagocytic cells to ingest the pathogen \cite{alberts2007molecularimmune}.
 %%
 %% Antibody figure
 \begin{figure}[htb]
@@ -105,7 +122,8 @@ IgA and IgM are shown in their dimer and pentamer polymer formations, however ot
 \label{fig:immunoglobulins_diagram}\end{figure}
 %%
 
-An Ig unit consists  of two identical heavy chains and two identical light chains (Figure \ref{fig:immunoglobulins_diagram}a).
+Some Igs in circulation are found in polymer formations of multiple Ig units, such as as dimers or pentamers.
+A single Ig unit consists  of two identical heavy chains and two identical light chains (Figure \ref{fig:immunoglobulins_diagram}a).
 Each heavy and light chain has a constant region and a variable region.
 Heavy chains consist of one variable domain, and three or four constant domains.
 Light chains consist of one variable domain and one constant domain.
@@ -114,11 +132,12 @@ Variable regions are found at the N-terminal end of Igs.
 The variables region of the heavy and light chain forms the antigen-binding sites of Igs.
 The amino acid sequence variation of variable domains confer diversity for antigen-binding.
 Both chains also contain hypervariable regions, which come in direct contact with antigens.
-These domains are frequently mutated to allow for even more diversity of antigen binding.
+These domains are frequently mutated to allow for even more diversity of antigen binding \cite{schroeder2010structure}.
 
-Humans produce five isotypes of immunoglobulins: IgM, IgD, IgG, IgA and IgE (named after their respective heavy chain type; Figure \ref{fig:immunoglobulins_diagram}b).
+Humans produce five main isotypes of immunoglobulin: IgM, IgD, IgG, IgA and IgE (named after the greek letter of their respective heavy chain; Figure \ref{fig:immunoglobulins_diagram}b).
+IgG can be divided into 4 subclasses, IgG1, IgG2, IgG3, and IgG4, and IgA can be divided into IgA1 and IgA2 \cite{schroeder2010structure}.
 Igs can either be membrane-bound (mIgs) on the cell-surface or secreted (sIgs, also called antibodies).
-Naive B cells do not produce antibodies, only mIgs.
+Naive B cells only produce mIgs-- they do not secrete antibodies.
 IgM molecules are the first immunoglobulins produced by newly formed B cells.
 Membrane IgMs (mIgMs) associate with two signalling proteins Ig-$\alpha$ and Ig-$\beta$; these complexes are known as B-cell antigen receptors (BCRs) \cite{friess2018structural, dylke2007role}.
 
@@ -135,24 +154,25 @@ This can increase diversity of variable coding sequences by $10^8$ fold.
 However, this process can also shift the reading frame to produce non-functional genes.
 B cells that produce non-functioning Igs subsequently die in the bone marrow.
 Additionally, B cells that produce BCRs that bind too strongly to self-antigens in the BM undergo another round of V(D)J recombination to alter specificity; if this fails again then B cells die by apoptosis.
-Once a B cell can produce functional Igs, the V(D)J recombination process is switched off, and it only makes Igs with the same antigen specificity.
+Once a B cell can produce functional Igs, the V(D)J recombination process is switched off, and it only makes Igs with the same antigen specificity \cite{alberts2007molecularimmune}.
 
 \subsection{B cell maturation}
 Most B cells die in the bone marrow soon after developing, however some will develop in the bone marrow, where initial stages of maturation occur and then migrate to secondary lymphoid organs, such as the spleen.
 Within secondary lymphoid organs, numerous critical decisions on B cell fate are made, involving complex transcriptional networks, cell interactions, gene rearrangements, and mutations\cite{roth2014tracking, jourdan2011characterization}.
-As B cells develop and leave the bone marrow to populate peripheral lymphoid tissues, they undergo alternative mRNA splicing and start to express IgD in addition to IgM and form IgD BCRs, and are known as mature naive B cells.
-IgM and IgD BCRs on mature naive B cells all contain identical antigen-binding sites.
+As B cells develop and leave the bone marrow to populate peripheral lymphoid tissues, they undergo alternative mRNA splicing and start to express IgD BCRs in addition to IgM; they are henceforth known as mature naive B cells.
+IgM and IgD BCRs on a single mature naive B cell all contain identical antigen-binding sites.
 To fully differentiate, B cells require antigen stimulation.
 Upon antigen stimulation, mature naive B cells are activated to differentiate into either Ig-secreting effector B cells (plasma cells) or memory B cells.
 Terminally differentiated plasma cells are the final effectors of the B cell lineage.
 Plasma cell differentiation involves the loss of expression of many genes, such as CD19, CD20 and increased expression of plasma cell markers, such as CD138 and CD38.
-Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in antibody secretion upregulated, including \textit{XBP-1} and \textit{CHOP}\cite{shapiro2004plasma}, to enable the production of copious amounts of antibody.
+Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in antibody secretion upregulated, including \textit{XBP-1} and \textit{CHOP}, to enable the production of copious amounts of antibody \cite{shapiro2004plasma}.
 Antibodies recognise and bind to the specific foreign antigen on the pathogen which stimulated their production.
 Binding of antibodies to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
-Additionally, antibody binding makes it easier for phagocytic cells to ingest the pathogen.
+Additionally, antibody binding makes it easier for phagocytic cells to ingest the pathogen \cite{alberts2007molecularimmune}.
 
 Initially, effector B cells only secrete primary Igs (IgM and IgD) that have low binding affinity for antigens.
-However, further antigenic-stimulation, helper T cell activation, various cytokine secretions and activation-induced-deaminase (AID) enzyme activity, leads to processes which increase binding affinity of plasma cells (affinity maturation) and diversify Ig isotype production (class switching).
+However, further antigenic-stimulation, helper T cell activation, various cytokine secretions and activation-induced-deaminase (AID) enzyme activity, leads to processes which increase binding affinity of antibodies (affinity maturation) and diversify Ig isotype production (class switching).
+The main stages of B cell maturation can be seen in Figure \ref{fig:b_cell_mat}.
 
 %% B cell maturation figure
 \begin{figure}[htb]
@@ -169,9 +189,9 @@ The enzyme AID is required for this process.
 Not many of the Igs that undergo hypermutation will have a stronger affinity for the antigen present.
 However, B cells produce BCRs and antibodies, both of which contain the same antigen-binding site.
 The B cells with a higher affinity antigen-binding site for the given antigen, will be preferentially stimulated at their BCRs.
-This is in turn means that clones with increased affinity will preferentially proliferate and survive over other B cells with worse affinity (similar to how natural selection works in population genetics).
+This is in turn means that clones with increased affinity will preferentially proliferate and survive over other B cells with worse affinity (similar to how evolution and natural selection works in population genetics).
 Most other B cells in the germinal center will undergo apoptosis and die.
-After numerous repeated cycles of this process, the remaining effector B cell clones will have increasingly higher affinity for the antigen.
+After numerous repeated cycles of mutation and selection, the remaining effector B cell clones will have improved Ig affinity 10--5000 fold for the antigen during the course of the immune response \cite{mishra2018insights}.
 
 \subsubsection{Class switching}
 Class switching often occurs after somatic hypermutation has taken place, however they are independent processes, and B cells can class switch without having already undergone somatic hypermutation \cite{mak2014b}.
@@ -181,13 +201,12 @@ Class switching is dependent on the mechanism `switch recombination', where the 
 The mechanism is not yet fully understood, however AID is necessary to facilitate class switching.
 Daughter cells from the same effector B cell will then be able to produce different isotypes of Igs, but all retaining their original specific antigen-binding site.
 In the early stages of an immune response, IgM is the main circulating antibody.
-After a lag period, IgG becomes the main circulating antibody in the blood.
+After a lag period, IgG becomes the main circulating antibody in the blood \cite{alberts2007molecularimmune}.
 
-Each Ig isotype has a different immune functionality.
-For example, the tail of IgG molecules can bind to macrophages and neutrophils, aiding in phagocytosis of microorganisms, it is also the only Ig that can cross the placenta; IgE molecules can bind to mast cells and basophils, and play a large role in allergic reactions and parasitic infections; IgA molecules are the main antobody in bodily secretions.
-By each Ig class retaining the same antigen-binding site, this means that a specific antigen-binding site for a pathogen can be distributed amongst the various isotypes.
-Therefore, a pathogen can be fought using the array of each isotype's biological properties.
-
+The Ig isotypes have distinct immune functionality and tissue distribution.
+For example, the tail of IgG molecules can bind to macrophages and neutrophils, aiding in phagocytosis of microorganisms, it is also the only Ig that can cross the placenta; IgE molecules can bind to mast cells and basophils, and play a large role in allergic reactions and parasitic infections; IgA molecules are the main antobody in bodily secretions \cite{alberts2007molecularimmune}.
+By each Ig class retaining the same antigen-binding site, this means that antigen-specificity can be distributed amongst the various isotypes.
+Therefore, a pathogen can be fought using an array of each isotype's biological properties \cite{xu2012immunoglobulin}.
 
 % Secreted bind to phagocytes with tail
 %Prior to antigenic-stimulation, V(D)J recombination increases the diversity of a human's primary Ig repertoire, and allows for production of an almost limitless pool of antibodies.
@@ -236,13 +255,21 @@ A patient's myeloma type is named after the abnormal Ig isotype they are making.
 IgG is the most common type, followed by IgA and light-chain-only myeloma.
 IgM, IgD and IgE are very rare myeloma types \cite{cancerresearchuktypes}.
 
+Malignant MM cells vary from healthy plasma cells considerably.
+The transformation from healthy plasma cell to MM cell is a complex multi-step process, involving numerous genomic, epigenomic, transcriptomic, proteomic and metabolic changes \cite{de2002comparison, caprio2020epigenetic, chanukuppa2021proteomic, el2018metabolic}.
+Examples of such changes include, a rearrangement of the 14q32 locus (where the Ig heavy chain is located) \cite{nishida1997ig} in approximately 60\% of patients, as well as rearrangements in c-MYC, cyclin D1, FGFR3 and cyclin D3 \cite{de2002comparison}.
+Deletions of chromosome 13 and mutations in NRAS and KRAS are also frequently seen in MM\@.
+Gene expression changes in MM cells include loss of CD19 expression and aberrant CD56 expression.
+DNA methylation and histone modifications have also been indicated as crucial regulators of MM pathogenesis.
+Fluorescence in situ hybridization (FISH) testing is often performed on upon MM diagnosis and at time of relapse, to detect certain genetic alterations and aid in risk stratification of patients \cite{swerdlow2008classification}.
+
 %2
 \subsection{Epidemiology}
-Multiple myeloma accounts for 1-2\% of all cancers and has the second highest incidence of hematological malignancies, after non-Hodgkin's lymphoma\cite{international2003criteria}.
-MM is rare in individuals under the age of 40, with the average age at time of diagnosis centering around 70\cite{tsang2019multiple, palumbo2011multiple}.
-MM is more prevalent in males than females and is around twice as common in black populations than in Caucasian or Asian populations\cite{nhsmyeloma}.
-The average incidence rate is approximately 1-6 cases per 100,000 individuals\cite{tsang2019multiple, palumbo2011multiple, teras20162016}, with the highest age-standardised incidence rates in the regions of Australasia, North America, and Western Europe\cite{cowan2018global}.
-Five-year survival rate of MM patients is approximately 49\%, whilst approximately a third of MM patients survive ten years or greater\cite{cancerresearchuk, siegel2016cancer}.
+Multiple myeloma accounts for 1-2\% of all cancers and has the second highest incidence of hematological malignancies, after non-Hodgkin's lymphoma \cite{international2003criteria}.
+MM is rare in individuals under the age of 40, with a median age of 70 at time of diagnosis \cite{tsang2019multiple, palumbo2011multiple}.
+MM is more prevalent in males than females and is around twice as common in black populations than in Caucasian or Asian populations \cite{nhsmyeloma}.
+The average incidence rate is approximately 1-6 cases per 100,000 individuals \cite{tsang2019multiple, palumbo2011multiple, teras20162016}, with the highest age-standardised incidence rates in the regions of Australasia, North America, and Western Europe \cite{cowan2018global}.
+Five-year survival rate of MM patients is approximately 49\%, whilst approximately a third of MM patients survive ten years or greater \cite{cancerresearchuk, siegel2016cancer}.
 %While there have been many successful medicines developed for myeloma, they all suffer from the development of drug resistance.
 
 %2
@@ -289,9 +316,9 @@ Myeloma defining events consist of evidence of end-organ damage that can be attr
 % End of list
 %
 
+\noindent
 Biomarkers of malignancy include greater than or equal to 60\% clonal plasma cells in the bone marrow, an involved:uninvolved serum free light chain ratio greater than or equal to 100, and more than one focal lesion on an MRI study\cite{rajkumar2014international}.
 
-%
 It is currently unclear what causes the malignant transformation between precursor states and active MM\@.
 However certain factors have been identified as risk factors, including point mutations, a large array of up-regulated transcription factors, and numerous immune events.
 
@@ -351,7 +378,6 @@ The outer rings are responsible for docking to the 19S cap and for acting as a g
 
 \subsubsection{Mechanism of action}
 Of the seven proteasome $\beta$ subunits, only $\beta1$, $\beta3$ and $\beta5$ are proteolytically active (Figure \ref{fig:proteasome_beta_subunits}). Proteasome inhibitors are designed to target $\beta5$ as it has been shown as the rate limiting protease for proteasomal protein turnover \cite{besse2019proteasome}. Bortezomib reversibly co-inhibits $\beta5$ and $\beta1$ subunits, whilst carfilzomib irreversibly binds to $\beta5$, with greater selectivity than bortezomib, and at higher doses binds to $\beta2$ as well \cite{besse2019proteasome}.
-
 
 The precise downstream effects of $\beta$ subunit proteasome inhibition are not fully understood, however the unfolded protein response (UPR), NF-$\kappa$B signalling, JNK signalling, apoptotic factors and p53 are thought to be involved in the anti-MM effects \cite{kubiczkova2014proteasome}.
 Specifically, the action of the UPR has been demonstrated as an important mechanism in the anti-MM effect of PIs.
@@ -446,7 +472,6 @@ Human cells contain 23 pairs of chromosomes.
     Nucleosomes are linked by linker DNA to form a structure that resembles `beads on a string'.
     Nucleosomes fold to create chromatin fiber.
     This is turn forms loops and coils tighter and tighter until it makes up the single chromatids of chromosomes.
-    \\\hspace{\textwidth}Created with BioRender.com.
     }
 \label{fig:DNA_structure_packaging}
 \end{figure}
@@ -477,12 +502,12 @@ Histone modifications are post-translational modifications.
 They include methylation, acetylation, phosphorylation, ubiquitination and sumoylation.
 Histone modifications affect transcriptional activity either by directly influencing the structure of chromatin and DNA accessibility or by regulating binding of effector molecules to `read' histone marks to mediate downstream biological effects.
 Histone modifications also regulate DNA processes, such as repair, replication and recombination \cite{ bannister2011regulation}.
-Chip-seq can be used to investigate and measure various post-translational histone modifications.
+Chromatin immunoprecipitation sequencing (ChIP-seq) can be used to investigate and measure various post-translational histone modifications.
 
 Chromatin remodelling is the process of modifying chromatin architecture to regulate the accessibility of DNA.
 Gene expression is regulated by allowing certain gene regions better access to transcription machinery.
 This is achieved by ATP-dependent chromatin-remodelling complexes moving, ejecting or restructuring nucleosomes.
-ATAC-seq can be used to identify accessible DNA regions.
+Assay for transposase-accessible chromatin sequencing (ATAC-seq) can be used to identify accessible DNA regions.
 
 
 \subsection{The transcriptome}
