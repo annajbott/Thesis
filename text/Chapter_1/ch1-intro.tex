@@ -204,7 +204,7 @@ In the early stages of an immune response, IgM is the main circulating antibody.
 After a lag period, IgG becomes the main circulating antibody in the blood \cite{alberts2007molecularimmune}.
 
 The Ig isotypes have distinct immune functionality and tissue distribution.
-For example, the tail of IgG molecules can bind to macrophages and neutrophils, aiding in phagocytosis of microorganisms, it is also the only Ig that can cross the placenta; IgE molecules can bind to mast cells and basophils, and play a large role in allergic reactions and parasitic infections; IgA molecules are the main antobody in bodily secretions \cite{alberts2007molecularimmune}.
+For example, the tail of IgG molecules can bind to macrophages and neutrophils, aiding in phagocytosis of microorganisms, it is also the only Ig that can cross the placenta; IgE molecules can bind to mast cells and basophils, and play a large role in allergic reactions and parasitic infections; IgA molecules are the main antibody in bodily secretions \cite{alberts2007molecularimmune}.
 By each Ig class retaining the same antigen-binding site, this means that antigen-specificity can be distributed amongst the various isotypes.
 Therefore, a pathogen can be fought using an array of each isotype's biological properties \cite{xu2012immunoglobulin}.
 
@@ -262,6 +262,14 @@ Deletions of chromosome 13 and mutations in NRAS and KRAS are also frequently se
 Gene expression changes in MM cells include loss of CD19 expression and aberrant CD56 expression.
 DNA methylation and histone modifications have also been indicated as crucial regulators of MM pathogenesis.
 Fluorescence in situ hybridization (FISH) testing is often performed on upon MM diagnosis and at time of relapse, to detect certain genetic alterations and aid in risk stratification of patients \cite{swerdlow2008classification}.
+
+\subsection{MM microenvironment}
+MM cells typically grow within the bone marrow (BM).
+This is often referred to as their BM niche or BM microenvironment.
+The surrounding microenvironment plays a large role in supporting the progression of MM.
+The BM microenvironment is comprised of a cellular compartment (immune cells, endothelial cells, osteoblasts, osteoclasts and stromal cells) and a non-cellular compartment (the extracellular matrix (ECM), cytokines, chemokines and growth factors)\cite{manier2012bone, kawano2015targeting}.
+MM cells interact with their surrounding environment.
+These interactions influence the migration, differentiation, survival, proliferation, and response to therapies of MM cells.
 
 %2
 \subsection{Epidemiology}
@@ -392,8 +400,8 @@ NF$\kappa$B is a key transcription factor in many cancers, contributing to overa
 NF$\kappa$B has been shown to promote tumour cell proliferation, anti-apoptotic and angiogenic factors \cite{kale2012molecular}.
 
 \section{Drug resistance in multiple myeloma}
-Although PIs are extremely effective at killing MM cells initially, long-term treatment inevitably results in a drug-resistant relapse.
-Drug resistance is one of the biggest barriers in the treatment of MM.
+Although newer therapeutics are extremely effective at killing MM cells initially, long-term treatment inevitably results in a drug-resistant relapse.
+Drug resistance is one of the biggest barriers in the treatment of MM\@.
 Patients follow a pattern of peaks and troughs of treatment cycles, remission and relapse, until all therapies have little effect (Figure \ref{fig:treatment_cycles}).
 %% Treatment cycles
 \begin{figure}[htb]
@@ -406,7 +414,58 @@ Patients undergo cycles of treatment, remission and relapse until eventually bec
 \label{fig:treatment_cycles}
 \end{figure}
 %%
-In order to overcome resistance and increase overall survival of MM patients, the molecular mechanisms of resistance to proteasome inhibitors needs to be understood.
+\subsection{Mechanisms of drug resistance}
+
+% \subsubsection{MM cancer stem cells}
+
+\subsubsection{Minimal residual disease}
+Minimal residual disease (MRD) is when a small number of cancer cells remain in the body after treatment.
+These surviving cells are often undetectable and cause no symptoms, but they have the potential to proliferate and cause patients to relapse.
+MRD status after treatment is used as a prognostic factor and a marker of therapeutic success.
+Persistent MRD after treatment indicates that MM cells are not eliminated completely and the patient is expected to relapse in the near future \cite{ding2021minimal}.
+Clinical MRD negativity is defined as no cancer cells being detected in the background of at least $10^5$ normal cells by multi-parameteric flow cytometry (MFC) or next-generation sequencing technology in MM patients who have achieved complete remission \cite{kumar2016international}.
+Many studies have shown MRD negativity is positively associated with prolonged progression-free survival (PFS) and overall-survival (OS) in MM \cite{paiva2008multiparameter, martinez2014prognostic, munshi2020large}.
+
+
+\subsubsection{Clonal evolution}
+MM was originally thought to follow a linear pattern of evolution over time.
+However, three seminal papers from 2012 elucidated the clonal element of MM disease progression using time-course analyses of primary MM samples \cite{egan2012whole, keats2012clonal, walker2012intraclonal}.
+These studies revealed substantial heterogeneity within tumor clones from the same patient (intra-patient heterogeneity).
+For example, some relapsed clones were seen to have lost genetic abnormalities that were present at time of diagnosis.
+Egan et al. (2012) collected DNA from a single MM patient over a five-year period, covering their initial diagnosis, first relapse, second relapse, and end-stage secondary plasma cell leukemia, and performed whole genome sequencing (WGS) on the samples \cite{egan2012whole}.
+The group observed genomic sequence variants that were only detectable at alternating time points, suggesting the `waxing and waning' of different independent clones over time and treament-courses, which rose and fell in dominance \cite{egan2012whole}.
+On an average, three to six subclones are uniformly present at each stage of MM.
+In fact, intra-patient heterogeneity has been shown to be present at premalignant phases of MM-- MGUS and SMM\@.
+%
+%% MRD clones
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/Introduction/combined_clonal_cr_pr.pdf}
+\caption[Clonal evolution of MM with treatment]{Minimal residual disease (MRD) and clonal evolution of MM following treatment.
+a) Initial treatment of newly-diagnosed MM kills the majority of MM clones (sensitive subclones), resistant subclones survive and proliferate.
+Pre-existing resistant subclones and new subclones form which are resistant to subsequent treatments, until MM patients are relapsed and refractory.
+b) Clonal evolution of MM following treatment, leading to a complete response- which gives rise to mainly branching evolution, and a partial response, which gives more stable clonal patterns.
+Figure adapted from \cite{jones2019clonal}
+}
+\label{fig:mrd_clones}
+\end{figure}
+%%
+
+Keats et al. (2012) described three distinct patterns for clonal evolution in MM: stable, linear evolution, and heterogeneous clonal mixtures with shifting predominant clones (branching evolution) \cite{keats2012clonal}.
+For clonally stable myeloma, there are few to no mutations over the disease course;
+for linear evolution, new genetic aberrations are gained on top of existing mutations;
+whereas in branching evolution unique clones with a new set of genetic aberrations appear over time.
+
+MM treatment plays an important role in clonal evolution.
+Drug treatment places selective pressure on the MM clonal architecture, whereby more sensitive clones are completely eradicated by drug treatment and only highly-malignant drug-resistant clones remain, outcompeting other clones \cite{furukawa2020molecular}.
+These resistant clones are thought to affect the rate of disease progression and cause relapse of MM\@.
+Anti-MM therapy response effectiveness has been shown to affect the pattern of clonal evolution.
+Jones et al. (2019) demonstrated that patients achieving a CR to treatment followed branching and linear evolution patterns leading to relapse, whilst patients with a partial response to treatment followed a stable subclonal structure \cite{jones2019clonal}.
+
+
+
+\subsubsection{Overcoming drug resistance}
+In order to overcome resistance and increase overall survival of MM patients, the molecular mechanisms of resistance to existing anti-MM agents need to be better understood.
 This  will aid in the design of novel therapies and inform better use of existing therapies.
 Previous studies on proteasome drug resistance have been performed and certain mechanisms and genes have been identified.
 For example, point mutations have been noted in the \textit{PSMB5} gene (coding for the $\beta5$ subunit of the proteasome), as well as and over-expression of the $\beta5$ subunit \cite{robak2018drug}.
@@ -414,7 +473,7 @@ Other upregulated genes have been identified, for example \textit{ABCB1}, coding
 \textit{XBP1}, involved in the UPR, has been seen to be downregulated in PI resistance \cite{robak2018drug}.
 Although many genes have been identified to be differentially expressed in drug resistant MM, the mechanism is not fully elucidated and further research is imperative in the progression of treatment for multiple myeloma.
 
-Another avenue to increase MM survival, would be to identify novel therapeutics effective against MM, which are capable of overcoming acquired anti-cancer drug resistance.
+Another avenue to improve MM survival, would be to identify novel therapeutics effective against MM, which are capable of overcoming acquired anti-cancer drug resistance.
 By increasing the arsenal of drugs available to treat MM, the time until patients become refractory and no longer respond to treatment could be prolonged.
 Therapeutics with a novel mechanism of action are likely to be more effective for MM patients who have undergone several treatment cycles than drugs belonging to the same class as drugs they have previously been treated with.
 Novel therapeutics would have less overlap of mechanism of action with existing drugs, therefore there would be less cross-resistance.

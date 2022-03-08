@@ -373,6 +373,7 @@ Previously these genes have been implicated in MM outcome.
 \clearpage
 \subsection{Relapsed MM}
 Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the integrated relapsed MM patients.
+The relapsed patients demonstrate substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and their immune microenvironment.
 15 distinct clusters were identified.
 %% Final annotation relapse
 \begin{figure}[hpt]
@@ -386,7 +387,11 @@ Two subclones of MM were identified (circled; clusters 4 and 9).}
 %%
 The expected major immune clusters were identified (such as B cells, NK cells, T cells and myeloid cells.)
 Using the established MM biological markers (shown in Figure \ref{fig:mm_markers_relapsed}), and inferCNV results, two distinct MM subclones (cluster 4 and cluster 9) were identified.
-The relapsed patients show substantial transcriptional differences to treatment-naive patients, in both their myeloma cells and their immune microenvironment.
+MM cells in cluster 4 were seen to express \textit{CD138} (Figure \ref{fig:mm_markers_relapsed}).
+However, MM cells in cluster 9 showed little or no \textit{CD138} expression.
+As mentioned in Chapter \ref{ch:4-Pipelines}, these \textit{CD138}\textsuperscript{-} MM cells are likely to have higher proliferative potential than \textit{CD138}\textsuperscript{+} MM cells.
+They are also sometimes regarded to have `stem-cell' like clonogenic properties and to be more resistant to chemotherapy than their \textit{CD138}\textsuperscript{+} counterparts \cite{setiadi2019cd138}.
+This \textit{CD138}\textsuperscript{-} subclone of MM cells would have been removed if \textit{CD138}\textsuperscript{+} enrichment techniques were used prior to sequencing.
 
 \subsubsection{Composition}
 Cluster composition analysis for relapsed MM by treatment is shown in Figure \ref{fig:composition_relapse}.
@@ -518,4 +523,14 @@ Non-canonical functionality etc. etc.
 
 \section{Summary}
 
-\section{Discussion and future directions}
+\section{Discussion}
+
+
+Stem cell CD138- MM cells, resistant to drugs.
+More research include whole BM niche, not just CD138+ fraction.
+MM classifier can simplify process of MM identification.
+
+Drugs showed little effect on cluster 9. Could be key to MRD and clonogenic. Naive patient showed large CD138+ MM expression. Difference between naive and relapse
+Argument for sequencing whole BM niche.
+
+% Future- tRNA-seq optimise

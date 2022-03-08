@@ -314,3 +314,44 @@ The pipeline is deposited on GitHub and can be found here: \url{https://github.c
 % tRNA workflow
 \afterpage{\clearpage}
 \input{text/Chapter_4_Pipelines/tRNA_methods.tex}
+
+\afterpage{\clearpage}
+\input{text/Chapter_4_Pipelines/MM_classifier.tex}
+
+\section{Discussion}
+
+Before the advent of NGS, the bottleneck in omics experiments was the technology available, which limited data acquisition.
+The duration of time for the completion of sequencing projects was very long (for example the 13 years taken to sequence the human genome).
+Since the use of NGS and TGS technologies-- with their higher throughput compared to traditional first-gen techniques-- the bottleneck of `omics experiments has shifted to data processing and data discovery.
+Over the last two decades, numerous computational methods and tools have been invented to relieve the strain of data processing times.
+
+The ever-increasing volumes of omics-data require data-processing pipelines/workflows that are robust, quick and efficient, whilst possessing the scientific rigour that allows for consistent and fully reproducible analysis of results.
+Robust and reproducible genomic workflows allow for confidence in interpreting results in meaningful biological context.
+
+The CGAT framework was used to construct computational pipelines for data processing and extraction of biologically meaningful statistical analyses, summaries and visualisations from input data.
+The CGAT-framework was chosen as the base for the computational pipelines in this work because: CGAT-core can handle parallelisation across HPC clusters, it is integrated with the use of Conda environments, it allows for parameterisation of pipelines, it is open-source, and it records detailed logs of progress.
+Additionally, significant CGAT toolkits are available for specialised bioinformatics tasks. The large size of omics data means that many computational biologists use HPC clusters to analyse their data, to reduce computing time.
+Moreover, most cluster users do not have sudo access rights, therefore must use package and virtual environment managers.
+Conda integration was an important factor for the pipeline-framework, as other package managers, such as Pip, are mainly for python package installation, whereas Conda is a cross-platform environment manager.
+Many bioinformatic tools are written in R and are easily available on the Bioconda channel of Conda. Logging of pipeline progress allows for easy reproducibility of results. CGAT pipelines are built on top of Ruffus workflow management.
+Compared with other workflow managers, Ruffus has been rated manager with the highest ease of development, such that it requires the least effort to compose new workflows \cite{leipzig2017review}.
+This is further adds to its appeal, as it requires less time and effort to create new workflows, but also means that other users should be easily able to debug errors themselves and adapt the workflows as they see fit.
+
+Using the CGAT framework, analysis pipelines were constructed for dscRNA-seq pseudoalignment analysis, scRNA velocity analysis and tRNA-seq analysis.
+
+\subsection{Benchmarks}
+Benchmarks were conducted to assess the performance of these pipelines.
+A combination of simulated and real data was used to assess performance.
+Simulated data allows comparison of the output of a given method to a known `ground-truth'.
+This is a key strength of using simulated data as you can directly compare to known scores or values, and quantitatively assess accuracy of a method.
+For transcriptomic data, often the known ground truth data is a counts matrix, either gene x sample for bulk methods or gene x cell for single-cell methods.
+Additionally, simulated data can be used as lightweight data for testing, as opposed to large real-world data.
+However, using simulated data to assess performance poses several limitations.
+The model under which the simulated data were generated, can alter the results of the benchmark and favour certain methods over others.
+For example, a benchmark was performed for 12 different scRNA-seq simulation methods, across 35 different datasets.
+They observed different results for each method across four evaluative categories (data property estimation, biological signals, scalability and applicability \cite{cao2021benchmark}.
+Secondly, simulated data is unable to capture true experimental variability, and will always be less complex than real-world data \cite{mangul2019systematic}.
+It has been shown that various scRNA-seq data simulation methods are also unable to reflect the level of heterogeneity seen in a population due to inter-patient variability \cite{cao2021benchmark}.
+Considering the pipeline generated in this work will be primarily used to analyse MM data, the benchmark has done little to support that it will be appropriate to infer results from extremely heterogeneous MM patients.
+
+
