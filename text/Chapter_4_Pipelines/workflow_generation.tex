@@ -79,7 +79,7 @@ Instead, methods are compared against simulated results which act as the underly
 
 A benchmark was conducted using simulated data, utilising the pseudoalignment pipeline outlined above.
 Kallisto BUS/BUStools and Salmon Alevin pseudoalignment methods were both implemented and their performance compared to one another.
-Both pseudoalignment tools have previously been compared to traditional mapping tools \cite{melsted2018barcode, srivastava2019alevin} and both showed comparable accuracy levels, therefore this benchmark does not include the performance of traditional mapping methods.
+Both pseudoalignment tools have previously been compared to traditional mapping tools\cite{melsted2018barcode, srivastava2019alevin} and both showed comparable accuracy levels, therefore this benchmark does not include the performance of traditional mapping methods.
 
 \subsubsection{Simulated data}
 Simulated reads with a know ground truth counts matrix were generated as follows:
@@ -294,15 +294,15 @@ The user can then perform further downstream analysis on the dataset, for exampl
 
 \subsection{RNA velocity}
 scRNA-seq gene expression analyses capture only a static snapshot of the transcriptome in time.
-In a seminal paper by La Manno et al. (2018), RNA velocity methods were introduced with the aim of revealing the rate and direction of change of the transcriptome during dynamic processes, such as embryonic development or cellular dynamics following drug treatment \cite{la2018rna}.
+In a seminal paper by La Manno et al. (2018), RNA velocity methods were introduced with the aim of revealing the rate and direction of change of the transcriptome during dynamic processes, such as embryonic development or cellular dynamics following drug treatment\cite{la2018rna}.
 In-line with previous observations, the authors found that between 15 and 25\% of scRNA-seq reads contain unspliced intronic sequences.
 Using this knowledge, they found that the balance between unspliced and spliced mRNAs can be predictive of cellular state progression, and can be used to directly estimate the time derivative of gene expression on a timescale of hours.
 Therefore, using RNA velocity in combination with clustering analysis, the trajectory of a single cell can be tracked.
 This paper introduced Velocyto for RNA velocity analysis.
-Since its inception in 2018, numerous tools have been developed for RNA velocity analysis \cite{la2018rna, weng2021vetra, bergen2020generalizing, melsted2019modular}.
+Since its inception in 2018, numerous tools have been developed for RNA velocity analysis\cite{la2018rna, weng2021vetra, bergen2020generalizing, melsted2019modular}.
 
 \subsection{Pipeline outline}
-A modular RNA velocity analysis workflow was constructed based around the kallisto BUStools (kb-python wrapper) velocity workflow \cite{melsted2019modular}.
+A modular RNA velocity analysis workflow was constructed based around the kallisto BUStools (kb-python wrapper) velocity workflow\cite{melsted2019modular}.
 The user requires an Ensembl reference GTF file and DNA fasta file for the species of interest, and their raw fastq read files as input.
 Firstly, an RNA velocity index is generated from the GTF and fasta file.
 Kb count is then used to generate spliced and unspliced transcript count matrices and a loom file.
@@ -334,7 +334,7 @@ Additionally, significant CGAT toolkits are available for specialised bioinforma
 Moreover, most cluster users do not have sudo access rights, therefore must use package and virtual environment managers.
 Conda integration was an important factor for the pipeline-framework, as other package managers, such as Pip, are mainly for python package installation, whereas Conda is a cross-platform environment manager.
 Many bioinformatic tools are written in R and are easily available on the Bioconda channel of Conda. Logging of pipeline progress allows for easy reproducibility of results. CGAT pipelines are built on top of Ruffus workflow management.
-Compared with other workflow managers, Ruffus has been rated manager with the highest ease of development, such that it requires the least effort to compose new workflows \cite{leipzig2017review}.
+Compared with other workflow managers, Ruffus has been rated manager with the highest ease of development, such that it requires the least effort to compose new workflows\cite{leipzig2017review}.
 This is further adds to its appeal, as it requires less time and effort to create new workflows, but also means that other users should be easily able to debug errors themselves and adapt the workflows as they see fit.
 
 Using the CGAT framework, analysis pipelines were constructed for dscRNA-seq pseudoalignment analysis, scRNA velocity analysis and tRNA-seq analysis.
@@ -349,9 +349,9 @@ Additionally, simulated data can be used as lightweight data for testing, as opp
 However, using simulated data to assess performance poses several limitations.
 The model under which the simulated data were generated, can alter the results of the benchmark and favour certain methods over others.
 For example, a benchmark was performed for 12 different scRNA-seq simulation methods, across 35 different datasets.
-They observed different results for each method across four evaluative categories (data property estimation, biological signals, scalability and applicability \cite{cao2021benchmark}.
-Secondly, simulated data is unable to capture true experimental variability, and will always be less complex than real-world data \cite{mangul2019systematic}.
-It has been shown that various scRNA-seq data simulation methods are also unable to reflect the level of heterogeneity seen in a population due to inter-patient variability \cite{cao2021benchmark}.
+They observed different results for each method across four evaluative categories (data property estimation, biological signals, scalability and applicability\cite{cao2021benchmark}.
+Secondly, simulated data is unable to capture true experimental variability, and will always be less complex than real-world data\cite{mangul2019systematic}.
+It has been shown that various scRNA-seq data simulation methods are also unable to reflect the level of heterogeneity seen in a population due to inter-patient variability\cite{cao2021benchmark}.
 Considering the pipeline generated in this work will be primarily used to analyse MM data, the benchmark has done little to support that it will be appropriate to infer results from extremely heterogeneous MM patients.
 
 

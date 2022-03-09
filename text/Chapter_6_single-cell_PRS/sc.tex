@@ -171,9 +171,9 @@ Both clusters 9 and 12 seem to belong to a B-cell lineage.
 Cluster 12 shows increased \textit{CD20} expression, indicating they could be mature B cells.
 However, clusters 4 and 9 have an increased expression of \textit{IGKC}, compared to non-B cell clusters.
 Indicating that perhaps, all B-cell clusters (4, 9 and 12) in the relapsed dataset, may be in fact MM cells.
-It has previously been shown that MM possess a level of plasticity, that could allow de-differentiation into other cell lineages \cite{kotouvcek2014myeloma}, this may account for the \textit{CD20} expression of cluster 12.
+It has previously been shown that MM possess a level of plasticity, that could allow de-differentiation into other cell lineages\cite{kotouvcek2014myeloma}, this may account for the \textit{CD20} expression of cluster 12.
 
-Due to the uncertainty of cell-type identity in the relapsed dataset based on MM marker expression alone, inferCNV \cite{patel2014single, infercnv2014} was employed to detect large-scale chromosomal copy number variations (CNVs) and help inform annotation.
+Due to the uncertainty of cell-type identity in the relapsed dataset based on MM marker expression alone, inferCNV\cite{patel2014single, infercnv2014} was employed to detect large-scale chromosomal copy number variations (CNVs) and help inform annotation.
 The raw counts expression matrix of the relapsed, integrated Seurat object was used as input for inferCNV\@.
 `Normal' cells (that is: myeloid cells, T cells and NK cells) were used as references for for the relative expression intensity of the suspected malignant cell clusters (clusters 4, 9 and 12).
 A Cutoff value of 0.1 was used for the analysis, to account for the sparsity of droplet-based 3' scRNA-sequencing.
@@ -390,7 +390,7 @@ Using the established MM biological markers (shown in Figure \ref{fig:mm_markers
 MM cells in cluster 4 were seen to express \textit{CD138} (Figure \ref{fig:mm_markers_relapsed}).
 However, MM cells in cluster 9 showed little or no \textit{CD138} expression.
 As mentioned in Chapter \ref{ch:4-Pipelines}, these \textit{CD138}\textsuperscript{-} MM cells are likely to have higher proliferative potential than \textit{CD138}\textsuperscript{+} MM cells.
-They are also sometimes regarded to have `stem-cell' like clonogenic properties and to be more resistant to chemotherapy than their \textit{CD138}\textsuperscript{+} counterparts \cite{setiadi2019cd138}.
+They are also sometimes regarded to have `stem-cell' like clonogenic properties and to be more resistant to chemotherapy than their \textit{CD138}\textsuperscript{+} counterparts\cite{setiadi2019cd138}.
 This \textit{CD138}\textsuperscript{-} subclone of MM cells would have been removed if \textit{CD138}\textsuperscript{+} enrichment techniques were used prior to sequencing.
 
 \subsubsection{Composition}
@@ -494,16 +494,16 @@ This is especially true for myeloma cells, secreting huge amounts of M protein.
 Additionally, tumours are usually extremely proline-rich.
 Therefore, it is surprising that ProRS inhibitors are non-selective for MM cells over MM patients' non-malignant myeloid cells.
 
-Previously, Leiba et al. (2012) demonstrated HF's selectivity for MM patients' CD138\textsuperscript{+} tumour cells over PBMCs from healthy donors \cite{leiba2012halofuginone} using a cytotoxicity assay at the range of 25-200\si{\nano\Molar}.
+Previously, Leiba et al. (2012) demonstrated HF's selectivity for MM patients' CD138\textsuperscript{+} tumour cells over PBMCs from healthy donors\cite{leiba2012halofuginone} using a cytotoxicity assay at the range of 25-200\si{\nano\Molar}.
 This is a significantly lower concentration of HF than used in the scRNA-seq experiments (1\si{\micro\Molar}), so this could represent dosing differences.
 However, it must also be noted that Leiba et al. (2012) did not separate PBMCs into their respective subtypes prior to performing the cytotoxicity assays.
 As previously demonstrated, HF treatment had very little effect on B, T and NK cells.
 Monocytes only make up approximately 5-10\% of the cells found in PBMCs- therefore, the effect of HF on monocytes could have been missed due to the minimal effects on the other cell types making up PBMCs.
 Furthermore, the control PBMCs originated from healthy donors and not from MM patients' immune microenvironment.
-The immune microenvironment of MM patients has been shown to be substantially altered and impaired compared to healthy individuals \cite{de2013analysis}, meaning that using healthy PBMCs as a control for the selectivity of HF is not appropriate.
+The immune microenvironment of MM patients has been shown to be substantially altered and impaired compared to healthy individuals\cite{de2013analysis}, meaning that using healthy PBMCs as a control for the selectivity of HF is not appropriate.
 To truly determine the cytotoxic selectivity of ProRS inhibition for MM cells and myeloid cells, cytotoxic assays must be performed for MM cells and myeloid cells originating from MM patients.
 
-Wang et al. (2020) investigated the use of Halofuginone to treat the inflammatory disease chronic periodontitis \cite{wang2020halofuginone}.
+Wang et al. (2020) investigated the use of Halofuginone to treat the inflammatory disease chronic periodontitis\cite{wang2020halofuginone}.
 Using a mouse model, they demonstrated that HF treatment significantly reduced the expression levels of pro-inflammatory cytokines, for example IL-1$\beta$, IL-6 and TNF-$\alpha$.
 HF treatment was also shown to reduce the total percent of infiltrating immune cells and myeloid cells in gingival tissues when compared with those in control, PBS-treated mice.
 The percentage of myeloid cells making up the CD45\textsuperscript{+} fraction of cells in gingival tissue was reduced by approximately 40\%, following HF treatment.
