@@ -8,42 +8,31 @@ AMO-1 cells, plasma cells from a 64-year old female myeloma patient, were used a
 Proteasome inhibitor-sensitive AMO-1 cells are referred to as WT cells.
 Bortezomib resistant (aBTZ) and carfilzomib resistant cells (aCFZ), believed to be AMO-1 cells were generated and gifted by the Driessen lab\cite{soriano2016proteasome}.
 After typing these cells, they were found to be a mix of AMO-1 cells and L363 cells.
-AMO-1 cells were cultivated in RPMI-1640 medium (Thermofisher, UK), supplemented with 10\% fetal bovine serum (FBS), 100\si{\ug\per\ml} streptomycin and 100 U/ml penicillin (P/S) and 2\si{\milli\Molar} L-glutamine (Invitrogen, UK).
+AMO-1 cells were cultivated in RPMI-1640 medium (Thermofisher, UK), supplemented with 10\% fetal bovine serum (FBS) and 2\si{\milli\Molar} L-glutamine (Invitrogen, UK).
 Cells were passaged when they reached approximately 1.5-2 million cells per \ml{}.
 AMO-1 cells are suspension cells and were split twice a week to approximately 0.5 million cells per \ml{}.
+All media was replaced with fresh media every two to three weeks, or prior to performing experiments with the cells.
 
 \subsection{L363 cells}
 After typing the cells gifted by the Driessen lab, they were found to be a mix of AMO-1 MM cells and L363 MM cells.
-In-house PI-resistant cell lines were by Dr James Dunford by continual and escalating drug exposure of drug-sensitive (WT) AMO-1 cells.
+In-house PI-resistant cell lines were produced by Dr James Dunford by continual and escalating drug exposure of drug-sensitive (WT) AMO-1 cells.
 However after these cells were typed, they were found to be L363 cells.
 This was due to the drug exposure selecting the L363 contaminate population over the AMO-1 cells, due to their natural increased resistance to PI, compared to AMO-1 cells.
-Once this mistake made by our collaborators was noticed, WT L363 cells were purchased from (<INSERT HERE>).
-WT, aCFZ and aBTZ cells were cultivated in RPMI-1640 medium (Thermofisher, UK), supplemented with 10\% fetal bovine serum (FBS), 100\si{\ug\per\ml} streptomycin and 100 U/ml penicillin (P/S) and 2\si{\milli\Molar} L-glutamine (Invitrogen, UK), and kept in 100\si{\nano\Molar} of their respective proteasome inhibitor.
+Once this mistake made by our collaborators was noticed, WT L363 cells were purchased.
+WT, aCFZ and aBTZ cells were cultivated in RPMI-1640 medium (Thermofisher, UK), supplemented with 10\% fetal bovine serum (FBS) and 2\si{\milli\Molar} L-glutamine (Invitrogen, UK), and kept in 100\si{\nano\Molar} of their respective proteasome inhibitor.
 Cells were passaged when they reached approximately 1.5-2 million cells per \ml{}.
 L363 cells are suspension cells and were split twice a week to approximately 0.5 million cells per \ml{}.
+All media was replaced with fresh media every two to three weeks, or prior to performing experiments with the cells.
 
 \section{Compounds}
 
 \subsection{Proteasome inhibitors}
-<WHERE were they obtained> etc etc.
+Stock concentrations of proteasome inhibitors, bortezomib (BTZ) and carfilzomib (CFZ) were purchased from...
 
 \subsection{ProRS inhibitors}
-
-\subsubsection{Halofuginone (MAZ1392)}
-
-\subsubsection{MAZ1805}
-
-\subsubsection{NCP22}
-
-\subsubsection{NCP26}
-
-\subsubsection{ProSA}
-
-%\subsection{Epigenetic inhibitors}
-%The Oppermann group has an epigenetic compound screening library, consisting of 144 compounds.
-%The compounds were obtained XYZ <where did Jim get compounds> SGC????
-%A dual TRIM24/BRPF inhibitor was identified as a possible candidate to reverse drug-resistance in AMO-1 cells.
-%The structure of the inhibitor is shown below in figure \ref{fig:trim24_structure}.
+ProRS inhibitors: halofuginone (MAZ1392; HF) and halofuginol (MAZ1805) were purchased from..
+ProRS inhibitors NCP26 and NCP22 were kindly donated by Swiss lab... NAME
+ProSA
 
 %% TRIM24 structure
 %\begin{figure}[htb]
@@ -71,21 +60,23 @@ Cells were treated with DMSO in triplicate as 100\% viability controls.
 
 \section{Bulk RNA-seq}\label{sec:bulk_lib_prep}
 \subsection{RNA extraction}\label{subsec:rna_extraction}
-RNA was extracted and purified using the Direct-Zol RNA MiniPrep kit (Zymo, USA), following the manufacturer's protocol.
+RNA was isolated and purified using the Direct-Zol RNA MiniPrep kit (Zymo, USA), following the manufacturer's protocol.
 In brief, for each sample, approximately 100,000 cells were lysed in 300\ul{} of TRIzol and the lysate was transferred to a microcentrifuge tube.
 300\ul{} of ethanol was added to the lysed samples and vortexed.
-The mixture was transferred to miniPrep columns and centrifuged at 10,000-16,000g for 30 seconds.
+The mixture was transferred to miniPrep columns and centrifuged at 13,000g for 30 seconds.
 The column was washed twice with 400\ul{} of Direct-Zol pre-wash and once with 700\ul{} of RNA wash buffer
 The column was transferred to an RNase-free tube and eluted with 50\ul{} of nuclease-free water and centrifuged.
 
 The RNA concentration was quantified using a NanoDrop ND-1000 Spectrophotometer (Thermo Fisher Scientific, USA), and samples were stored at -80\C{}.
-Samples were normalised to 100\si{\ng} with nuclease-free water.
-
 
 \subsection{RNA library preparation}
+Samples were normalised to 100\si{\ng} and made up to 50\ul{} with nuclease-free water
+Poly-adenylated RNA was enriched using the NEBNext Poly(A) mRNA magnetic isolation module (NEB, USA), following the manufacturer's protocol.
+In short, ...
+
+
 NEBNext\textsuperscript{\textregistered} Ultra II directional RNA library prep kit for Illumina\textsuperscript{\textregistered} with TruSeq indexes was used to prepare RNA libraries, following the manufacturer's protocol.
-RNA concentration was normalised to 100\si{\ng} with nuclease-free water, made up to 50\ul{}.
-The NEBNext Poly(A) mRNA Magnetic Isolation Module (NEB, USA) was used to enrich poly-adenylated RNA. READ booklet in lab
+
 
 
 \subsection{Pre-sequencing preparation}\label{subsec:preseq}
@@ -98,6 +89,8 @@ The mixture was vortexed briefly, centrifuged at 300g for 1 minute, and then inc
 The denatured library was then diluted to 20\si{\pico\Molar}.
 970\ul{} chilled HT1 buffer was added, vortexed and spun.
 117\ul{} of the 20\si{\pico\Molar} library was then mixed with 1183\ul{} chilled HT1 buffer to give a 1.8\si{\pico\Molar} library ready for sequencing on the Illumina NextSeq platform.
+
+Sequencing of the resultant libraries was performed on the NextSeq 500 (Illumina, USA) platform using a paired-end run, according to the manufacturer's instructions.
 
 \section{Single-cell RNA-seq}
 \subsection{Drop-Seq}
@@ -128,7 +121,7 @@ Indexed libraries were quantitated by TapeStation, pooled and sequenced on an Il
 Approximately 1 million cells were collected per sample and seeded overnight in six-well plates.
 Cells were treated with 700\si{\nano\Molar} NCP26, 300\si{\nano\Molar} Halofuginone or 2\si{\micro\Molar} ProSA.
 Controls were treated with equal volumes of DMSO.
-Cells were collected at time =0, time = 3 hours or time = 6 hours.
+Cells were collected at time = 0, time = 3 hours or time = 6 hours.
 Samples were centrifuged at 300g for 5 minutes, the supernatant was discarded and the pellets were resuspended in 300\ul{} of Trizol.
 RNA was extracted as above (section \ref{subsec:rna_extraction}) and quantified using a nanodrop.
 Concentrations ranged from  189.7\si{\ng}/\ul{} to 398.85\si{\ng}/\ul{}.
@@ -195,11 +188,12 @@ Two 18-well 10\% Criterion TBE-Urea Polyacrylamide Gels (Bio-Rad) were used to s
 5x sample buffer (89\si{\milli\Molar} Tris, 89\si{\milli\Molar} boric acid, 2\si{\milli\Molar}, 12\% Ficoll 400, 0.01\% bromophenol blue, 0.02\% xylene cyanole FF, 7\si{\Molar} urea) was made up, and 3\ul{} was added to each sample.
 20\ul{} 1xTBE, 2\ul{} PCR marker (N3234; NEB) and 5.5\ul{} 5x sample buffer was mixed and used as a ladder for each gel.
 cDNA libraries and ladders were pipetted into their corresponding well and the gels were ran for approximately an hour at 90V.
-Gel were removed and placed back into their plastic tray for staining.
+Gels were removed and placed back into their plastic tray for staining.
 Gels were covered in excess 1xTBE and 3\ul{} SYBR gold (Invitrogen) was added to each tray and stained for 15 minutes on a mixing tray.
 Gels were excised on 300 (????)\si{\nano\Molar} UV light.
-A clean scalpel was used to cut out gel between 75nt and 300nt, the region representing tRNAs, and to place in labelled eppendorfs.
-Eppendorfs were placed in the fridge overnight.
+A clean scalpel was used to cut out gel bands between 75nt and 300nt (the region representing tRNAs).
+Gel fragments were then placed in labelled eppendorfs, trying to limit contamination.
+The eppendorfs were placed in the fridge overnight.
 
 A 25-gauge needle was used to pierce holes at the bottom of 500\ul{} eppendorfs.
 The pierced 500\ul{} eppendorfs were nested inside 1.5\ml{} eppendorfs, and gel pieces were transferred into their corresponding, labelled nested tube.
@@ -277,19 +271,17 @@ In short, approximately 700\ul{} binding buffer was added to each tube and the g
 The solubilized gel solutions were added to purification columns and centrifuged at 12,000g for 1 min and the through-flow discarded.
 100\ul{} of binding buffer was added to each column and centrifuged again.
 Two washes with 700\ul{} of wash buffer were performed, followed by an additional spin and air dry to remove any residual ethanol from the columns.
-The collection tubes were discarded of and the columns were nested in 1.5\ml{} eppendorfs.
+The collection tubes were discarded and the columns were nested in 1.5\ml{} eppendorfs.
 50\ul{} of elution buffer was added to each column and centrifuged for 2 minutes.
 The columns were discarded and the eppendorfs stored at -20\C{}.
 
 The libraries were quantified on a tape station (Agilent) and pooled according to their peak molarity.
-The pooled library was then denatured and diluted ready for sequencing (as in section \ref{subsec:preseq}).
-
-\section{Pooling, denaturing and diluting libraries}
-Libraries were then denatured and diluted, folowing the NextSeq denature and dilute libraries guide, ready for sequencing.
+The pooled library was then denatured and diluted ready for sequencing (as above in Section \ref{subsec:preseq}).
 
 
-\section{Sequencing}
-Sequencing of the resultant libraries was performed on the NextSeq 500 (Illumina, USA) platform using a paired-end run, according to the manufacturer's instructions.
+\subsubsection{Sequencing}
+Sequencing of the resultant libraries was performed on the NextSeq 500 (Illumina, USA) platform using a single-end run, according to the manufacturer's instructions.
+% Base numbers etc. read 1 or read 2 length
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,7 +297,9 @@ XGR\cite{fang2016xgr}, Reactome\cite{fabregat2017reactome} and KEGG\cite{kanehis
 Org.Hs.eg.db\cite{carlson2019org}, AnnotationDbi\cite{pages2020annotationdbi} and biomaRt\cite{durinck2009mapping} were used for converting between Ensembl IDs, HGNC symbols and ENTREZ IDs.
 
 \subsection{Single-cell RNA-seq}
-The computational pipeline outlined in section \ref{sec:scRNA_pipeline} was used to process scRNA data.
+The computational pipeline outlined in Section \ref{sec:scRNA_pipeline} was used to process scRNA-seq data.
+Downstream analysis was performed in Jupyter lab notebooks\cite{Kluyver2016jupyter} using R kernels.
+
 
 
 

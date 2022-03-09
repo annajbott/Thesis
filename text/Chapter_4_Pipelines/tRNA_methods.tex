@@ -36,7 +36,7 @@ The main steps in the analysis are:
   \item Read pre-processing and quality control
   \item Mapping of reads
   \item tRNA quantitative and qualitative analysis
-  \item Downstream analyses and report generation
+  \item Downstream analyses and visualisation
 \end{itemize}
 
 \subsubsection{Read pre-processing and quality control}
@@ -64,7 +64,8 @@ In order to accurately distinguish sequencing errors for true mismatches, \texti
 This information is stored in a bcf file that is then parsed by \textit{bcftools call}, which performs variant calling for each tRNA sequence\cite{li2009sequence}.
 The output is then stored as a vcf file and normalised for indels, then filtered for sequencing depth.
 
-\subsubsection{Visualisation}
+\subsubsection{Downstream analyse and visualisation}
+DESeq2 differential expression is performed for sample groups inputted by the user.
 In order to visualise the output of tRNAnalysis, summary statistics are generated and then reports of these summaries are rendered in html format for visualisation using the Rmarkdown framework.
 Publication ready reports include figures such as coverage plots, volcano plots of differential expressed tRNAs, tables detailing tRNA modifications and bar graphs of tRNA frequencies.
 Once these standard reports have been generated, exploratory data analysis can be performed by modifying the Rmarkdown code, allowing for bespoke analysis, tweaking some parameters or to generate more specific publication-quality images.
