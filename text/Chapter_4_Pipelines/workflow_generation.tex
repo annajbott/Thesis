@@ -383,22 +383,28 @@ They achieved this by processing the same experimental reads with both SAF and B
 After dimensionality reduction, the distance between identical cells either processed by SAF or BUS was examined compared to the next nearest cell.
 The group found that gene expression differences between SAF and Kallisto were negligible for clustering analysis and irrelevant for downstream analysis.
 They also found that even with the updated SAF framework, Salmon-Alevin-Fry remained significantly slower and required more memory to run than Kallisto BUStools.
+This confirms the results of the benchmark conducted in this work and the subsequent decision to use Kallisto BUStools as the lightweight mapper of choice for scRNA-seq analysis.
 
-This further affirms the benchmark conducted in this work, its results and the subsequent decision to use Kallisto BUStools as the lightweight mapper of choice for scRNA-seq analysis.
-
-The benchmark performed in this work used F1, precision and recall scores to assess accuracy.
-These scores use binary classifications, therefore the benchmark only looked at the accuracy of `Expressed' vs `Not expressed' for every gene for each cell. This was considered an appropriate measure of accuracy, as the fraction of zeros (cells not expressing a given gene) in a scRNA-seq experiment is extremely high, sometimes exceeding 90\%\cite{linderman2022zero}.
+The benchmark performed in this work used precision, recall and F1 scores to assess accuracy.
+These scores use binary classifications, therefore the benchmark only looked at the accuracy of `Expressed' vs `Not expressed' for every gene for each cell.
+This was considered an appropriate measure of accuracy, as the fraction of zeros (cells not expressing a given gene) in a scRNA-seq experiment is extremely high, sometimes exceeding 90\%\cite{linderman2022zero}.
 However, the benchmark does not give any information about abundance quantification accuracy.
 As such, one of the methods outputting a count value of 1 vs another method outputting a count of 1000 would be considered as the same by the benchmark (i.e. expressed), even though they are clearly very different counts biologically.
-Srivastava et al. (2020) investigated the transcript abundance quantification performance of traditional mapping and alignment strategies Bowtie2 and STAR compared to the quasi-mapping (pseudoalignment) method Salmon\cite{srivastava2020alignment}. T
-he group calculated Spearman correlation of quantification estimates by each alignment method compared to Polyester simulated scRNA-seq ground-truth data.
+Srivastava et al. (2020) investigated the transcript abundance quantification performance of traditional mapping and alignment strategies Bowtie2 and STAR compared to the quasi-mapping (pseudoalignment) method Salmon\cite{srivastava2020alignment}.
+The group calculated Spearman correlation of quantification estimates by each alignment method compared to Polyester simulated scRNA-seq ground-truth data.
 
 To demonstrate the application of the pipeline and its effectiveness on MM data, a more comprehensive benchmark could be performed by implementing some of the strategies summarised above.
 For simulated data: as well as assessing accuracy of expression vs no expression, gene abundance quantification accuracy should be examined using Spearman correlation statistics.
-Real world data should also be included in to assess how methods perform with added complexity and heterogeneity, which is not present in simulated data. Since no ground-truth data is available, it becomes more challenging to analyse accuracy.
-The strategy implemented in \cite{booeshaghi2021benchmarking} could be generalised to include all traditional mapping and lightweight mapping techniques. Such that a real-world dataset is aligned and processed by the numerous methods, then combined into one counts dataset.
-Following dimensionality reduction of this matrix, you would expect methods to cluster together for each given ` doppelganger' cell.
-L1 distances from the centroid of these clusters could then be calculated for each method, for each cell in the dataset, to give an overall score for each method and to see how much each method agrees with one another.
-This strategy could be implemented for real-world MM data, to ensure the methods are appropriate to analyse MM patient data.
+Real world data should also be included, to assess how methods perform with added experimental complexity and heterogeneity.
+Since no ground-truth data is available, it becomes more challenging to analyse accuracy.
+The strategy implemented in \cite{booeshaghi2021benchmarking} could be generalised to include all traditional mapping and lightweight mapping technique.
+This could be performed by processing a real-world dataset using the numerous mapping/alignment methods, then combining them together into one counts dataset, so that for each biological cell there are numerous `doppelganger' cells each processed by a different method.
+Following dimensionality reduction of this matrix, you would expect the `doppelganger' cells originating from the same biological cell to cluster together.
+L1 distances from the centroid of these clusters could then be calculated for all of the methods, across every cell in the dataset, to give an overall score for each method and to see how much each method agrees with one another.
+This strategy could be implemented for real-world MM data, to ensure the alignment methods chosen are appropriate to analyse MM patient data.
+
+\subsection{MM classifier}
+
+
 
 
