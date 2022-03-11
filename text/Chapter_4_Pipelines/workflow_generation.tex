@@ -416,25 +416,36 @@ This is useful to offset the high costs of single-cell sequencing, so that a hig
 However, previous studies of MM cell lines and clinical MM samples have shown a small population of MM cells lack CD138 expression\cite{matsui2004characterization}, therefore anti-CD138 antibodies will recognise only a sub-population of MM cells.
 CD138 also has a fast turnover on the cell membrane, and is constitutively shed on cultured cells and apoptotic cells\cite{bansal2021impact}.
 Passaging in cell culture, sample processing and drug treatment can induce rapid apoptosis in primary myeloma cells, hence leading to CD138 shedding.
-Furthermore, \textit{CD138}\textsuperscript{-} MM cells have been reported to have more proliferative potential than \textit{CD138}\textsuperscript{+} MM cells and that they play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
+Furthermore, CD138\textsuperscript{-} MM cells have been reported to have more proliferative potential than CD138\textsuperscript{+} MM cells and that they play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
 Matsui et al. (2004) reported the existence of CD138\textsuperscript{-} MM `stem cells', which had greater clonogenic potential than CD138\textsuperscript{+} MM cells and phenotypically resembled postgerminal center B cells\cite{matsui2004characterization}.
 A decrease in CD138 expression has also been observed during the course of treatment in some MM patients\cite{kawano2012multiple}.
 
-Therefore, in MM research, CD138 expression is frequently used to isolate \textit{CD138}\textsuperscript{+} PCs from MM BM samples.
-However, it has been shown that subpopulations of malignant\textit{CD138}\textsuperscript{-} PCs exist in MM patients too.
-Furthermore, \textit{CD138}\textsuperscript{-} MM cells have more proliferative potential than \textit{CD138}\textsuperscript{+} MM cells and play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
-By separating cells based on \textit{CD138} expression, information on a whole class of MM cells is being lost.
-Additionally these cells may be misclassified as non-MM cells and interfere with research investigating the bone marrow niche.
+Therefore, by separating cells based on \textit{CD138} expression, information on a whole subpopulation of MM cells is lost.
+Results will be skewed towards CD138\textsuperscript{+} MM cells.
+With the large heterogeneity seen in MM and acquired-drug resistance theories regarding MRD and clonal evolution, the entire MM population must be investigated to get an accurate picture of the whole MM landscape.
+
+Bansal et al. (2021) investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to whole bone marrow (WBM) processing on BM plasma cell surface markers\cite{bansal2021impact}.
+They found that CD138\textsuperscript{+} selection of PCs appears to change important markers on the PCs, such as substantial loss of expression of D71, CD11b, CD11a, CD69, and CD49e, and also almost a complete loss of CD45\textsuperscript{+} subset of cells in half of cases.
+From the study it was not clear if this phenotypic change of PCs was due to antigen loss from the process of selection or if subsets of cells were eliminated/ preferentially selected.
+For RNA and DNA-based studies (like scRNA-seq) this would be an issue if a subset of cells were preferentially selected for, as it would further skew results to a smaller subset of total MM cells.
+
+From the above considerations about CD138 expression and selection, together with the established interactions between MM cells and their surrounding immune microenvironment, it seems sequencing the whole bone marrow niche should be the preferred method for MM scRNA-seq studies.
+scRNA-seq of the WBM niche is more expensive than isolated PCs (if maintaining a good read depth and high cell count).
+It also requires more time, effort and skill to process the data-- for example assigning cell types to clusters.
+The MM classifier created in this work aims to address the computational data processing burden of the WBM scRNA-seq method for MM studies.
+Hopefully more MM researchers will start adopting the WBM method for scRNA-seq.
+As more researchers perform MM WBM scRNA-seq experiments and make the resulting data publically available, MM classifiers can be improved further with more data from heterogeneous patients.
+
+
 
 Not many MM scRNA-seq studies investigating whole BM without separating first. Had to find study on pubmed to use as test data
 Encourage more researchers to investigate whole niche.
 Classifiers to identify risk...
 Ground truth, user defined labels.
-Improve more data. More researchers to deposit data sets with whole niche
+% Improve more data. More researchers to deposit data sets with whole niche
 Recall vs precision
 RRMM vs naive
 
-Bigger depth of cells if only look at fraction of cells. More expensive to sc sequence whole BM niche with enough cells and depth. 
 
 
 
