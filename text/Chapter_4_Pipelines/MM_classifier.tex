@@ -6,10 +6,10 @@ For example Zavidiji et al. (2020) exclusively studied the immune microenvironme
 Many other studies sequence only MM cells, for example Cohen et al. (2021) who sorted cells prior to sequencing, isolating MM cells by magnetic CD138\textsuperscript{+} bead enrichment and staining CD138\textsuperscript{+}/CD38\textsuperscript{+} cells with antibodies\cite{cohen2021identification}.
 Although CD138 expression is considered a hallmark of MM cells, markedly decreased CD138 expression has been observed in relapsed MM, and this has also been correlated to worse overall survival outcomes\cite{kawano2012multiple}.
 Therefore, by separating cells based on the expression of CD138 and other markers, clonal populations of MM may be excluded (also perhaps the MM cells contributing the most to disease progression.)
-Additionally, as discussed in chapter \ref{ch:6-sc}, MM cells interact with their immune microenvironment and are supported as they grow by immune cells.
+Additionally, as discussed in Chapter \ref{ch:6-sc}, MM cells interact with their immune microenvironment and are supported as they grow by immune cells.
 Therefore, by sorting MM patient cells prior to sequencing, substantial information may be lost.
 
-In chapter \ref{ch:6-sc}, two scRNA-seq experiments were performed.
+In Chapter \ref{ch:6-sc}, two scRNA-seq experiments were performed.
 For these experiments, no cell sorting took place and the whole BM niche was sequenced.
 Therefore, cell types had to be determined computationally.
 For annotation of these datasets, references based on healthy tissue were used to inform R annotation packages: clustifyr, scClassify and singleR.
@@ -19,13 +19,13 @@ An MM classifier or model that could automate cell-type annotation of MM patient
 This could also help remove some of the ambiguity of defining cell clusters.
 
 \subsection{Classifier building}\label{subsec:MM_classifier_model_building}
-Using the two scRNA-seq datasets from chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM samples.
+Using the two scRNA-seq datasets from Chapter \ref{ch:6-sc}, cell classifiers were constructed for MM patient BM samples.
 scClassify's function \texttt{train\char`_scClassify} was used to train reference models for scClassify annotation.
 Log-normalised expression data and a vector corresponding to each cell's manually defined cell-type annotation was used as input for model training.
 Three models were generated.
 The first model was trained using the newly-diagnosed MM patient dataset, the second using the relapsed MM dataset, and the third was trained using  both datasets.
 These models will be referred to as `naive', `relapsed' and `joint'.
-The manual annotations used to train the models were much broader than the detailed annotations given in chapter \ref{ch:6-sc}.
+The manual annotations used to train the models were much broader than the detailed annotations given in Chapter \ref{ch:6-sc}.
 This is to minimise the number of cells being labelled as `intermediate' where significant overlap exists between cell subtypes
 %
 % UMAP- build classifiers.
@@ -33,7 +33,7 @@ This is to minimise the number of cells being labelled as `intermediate' where s
 \centering
 \includegraphics[width=0.7\textwidth]{figures/workflow_generation/classifier_building.pdf}
 \caption[Classifier annotation building]{Cell type annotation for classifier building.
-Cell type classifications were made broader than the detailed annotation in given in chapter \ref{ch:6-sc}.
+Cell type classifications were made broader than the detailed annotation in given in Chapter \ref{ch:6-sc}.
 a) Newly-diagnosed (naive) MM dataset.
 b) Relapsed MM dataset.}
 \label{fig:classifier_building}
@@ -119,7 +119,7 @@ Therefore there is high confidence, based on the MM gene marker expression knowl
 Based on gene expression knowledge, it also seems highly likely that cluster 4 is also comprised of MM cells.
 However the naive and joint models were unable to label many of the cells in this cluster as MM cells, instead labelling them as intermediate cell-types or as myeloid cells.
 
-Next performance was evaluated quantitatively using ground-truth data.
+Next, performance was evaluated quantitatively using ground-truth data.
 Knowledge on MM gene expression was used to inform the ground truth data, where cells in clusters 4, 7, 9 and 10 were labelled as MM cells, and other clusters as non-MM cells.
 To quantify each model's accuracy of classifying MM cells, precision, recall and F1 scores were calculated for each of the three models' assignment of cells (as MM vs non-MM) compared to the ground truth results (Figure \ref{fig:mm_class_accuracy_bar}).
 %

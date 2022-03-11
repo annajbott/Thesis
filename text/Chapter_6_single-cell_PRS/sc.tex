@@ -93,6 +93,7 @@ Many of the variable features that Seurat uses for clustering and dimension redu
 The high expression of these genes was affecting the integration of the two experiments together.
 A theory for the presence of the large number of erythrocytes and un-localised erythrocyte gene expression is that perhaps the BM sample taken for experiment 2 was one of the later samples taken from the patient and contained a large amount of blood.
 Library prep clean-up may have missed many of these cells, leading to ambient erythrocyte RNA being present within many droplets.
+Other MM scRNA-seq studies have observed similar contamination of erythrocyte specific genes, such as \textit{HBB}, \textit{HBA1} and \textit{HBA2}, in non-blood cell populations, despite performing a red blood cell lysis step\cite{chen2021cryopreservation}.
 
 It was decided to remove the erythrocyte clusters (clusters 3, 8, 9, 10, 11 and 16 in newly-diagnosed; clusters 1, 5 and 15 in relapsed) and haemoglobin-related genes or erythrocyte-specific genes that were dominating expression in the integrated dataset.
 After the integrated Seurat object had the erythrocyte genes and cells removed, it was split back up into separate Seurat objects for each sample, and integration and clustering was performed again.
@@ -532,5 +533,6 @@ MM classifier can simplify process of MM identification.
 
 Drugs showed little effect on cluster 9. Could be key to MRD and clonogenic. Naive patient showed large CD138+ MM expression. Difference between naive and relapse
 Argument for sequencing whole BM niche.
+Also if just sequenced MM cells (CD138+) would miss effects on myeloid cells.
 
 % Future- tRNA-seq optimise

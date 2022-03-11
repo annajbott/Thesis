@@ -366,7 +366,7 @@ MM is an extremely heterogeneous disease, with numerous interactions with the su
 Therefore, to best examine MM and the effects of therapeutics, single-cell techniques are required, including scRNA-seq to study the transcriptome at the single cell level.
 To be able to interpret results from scRNA-seq data, a robust and reproducible scRNA-seq analysis pipeline was required.
 
-It has previously been shown using simulated data, that pseudoalignment/lightweight mapping strategies demonstrate similar accuracy to traditional mapping strategies such as STAR and Bowtie2, yet provide massive improvements in computing time and memory usage.
+It has previously been shown using simulated data, that pseudoalignment/ lightweight mapping strategies demonstrate similar accuracy to traditional mapping strategies such as STAR and Bowtie2, yet provide massive improvements in computing time and memory usage.
 Therefore, it was decided that only lightweight mapping strategies would be implemented in the scRNA-seq analysis pipeline.
 The pipeline was written with the ability for the user too choose either Kallisto BUStools or Salmon Alevin for pseudoalignment.
 However, for consistency in the lab's analysis workflow, only one tool would be used for all future scRNA-seq data.
@@ -379,14 +379,14 @@ SAF outputs a file similar to the BUS file, with the aim of quicker compute time
 The Pachter lab (the lab responsible for Kallisto) performed a benchmark of the new SAF framework against Kallisto BUStools\cite{booeshaghi2021benchmarking}.
 To avoid the self-assessment trap, both programmes were ran using the developer recommended settings, and compared over many datasets, across a variety of organisms and tissues.
 The group used real-world data to compare the methods.
-They achieved this by processing the same experimental reads with both SAF and BUS and then combining the SAF processed cells and BUS processed cells together into one dataset.
-After dimensionality reduction, the distance between identical cells either processed by SAF or BUS was examined compared to the next nearest cell.
+They achieved this by processing the same experimental reads with both SAF and Kallisto BUStools and then combining the SAF processed cells and Kallisto BUStools processed cells together into one dataset.
+After dimensionality reduction, the distance between identical cells either processed by SAF or BUS was examined and compared to the next nearest cell.
 The group found that gene expression differences between SAF and Kallisto were negligible for clustering analysis and irrelevant for downstream analysis.
 They also found that even with the updated SAF framework, Salmon-Alevin-Fry remained significantly slower and required more memory to run than Kallisto BUStools.
 This confirms the results of the benchmark conducted in this work and the subsequent decision to use Kallisto BUStools as the lightweight mapper of choice for scRNA-seq analysis.
 
 The benchmark performed in this work used precision, recall and F1 scores to assess accuracy.
-These scores use binary classifications, therefore the benchmark only looked at the accuracy of `Expressed' vs `Not expressed' for every gene for each cell.
+These scores use binary classifications, therefore the benchmark only looked at the accuracy of `Expressed' vs `Not expressed' for every gene, across every cell.
 This was considered an appropriate measure of accuracy, as the fraction of zeros (cells not expressing a given gene) in a scRNA-seq experiment is extremely high, sometimes exceeding 90\%\cite{linderman2022zero}.
 However, the benchmark does not give any information about abundance quantification accuracy.
 As such, one of the methods outputting a count value of 1 vs another method outputting a count of 1000 would be considered as the same by the benchmark (i.e. expressed), even though they are clearly very different counts biologically.
@@ -404,6 +404,37 @@ L1 distances from the centroid of these clusters could then be calculated for al
 This strategy could be implemented for real-world MM data, to ensure the alignment methods chosen are appropriate to analyse MM patient data.
 
 \subsection{MM classifier}
+- Aim to classify gene expression profile of MM
+- Microarrays
+
+Marker expression and bead enrichment is frequently used in MM research to sort plasma cells prior to sequencing.
+During normal B cell development into plasma cells, cells start expressing CD138.
+In the bone marrow, CD138 is a specific surface antigen for plasma cells and MM cells\cite{kawano2012multiple}.
+The typical approach for isolating plasma cells is to use CD138\textsuperscript{+} magnetic selection;
+this can enrich plasma cells around 100 times\cite{bansal2021impact}.
+This is useful to offset the high costs of single-cell sequencing, so that a high cell count and read depth can be achieved for MM cells, without sequencing other immune cells, which are often of low importance to researchers.
+However, previous studies of MM cell lines and clinical MM samples have shown a small population of MM cells lack CD138 expression\cite{matsui2004characterization}, therefore anti-CD138 antibodies will recognise only a sub-population of MM cells.
+CD138 also has a fast turnover on the cell membrane, and is constitutively shed on cultured cells and apoptotic cells\cite{bansal2021impact}.
+Passaging in cell culture, sample processing and drug treatment can induce rapid apoptosis in primary myeloma cells, hence leading to CD138 shedding.
+Furthermore, \textit{CD138}\textsuperscript{-} MM cells have been reported to have more proliferative potential than \textit{CD138}\textsuperscript{+} MM cells and that they play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
+Matsui et al. (2004) reported the existence of CD138\textsuperscript{-} MM `stem cells', which had greater clonogenic potential than CD138\textsuperscript{+} MM cells and phenotypically resembled postgerminal center B cells\cite{matsui2004characterization}.
+A decrease in CD138 expression has also been observed during the course of treatment in some MM patients\cite{kawano2012multiple}.
+
+Therefore, in MM research, CD138 expression is frequently used to isolate \textit{CD138}\textsuperscript{+} PCs from MM BM samples.
+However, it has been shown that subpopulations of malignant\textit{CD138}\textsuperscript{-} PCs exist in MM patients too.
+Furthermore, \textit{CD138}\textsuperscript{-} MM cells have more proliferative potential than \textit{CD138}\textsuperscript{+} MM cells and play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
+By separating cells based on \textit{CD138} expression, information on a whole class of MM cells is being lost.
+Additionally these cells may be misclassified as non-MM cells and interfere with research investigating the bone marrow niche.
+
+Not many MM scRNA-seq studies investigating whole BM without separating first. Had to find study on pubmed to use as test data
+Encourage more researchers to investigate whole niche.
+Classifiers to identify risk...
+Ground truth, user defined labels.
+Improve more data. More researchers to deposit data sets with whole niche
+Recall vs precision
+RRMM vs naive
+
+Bigger depth of cells if only look at fraction of cells. More expensive to sc sequence whole BM niche with enough cells and depth. 
 
 
 
