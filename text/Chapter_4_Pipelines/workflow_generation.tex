@@ -403,9 +403,13 @@ Following dimensionality reduction of this matrix, you would expect the `doppelg
 L1 distances from the centroid of these clusters could then be calculated for all of the methods, across every cell in the dataset, to give an overall score for each method and to see how much each method agrees with one another.
 This strategy could be implemented for real-world MM data, to ensure the alignment methods chosen are appropriate to analyse MM patient data.
 
-\subsection{MM classifier}
+\subsection{MM classifier}\label{subsec:mm_class_diss}
 - Aim to classify gene expression profile of MM
 - Microarrays
+
+- classifier to automate gene expression profiling and labelling of cells
+- limitation = ground truth was user labelled
+- Performance = good precision, less good recall.
 
 Marker expression and bead enrichment is frequently used in MM research to sort plasma cells prior to sequencing.
 During normal B cell development into plasma cells, cells start expressing CD138.
@@ -415,38 +419,34 @@ this can enrich plasma cells around 100 times\cite{bansal2021impact}.
 This is useful to offset the high costs of single-cell sequencing, so that a high cell count and read depth can be achieved for MM cells, without sequencing other immune cells, which are often of low importance to researchers.
 However, previous studies of MM cell lines and clinical MM samples have shown a small population of MM cells lack CD138 expression\cite{matsui2004characterization}, therefore anti-CD138 antibodies will recognise only a sub-population of MM cells.
 CD138 also has a fast turnover on the cell membrane, and is constitutively shed on cultured cells and apoptotic cells\cite{bansal2021impact}.
-Passaging in cell culture, sample processing and drug treatment can induce rapid apoptosis in primary myeloma cells, hence leading to CD138 shedding.
+Passaging in cell culture, sample processing and drug treatment can induce rapid apoptosis in primary myeloma cells, leading to CD138 shedding.
 Furthermore, CD138\textsuperscript{-} MM cells have been reported to have more proliferative potential than CD138\textsuperscript{+} MM cells and that they play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
 Matsui et al. (2004) reported the existence of CD138\textsuperscript{-} MM `stem cells', which had greater clonogenic potential than CD138\textsuperscript{+} MM cells and phenotypically resembled postgerminal center B cells\cite{matsui2004characterization}.
 A decrease in CD138 expression has also been observed during the course of treatment in some MM patients\cite{kawano2012multiple}.
 
-Therefore, by separating cells based on \textit{CD138} expression, information on a whole subpopulation of MM cells is lost.
+Therefore, by separating cells based on CD138 expression, information on a whole subpopulation of MM cells is lost.
 Results will be skewed towards CD138\textsuperscript{+} MM cells.
-With the large heterogeneity seen in MM and acquired-drug resistance theories regarding MRD and clonal evolution, the entire MM population must be investigated to get an accurate picture of the whole MM landscape.
+With the large heterogeneity seen in MM and acquired-drug resistance theories regarding MRD and clonal evolution, the entire MM cell population must be investigated to get an accurate picture of the whole MM landscape.
 
-Bansal et al. (2021) investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to whole bone marrow (WBM) processing on BM plasma cell surface markers\cite{bansal2021impact}.
-They found that CD138\textsuperscript{+} selection of PCs appears to change important markers on the PCs, such as substantial loss of expression of D71, CD11b, CD11a, CD69, and CD49e, and also almost a complete loss of CD45\textsuperscript{+} subset of cells in half of cases.
+Bansal et al. (2021) highlighted issues with sorting PCs using CD138, beyond the scope of losing heterogeneous CD138\textsuperscript{-} MM populations.
+The group investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to whole bone marrow (WBM) processing on BM plasma cell surface markers using flow cytometry\cite{bansal2021impact}.
+They found that CD138\textsuperscript{+} selection of PCs appears to change important markers on the PCs, such as substantial loss of expression of CD71, CD11b, CD11a, CD69 and CD49e, and also almost a complete loss of CD45\textsuperscript{+} cells in half of cases.
 From the study it was not clear if this phenotypic change of PCs was due to antigen loss from the process of selection or if subsets of cells were eliminated/ preferentially selected.
-For RNA and DNA-based studies (like scRNA-seq) this would be an issue if a subset of cells were preferentially selected for, as it would further skew results to a smaller subset of total MM cells.
+For DNA and RNA-based studies (like scRNA-seq) it is very concerning that CD138\textsuperscript{+} selection could preferentially select for a subset of cells, as this would mean further heterogeneity is being lost and results are being skewed to a subset of total MM cells.
+CD138\textsuperscript{+} selection vs WBM methodology should be investigated using scRNA-seq to ascertain if the phenotypic changes of PCs after CD138\textsuperscript{+} selection seen in flow cytometry reflect antigen loss or selection of a subset of cells.
 
-From the above considerations about CD138 expression and selection, together with the established interactions between MM cells and their surrounding immune microenvironment, it seems sequencing the whole bone marrow niche should be the preferred method for MM scRNA-seq studies.
-scRNA-seq of the WBM niche is more expensive than isolated PCs (if maintaining a good read depth and high cell count).
-It also requires more time, effort and skill to process the data-- for example assigning cell types to clusters.
-The MM classifier created in this work aims to address the computational data processing burden of the WBM scRNA-seq method for MM studies.
-Hopefully more MM researchers will start adopting the WBM method for scRNA-seq.
+Considering the above limitations regarding CD138 expression and selection, together with the established interactions between MM cells and their surrounding immune microenvironment, it seems sequencing the whole bone marrow niche should be the preferred method for MM scRNA-seq studies.
+Despite this, the vast majority of MM scRNA-seq studies sort cells prior to library preparation.
+Sequencing the WBM niche is more expensive than sequencing isolated PCs (if maintaining a good read depth and high cell count);
+it also requires more time, effort and skill to process the data-- for example assigning cell types to clusters.
+The MM classifier created in this work automates cell type classification and helps address the additional computational effort required for MM WBM scRNA-seq.
+All future MM scRNA-seq data produced by the Oppermann lab will use the MM classifiers to assign cell types to clusters.
+Hopefully more external MM researchers will start adopting the WBM method for scRNA-seq.
 As more researchers perform MM WBM scRNA-seq experiments and make the resulting data publically available, MM classifiers can be improved further with more data from heterogeneous patients.
+The MM classifiers created in this work are hosted publically on Github (), along with code to generate new classifiers, so that other researchers can access and use them if they wish.
 
-
-
-Not many MM scRNA-seq studies investigating whole BM without separating first. Had to find study on pubmed to use as test data
-Encourage more researchers to investigate whole niche.
-Classifiers to identify risk...
-Ground truth, user defined labels.
-% Improve more data. More researchers to deposit data sets with whole niche
-Recall vs precision
-RRMM vs naive
-
-
-
+Further, this approach could be expanded to create MM classifiers not only to identify and label MM and immune cell types, but to also predict clinical characteristics in datasets, such as risk, response to certain therapeutics or drug resistance status.
+Previously, machine learning (ML) approaches have been applied to bulk RNA sequencing profiles from 53 MM patients to create a classifier to predict good and poor responders to certain treatment regimens\cite{borisov2021machine}.
+ML classifiers based on scRNA-seq datasets would likely have more power and stronger predictive capabilities than classifiers built using bulk RNA-seq data, due to the underlying heterogeneity of the patient data.
 
 
