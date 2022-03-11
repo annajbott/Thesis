@@ -404,14 +404,27 @@ L1 distances from the centroid of these clusters could then be calculated for al
 This strategy could be implemented for real-world MM data, to ensure the alignment methods chosen are appropriate to analyse MM patient data.
 
 \subsection{MM classifier}\label{subsec:mm_class_diss}
-- Aim to classify gene expression profile of MM
-- Microarrays
+To be able to assess myeloma cells from MM patients, bone marrow samples are usually taken from the back of the hip bone.
+BM aspirates contain red blood cells (erythrocytes), white blood cells (myeloid cells, NK cells, T cells and B cells) and platelets.
+Traditionally flow cytometry immunophenotyping is used identify the malignant myeloma cells.
+Flow cytometry (FCM) immunophenotyping uses monoclonal antibodies against an array of antigens expressed on plasma cells, such as CD19, CD20, CD27, CD33, CD38, CD45, CD56, CD117, and CD138\cite{jeong2012simplified}.
+Many scRNA-seq studies use FCM immunophenotyping and bead enrichment to sort cells prior to sequencing.
+Cells can also be identified post-hoc using computational methods.
+Numerous automated packages exist to label cells, however a reference dataset is required to be able to draw comparisons to.
+Currently no MM classifiers exist to automate MM scRNA-seq cell identification.
+The MM classifier generated in this chapter allows for automated identification of MM cells in scRNA-seq datasets, and removes part of the data processing bottleneck of data analysis.
+From assessment of the classifiers on test MM experimental scRNA-seq data, there was high agreement between classifier MM identification and gene expression-based cell type identification.
+However, the ground-truth data was defined by me based on cell type classifications using gene expression data.
+As the classifier was trained using gene expression on other MM scRNA-seq, also defined by me...
+SELF BIAS- assign the same things... <HERE WORD BETTER ME???>
+The performance of the classifier is dependent on the data used to train the model.
+The classifier generated in this work is based on three experiments, consisting of BM samples from four patients, two of whom being newly-diagnosed MM patients, and two being relapsed patients, totalling approximately 80,000 cells (Table \ref{tab:cells_passing}).
 
-- classifier to automate gene expression profiling and labelling of cells
-- limitation = ground truth was user labelled
-- Performance = good precision, less good recall.
+These are very cell-rich datasets, however due to the heterogeneity seen in MM, the classifiers would probably benefit from more MM scRNA-seq datasets being incorporated in the training of the models.
+Additionally, the labels outputted by the classifiers are dependent on the initial assignment of cell types on the training data by the user.
 
-Marker expression and bead enrichment is frequently used in MM research to sort plasma cells prior to sequencing.
+
+
 During normal B cell development into plasma cells, cells start expressing CD138.
 In the bone marrow, CD138 is a specific surface antigen for plasma cells and MM cells\cite{kawano2012multiple}.
 The typical approach for isolating plasma cells is to use CD138\textsuperscript{+} magnetic selection;
@@ -429,7 +442,7 @@ Results will be skewed towards CD138\textsuperscript{+} MM cells.
 With the large heterogeneity seen in MM and acquired-drug resistance theories regarding MRD and clonal evolution, the entire MM cell population must be investigated to get an accurate picture of the whole MM landscape.
 
 Bansal et al. (2021) highlighted issues with sorting PCs using CD138, beyond the scope of losing heterogeneous CD138\textsuperscript{-} MM populations.
-The group investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to whole bone marrow (WBM) processing on BM plasma cell surface markers using flow cytometry\cite{bansal2021impact}.
+The group investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to whole bone marrow (WBM) processing on BM plasma cell surface markers using FCM\cite{bansal2021impact}.
 They found that CD138\textsuperscript{+} selection of PCs appears to change important markers on the PCs, such as substantial loss of expression of CD71, CD11b, CD11a, CD69 and CD49e, and also almost a complete loss of CD45\textsuperscript{+} cells in half of cases.
 From the study it was not clear if this phenotypic change of PCs was due to antigen loss from the process of selection or if subsets of cells were eliminated/ preferentially selected.
 For DNA and RNA-based studies (like scRNA-seq) it is very concerning that CD138\textsuperscript{+} selection could preferentially select for a subset of cells, as this would mean further heterogeneity is being lost and results are being skewed to a subset of total MM cells.
