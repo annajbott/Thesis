@@ -312,10 +312,10 @@ If the RNA workflow is combined with an annotated seurat object, the trajectory 
 The pipeline is deposited on GitHub and can be found here: \url{https://github.com/annajbott/pipeline_kb_velo}.
 
 % tRNA workflow
-\afterpage{\clearpage}
+%\afterpage{\clearpage}
 \input{text/Chapter_4_Pipelines/tRNA_methods.tex}
 
-\afterpage{\clearpage}
+%\afterpage{\clearpage}
 \input{text/Chapter_4_Pipelines/MM_classifier.tex}
 
 \section{Discussion}
@@ -404,27 +404,22 @@ L1 distances from the centroid of these clusters could then be calculated for al
 This strategy could be implemented for real-world MM data, to ensure the alignment methods chosen are appropriate to analyse MM patient data.
 
 \subsection{MM classifier}\label{subsec:mm_class_diss}
-To be able to assess myeloma cells from MM patients, bone marrow samples are usually taken from the back of the hip bone.
-BM aspirates contain red blood cells (erythrocytes), white blood cells (myeloid cells, NK cells, T cells and B cells) and platelets.
-Traditionally flow cytometry immunophenotyping is used identify the malignant myeloma cells.
-Flow cytometry (FCM) immunophenotyping uses monoclonal antibodies against an array of antigens expressed on plasma cells, such as CD19, CD20, CD27, CD33, CD38, CD45, CD56, CD117, and CD138\cite{jeong2012simplified}.
-Many scRNA-seq studies use FCM immunophenotyping and bead enrichment to sort cells prior to sequencing.
-Cells can also be identified post-hoc using computational methods.
-Numerous automated packages exist to label cells, however a reference dataset is required to be able to draw comparisons to.
-Currently no MM classifiers exist to automate MM scRNA-seq cell identification.
 The MM classifier generated in this chapter allows for automated identification of MM cells in scRNA-seq datasets, and removes part of the data processing bottleneck of data analysis.
-From assessment of the classifiers on test MM experimental scRNA-seq data, there was high agreement between classifier MM identification and gene expression-based cell type identification.
-However, the ground-truth data was defined by me based on cell type classifications using gene expression data.
-As the classifier was trained using gene expression on other MM scRNA-seq, also defined by me...
-SELF BIAS- assign the same things... <HERE WORD BETTER ME???>
-The performance of the classifier is dependent on the data used to train the model.
-The classifier generated in this work is based on three experiments, consisting of BM samples from four patients, two of whom being newly-diagnosed MM patients, and two being relapsed patients, totalling approximately 80,000 cells (Table \ref{tab:cells_passing}).
+The MM classifiers implement a supervised machine learning (ML) algorithm (k-nearest neighbour model), to classify cell types.
+The classifiers performed well on test MM experimental scRNA-seq data.
+There was high agreement between classifier MM identification and gene expression-based cell type identification.
+An independent dataset was used for testing, originating from a different patient, and performed in a separate experiment.
+However, the `ground-truth' data was defined by me based on cell type classifications using gene expression data of the test data.
+The classifiers were trained on MM scRNA-seq data, also labelled by me using gene expression data.
+Therefore, this might influence the agreement between the classifier outcome and ground truth data.
 
+The performance of the classifier is dependent on the data used to train the model.
+The classifier generated in this work is based on three experiments, consisting of BM samples from four patients, two of whom were newly-diagnosed MM patients, and two relapsed patients, totalling approximately 80,000 cells (Chapter 6- Table \ref{tab:cells_passing}).
 These are very cell-rich datasets, however due to the heterogeneity seen in MM, the classifiers would probably benefit from more MM scRNA-seq datasets being incorporated in the training of the models.
 Additionally, the labels outputted by the classifiers are dependent on the initial assignment of cell types on the training data by the user.
+Therefore, accurate cell type assignment must be made on the initial training set, to ensure correct identification by the classifier on the query dataset.
 
-
-
+\subsubsection{Cell sorting vs whole bone marrow niche}
 During normal B cell development into plasma cells, cells start expressing CD138.
 In the bone marrow, CD138 is a specific surface antigen for plasma cells and MM cells\cite{kawano2012multiple}.
 The typical approach for isolating plasma cells is to use CD138\textsuperscript{+} magnetic selection;
@@ -436,30 +431,32 @@ Passaging in cell culture, sample processing and drug treatment can induce rapid
 Furthermore, CD138\textsuperscript{-} MM cells have been reported to have more proliferative potential than CD138\textsuperscript{+} MM cells and that they play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
 Matsui et al. (2004) reported the existence of CD138\textsuperscript{-} MM `stem cells', which had greater clonogenic potential than CD138\textsuperscript{+} MM cells and phenotypically resembled postgerminal center B cells\cite{matsui2004characterization}.
 A decrease in CD138 expression has also been observed during the course of treatment in some MM patients\cite{kawano2012multiple}.
-
 Therefore, by separating cells based on CD138 expression, information on a whole subpopulation of MM cells is lost.
 Results will be skewed towards CD138\textsuperscript{+} MM cells.
 With the large heterogeneity seen in MM and acquired-drug resistance theories regarding MRD and clonal evolution, the entire MM cell population must be investigated to get an accurate picture of the whole MM landscape.
 
 Bansal et al. (2021) highlighted issues with sorting PCs using CD138, beyond the scope of losing heterogeneous CD138\textsuperscript{-} MM populations.
-The group investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to whole bone marrow (WBM) processing on BM plasma cell surface markers using FCM\cite{bansal2021impact}.
+The group investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to WBM processing on BM plasma cell surface markers using FCM\cite{bansal2021impact}.
 They found that CD138\textsuperscript{+} selection of PCs appears to change important markers on the PCs, such as substantial loss of expression of CD71, CD11b, CD11a, CD69 and CD49e, and also almost a complete loss of CD45\textsuperscript{+} cells in half of cases.
 From the study it was not clear if this phenotypic change of PCs was due to antigen loss from the process of selection or if subsets of cells were eliminated/ preferentially selected.
-For DNA and RNA-based studies (like scRNA-seq) it is very concerning that CD138\textsuperscript{+} selection could preferentially select for a subset of cells, as this would mean further heterogeneity is being lost and results are being skewed to a subset of total MM cells.
+For DNA and RNA-based studies (like scRNA-seq) it is very concerning that CD138\textsuperscript{+} selection could preferentially select for a subset of cells, as this would mean further heterogeneity is being lost and results are being skewed to a subset of MM cells.
 CD138\textsuperscript{+} selection vs WBM methodology should be investigated using scRNA-seq to ascertain if the phenotypic changes of PCs after CD138\textsuperscript{+} selection seen in flow cytometry reflect antigen loss or selection of a subset of cells.
 
 Considering the above limitations regarding CD138 expression and selection, together with the established interactions between MM cells and their surrounding immune microenvironment, it seems sequencing the whole bone marrow niche should be the preferred method for MM scRNA-seq studies.
 Despite this, the vast majority of MM scRNA-seq studies sort cells prior to library preparation.
-Sequencing the WBM niche is more expensive than sequencing isolated PCs (if maintaining a good read depth and high cell count);
-it also requires more time, effort and skill to process the data-- for example assigning cell types to clusters.
+Sequencing the WBM niche is more expensive than sequencing isolated PCs (if maintaining a good read depth and high cell count), it also requires more time, effort and skill to process the data-- for example assigning cell types to clusters.
 The MM classifier created in this work automates cell type classification and helps address the additional computational effort required for MM WBM scRNA-seq.
 All future MM scRNA-seq data produced by the Oppermann lab will use the MM classifiers to assign cell types to clusters.
 Hopefully more external MM researchers will start adopting the WBM method for scRNA-seq.
 As more researchers perform MM WBM scRNA-seq experiments and make the resulting data publically available, MM classifiers can be improved further with more data from heterogeneous patients.
-The MM classifiers created in this work are hosted publically on Github (), along with code to generate new classifiers, so that other researchers can access and use them if they wish.
+The relapsed MM classifier created in this work is hosted publically on Github (\url{https://github.com/annajbott/MM_classifier}), along with code to generate new classifiers, so that other researchers can use this tool.
 
 Further, this approach could be expanded to create MM classifiers not only to identify and label MM and immune cell types, but to also predict clinical characteristics in datasets, such as risk, response to certain therapeutics or drug resistance status.
 Previously, machine learning (ML) approaches have been applied to bulk RNA sequencing profiles from 53 MM patients to create a classifier to predict good and poor responders to certain treatment regimens\cite{borisov2021machine}.
-ML classifiers based on scRNA-seq datasets would likely have more power and stronger predictive capabilities than classifiers built using bulk RNA-seq data, due to the underlying heterogeneity of the patient data.
-
-
+ML classifiers based on scRNA-seq datasets would likely have more power and stronger predictive capabilities than classifiers built using bulk RNA-seq data, due to the underlying heterogeneity of the patient data and the high dimensionality of scRNA-seq data.
+In recent years there have been applications of scRNA-seq based ML predictions and classifications in cancer.
+scRNA-seq datasets have been used for binary and pan cancer classification of certain breast and skin cancers\cite{mahin2022panclassif}.
+ML techniques have been applied to scRNA-seq datasets to predict drug resistance and characterise inter- and intra-tumour heterogeneity in MM\cite{kashif2021predicting, johnson2019development}.
+However, these studies looked at CD138\textsuperscript{+} PCs only and did not consider the immune microenvironment.
+I expect there to be numerous applications of ML and deep learning methods to MM scRNA-seq data in the coming years, as the price of single-cell sequencing lowers and more computational biologists move into the field.
+However, I do believe the WBM niche should be included in MM classifiers and predictive tools to fully utilise all knowledge available and capture as many MM features as possible to inform the underlying models.

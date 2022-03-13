@@ -1,16 +1,19 @@
 \section{Myeloma bone marrow classifier}\label{sec:MM_classifier}
 \subsection{Introduction}
-
-Many single-cell MM studies separate MM cells from immune cells prior to sequencing, using biological markers.
-For example Zavidiji et al. (2020) exclusively studied the immune microenvironment of MM by isolating CD138\textsuperscript{-} and CD45\textsuperscript{+} BM cell fractions, to exclude MM cells\cite{zavidij2020single}.
-Many other studies sequence only MM cells, for example Cohen et al. (2021) who sorted cells prior to sequencing, isolating MM cells by magnetic CD138\textsuperscript{+} bead enrichment and staining CD138\textsuperscript{+}/CD38\textsuperscript{+} cells with antibodies\cite{cohen2021identification}.
-Although CD138 expression is considered a hallmark of MM cells, markedly decreased CD138 expression has been observed in relapsed MM, and this has also been correlated to worse overall survival outcomes\cite{kawano2012multiple}.
-Therefore, by separating cells based on the expression of CD138 and other markers, clonal populations of MM may be excluded (also perhaps the MM cells contributing the most to disease progression.)
-Additionally, as discussed in Chapter \ref{ch:6-sc}, MM cells interact with their immune microenvironment and are supported as they grow by immune cells.
-Therefore, by sorting MM patient cells prior to sequencing, substantial information may be lost.
+To be able to assess myeloma cells from MM patients, bone marrow samples are usually taken from the back of the hip bone.
+BM aspirates contain red blood cells (erythrocytes), white blood cells (myeloid cells, NK cells, T cells and B cells) and platelets.
+Traditionally flow cytometry immunophenotyping is used identify the malignant myeloma cells.
+Flow cytometry (FCM) immunophenotyping uses monoclonal antibodies against an array of antigens expressed on plasma cells, such as CD19, CD20, CD27, CD33, CD38, CD45, CD56, CD117, and CD138\cite{jeong2012simplified}.
+Many scRNA-seq studies use biological markers, FCM immunophenotyping and bead enrichment to sort MM cells and immune cells prior to sequencing.
+Cells can also be identified post-hoc using computational methods.
+For example, Cohen et al. (2021) sorted MM cells prior to sequencing, they isolated MM cells by magnetic CD138\textsuperscript{+} bead enrichment and stained CD138\textsuperscript{+}/CD38\textsuperscript{+} cells with antibodies\cite{cohen2021identification}.
+Another MM study examined the immune microenvironment of MM only by isolating CD138\textsuperscript{-} and CD45\textsuperscript{+} BM cell fractions, to exclude MM cells\cite{zavidij2020single}.
+Cells can also be identified after sequencing using computational methods.
+Numerous automated packages exist to label cells, however a reference dataset is required to be able to draw comparisons to.
+Currently no MM classifiers or labelled references exist to automate MM scRNA-seq cell identification.
 
 In Chapter \ref{ch:6-sc}, two scRNA-seq experiments were performed.
-For these experiments, no cell sorting took place and the whole BM niche was sequenced.
+For these experiments, no cell sorting took place and the whole bone marrow (WBM) niche was sequenced.
 Therefore, cell types had to be determined computationally.
 For annotation of these datasets, references based on healthy tissue were used to inform R annotation packages: clustifyr, scClassify and singleR.
 As the references originated from healthy tissue, they were unable to label the pathological myeloma cells, and MM cells had to be identified manually using expression of known biological markers.
