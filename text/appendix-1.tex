@@ -4,13 +4,14 @@
 \begin{figure}[h]
 %1
 \centering
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{\textwidth}
     %\centering
     \includegraphics[width=\textwidth]{figures/appendix/aaRS2_wt_barchart.pdf}
     \caption{WT AMO-1 cells}
 \end{subfigure}
+\medskip
 %2
-\begin{subfigure}{0.48\textwidth}
+\begin{subfigure}{\textwidth}
     \includegraphics[width=\textwidth]{figures/appendix/aaRS2_cfz_barchart.pdf}
     \caption{CFZr cells}
 \end{subfigure}
@@ -20,7 +21,7 @@ Stars indicate significance at adjusted p-value < 0.05.}
 \end{figure}
 
 % western blot heatmap
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/appendix/western_gcn2_supplementary.pdf}
 \caption[GCN2 and eIF2$\alpha$ western blot ]{Western blot demonstrating dose-dependent NCP26 canonical ISR activation with GCN2 and eIF2$\alpha$ phosphorylation. AMO-1 and MM.1S myeloma cell lines used.
@@ -30,8 +31,22 @@ Experiment performed by international collaborators on a multiple-lab collaborat
 \end{figure}
 %%
 
+% Proline supplementation
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/appendix/excess_proline.pdf}
+\caption[ProRS inhibitors excess proline]{ProRS inhibitors supplemented with excess proline.
+AMO-1 cells treated with 500\si{\nano\Molar} of halofuginone or NCP26 for 48 hours in the presence of varying concentrations of proline (0, 1, 5, 10, and 20 \si{\milli\Molar}).
+Experiment performed using triplicates.
+Bars represent mean cell viability.
+Experiment performed by international collaborators on a multiple-lab collaborative research paper\cite{bottpreclinical2022}.
+}
+\label{fig:sup_proline_excess}
+\end{figure}
+%%
+
 % Heatmap MTT proliferation, MM cell lines other aaRS
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/appendix/MM_cell_lines_other_aaRS.pdf}
 \caption[aaRS inhibitors anti-proliferative activity in MM cell lines]{Anti-proliferative activities of aaRS inhibitors in MM cell lines.
@@ -44,10 +59,11 @@ Experiment performed by international collaborators on a multiple-lab collaborat
 %%
 
 % Marker table
+\afterpage{\clearpage}
 \input{text/Chapter_6_single-cell_PRS/markers_table.tex}
 
 % inferCNV
-\begin{figure}[htb]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/inferCNV_naive.pdf}
     \caption[inferCNV- newly-diagnosed MM]{InferCNV results for the newly-diagnosed MM dataset.

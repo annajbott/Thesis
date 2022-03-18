@@ -38,15 +38,18 @@ For experiment 1, BM samples were treated for 24 hours with 1\si{\micro\Molar} C
 For experiment 2, BM samples were treated with with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours; 1\si{\micro\Molar} SGC-GAK, Halofuginone, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 samples.
 For experiment 3, BM samples from patient 3 and 4 were treated for 24 hours with either a DMSO control, 1\si{\micro\Molar} Halofuginone, 1\si{\micro\Molar} NCP26 or 5\si{\micro\Molar} NCP26, totalling 8 samples.
 
-Following compound treatment, scRNA-seq library preparation was performed by Dr Martin Philpott as outlined in section \ref{subsec:10x_method}.
+Following compound treatment, scRNA-seq library preparation was performed by Dr Martin Philpott as outlined in Section \ref{subsec:10x_method}.
 <GENEWIZ experiment 3 >
 
 
 \section{Data processing}
-Initially all four patient samples were processed and integrated together.
+For multiple scRNA-seq datasets to be analysed together and compared, integration of datasets is required.
+Integration methods identify `anchors' across datasets-- cells that are in matched biological state, these cells can then be used to correct for technical variation and batch effects.
+Initially, all four patient samples (naive and relapsed) were processed and integrated together.
 However, integration was found to be poor between treatment-naive patients and the relapsed patients.
-This was expected as MM patients' transcriptome has been shown to change considerably following successive rounds of treatment cycles.
-Therefore, samples from experiments 1 and 2 (treatment-naive patients 1 and 2) were integrated together and samples from experiment 3 (relapsed patients 3 and 4) were integrated together.
+This was expected as MM patients' transcriptomes have been shown to change considerably following successive rounds of treatment cycles.
+That is, the datasets were too different to identify good anchors between them.
+Therefore, samples from experiments 1 and 2 (patients 1 and 2: treatment-naive) were integrated together and samples from experiment 3 (patients 3 and 4: relapsed) were integrated together.
 
 Experiments 1 and 2 contained numerous samples that were not of interest to this project.
 Yet, all samples originated from MM patient tissue, therefore all 18 samples were included in the analysis pipeline, and were included in integration and annotation steps.
@@ -69,6 +72,8 @@ Therefore, a reference-based approach was taken, whereby a subset of samples wer
 Harmony integration was also implemented, using `Patient Number' and `Experiment Number' as additional covariates.
 
 Cell type annotation was performed with several automated packages (singleR, clustifyr and scClassify), and then fine-tuning manually using a list of known biological markers.
+No MM classifier or reference was available when performing this analysis (the MM classifier in Section \ref{sec:MM_classifier} was built using these datasets).
+Therefore, healthy human references were used for annotation.
 The HumanCellAtlas (HCA) database was used to inform singleR and clustifyr annotation.
 scClassify was performed using a pre-trained scClassify model, based on seven peripheral blood mononuclear cell (PBMC) scRNA-seq datasets (including data from 10Xv2, 10Xv3, smartSeq, celSeq, dropSeq and inDrops).
 As the reference datasets were based on healthy tissue, they were unable to label pathological cells, like MM cells.
@@ -526,7 +531,9 @@ Non-canonical functionality etc. etc.
 
 \section{Discussion}
 
-
+Clusters 4 and 9 in the relapsed MM dataset were identified using gene expression data and inferCNV analysis.
+Cells in cluster 9 were shown to express no CD138 or very little CD138.
+Therefore, if CD138\textsuperscript{+} PC enrichment techniques were used, this MM cell population would likely not have been sequenced and thereby not included in the analysis.
 Stem cell CD138- MM cells, resistant to drugs.
 More research include whole BM niche, not just CD138+ fraction.
 MM classifier can simplify process of MM identification.
@@ -538,9 +545,18 @@ Also if just sequenced MM cells (CD138+) would miss effects on myeloid cells.
 Myeloid stuff, off target non-canonical functionality
 
 Alternative splicing...
+(paper: The
+7 complexity of ProRS inhibitor responses and connection to Myc-mediated proliferation and
+8 survival is further highlighted by regulation of RNA splicing and RNA binding proteins such as
+9 HNRNPK (54), as observed in the patient derived myeloma samples, linking post-transcriptional
+10 and translational processes as an important axis to regulate the phenotypic responses.)
 
 https://www.mdpi.com/1422-0067/19/2/545/htm
 Borrelidin ThrRS threonyl-tRNA synthetase
 In colon tumor cells, the spliceosome-associated protein FBP21 (formin binding protein 21) was the target of borrelidin
 
 % Future- tRNA-seq optimise
+
+Reduction in CD138 (SDC1), essential survival factor?? regulating its bone
+7 marrow localisation and microenvironment interactions.. CD138- myeloma though
+Abrogates syntheis. ref 65 in paper
