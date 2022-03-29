@@ -143,7 +143,7 @@ Indeed, with the promising results in Figure \ref{fig:dose}d, HF and NCP26 have 
 % Flush figures
 \clearpage
 
-\section{Bulk RNA-seq}
+\section{ProRS inhibitor treatment bulk RNA-seq}
 
 \subsection{Experiment overview}
 The transcriptome of drug-sensitive and PI-resistant MM cells following treatment with four ProRS inhibitors was investigated using bulk RNA-seq.
@@ -476,6 +476,78 @@ Additionally many downstream apoptotic mechanisms are enriched, indicating the i
 Taken with the cytotoxicity dose response data, this demonstrates that ProRS inhibitors are capable of killing PI-resistant MM cell lines.
 Thus targeting the ProRS could be a potential effective strategy in overcoming PI drug resistance in clinical MM\@.
 
+\section{ProRS inhibitor resistance bulk RNA-seq}
+
+\subsection{Experiment overview}
+Bulk RNA-seq was performed to explore the transcriptional changes of MM cells which had become resistant to ProRS inhibition.
+Dr James Dunford created a NCP26 resistant cell line (NCP26R) by continually exposing L363 cells to NCP26, and gradually increasing NCP26 concentration over time.
+NCP26R cells at time of sequencing were growing in 1\si{\micro\Molar} NCP26, with an IC\textsubscript{50} of approximately 1.6\si{\micro\Molar}.
+Normal L363 cells have an IC\textsubscript{50} of approximately 0.5\si{\micro\Molar} for NCP26.
+Triplicates of normal L363 cells and NCP26R L363 cells were harvested and prepared for sequencing as in Section \ref{sec:bulk_lib_prep}.
+
+\subsection{Results}
+As expected, the samples clustered into two distinct groups: control L363 samples and NCP26R samples (Figure \ref{fig:sup_NCP26R_bulk}a and b).
+The differences between the two cell groups made up most of the variance in the dataset (PC1 = 90\% overall variance).
+
+4129 genes were differentially expressed ($\lvert log_{2}FC \rvert$ > 0.5 and p\textsubscript{adj}<0.05; DE) between NCP26R L363 samples and L363 controls (Figure \ref{fig:NCP26R_DE}a).
+% DE volcano and aaRS
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/Transcriptomics/NCP26R/NCP26R_DE_volcano_bar.pdf}
+\caption[NCP26R bulk RNA-seq differentially expression]{Differentially expressed genes (DEGs) for NCP26R L363 cells vs L363 controls.
+a) Volcano plot. Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC < -1$).
+Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC > 1$).
+Top DEGs are annotated with HGNC symbols.
+b) Log2FC of cytoplasmic aaRS genes.
+Stars indicate differential expression (p\textsubscript{adj}<0.05).
+\textit{EPRS1} is upregulated in NCP26R cells.
+}
+\label{fig:NCP26R_DE}
+\end{figure}
+%%
+The Log2FC for cytoplasmic aaRS genes is shown in Figure \ref{fig:NCP26R_DE}b.
+Nine out of 20 aaRS genes were upregulated (p\textsubscript{adj} <0.05) in NCP26-resistant cells, including \textit{EPRS1}.
+Four aaRS genes were downregulated (p\textsubscript{adj} <0.05), including \textit{QARS1} and \textit{VARS1}, which were also downregulated following ProRS inhibitor treatment.
+
+Next, pathway enrichment analysis was performed.
+% pathway GSEA figure
+
+From pathway enrichment it is clear that NCP26R cells in overcoming NCP26 treatment, adaptions to ER pathways are involved.
+% AAR heatmap NCP26R
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Results/Transcriptomics/NCP26R/NCP26R_aar_heatmap.pdf}
+\caption[Amino acid starvation response genes heatmap- NCP26R cells]{Amino acid starvation response (AAR) genes heatmap for NCP26R cells.
+Differentially expressed genes (DEGs) for NCP26R L363 cells vs control L363 cells intersected with genes involved in the AAR.
+A list of known AAR genes was compiled by collating AAR genesets from the Molecular Signatures Database (MSigDb).
+Normalised gene counts are shown for each sample.
+}
+\label{fig:ncp26R_aar_heatmap}
+\end{figure}
+%%
+Transcriptional changes to the amino acid starvation response were explored.
+47 AAR genes were differentially expressed (p\textsubscript{adj} <0.05) in NCP26R cells compared to controls (Figure \ref{fig:ncp26R_aar_heatmap}).
+Many of the AAR genes seem to follow similar expression changes as with NCP26 treatment, such that many AAR genes that were upregulated (downregulated) following NCP26 treatment, were also upregulated (downregulated) in NCP26R cells.
+For example, transcription factors \textit{DDIT3}, \textit{CEBPB} and \textit{CEPBG} are all overexpressed in NCP26R cells vs controls, and NCP26-treated cells vs DMSO-treated cells.
+However, some AAR genes did not follow this pattern.
+The master amino acid regulator, \textit{ATF4}, was downregulated in NCP26R cells, yet is upregulated following ProRS inhibitor treatment in CFZr cells.
+\textit{CHAC1} was also downregulated in NCP26R cells.
+Overexpression of \textit{CHAC1} has been implicated in ER stress, oxidative stress and apoptosis\cite{crawford2015human}.
+\textit{FAS}, which encodes TNF receptor superfamily member 6, a receptor involved in the induction of apoptosis, was downregulated in NCP26R cells.
+Moreover \textit{CDKN1A} and \textit{MIOS} were downregulated in NCP26R cells compared to controls, yet are upregulated following ProRS inhibition in CFZr cells.
+As mentioned, a well-known function of \textit{CDKN1A} is to arrest cell cycle progression
+Switch to pro-survival, rather than pro-death overwhelmed by ER stress.
+
+These adaptations further corroborate the involvement of the AAR in the mechanism of action and effectiveness of ProRS inhibitors in multiple myeloma.
+
+Downregulated expression of ATF4, EIF2A
+
+NPRL2, tumour suppressor
+Nprl2, is a putative tumor suppressor gene that inhibits cell growth and enhances sensitivity to numerous anticancer drugs including cisplatin
+
+GCN1 increased expression (maybe sense AA too??)
+
+
 % flush figures
 \clearpage
 \section{Summary}
@@ -675,3 +747,5 @@ Pargyline and siPYCR1 increased bortezomib-mediated apoptosis
 combination therapy of pargyline with bortezomib reduced viability in CD138\textsuperscript{+} MM cells and reduced tumor burden in the murine mode \cite{oudaert2022pyrroline}.
 
 PI resistance was investigated over IMiD due to similar mechanisms of action, ISR and GCN2 phosphorylation.
+
+mTORC1. AA needed. SESN2 supresses
