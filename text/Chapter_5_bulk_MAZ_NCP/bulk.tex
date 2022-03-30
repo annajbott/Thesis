@@ -528,24 +528,28 @@ Normalised gene counts are shown for each sample.
 Transcriptional changes to the amino acid starvation response were explored.
 47 AAR genes were differentially expressed (p\textsubscript{adj} <0.05) in NCP26R cells compared to controls (Figure \ref{fig:ncp26R_aar_heatmap}).
 Many of the AAR genes seem to follow similar expression changes as with NCP26 treatment, such that many AAR genes that were upregulated (downregulated) following NCP26 treatment, were also upregulated (downregulated) in NCP26R cells.
-For example, transcription factors \textit{DDIT3}, \textit{CEBPB} and \textit{CEPBG} are all overexpressed in NCP26R cells vs controls, and NCP26-treated cells vs DMSO-treated cells.
+For example, transcription factors \textit{ATF3}, \textit{DDIT3}, \textit{CEBPB} and \textit{CEPBG} are all overexpressed in NCP26R cells vs controls, and NCP26-treated cells vs DMSO-treated cells.
 However, some AAR genes did not follow this pattern.
 The master amino acid regulator, \textit{ATF4}, was downregulated in NCP26R cells, yet is upregulated following ProRS inhibitor treatment in CFZr cells.
+Previously, it has been shown that \textit{ATF4} knockdown (but not \textit{ATF3}) has rendered tumour cells resistant to amino acid starvation\cite{cheng2018arginine}.
 \textit{CHAC1} was also downregulated in NCP26R cells.
 Overexpression of \textit{CHAC1} has been implicated in ER stress, oxidative stress and apoptosis\cite{crawford2015human}.
+\textit{EIF2A} (coding for eiF2$\alpha$) is also downregulated in NCP26R cells.
+Phosphorylation of eiF2$\alpha$ by GCN2 or PERK (sensors of AAR and UPR, respectively) results in ATF4 activation.
 \textit{FAS}, which encodes TNF receptor superfamily member 6, a receptor involved in the induction of apoptosis, was downregulated in NCP26R cells.
 Moreover \textit{CDKN1A} and \textit{MIOS} were downregulated in NCP26R cells compared to controls, yet are upregulated following ProRS inhibition in CFZr cells.
-As mentioned, a well-known function of \textit{CDKN1A} is to arrest cell cycle progression
-Switch to pro-survival, rather than pro-death overwhelmed by ER stress.
+As mentioned, a well-known function of \textit{CDKN1A} is to arrest cell cycle progression, it is also though to be instrumental in the execution of apoptosis following caspase activation.
+% Interestingly \textit{GCN1} expression was upregulated in NCP26R cells, yet was downregulated following ProRS inhibition in CFZr cells.
 
+These transcriptional changes in NCP26R cells, indicate that greater ProRS inhibition is required in this cell line to overcome reduced EIF2A, CHAC1 and ATF4 expression and to tip the balance of ER stress from pro-survival to pro-death signalling.
 These adaptations further corroborate the involvement of the AAR in the mechanism of action and effectiveness of ProRS inhibitors in multiple myeloma.
+%NPRL2, tumour suppressor
+%Nprl2, is a putative tumor suppressor gene that inhibits cell growth and enhances sensitivity to numerous anticancer drugs including cisplatin
 
-Downregulated expression of ATF4, EIF2A
+GCN1 increased expression (maybe sense AA too??)- usually down.
+GCN1 thought to be required for GCN2 activation and AAR induction\cite{kim2020aminoacyl}.
 
-NPRL2, tumour suppressor
-Nprl2, is a putative tumor suppressor gene that inhibits cell growth and enhances sensitivity to numerous anticancer drugs including cisplatin
-
-GCN1 increased expression (maybe sense AA too??)
+ASS1
 
 
 % flush figures
@@ -649,17 +653,54 @@ Therefore, the argument could be made for using ProRS inhibitors as a replacemen
 Alternatively, as ProRS inhibitors are capable of overcoming PI-resistance, their additive effect together could be beneficial for maximising the number of MM subclones killed, limiting MRD, and prolonging time in remission.
 % only mimics AA depletion.
 
-\subsection{aaRSs as targets}
+\subsection{Targeting amino acid metabolism}
 In a manuscript currently under review, it was shown by collaborators that numerous inhibitors targeting ProRS, as well as other aaRSs induce significant anti-proliferative effects across multiple MM cell lines (Figure \ref{fig:sup_cell_line_aaRS}).
 Borrelidin, a natural threonyl-tRNA synthetase (ThrRS) inhibitor and CysSA, an aminoacyl adenylate substrate analogue, both reduced proliferative activity of MM cell lines.
 This shows that the anti-MM effects of Halofuginone and NCP26 may not be specific to only ProRS inhibition, and the anti-MM effects may extend to other aaRS inhibitors too.
-This further supports aaRSs as targets of great importance in MM, and the rationale to develop inhibitors to target them.
+Cheng et al. (2018) demonstrated that arginine starvation, induced typical ER stress and oxidative stress markers and killed tumour cells\cite{cheng2018arginine}.
+These data further support aaRSs as targets of great importance in MM, and the rationale to develop inhibitors to target them.
 A full screen of known aaRS inhibitors and substrate analogues against MM would be beneficial, to identify more agents capable of killing MM cells, some of which could be more effective against MM\@.
 In \cite{suraweera2012failure}, MG-132 and bortezomib treatment caused depletion of asparagine/aspartate and cysteine levels, yet proline levels remained fairly constant.
 It would be interesting to see if AspRS or CysRS inhibitors display any synergy with bortezomib.
 However, this experiment was not conducted using MM cells.
 Amino acid levels following PI-treatment of MM cell lines should be investigated first, to see which amino acids are depleted in MM following PI treatment.
-Hazard risk
+
+Proline metabolism has been thought of as great importance in tumourigenesis and MM pathology.
+Although glutamine and glucose serve as the main metabolic substrates for tumour cells, proline as a stress substrate has gained lots of attention due to its unique metabolism, its availability in tumour microenvironments, and various stress-responses\cite{liu2013mirna}.
+Proline, is the only proteogenic secondary amino acid and has its own metabolic system with its own family of enzymes, distinct from the usual amino acid-metabolising enzymes.
+Proline metabolism is closely related with glutamine metabolism.
+Cancer cells tend to convert more glutamine to proline compared to healthy cells.
+Hypoxia has been shown to increase proline production in-vitro.
+Proline can be used by cancer cells as an energy source under conditions of nutrient stress\cite{phang2008metabolism}.
+Additionally, the bone marrow of MM patients is very proline-rich and hypoxic.
+
+The conversion of glutamine to proline consists of several steps.
+In the final step, pyrroline-5-carboxylate reductase (PYCR) catalyzes the conversion of pyrroline-5-carboxylate (P5C) into proline.
+Three PYCRs have been identified: PYCR1, PYCR2 and PYCR3.
+In a recent paper, Oudaert et al. (2022) investigated PYCR enzymes as potential therapeutic targets in MM\cite{oudaert2022pyrroline}.
+The group found that PYCR1 and PYCR2 mRNA expression correlates with an inferior overall survival in MM, and MM cells from RRMM patients express significantly higher levels of PYCR1\@.
+Inhibition of PYCR1 with pargyline reduced proline production, MM cell viability and proliferation and increased apoptosis.
+Pargyline increased bortezomib-mediated apoptosis in-vitro and enhanced bortezomib sensitivity to reduce tumor burden in a murine model.
+PYRC1 inhibition and silencing resulted in increased CHOP (protein encoded by \textit{DDIT3}) expression, and decreased protein synthesis-- suggesting the activation of integrated stress pathways, and possibly the AAR.
+Inhibiting PYCR1 (one of the enzymes that converts glutamine into proline) reduces proline production and its concentration, this could result in proline depletion, and this amino acid depletion could be responsible for some of the cytotoxic effects from PYRC1 inhibition.
+This could also explain why its effects are enhanced in combination with bortezomib, as amino acid depletion seems to sensitize cancer cells to proteasome inhibition\cite{mizrachy2010amino}.
+This paper supports our work on ProRS inhibition (which mimics amino acid depletion), highlighting the effectiveness of targeting amino acid metabolism in MM, particularly proline metabolism.
+However, the anti-MM cytotoxic effects seen from ProRS inhibition are far greater than from PYCR1 inhibition as presented by Oudaert et al. (2022).
+This could indicate the superiority of the activation of ISR pathways by mimicing complete proline depletion, whereas PYCR1 inhibition only reduces the concentration of proline sourced from P5C, and not dietary proline or the abundance of proline located in pre-existing proteins which can be catabolised by the proteasome.
+
+
+PYCR2 expression upregulated following CFZ treatment.
+RRMM patients express significantly higher levels of PYCR1.
+PYCR1 inhibition reduced MM viability and proliferation and increased apoptosis
+PYCR1 silencing reduced protein levels of p-PRAS40, p-mTOR, p-p70, p-S6, p-4EBP1 and p-eIF4E levels, suggesting a decrease in protein synthesis, which we also confirmed in vitro
+pargyline, a PYCR1 small molecule inhibitor
+Pargyline and siPYCR1 increased bortezomib-mediated apoptosis
+combination therapy of pargyline with bortezomib reduced viability in CD138\textsuperscript{+} MM cells and reduced tumor burden in the murine mode \cite{oudaert2022pyrroline}.
+Our findings suggest PYCR1 as new therapeutic target in MM treatment.
+
+More detailed screens, see which AAs have an effect and work out why some. If as a effective as proline inhibition.
+
+Mitochondrial enzymes.. arginine starvation- mitochondrial genes and oxidateive stress in oxidative stress in our data
 
 
 Or could talk about other aaRSs and then proline
@@ -667,9 +708,6 @@ Or could talk about other aaRSs and then proline
 Bigger demand for AAs in MM cells, big dependence on protein synthesis to make Igs.
 
 protein catabolism contributes to the pool of free amino acids available for protein synthesis during cancer development, leading to a crucial role of the proteasome in cancer cell survival under conditions of nutrient depletion.\cite{mizrachy2010amino}
-
-Look at which amino acids make myeloma patients susceptible. Good inhibitors
-
 
 \section{Discussion}
 Other therapeutics..
@@ -692,10 +730,6 @@ Proline metabolism as a target in MM
 This study identifies PYCR1 as a novel target in bortezomib-based combination therapies for MM.
 
 
-Then talk about synergy?? Additive? Maybe affect MRD, double hit against amino acid pool. Cysteine deficient
-In mammalian cells, proteasome inhibitors have been shown to deplete the amino acid pool.
-For example, Bortezomib treatment decreased the levels of asparagine/aspartate and cysteine.
-Supplementation with cysteine and/or asparagine markedly increased cell viability following Bortezomib treatment
 
 Proline levels unchanged or increased with PI treatment- but not MM cells.
 
@@ -713,7 +747,7 @@ Target stress response via slightly different mechanisms once cancer adapts to o
 Cancer adapts
 
 EPRS upregulated in patients, risk factor? role in disease?
-GCN2 and GCN1
+GCN2 and GCN1\cite{kim2020aminoacyl}
 
 Other results from paper, GCN2 sensed,
 
