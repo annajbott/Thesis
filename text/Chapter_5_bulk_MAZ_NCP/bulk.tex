@@ -310,6 +310,8 @@ A list of 287 unique genes activated by \textit{ATF4} was compiled from the gene
 Figure \ref{fig:wt_atf4_heatmap} shows a heatmap for ATF4 activated genes and genes DE by NCP26 and halofuginone.
 Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and halofuginone.
 Of the 287 genes in the list, 165 genes were differentially expressed with NCP26 or halofuginone treatment.
+Interestingly \textit{PYCR1} (a gene which encodes for an enzyme in the final step of the conversion of glutamine into proline) was found to be upregulated following NCP26 and HF treatment at 6 and 24 hours.
+This could be an attempt by the MM cells to make more proline to overcome the apparent `proline-deficiency'.
 
 
 % ATF4 heatmap
@@ -508,8 +510,14 @@ Stars indicate differential expression (p\textsubscript{adj}<0.05).
 The Log2FC for cytoplasmic aaRS genes is shown in Figure \ref{fig:NCP26R_DE}b.
 Nine out of 20 aaRS genes were upregulated (p\textsubscript{adj} <0.05) in NCP26-resistant cells, including \textit{EPRS1}.
 Four aaRS genes were downregulated (p\textsubscript{adj} <0.05), including \textit{QARS1} and \textit{VARS1}, which were also downregulated following ProRS inhibitor treatment.
+\textit{PYCR1}, \textit{PYCR2} and \textit{PYCR3} (genes which encode for the three enzymes in the final step of the conversion of glutamine into proline) were found to be downregulated in NCP26R cells.
 
-Next, pathway enrichment analysis was performed.
+Next, pathway enrichment analysis was performed using the packages ClusterProfiler and XGR with Gene ontology (GO) biological processes (GOBP) and cellular component (GOCC) annotations.
+ER-associated pathways were found to be suppressed in NCP26R cells, including `integral component of lumenal side of endoplasmic reticulum membrane', `ER to Golgi transport vesicle membrane', `endoplasmic reticulum lumen'.
+This may indicate transcriptional changes are made to ER-associated genes to overcome and become more resistant to ER-stress produced by ProRS inhibition.
+Antigen binding and MHC class II protein complex pathways were also suppressed in NCP26R cells, as well as components of the ECM and plasma membrane.
+Some members of the UPR and ISR were enriched in NCP26R cells.
+
 % pathway GSEA figure
 
 From pathway enrichment it is clear that NCP26R cells in overcoming NCP26 treatment, adaptions to ER pathways are involved.
@@ -653,13 +661,17 @@ Small molecule PYCR1 inhibitor, pargyline, reduced proline production, MM cell v
 Pargyline increased bortezomib-mediated apoptosis in-vitro and enhanced bortezomib sensitivity to reduce tumor burden in a murine model.
 However, pargyline as a single agent did not alter tumour load.
 PYRC1 inhibition and silencing resulted in increased CHOP (protein encoded by \textit{DDIT3}) expression, and decreased protein synthesis-- suggesting the activation of integrated stress pathways, and possibly the AAR.
-Inhibiting PYCR1 (one of the enzymes that converts glutamine into proline) reduces proline production and its concentration, this could result in proline depletion, and this amino acid depletion could be responsible for some of the cytotoxic effects from PYRC1 inhibition.
+Inhibiting PYCR1 reduces proline production and its concentration, perhaps this could result in proline depletion and AAR activation, which could be responsible for some of the cytotoxic effects from PYRC1 inhibition.
 This could also explain why its effects are enhanced in combination with bortezomib, as amino acid depletion seems to sensitize cancer cells to proteasome inhibition\cite{mizrachy2010amino}.
-This paper supports our work on ProRS inhibition (which mimics amino acid depletion), highlighting the effectiveness of targeting amino acid metabolism in MM, particularly proline metabolism.
+As demonstrated in this chapter, ProRS inhibition of MM cells causes an upregulation of \textit{PYCR1} expression to overcome the perceived proline deficiency.
+Moreover, downregulated \textit{PYCR1}, \textit{PYCR2} and \textit{PYCR3} expression was seen in NCP26 resistant cells, possibly indicating that the cells have become less reliant on proline and proline metabolism to become more robust to the apoptotic effects of ProRS inhibition.
+Oudaert's paper supports our work on ProRS inhibition (which mimics amino acid depletion)-- both highlight the effectiveness of targeting amino acid metabolism in MM, particularly proline metabolism.
 However, the anti-MM cytotoxic effects seen from ProRS inhibition seem to be far greater than from PYCR1 inhibition as presented by Oudaert et al. (2022).
 For example, NCP26 treatment alone showed significant anti-tumor activity in a MM mouse model, without significant body weight loss\cite{bottpreclinical2022}.
 This could indicate the superiority of the activation of ISR pathways by mimicking proline depletion, whereas PYCR1 inhibition only reduces the concentration of proline sourced from P5C, and not dietary proline or the abundance of proline located in pre-existing proteins which can be catabolised by the proteasome.
+It would be interesting to see how altering factors of proline metabolism would affect ProRS inhibition, or if HF/NCP26 and pargyline exhibited any synergy together.
 
+\noindent
 In a manuscript currently under review, it was shown by collaborators that numerous inhibitors targeting ProRS, as well as other aaRSs induce significant anti-proliferative effects across multiple MM cell lines (Figure \ref{fig:sup_cell_line_aaRS})\cite{bottpreclinical2022}.
 Borrelidin, a natural threonyl-tRNA synthetase (ThrRS) inhibitor and CysSA, an aminoacyl adenylate substrate analogue, both reduced proliferative activity of MM cell lines.
 This shows that the anti-MM effects of Halofuginone and NCP26 may not be specific to only ProRS inhibition, and the anti-MM effects may extend to other aaRS inhibitors too.
