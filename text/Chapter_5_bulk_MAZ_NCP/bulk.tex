@@ -520,7 +520,7 @@ Some members of the UPR and ISR were enriched in NCP26R cells.
 
 % pathway GSEA figure
 
-From pathway enrichment it is clear that NCP26R cells in overcoming NCP26 treatment, adaptions to ER pathways are involved.
+From pathway enrichment it is clear that in becoming more resistant to NCP26 and ProRS inhibition, NCP26R cells make transcriptional changes to genes related to ER signalling and amino acid metabolism.
 % AAR heatmap NCP26R
 \begin{figure}[p]
 \centering
@@ -533,7 +533,7 @@ Normalised gene counts are shown for each sample.
 \label{fig:ncp26R_aar_heatmap}
 \end{figure}
 %%
-Transcriptional changes to the amino acid starvation response were explored.
+Therefore transcriptional changes to the amino acid starvation response were explored.
 47 AAR genes were differentially expressed (p\textsubscript{adj} <0.05) in NCP26R cells compared to controls (Figure \ref{fig:ncp26R_aar_heatmap}).
 Many of the AAR genes seem to follow similar expression changes as with NCP26 treatment, such that many AAR genes that were upregulated (downregulated) following NCP26 treatment, were also upregulated (downregulated) in NCP26R cells.
 For example, transcription factors \textit{ATF3}, \textit{DDIT3}, \textit{CEBPB} and \textit{CEPBG} are all overexpressed in NCP26R cells vs controls, and NCP26-treated cells vs DMSO-treated cells.
@@ -570,6 +570,10 @@ It has also been demonstrated by collaborators that NCP26 and HF elicit GCN2 and
 During amino acid depletion, GCN2 acts as a cellar sensor by binding uncharged tRNAs and autophosphorylating.
 Activated GCN2 then phosphorylates eIF2-$\alpha$\cite{battu2017amino}.
 Therefore, GCN2 and eIF2$\alpha$ phosphorylation indicates canonical activation of the amino acid starvation response by HF and NCP26.
+Additionally, NCP26R cells, which had built up resistance to ProRS inhibition, showed decreased expression of \textit{ATF4}  and \textit{EIF2A}.
+Previously, \textit{ATF4} knockdown (but not \textit{ATF3}) has been shown to render tumour cells resistant to amino acid starvation\cite{cheng2018arginine}.
+NCP26R cells also showed significant suppression of ER-associated elements.
+These transcriptional changes to overcome apoptosis by NCP26 treatment further highlight the AAR and ER-stress as mechanisms by which ProRS inhibition kills MM cells.
 
 \subsection{HF vs NCP26}
 Halofuginone is an ATP-dependent, proline and tRNA competitive inhibitor of ProRS\@.
@@ -665,11 +669,12 @@ Inhibiting PYCR1 reduces proline production and its concentration, perhaps this 
 This could also explain why its effects are enhanced in combination with bortezomib, as amino acid depletion seems to sensitize cancer cells to proteasome inhibition\cite{mizrachy2010amino}.
 As demonstrated in this chapter, ProRS inhibition of MM cells causes an upregulation of \textit{PYCR1} expression to overcome the perceived proline deficiency.
 Moreover, downregulated \textit{PYCR1}, \textit{PYCR2} and \textit{PYCR3} expression was seen in NCP26 resistant cells, possibly indicating that the cells have become less reliant on proline and proline metabolism to become more robust to the apoptotic effects of ProRS inhibition.
-Oudaert's paper supports our work on ProRS inhibition (which mimics amino acid depletion)-- both highlight the effectiveness of targeting amino acid metabolism in MM, particularly proline metabolism.
+Oudaert's paper supports our work on ProRS inhibition (which mimics amino acid depletion)-- both highlighting the effectiveness of targeting amino acid metabolism in MM, particularly proline metabolism.
 However, the anti-MM cytotoxic effects seen from ProRS inhibition seem to be far greater than from PYCR1 inhibition as presented by Oudaert et al. (2022).
 For example, NCP26 treatment alone showed significant anti-tumor activity in a MM mouse model, without significant body weight loss\cite{bottpreclinical2022}.
 This could indicate the superiority of the activation of ISR pathways by mimicking proline depletion, whereas PYCR1 inhibition only reduces the concentration of proline sourced from P5C, and not dietary proline or the abundance of proline located in pre-existing proteins which can be catabolised by the proteasome.
 It would be interesting to see how altering factors of proline metabolism would affect ProRS inhibition, or if HF/NCP26 and pargyline exhibited any synergy together.
+
 
 \noindent
 In a manuscript currently under review, it was shown by collaborators that numerous inhibitors targeting ProRS, as well as other aaRSs induce significant anti-proliferative effects across multiple MM cell lines (Figure \ref{fig:sup_cell_line_aaRS})\cite{bottpreclinical2022}.
@@ -684,19 +689,11 @@ However, this experiment was not conducted using MM cells.
 Amino acid levels following PI-treatment of MM cell lines should be investigated first, to see which amino acids are depleted in MM following PI treatment.
 This could present a whole host of new potential therapeutics in MM\@.
 
-\subsection{aaRS resistance}
-Resistance as we've seen is possible. Increase EPRS1 and decrease ATF4 to overcome NCP treatment
-
 %PYCR2 expression upregulated following CFZ treatment.
 %More detailed screens, see which AAs have an effect and work out why some. If as a effective as proline inhibition.
 %Mitochondrial enzymes.. arginine starvation- mitochondrial genes and oxidateive stress in oxidative stress in our data
 
 %protein catabolism contributes to the pool of free amino acids available for protein synthesis during cancer development, leading to a crucial role of the proteasome in cancer cell survival under conditions of nutrient depletion.\cite{mizrachy2010amino}
-
-Other therapeutics..
-
-At time of writing, there were 292 active MM interventional clinical trials worldwide, with a further 441 studies recruiting or enrolling participants by invitation\cite{clinicaltrialsgov}.
-
 
 %TGF-beta increased in MM. HF affects TGF-beta signalling. bulk effects on TGF and smad?
 % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1895802/#:~:text=TGF%2D%CE%B2%20signaling%20in%20multiple%20myeloma&text=TGF%2D%CE%B2%20is%20a%20potent,cell%20proliferation%20and%20immunoglobulin%20production.&text=In%20multiple%20myeloma%2C%20TGF%2D%CE%B2,from%20bone%20marrow%20stromal%20cells.
