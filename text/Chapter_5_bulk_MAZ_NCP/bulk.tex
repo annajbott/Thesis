@@ -512,13 +512,24 @@ Nine out of 20 aaRS genes were upregulated (p\textsubscript{adj} <0.05) in NCP26
 Four aaRS genes were downregulated (p\textsubscript{adj} <0.05), including \textit{QARS1} and \textit{VARS1}, which were also downregulated following ProRS inhibitor treatment.
 \textit{PYCR1}, \textit{PYCR2} and \textit{PYCR3} (genes which encode for the three enzymes in the final step of the conversion of glutamine into proline) were found to be downregulated in NCP26R cells.
 
-Next, pathway enrichment analysis was performed using the packages ClusterProfiler and XGR with Gene ontology (GO) biological processes (GOBP) and cellular component (GOCC) annotations.
+Next, pathway enrichment analysis was performed using the packages ClusterProfiler and XGR with gene ontology (GO) annotations.
 ER-associated pathways were found to be suppressed in NCP26R cells, including `integral component of lumenal side of endoplasmic reticulum membrane', `ER to Golgi transport vesicle membrane', `endoplasmic reticulum lumen'.
 This may indicate transcriptional changes are made to ER-associated genes to overcome and become more resistant to ER-stress produced by ProRS inhibition.
 Antigen binding and MHC class II protein complex pathways were also suppressed in NCP26R cells, as well as components of the ECM and plasma membrane.
 Some members of the UPR and ISR were enriched in NCP26R cells.
 
-% pathway GSEA figure
+% NCP26R pathway enrichment
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/Transcriptomics/NCP26R/NCP26R_pathway.pdf}
+\caption[NCP26R bulk RNA-seq pathway enrichment]{Pathway enrichment analysis for NCP26R L363 cells vs L363 controls.
+a) Gene set enrichment analysis using biological processes (BP), molecular function (MF), and cellular compartment (CC) gene ontology (GO) annotations. Genes ordered by $\log_{2}FC$ values.
+b) XGR GOBP enrichment analysis for top downregulated DEGs (p\textsubscript{adj} < 0.05 \& $\log_{2}FC < -1$).
+c) XGR GOCC enrichment analysis for top downregulated DEGs (p\textsubscript{adj} < 0.05 \& $\log_{2}FC < -1$).
+}
+\label{fig:NCP26R_pathway}
+\end{figure}
+%%
 
 From pathway enrichment it is clear that in becoming more resistant to NCP26 and ProRS inhibition, NCP26R cells make transcriptional changes to genes related to ER signalling and amino acid metabolism.
 % AAR heatmap NCP26R
@@ -554,14 +565,13 @@ These adaptations further corroborate the involvement of the AAR in the mechanis
 %NPRL2, tumour suppressor
 %Nprl2, is a putative tumor suppressor gene that inhibits cell growth and enhances sensitivity to numerous anticancer drugs including cisplatin
 
-GCN1 increased expression (maybe sense AA too??)- usually down.
-GCN1 thought to be required for GCN2 activation and AAR induction\cite{kim2020aminoacyl}.
-
-ASS1
-
+% GCN1 increased expression (maybe sense AA too??)- usually down.
+%GCN1 thought to be required for GCN2 activation and AAR induction\cite{kim2020aminoacyl}.
+%
+%ASS1
 
 % flush figures
-\clearpage
+\afterpage{\clearpage}
 \section{Discussion}
 This chapter has demonstrated using in-vitro MM cell models the capability of ProRS inhibitors to kill drug-sensitive and drug-resistant MM cells, and that the AAR is activated following ProRS inhibition.
 ProRS inhibition activates \textit{ATF4} (the master regulator of amino acid metabolism) and upregulates its downstream targets, including aminoacyl tRNA synthetases, amino acid transporters, and pro-apoptotic mediators including \textit{DDIT3}.
