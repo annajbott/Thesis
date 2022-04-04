@@ -289,30 +289,29 @@ The user can then perform further downstream analysis on the dataset, for exampl
 \label{fig:updated_sc_workflow}
 \end{figure}
 
-\afterpage{\clearpage}
-\section{scRNA-Seq velocity analysis pipeline}
-
-\subsection{RNA velocity}
-scRNA-seq gene expression analyses capture only a static snapshot of the transcriptome in time.
-In a seminal paper by La Manno et al. (2018), RNA velocity methods were introduced with the aim of revealing the rate and direction of change of the transcriptome during dynamic processes, such as embryonic development or cellular dynamics following drug treatment\cite{la2018rna}.
-In-line with previous observations, the authors found that between 15 and 25\% of scRNA-seq reads contain unspliced intronic sequences.
-Using this knowledge, they found that the balance between unspliced and spliced mRNAs can be predictive of cellular state progression, and can be used to directly estimate the time derivative of gene expression on a timescale of hours.
-Therefore, using RNA velocity in combination with clustering analysis, the trajectory of a single cell can be tracked.
-This paper introduced Velocyto for RNA velocity analysis.
-Since its inception in 2018, numerous tools have been developed for RNA velocity analysis\cite{la2018rna, weng2021vetra, bergen2020generalizing, melsted2019modular}.
-
-\subsection{Pipeline outline}
-A modular RNA velocity analysis workflow was constructed based around the kallisto BUStools (kb-python wrapper) velocity workflow\cite{melsted2019modular}.
-The user requires an Ensembl reference GTF file and DNA fasta file for the species of interest, and their raw fastq read files as input.
-Firstly, an RNA velocity index is generated from the GTF and fasta file.
-Kb count is then used to generate spliced and unspliced transcript count matrices and a loom file.
-The resulting loom files are imported into R, and after some cell barcode manipulation, combined with existing gene-expression-based Seurat objects.
-This gives a Seurat object containing gene-expression data, UMAP/tSNE embeddings and spliced/unspliced RNA velocity counts.
-If the RNA workflow is combined with an annotated seurat object, the trajectory of individuals cells can then be mapped onto UMAP plots with pre-defined cell-type annotations.
-The pipeline is deposited on GitHub and can be found here: \url{https://github.com/annajbott/pipeline_kb_velo}.
+%\section{scRNA-Seq velocity analysis pipeline}
+%
+%\subsection{RNA velocity}
+%scRNA-seq gene expression analyses capture only a static snapshot of the transcriptome in time.
+%In a seminal paper by La Manno et al. (2018), RNA velocity methods were introduced with the aim of revealing the rate and direction of change of the transcriptome during dynamic processes, such as embryonic development or cellular dynamics following drug treatment\cite{la2018rna}.
+%In-line with previous observations, the authors found that between 15 and 25\% of scRNA-seq reads contain unspliced intronic sequences.
+%Using this knowledge, they found that the balance between unspliced and spliced mRNAs can be predictive of cellular state progression, and can be used to directly estimate the time derivative of gene expression on a timescale of hours.
+%Therefore, using RNA velocity in combination with clustering analysis, the trajectory of a single cell can be tracked.
+%This paper introduced Velocyto for RNA velocity analysis.
+%Since its inception in 2018, numerous tools have been developed for RNA velocity analysis\cite{la2018rna, weng2021vetra, bergen2020generalizing, melsted2019modular}.
+%
+%\subsection{Pipeline outline}
+%A modular RNA velocity analysis workflow was constructed based around the kallisto BUStools (kb-python wrapper) velocity workflow\cite{melsted2019modular}.
+%The user requires an Ensembl reference GTF file and DNA fasta file for the species of interest, and their raw fastq read files as input.
+%Firstly, an RNA velocity index is generated from the GTF and fasta file.
+%Kb count is then used to generate spliced and unspliced transcript count matrices and a loom file.
+%The resulting loom files are imported into R, and after some cell barcode manipulation, combined with existing gene-expression-based Seurat objects.
+%This gives a Seurat object containing gene-expression data, UMAP/tSNE embeddings and spliced/unspliced RNA velocity counts.
+%If the RNA workflow is combined with an annotated seurat object, the trajectory of individuals cells can then be mapped onto UMAP plots with pre-defined cell-type annotations.
+%The pipeline is deposited on GitHub and can be found here: \url{https://github.com/annajbott/pipeline_kb_velo}.
 
 % tRNA workflow
-%\afterpage{\clearpage}
+\afterpage{\clearpage}
 \input{text/Chapter_4_Pipelines/tRNA_methods.tex}
 
 %\afterpage{\clearpage}

@@ -60,18 +60,12 @@ Downstream analyses was only performed for DMSO, Halofuginone and NCP26 samples.
 
 The single cell analysis pipeline outlined in Section \ref{subsec:updated_scrna} was used to process the scRNA-seq data.
 Kallisto BUS/ BUStools was used to pseudoalign reads and quantify gene expression.
-Next, quality control and filtering of the samples was performed.
-Poor quality cells are likely to have a low number of genes and UMIs per cell.
-So any cells with fewer than 500 UMIs were removed.
-Cells with a gene count below 300 or above 6000 were also removed.
-Cells with a mitochondrial ratio higher than 0.1 were removed (a high proportion of mitochondrial genes indicates mitochondrial contamination from dead or dying cells).
-
-After quality control and filtering of the data, clustering was performed using Seurat, followed by integration using Seurat and Harmony.
+Next, quality control and filtering of the samples was performed (as per Section \ref{subsec:updated_scrna}), then clustering was performed using Seurat, followed by integration using Seurat and Harmony.
 Using the Seurat SCTransform normalisation method of integration, the two experiments were too large to integrate across all samples.
 Therefore, a reference-based approach was taken, whereby a subset of samples were selected (based on their cell richness and relevance to the research question) and listed as `reference datasets' for SCTransform normalisation.
 Harmony integration was also implemented, using `Patient Number' and `Experiment Number' as additional covariates.
 
-Cell type annotation was performed with several automated packages (singleR, clustifyr and scClassify), and then fine-tuning manually using a list of known biological markers.
+Cell type annotation was performed with several automated packages (singleR, clustifyr and scClassify), and then fine-tuned manually using a list of known biological markers.
 No MM classifier or reference was available when performing this analysis (the MM classifier in Section \ref{sec:MM_classifier} was built using these datasets).
 Therefore, healthy human references were used for annotation.
 The HumanCellAtlas (HCA) database was used to inform singleR and clustifyr annotation.
@@ -448,7 +442,7 @@ This could indicate that NCP26 and HF are not as selective for MM cells in relap
 
 % Pathway
 \subsubsection{Pathway analysis}
-Pathway enrichment analysis was performed for the top 200 upregulated and top 200 downregulated DEGs in MM cluster 4, following Halofuginone and NCP26 treatment (Figure \ref{fig:relapse_mm_pathway_analysis}).
+Pathway enrichment analysis was performed for the top 200 upregulated and top 200 downregulated DEGs in MM cluster 4, following HF and NCP26 treatment (Figure \ref{fig:relapse_mm_pathway_analysis}).
 Pathway analysis could not be performed for MM cluster 9, as there were too few DEGs.
 %%%%
 %%  Pathway analysis
@@ -461,10 +455,12 @@ GOBP pathway analysis performed using top 200 upregulated or downregulated DEGs 
 \label{fig:relapse_mm_pathway_analysis}
 \end{figure}
 %%
-Genes involved in translation pathways are downregulated following ProRS inhibition, as well as cell cycle pathways.
-Cell death, apoptotic and cell cycle pathways are enriched following ProRS inhibition.
-This follows literature and previous sections, whereby AAR activation triggers cell cycle changes, cell death and a global reduction in the translational machinery.
+Genes involved in translation, NF-$\kappa$B signalling and amino acid metabolism pathways were downregulated following ProRS inhibition (Figure \ref{fig:relapse_mm_pathway_analysis}).
+Cell death, apoptotic and cell cycle pathways were enriched following ProRS inhibition.
+This follows the previous chapter and established literature, whereby AAR activation triggers cell cycle changes, cell death and a global reduction in the translational machinery.
 Interestingly, for all three treatments, mRNA splicing was enriched, indicating a potential spliceosomal mechanism for these inhibitors.
+mRNA splicing has been implicated in the mechanism of amino acid starvation before\cite{deval2009amino}, and that the spliceosomal response to amino acid depletion does not require GCN2 activity.
+% look up in data if its ribosomal stuff
 
 Figure \ref{fig:relapse_aar_vln_ftp} shows AAR gene expression in relapsed myeloma cells, as well as the surrounding immune cells.
 %
@@ -473,9 +469,9 @@ Figure \ref{fig:relapse_aar_vln_ftp} shows AAR gene expression in relapsed myelo
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_aar_vln_ftp.pdf}
 \caption[scRNA-seq differentially expressed AAR genes- relapsed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
-    a) Violin plots showing AAR gene expression in MM cell cluster 4.
-    a) Violin plots showing AAR gene expression in MM cell cluster 9.
-    b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{DDIT3} and \textit{GADD34}.
+    a) Violin plots- AAR gene expression in MM cell cluster 4.
+    b) Violin plots- AAR gene expression in MM cell cluster 9.
+    c) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{DDIT3} and \textit{GADD34}.
 Feature plots are split into four panels based on treatment condition.
 The myeloma subclones are circled in the first panel.
 }
@@ -483,22 +479,37 @@ The myeloma subclones are circled in the first panel.
 \end{figure}
 %%
 AAR gene expression in MM cluster 4 follows the typical patterns of ProRS inhibition, as seen in the naive dataset and bulk RNA-seq data, increased expression of \textit{ATF3}, \textit{GADD34}, \textit{GADD45A}, \textit{DDIT3} and amino acid transporters, and decreased expression of some AAR-related genes such as \textit{DDIT4}.
-However, for the other myeloma subclonal population (cluster 9), AAR transcriptional changes following ProRS inhibitor treatment do not seem to fit the typical pattern seen in previous data.
-For example, some the expression of some AAR genes, such as \textit{ATF3}, \textit{GADD34} and \textit{SLC38A2}, was increased in cluster 9 following NCP26 treatment, however many other AAR genes' expression levels were unaffected by ProRS inhibitor treatment.
-Additionally, the expression change of some AAR genes was the inverse to how they behaved in previous data, for example ProRS inhibition caused upregulation of \textit{DDIT4} and \textit{FAU} in cluster 9, where previously HF and NCP26 treatment was shown to cause downregulation of these genes in MM cells.
+However, the other myeloma subclone (cluster 9) does not display the typical AAR transcriptional changes following ProRS inhibitor treatment, as seen in previous data.
+For example, the expression of some AAR genes, such as \textit{ATF3}, \textit{GADD34} and \textit{SLC38A2}, was increased in cluster 9 following NCP26 treatment, however many other AAR genes' expression levels were unaffected by ProRS inhibitor treatment.
+Additionally, the expression of some AAR genes was the inverse to previous data, for example ProRS inhibition caused upregulation of \textit{DDIT4} and \textit{FAU} in cluster 9, where previously HF and NCP26 treatment was shown to cause downregulation of these genes in MM cells.
 This could represent a cyto-protective effect of the AAR in the resistant MM subclone rather than a pro-death signalling response.
-In fact, as seen in Figure \ref{fig:composition_relapse}e, HF and NCP26 treatment increase the proportion of cells in MM cluster 9. 
+In fact, as seen in Figure \ref{fig:composition_relapse}e, HF and NCP26 treatment increased the proportion of cells in MM cluster 9.
+%% Past present tense, sounds shit!!!
 
 \subsection{ProRS inhibitor effect on myeloid cells}
 % look up INF-gamma etc. VEGFA
-From differential expression and composition analysis, it seems that Halofuginone and NCP26 have a large transcriptional effect on myeloid cells, especially monocytes.
+From differential expression and composition analysis, it seems that HF and NCP26 have a large transcriptional effect on myeloid cells, especially monocytes.
 Feature plots and violin plots demonstrate that amino acid starvation response effector genes, such as \textit{DDIT3} and \textit{ATF3} are enriched in monocytes, as well as MM cells.
 However, myeloid cells are non-malignant.
 ProRS inhibitors were originally used as cancer treatments because tumour cells produce large amounts of protein, and are therefore heavily dependent on translational machinery, like tRNA-synthetase enzymes.
 This is especially true for myeloma cells, secreting huge amounts of M protein.
-Additionally, tumours are usually extremely proline-rich.
-Therefore, it is surprising that ProRS inhibitors are non-selective for MM cells over MM patients' non-malignant myeloid cells.
+%Additionally, tumours are usually extremely proline-rich.
+Therefore, it is surprising that ProRS inhibitors seem to be non-selective for MM cells over MM patients' non-malignant myeloid cells.
 
+\subsubsection{Pathway analysis}
+Inflammation etc. etc.
+Non-canonical functionality etc. etc.
+
+
+\section{Discussion}
+This chapter has demonstrated the activation of the AAR and apoptotic mechanisms, as well as other anti-MM effects, following ProRS inhibitors in primary MM patient samples, using scRNA-seq.
+In treatment-naive and relapsed patients, HF and NCP26 treatment elicited a strong transcriptional change and substantial cell death in the MM cell cluster, this was demonstrated using composition and DE analyses.
+This effect was selective for MM cells over NK cells, T cells and B cells.
+This follows the hypothesis that (despite the ubiquity of aaRS enzymes) the translational and M protein burdens of MM cells, means that ProRS inhibition primarily effects MM cells over benign immune counterparts.
+However, it has also been shown in DE and composition analyses that ProRS inhibition also seems to elicit a large effect on myeloid cells.
+Additionally, in the relapsed dataset, MM cell cluster 9 was resistant to ProRS inhibitor treatment at the given drug concentrations.
+
+\subsection{Effect on myeloid cells}
 Previously, Leiba et al. (2012) demonstrated HF's selectivity for MM patients' CD138\textsuperscript{+} tumour cells over PBMCs from healthy donors\cite{leiba2012halofuginone} using a cytotoxicity assay at the range of 25-200\si{\nano\Molar}.
 This is a significantly lower concentration of HF than used in the scRNA-seq experiments (1\si{\micro\Molar}), so this could represent dosing differences.
 However, it must also be noted that Leiba et al. (2012) did not separate PBMCs into their respective subtypes prior to performing the cytotoxicity assays.
@@ -515,16 +526,10 @@ The percentage of myeloid cells making up the CD45\textsuperscript{+} fraction o
 The authors demonstrated that HF treatment did not affect the cell viability of BM-derived osteoclast precursors cells (that is monocytes and macrophages).
 However, cell viability was investigated with concentrations of HF ranging from 10\si{\pico\Molar} to 100\si{\nano\Molar}, so perhaps cell myeloid death is reserved for higher doses of HF treatment.
 The scRNA-seq experiments used 1\si{\micro\Molar} HF, so this may be the concentration levels required to observe ProRS inhibitory effects on myeloid cells.
-Additionally, the monocytes/macrophages orignated from mice not humans, and without the immune microenvironment remodelling seen in MM\@.
+Additionally, the monocytes/macrophages originated from mice not humans, and without the immune microenvironment remodelling seen in MM\@.
 
 % Inversely the effects may not be cytotoxicity
 
-\subsubsection{Pathway analysis}
-Inflammation etc. etc.
-Non-canonical functionality etc. etc.
-
-
-\section{Discussion}
 
 Clusters 4 and 9 in the relapsed MM dataset were identified using gene expression data and inferCNV analysis.
 Cells in cluster 9 were shown to express no CD138 or very little CD138.
@@ -560,3 +565,6 @@ Resistant cells, resistance mechanisms to GCN2 related stressors??
 
 more time tRNA optimise
 more time, test drugs on myeloma patient PBMCs, and split into immune cell type
+
+\section{Future directions}
+Investigate potency and dose response in PBMCs from MM patients, separated by cell type using FACs??
