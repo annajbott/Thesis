@@ -513,11 +513,6 @@ Four aaRS genes were downregulated (p\textsubscript{adj} <0.05), including \text
 \textit{PYCR1}, \textit{PYCR2} and \textit{PYCR3} (genes which encode for the three enzymes in the final step of the conversion of glutamine into proline) were found to be downregulated in NCP26R cells.
 
 Next, pathway enrichment analysis was performed using the packages ClusterProfiler and XGR with gene ontology (GO) annotations.
-ER-associated pathways were found to be suppressed in NCP26R cells, including `integral component of lumenal side of endoplasmic reticulum membrane', `ER to Golgi transport vesicle membrane', `endoplasmic reticulum lumen'.
-This may indicate transcriptional changes are made to ER-associated genes to overcome and become more resistant to ER-stress produced by ProRS inhibition.
-Antigen binding and MHC class II protein complex pathways were also suppressed in NCP26R cells, as well as components of the ECM and plasma membrane.
-Some members of the UPR and ISR were enriched in NCP26R cells.
-
 % NCP26R pathway enrichment
 \begin{figure}[htb]
 \centering
@@ -530,8 +525,15 @@ c) XGR GOCC enrichment analysis for top downregulated DEGs (p\textsubscript{adj}
 \label{fig:NCP26R_pathway}
 \end{figure}
 %%
+Chromatin remodelling and assembly, DNA packaging, and nucleosome organization and assembly pathways were enriched in NCP26R cells.
+Numerous histone genes were upregulated in NCP26R cells.
+ER-associated pathways were found to be suppressed in NCP26R cells, including `integral component of lumenal side of endoplasmic reticulum membrane', `ER to Golgi transport vesicle membrane', `endoplasmic reticulum lumen'.
+This may indicate transcriptional changes are made to ER-associated genes to overcome and become more resistant to ER-stress produced by ProRS inhibition.
+Antigen binding and MHC class II protein complex pathways were also suppressed in NCP26R cells, as well as components of the ECM and plasma membrane.
+Some members of the UPR and ISR were enriched in NCP26R cells.
 
-From pathway enrichment it is clear that in becoming more resistant to NCP26 and ProRS inhibition, NCP26R cells make transcriptional changes to genes related to ER signalling and amino acid metabolism.
+NCP26R cells had a number of differentially expressed genes that relate to ER structure and function.
+Given the known involvement of ER stress and the ISR in NCP26's mechanism of action, transcriptional changes to the amino acid starvation response were explored.
 % AAR heatmap NCP26R
 \begin{figure}[p]
 \centering
@@ -544,7 +546,6 @@ Normalised gene counts are shown for each sample.
 \label{fig:ncp26R_aar_heatmap}
 \end{figure}
 %%
-Therefore transcriptional changes to the amino acid starvation response were explored.
 47 AAR genes were differentially expressed (p\textsubscript{adj} <0.05) in NCP26R cells compared to controls (Figure \ref{fig:ncp26R_aar_heatmap}).
 Many of the AAR genes seem to follow similar expression changes as with NCP26 treatment, such that many AAR genes that were upregulated (downregulated) following NCP26 treatment, were also upregulated (downregulated) in NCP26R cells.
 For example, transcription factors \textit{ATF3}, \textit{DDIT3}, \textit{CEBPB} and \textit{CEPBG} are all overexpressed in NCP26R cells vs controls, and NCP26-treated cells vs DMSO-treated cells.
