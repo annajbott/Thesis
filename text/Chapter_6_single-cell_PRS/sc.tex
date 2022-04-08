@@ -498,8 +498,8 @@ This is especially true for myeloma cells, secreting large amounts of M protein.
 Therefore, it is surprising that ProRS inhibitors seem to be non-selective for MM cells over MM patients' non-malignant myeloid cells.
 
 Differential expression and pathway enrichment analysis was performed for NCP26 and HF treatment in the myeloid clusters, to explore the transcriptional effect of ProRS inhibition in myeloid cells.
-Cell cycle arrest, apoptosis process and ER-stress response
-To ascertain if the reduction of cells in the
+Cell cycle arrest, apoptosis and ER-stress responses were enriched in ProRS inhibitor treated samples.
+This indicates that the loss of cells in the myeloid cell cluster is due to cell death.
 
 
 % only BM macrophages. associated with MM. Blood Macrophages might be different
@@ -520,30 +520,50 @@ However, it has also been shown in DE and composition analyses that ProRS inhibi
 Additionally, in the relapsed dataset, MM cell cluster 9 was resistant to ProRS inhibitor treatment at the given drug concentrations.
 
 \subsection{Effect on myeloid cells}
+From the results it is clear that, at the given concentrations,  NCP26 and HF treatment adversely affected myeloid cells.
+ProRS inhibition elicited a strong transcriptional response, and the myeloid cell cluster was significantly reduced following treatment.
+Additionally, from DE analysis and pathway enrichment analysis, genes involved in apoptotic mechanisms and cell cycle arrest were enriched, indicating that the reduction of cells in the myeloid cluster was due to cell death.
+
 Previously, Leiba et al. (2012) demonstrated HF's selectivity for MM patients' CD138\textsuperscript{+} tumour cells over PBMCs from healthy donors\cite{leiba2012halofuginone} using a cytotoxicity assay at the range of 25-200\si{\nano\Molar}.
 This is a significantly lower concentration of HF than used in the scRNA-seq experiments (1\si{\micro\Molar}), so this could represent dosing differences.
 However, it must also be noted that Leiba et al. (2012) did not separate PBMCs into their respective subtypes prior to performing the cytotoxicity assays.
-As previously demonstrated, HF treatment had very little effect on B, T and NK cells.
-Monocytes only make up approximately 5-10\% of the cells found in PBMCs- therefore, the effect of HF on monocytes could have been missed due to the minimal effects on the other cell types making up PBMCs.
-Furthermore, the control PBMCs originated from healthy donors and not from MM patients' immune microenvironment.
+As demonstrated in this chapter, HF treatment has very little effect on B, T and NK cells.
+Monocytes only make up approximately 5-10\% of the cells found in PBMCs- therefore, the effect of HF on myeloid cells could have been missed due to the minimal effects on the other cell types making up the majority of PBMCs.
+Furthermore, the control PBMCs originated from healthy donors and not from the immune microenvironment of MM patients.
 The immune microenvironment of MM patients has been shown to be substantially altered and impaired compared to healthy individuals\cite{de2013analysis}, meaning that using healthy PBMCs as a control for the selectivity of HF is not appropriate.
-To truly determine the cytotoxic selectivity of ProRS inhibition for MM cells and myeloid cells, cytotoxic assays must be performed for MM cells and myeloid cells originating from MM patients.
+To truly determine the cytotoxic selectivity of ProRS inhibition for MM cells and myeloid cells, cytotoxic assays must be performed in parallel for MM cells and myeloid cells originating from MM patients.
 
 Wang et al. (2020) investigated the use of Halofuginone to treat the inflammatory disease chronic periodontitis\cite{wang2020halofuginone}.
 Using a mouse model, they demonstrated that HF treatment significantly reduced the expression levels of pro-inflammatory cytokines, for example IL-1$\beta$, IL-6 and TNF-$\alpha$.
 HF treatment was also shown to reduce the total percent of infiltrating immune cells and myeloid cells in gingival tissues when compared with those in control, PBS-treated mice.
 The percentage of myeloid cells making up the CD45\textsuperscript{+} fraction of cells in gingival tissue was reduced by approximately 40\%, following HF treatment.
 The authors demonstrated that HF treatment did not affect the cell viability of BM-derived osteoclast precursors cells (that is monocytes and macrophages).
-However, cell viability was investigated with concentrations of HF ranging from 10\si{\pico\Molar} to 100\si{\nano\Molar}, so perhaps cell myeloid death is reserved for higher doses of HF treatment.
+However, cell viability was investigated with concentrations of HF ranging from 10\si{\pico\Molar} to 100\si{\nano\Molar}, so perhaps myeloid death is reserved for higher doses of HF treatment.
 The scRNA-seq experiments used 1\si{\micro\Molar} HF, so this may be the concentration levels required to observe ProRS inhibitory effects on myeloid cells.
 Additionally, the monocytes/macrophages originated from mice not humans, and without the immune microenvironment remodelling seen in MM\@.
 
+% https://onlinelibrary.wiley.com/doi/10.1002/jbt.22894
+PI, MG132, shown to induce macrophage apoptosis by promoting the production of ROS and mitochondrial dysfunction.
+% proteasome inhibition induced cell oxidative stress in macrophages.
+Might not limit ProRS inhibitor application
+
+
+% cellular oxidation?
 % Inversely the effects may not be cytotoxicity
+% Interesting to see if other aaRS inhibitors had same effect on myeloid cells.
+% Could it be macrophages that have negative impact on treatment anyway? Good thing then.
+
+\subsection{Resistant relapsed MM cluster}
 
 
-Clusters 4 and 9 in the relapsed MM dataset were identified using gene expression data and inferCNV analysis.
-Cells in cluster 9 were shown to express no CD138 or very little CD138.
+\subsection{Whole bone marrow scRNA-seq}
+
+Clusters 4 and 9 in the relapsed MM dataset were identified as MM clusters using gene expression data and inferCNV analysis.
+From inferCNV, both clusters were found to have myeloma-defining chromosome 13 deletions.
+The cells belonging to cluster 9 were shown to express very little or no \textit{CD138}.
 Therefore, if CD138\textsuperscript{+} PC enrichment techniques were used, this MM cell population would likely not have been sequenced and thereby not included in the analysis.
+Cluster 9 was found to be mostly resistant to NCP26 and HF treatment.
+
 Stem cell CD138- MM cells, resistant to drugs.
 More research include whole BM niche, not just CD138+ fraction.
 MM classifier can simplify process of MM identification.
@@ -576,8 +596,6 @@ Resistant cells, resistance mechanisms to GCN2 related stressors??
 more time tRNA optimise
 more time, test drugs on myeloma patient PBMCs, and split into immune cell type
 
-Interesting to see if other aaRS inhibitors had same effect on myeloid cells.
-Could it be macrophages that have negative impact on treatment anyway? Good thing then.
 
 \section{Future directions}
 Investigate potency and dose response in PBMCs from MM patients, separated by cell type using FACs??
