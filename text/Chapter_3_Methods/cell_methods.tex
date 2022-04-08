@@ -24,7 +24,7 @@ Cells were passaged when they reached approximately 1.5-2 million cells per \ml{
 L363 cells are suspension cells and were split twice a week to approximately 0.5 million cells per \ml{}.
 All media was replaced with fresh media every two to three weeks, or prior to performing experiments with the cells.
 
-L363 cells resistant to NCP26 were also developed by Dr James Dunford by continual and escalating drug exposure of WT L363 cells to NCP26.
+L363 cells resistant to NCP26 (NCP26R) were also developed by Dr James Dunford by continual and escalating drug exposure of WT L363 cells to NCP26.
 
 \section{Compounds}
 
@@ -75,18 +75,26 @@ The column was transferred to an RNase-free tube and eluted with 50\ul{} of nucl
 The RNA concentration was quantified using a NanoDrop ND-1000 Spectrophotometer (Thermo Fisher Scientific, USA), and samples were stored at -80\C{}.
 
 \subsection{RNA library preparation}
-Samples were normalised to 100\si{\ng} and made up to 50\ul{} with nuclease-free water
-Poly-adenylated RNA was enriched using the NEBNext Poly(A) mRNA magnetic isolation module (NEB, USA), following the manufacturer's protocol.
-In short, ...
-
-
+Samples were normalised to 100\si{\ng} and made up to 50\ul{} with nuclease-free water.
 NEBNext\textsuperscript{\textregistered} Ultra II directional RNA library prep kit for Illumina\textsuperscript{\textregistered} with TruSeq indexes was used to prepare RNA libraries, following the manufacturer's protocol.
-
-
+Samples were plated onto eppendorf DNA lobind 96 well plates.
+A VIAFLO robot was used to reduce time spent on washes and precipitations.
+Volumes were adjusted for elution steps to account for the dead volume of the robot.
+Prior to any steps involving the VIAFLO robot, thermocycler, or incubations on the magnetic rack, plates were sealed tightly with foil lids, briefly vortexed and then centrifuged for < 10 seconds at 100g.
+Poly-adenylated RNA was enriched using the NEBNext Poly(A) mRNA magnetic isolation module (NEB, USA), following the manufacturer's instructions with several modifications.
+Oligo dT Beads were washed appropriately, then 10\ul{} of oligo dT Beads (manufacturer's protocol says 20\ul{}) was added to each RNA sample, and incubated for 10 minutes at room temperature.
+Following polyA selection and first and second strand synthesis, cDNA was purified using 1.8X solid-phase reversible immobilisation (SPRI)
+beads.
+Purified cDNA was eluted in 55\ul{} 0.1X TE Buffer.
+The cDNA was then end-prepped and adaptor ligated.
+The cDNA was diluted 50-fold in the adaptor dilution buffer (as 100ng starting RNA was used).
+PCR amplification was carried out using 11 PCR cycles (the manufacturer's protocol recommends 12-13 for 100ng starting RNA), in order to minimise PCR duplicates.
 
 \subsection{Pre-sequencing preparation}\label{subsec:preseq}
-The molarities of the libraries were determined by electrophoresis on a TapeStation (Agilent, USA).
+The molarities of the libraries were determined by electrophoresis on an Agilent 22000 TapeStation (Agilent, USA) and High Sensitivity D1000 ScreenTape (Agilent, USA).
 The samples were then pooled according to their peak molarity.
+The pooled library was quantified using an Agilent 22000 TapeStation (Agilent, USA) and High Sensitivity D1000 ScreenTape (Agilent, USA).
+If significant adaptor-dimers were present, then an extra clean-up using 1.2X SPRI beads was performed.
 The pooled library was then denatured and diluted ready for sequencing.
 In short, 10\ul{} of the approximately 2\si{\nano\Molar} library was denatured with 0.2N 10\ul{} NaOH.
 The mixture was vortexed briefly, centrifuged at 300g for 1 minute, and then incubated at room temperature for 5 minutes.
