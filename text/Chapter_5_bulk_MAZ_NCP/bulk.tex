@@ -10,9 +10,9 @@ Therefore, research into novel therapeutics that can overcome multi-drug resista
 New analogues of the drug Febrifugine are being actively researched for the treatment of many diseases, including numerous cancers\cite{halo2012clin, halo2012clin2}.
 Febrifugine is the biologically active component of the herb \textit{Dichroa febrifuga}, which is considered one of the fundamental herbs in traditional Chinese medicine\cite{koepfli1949alkaloids}.
 Febrifugine is a quinazolinone alkaloid, which has been shown to possess strong anti-malarial properties.
-One such Febrifugine derivative, halofuginone (HF), has previously been shown to inhibit T Helper 17 (TH17) cell differentiation, by activating the amino acid response (AAR)\cite{sundrud2009halofuginone}.
+One such Febrifugine derivative, halofuginone (HF), has previously been shown to inhibit TH\textsubscript{17} cell differentiation, by activating the amino acid response (AAR)\cite{sundrud2009halofuginone}.
 Halofuginone inhibits the enzyme glutamyl-prolyl tRNA synthetase (EPRS)\cite{keller2012halofuginone}.
-EPRS is a bifunctional aminoacyl-tRNA synthetase (AARS) and catalyses the the aminoacylation of glutamic acid and proline tRNA species (such that it charges its cognate tRNAs with glutamic acid and proline).
+EPRS is a bifunctional aminoacyl-tRNA synthetase (AARS) and catalyses the aminoacylation of glutamic acid and proline tRNA species (such that it charges its cognate tRNAs with glutamic acid and proline).
 Halofuginone and Febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utilisation of proline during translation\cite{keller2012halofuginone}.
 This results in an accumulation of uncharged tRNA\textsuperscript{pro}s, giving the same cellular environment as if the cell were proline deficient, triggering the AAR to respond to the apparent proline deprived state.
 
@@ -47,7 +47,7 @@ Aminoacylation is an ATP-dependent process, therefore blocking ATP binding inhib
 NCP26 will hopefully alleviate some of the issues associated with HF treatment.
 More ProRS inhibitors have been synthesized by the group, including NCP22.
 
-This chapter uses MM cell-line models to assess the effectiveness of these ProRS inhibitors and uses bulk-RNA-seq to capture the transcriptional landscape following treatment, and determine their mechanism of action in MM\@.
+This chapter uses MM cell-line models to assess the effectiveness of these ProRS inhibitors and uses bulk-RNA-seq to capture the transcriptional landscape following ProRS inhibitor treatment and ProRS inhibitor resistance.
 
 % Flush figures
 \clearpage
@@ -84,7 +84,7 @@ Together, this validates that AMO-1 (WT) cells and L363 CFZr cells are sufficien
 \subsection{Halofuginone and NCP26 are cytotoxic to drug sensitive and drug resistant MM cell lines in a dose-dependent manner}
 The effect of the ProRS inhibitors NCP22, NCP26, MAZ1805 (Halofuginol) and MAZ1392 (Halofuginone; HF) on cell viability was investigated using the MM cell lines AMO-1 and L363 CFZ-r.
 The cell lines were treated with a range of concentrations of each compound (3.9\si{\nano\Molar}- 1\si{\micro\Molar}).
-Cell viability was assessed using presto-blue assays (section \ref{subsec:method_doseresponse}), and dose response curves were generated (Figures \ref{fig:dose}a and \ref{fig:dose}c).
+Cell viability was assessed using presto-blue assays (Section \ref{subsec:method_doseresponse}), and dose response curves were generated (Figures \ref{fig:dose}a and \ref{fig:dose}c).
 Halofuginone and NCP26 reduced cell viability of PI-sensitive AMO-1 cells and carfilzomib resistant L363 cells in a dose-dependent fashion.
 For this concentration range, MAZ1805 and NCP22 seemed to have little effect on cell viability of WT or CFZ-r cells, and IC\textsubscript{50} values were unable to be calculated.
 Halofuginone was found to be more potent than NCP26.
@@ -109,11 +109,11 @@ WT AMO-1 cells were found to be more sensitive to NCP26 and halofuginone treatme
 This may indicate some acquired cross-resistance built up from carfilzomib exposure or inherent resistance in the L363 cell line over the AMO-1 cell line.
 
 \subsection{Carfilzomib and NCP26 have an additive or mild antagonistic effect together}\label{subsec:synergy}
-Drug combinations have proved effective in MM in recent years, for example the combination of bortezomib, lenalidomide, and dexamethasone (VRd) is used extensively for newly diagnosed MM patients.
+Drug combinations have proved effective in MM in recent years, for example the combination of bortezomib, lenalidomide, and dexamethasone (VRd).
 Drugs are often used in combination so that outcomes are improved (synergistic efficacy) or to reduce off-target effects and toxicity by minimizing the doses of the drugs (synergistic potency)\cite{meyer2019quantifying}.
 
 To assess if NCP26 and carfilzomib work together synergistically, AMO-1 cells were treated with varying concentrations of NCP26 and Carfilzomib for 72 hours, then presto blue assays were performed to determine cell viability.
-As shown by dose response curves in Figure \ref{fig:synergy}a and the response matrix in Figure \ref{fig:synergy}b, NCP26 and carfilzomib elicit a stronger cytoxic effect together than each agent individually.
+As shown by dose response curves in Figure \ref{fig:synergy}a and the response matrix in Figure \ref{fig:synergy}b, NCP26 and carfilzomib elicit a stronger cytotoxic effect together than each agent individually.
 SynergyFinder\cite{zheng2021synergyfinder} was used to calculate the compounds' synergy scores (-4.66 ZIP; -4.18 Loewe; -5.53 Bliss).
 From these values it is unlikely that NCP26 and Carfilzomib work together synergistically.
 NCP26 and carfilzomib seem to have an additive effect together, or slight antagonistic effect.
@@ -137,7 +137,7 @@ Although, the group only used a single concentration of BTZ (5\si{\nano\Molar}) 
 This limits their ability to determine synergy, as only very few concentration combinations were tested.
 In the same study, HF was shown to exhibit moderate synergistic cytotoxicity with other anti-MM agents, including the IMiD lenalidomide and the corticosteroiod dexamethasone.
 This might demonstrate the potential of using ProRS inhibitors in combination with IMiDs and corticosteroids, perhaps in place of proteasome inhibitors, once PIs become less effective for MM patients.
-Indeed, with the promising results in Figure \ref{fig:dose}d, HF and NCP26 have shown cytotoxcity against PI-resistant cells and therefore hint towards being an effective agent against relapsed and PI-resistant MM\@.
+Indeed, with the promising results in Figure \ref{fig:dose}d, HF and NCP26 have shown cytotoxicity against PI-resistant cells and therefore hint towards being an effective agent against relapsed and PI-resistant MM\@.
 %%%%%%%%%
 
 % Flush figures
@@ -214,7 +214,7 @@ Previously, HF has been shown to induce the accumulation of cells in the G\texts
 
 \subsubsection{Differential expression}
 For AMO-1 WT cells at 6 hours, 2119 genes were differentially expressed ($\lvert log_{2}FC \rvert$ > 0.5 and p\textsubscript{adj}<0.05; DE) for NCP26 treated-samples, 3019 DE genes (DEGs) for halofuginone, 33 DEGs for MAZ1805, 218 DEGs for NCP22, and 983 DEGs for carfilzomib-treated samples compared to DMSO controls.
-At 24 hours, 3323 DEGs for NCP26-treated samples, 3426 DEGs for halofuginone, 2 DEGs for MAZ1805 and 2260 DEGs for carfilzomibtreated samples compared to DMSO controls.
+At 24 hours, 3323 DEGs for NCP26-treated samples, 3426 DEGs for halofuginone, 2 DEGs for MAZ1805 and 2260 DEGs for carfilzomib treated samples compared to DMSO controls.
 DEGs for NCP26 and halofuginone treatment are shown in Figure \ref{fig:wt_de}.
 %
 % DE volcano scatter WT %
@@ -350,7 +350,7 @@ d) Heatmap of selected differentially expressed genes upon carfilzomib, halofugi
 \label{fig:wt_carf_compare}
 \end{figure}
 %%
-As seen by x-y trends of scatter plots and number of overlapping genes in venn diagrams (Figure \ref{fig:wt_carf_compare}a and b), ProRS inhibitors and carfilzomib treatment are more similar at 24 hours, and share more DEGs (compared to DMSO controls), than at 6 hours.
+As seen by x-y trends of scatter plots and number of overlapping genes in Venn diagrams (Figure \ref{fig:wt_carf_compare}a and b), ProRS inhibitors and carfilzomib treatment are more similar at 24 hours, and share more DEGs (compared to DMSO controls), than at 6 hours.
 Somewhat obviously, NCP26 and HF share more overlapping DEGs with eachother than with CFZ\@.
 HF shares more overlapping DEGs with CFZ than NCP26.
 This is likely to do with potency and dosing, where both HF and CFZ were used at approximately 10 times their IC\textsubscript{50} value.
@@ -403,7 +403,7 @@ Amino acid transporters \textit{SLC7A11} and \textit{SLC6A9}, and tRNA aminoacyl
 \subsubsection{Pathway enrichment analysis}
 Pathway enrichment analysis was performed for the top DE genes for NCP26 and halofuginone treated samples compared to DMSO controls (Figure \ref{fig:cfz_pathway}).
 Multiple pathways relating to endoplasmic reticulum stress and apoptosis were enriched following ProRS inhibition.
-`Cellular repsonse to amino acid starvation' was enriched, along with `amino acid transport', indicating that NCP26/Halofuginone likely activate the amino acid starvation response in the CFZ resistant MM cells.
+`Cellular response to amino acid starvation' was enriched, along with `amino acid transport', indicating that NCP26/Halofuginone likely activate the amino acid starvation response in the CFZ resistant MM cells.
 Additionally the pathway `response to unfolded protein' was enriched.
 The unfolded protein response is part of the integrated stress response so shares many of the same effectors as the AAR, such as \textit{DDIT3/CHOP}.
 
@@ -598,7 +598,7 @@ As MM cells and the bone marrow already possess higher proline levels than norma
 NCP26 has demonstrated strong anti-MM effects, whilst not being susceptible to the metabolic liability of a proline supplementation resistance mechanism.
 Additionally, NCP26 has demonstrated a stark difference between EC\textsubscript{50} values of AMO-1 cells and healthy PBMCs (greater than 10-fold).
 The EC\textsubscript{50}s between HF and PBMCs were much closer in value.
-Further, NCP26 inhibition in MM in-vivo murine models was tolerated without signs of overt toxicity such as weight loss and was effective in reducing tumor growth\cite{bottpreclinical2022}.
+Further, NCP26 inhibition in MM in-vivo murine models was tolerated without signs of overt toxicity such as weight loss and was effective in reducing tumour growth\cite{bottpreclinical2022}.
 This indicates that NCP26 will likely have a much wider therapeutic window than HF, and not exhibit as many of the dose-limiting toxicities and side-effects.
 This would allow for higher dosing in patients and more effective killing of MM cells, and potentially kill even the most malignant and resistant subclones, limiting MRD and increasing time between remission and relapse.
 NCP26 treatment should perhaps also be considered for diseases currently being treated with HF, such as Kaposi's sarcoma.
@@ -607,7 +607,7 @@ NCP26 treatment should perhaps also be considered for diseases currently being t
 The capability of HF and NCP26 to overcome resistance in PI-resistant MM (rather than other MM therapies) was investigated due to the similarities in the mechanisms of action of ProRS inhibition and proteasome inhibition.
 Proteasome inhibition leads to fewer ubiquitin-tagged proteins being degraded, subsequently many misfolded proteins accumulate in the ER lumen.
 This increases ER stress, activating the integrated stress response and causing the UPR to switch from a homeostatic, pro-survival system to a pro-apoptotic pathway\cite{kubiczkova2014proteasome, wallington2018resistance}.
-The UPR shares many mediators with the the AAR, for example \textit{ATF4} and \textit{DDIT3}.
+The UPR shares many mediators with the AAR, for example \textit{ATF4} and \textit{DDIT3}.
 Therefore, it may be expected that the mechanisms overlap too much for ProRS inhibition to overcome PI-driven resistance mechanisms.
 However, it was shown in-vitro that HF and NCP26 reduce the cell viability of carfilzomib-resistant L363 cells in a dose dependent manner (Figure \ref{fig:dose}).
 The mechanisms must be sufficiently distinct for ProRS inhibition to kill PI-resistant cells.
@@ -673,7 +673,7 @@ Three PYCRs have been identified: PYCR1, PYCR2 and PYCR3.
 In a recent paper, Oudaert et al. (2022) investigated PYCR enzymes as potential therapeutic targets in MM\cite{oudaert2022pyrroline}.
 The group found that PYCR1 and PYCR2 mRNA expression correlates with an inferior overall survival in MM, and MM cells from RRMM patients express significantly higher levels of PYCR1\@.
 Small molecule PYCR1 inhibitor, pargyline, reduced proline production, MM cell viability and proliferation and increased apoptosis.
-Pargyline increased bortezomib-mediated apoptosis in-vitro and enhanced bortezomib sensitivity to reduce tumor burden in a murine model.
+Pargyline increased bortezomib-mediated apoptosis in-vitro and enhanced bortezomib sensitivity to reduce tumour burden in a murine model.
 However, pargyline as a single agent did not alter tumour load.
 PYRC1 inhibition and silencing resulted in increased CHOP (protein encoded by \textit{DDIT3}) expression, and decreased protein synthesis-- suggesting the activation of integrated stress pathways, and possibly the AAR.
 Inhibiting PYCR1 reduces proline production and its concentration, perhaps this could result in proline depletion and AAR activation, which could be responsible for some of the cytotoxic effects from PYRC1 inhibition.
@@ -682,7 +682,7 @@ As demonstrated in this chapter, ProRS inhibition of MM cells causes an upregula
 Moreover, downregulated \textit{PYCR1}, \textit{PYCR2} and \textit{PYCR3} expression was seen in NCP26 resistant cells, possibly indicating that the cells have become less reliant on proline and proline metabolism to become more robust to the apoptotic effects of ProRS inhibition.
 Oudaert's paper supports our work on ProRS inhibition (which mimics amino acid depletion)-- both highlighting the effectiveness of targeting amino acid metabolism in MM, particularly proline metabolism.
 However, the anti-MM cytotoxic effects seen from ProRS inhibition seem to be far greater than from PYCR1 inhibition as presented by Oudaert et al. (2022).
-For example, NCP26 treatment alone showed significant anti-tumor activity in a MM mouse model, without significant body weight loss\cite{bottpreclinical2022}.
+For example, NCP26 treatment alone showed significant anti-tumour activity in a MM mouse model, without significant body weight loss\cite{bottpreclinical2022}.
 This could indicate the superiority of the activation of ISR pathways by mimicking proline depletion, whereas PYCR1 inhibition only reduces the concentration of proline sourced from P5C, and not dietary proline or the abundance of proline located in pre-existing proteins which can be catabolised by the proteasome.
 It would be interesting to see how altering factors of proline metabolism would affect ProRS inhibition, or if HF/NCP26 and pargyline exhibited any synergy together.
 
