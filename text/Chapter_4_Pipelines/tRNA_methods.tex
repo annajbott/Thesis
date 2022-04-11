@@ -9,7 +9,7 @@ Therefore, efficient library preparation methods must be employed to overcome th
 Computationally, the challenges come from overcoming the reverse transcription errors introduced by chemical modifications and accurately mapping reads to tRNA genomic regions, given their multiple genomic loci\cite{hoffmann2018accurate}.
 Typically, most mapping strategies for gene expression analysis only report read alignments with unique best matches and thus discard reads mapping to tRNA altogether.
 As a consequence, specialist mapping strategies to accurately map tRNAs have been proposed\cite{selitsky2015tdrmapper, loher2017mintmap, gebert2017unitas}.
-Specifically, Hoffmann et al (2018) proposed a two pass mapping strategy that first maps reads to a tRNA masked genome then secondly these unmapped reads are aligned directly to merged tRNA clusters\cite{hoffmann2018accurate}.
+Specifically, Hoffmann et al. (2018) proposed a two pass mapping strategy that first maps reads to a tRNA masked genome then secondly these unmapped reads are aligned directly to merged tRNA clusters\cite{hoffmann2018accurate}.
 
 Computational workflows for small RNA-seq data analysis have been developed previously\cite{wu2017srnanalyzer}.
 However, there are currently a limited number specifically focused on tRNA data analysis.
@@ -48,7 +48,7 @@ The quality metrics for each sample are then summarised with MultiQC\cite{ewels2
 The pre-processed fastq files and a list of gencode annotations are used as the input for mapping.
 The gencode annotations are supplemented with automatically downloaded RNA repeats (including RNA, tRNA, rRNA, snRNA, srpRNA) from the UCSC database\cite{karolchik2004ucsc}.
 Firstly, mapping is performed against the genome using Bowtie\cite{langmead2009ultrafast} to obtain a global representation of RNA types.
-For effective tRNA mapping, tRNAnalysis implements the best-practice mapping strategy proposed by Hoffmann et al (2018), in which tRNA loci are masked from the genome and instead, intron-less tRNA precursor sequences are appended as artificial chromosomes\cite{hoffmann2018accurate}.
+For effective tRNA mapping, tRNAnalysis implements the best-practice mapping strategy proposed by Hoffmann et al. (2018), in which tRNA loci are masked from the genome and instead, intron-less tRNA precursor sequences are appended as artificial chromosomes\cite{hoffmann2018accurate}.
 In first-pass mapping, reads that overlap the boundaries of mature tRNAs are extracted.
 In a subsequent round of mapping, the remaining reads are mapped to a tRNA-masked target genome that is augmented by representative mature tRNA sequences.
 

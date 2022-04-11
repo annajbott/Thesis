@@ -5,7 +5,7 @@
 \section{Introduction}
 
 \subsection{Reproducible workflows}
-In data analysis, particularly in bioinformatics, many users often create simple bash or R scripts to execute the specific task at hand.
+In data analysis, particularly in bioinformatics, many users create simple bash or R scripts to execute the specific task at hand.
 However, if this is done frequently, the user will have an accumulation of these single-use scripts, which are often named uninformatively and never used again.
 This may mean the user creates numerous scripts which perform the same function.
 Another example of a bad practice is using the command line alone to perform tasks.
@@ -28,7 +28,7 @@ For this work, a series of computational pipelines and workflows were generated.
 Ruffus and CGAT-core\cite{cribbs2019cgat} were used as the backbone for the pipelines developed.
 
 \section{scRNA-Seq pseudoalignment pipeline}\label{sec:scRNA_pipeline}
-Fewer pipelines exist for single-cell RNA-Seq compared to bulk RNA-Seq.
+Fewer pipelines exist for single-cell RNA-seq analysis than for bulk RNA-Seq.
 For the Chromium 10X Genomics platform, most of the processing and analysis is automated by Cell Ranger;
 however for other technologies, the workflow is not as well defined.
 A single-cell analysis pipeline was constructed with the aim to produce an easy-to-use, robust and reproducible workflow that works for Drop-Seq as well as 10X technology, which utilises pseudoalignment rather than traditional mapping methods.
@@ -65,7 +65,7 @@ Multiple comparisons are accounted for by performing the Benjamini-Hochberg corr
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/workflow_generation/flowchart_sc.pdf}
-\caption[scRNA-Seq pseudoalignment pipeline flowchart]{Flowchart outlining scRNA-Seq pseudoalignment pipeline- PLACEHOLDER- remake figure}
+\caption[scRNA-Seq pseudoalignment pipeline flowchart]{Flowchart outlining scRNA-Seq pseudoalignment pipeline.}
 \label{fig:flowchart_scRNA}
 \end{figure}
 %%
@@ -82,8 +82,8 @@ Kallisto BUS/BUStools and Salmon Alevin pseudoalignment methods were both implem
 Both pseudoalignment tools have previously been compared to traditional mapping tools\cite{melsted2018barcode, srivastava2019alevin} and both showed comparable accuracy levels, therefore this benchmark does not include the performance of traditional mapping methods.
 
 \subsubsection{Simulated data}
-Simulated reads with a know ground truth counts matrix were generated as follows:
-10X (version 2) fastq files of 4k PBMCs from a healthy human donor were downloaded  \footnote{\url{https://support.10xgenomics.com/single-cell-gene-expression/datasets}}.
+Simulated reads with a known ground truth counts matrix were generated as follows:
+10X (version 2) fastq files of 4k PBMCs from a healthy human donor were downloaded\footnote{\url{https://support.10xgenomics.com/single-cell-gene-expression/datasets}}.
 These sequencing files were processed using Salmon Alevin.
 The resulting Alevin output folder was used as input for Minnow, using Minnow's alevin-mode.
 Minnow generates droplet-based scRNA-seq simulated reads, working backwards from a known counts matrix to generating raw sequencing files from which the counts matrix could have originated.
@@ -184,8 +184,7 @@ Alevin seemed to produce more lower F1 scores than BUS\@.
     \includegraphics[width=\textwidth]{figures/workflow_generation/F1_bar.png}
     \caption{F1 Score}
 \end{subfigure}
-\caption[F1, Precision and Recall Bar Charts]{F1 score.
-Two times the product of precision and recall divided by the sum of precision and recall.
+\caption[Kallisto BUS and Salmon Alevin gene expression performance metrics]{Kallisto BUS and Salmon Alevin gene expression performance metrics. Precision, recall and F1 scores.
 Measure of accuracy for the tools ability to predict gene expression.
 Expression classified by 0 or 1.
 Undefined scores have been removed.
@@ -258,9 +257,9 @@ Each major task has been split into separate lightweight pipelines, each contain
 The black arrows in Figure \ref{fig:updated_sc_workflow} denote a separate processing pipeline.
 This allows the user to analyse the output after each step, and make changes to parameters as they see fit.
 
-Following sequencing, raw FASTQ files are inputted into Kallisto bus.
-A bus file is generated along with corresponding information about equivalence classes and transcript names.
-Kallisto bustools is used to generate a cell by gene count matrix for each sample.
+Following sequencing, raw FASTQ files are used as input for Kallisto BUS.
+BUS files are generated along with the corresponding information about equivalence classes and transcript names.
+Kallisto BUStools is used to generate a cell by gene count matrix for each sample.
 These matrices are loaded into R and converted to Single cell experiment (SCE) and Seurat objects.
 Next, quality control (QC) is performed.
 Poor quality cells are removed based on numerous parameters.
@@ -278,7 +277,7 @@ The user can then perform further downstream analysis on the annotated integrate
 \includegraphics[width=\textwidth]{figures/workflow_generation/sc_workflow.pdf}
 \caption[Updated scRNA-seq workflow]{Outline of updated scRNA-seq workflow.
 Each black arrow denotes an independent pipeline.
-Following sequencing raw FASTQ files are processed by Kallisto bus and bustools and cell x gene count matrices are produced for each sample.
+Following sequencing raw FASTQ files are processed by Kallisto BUS and BUStools and cell x gene count matrices are produced for each sample.
 Quality control (QC) is performed, based on a number of parameter thresholds.
 QC often requires user supervision to fun-tune the process.
 Seurat is then used to perform dimensionality reduction techniques and cluster samples individually.
@@ -335,18 +334,19 @@ Many bioinformatic tools are written in R and are easily available on the Biocon
 Logging of pipeline progress allows for easy reproducibility of results.
 CGAT pipelines are built on top of Ruffus workflow management.
 Compared with other workflow managers, Ruffus has been rated manager with the highest ease of development, such that it requires the least effort to compose new workflows\cite{leipzig2017review}.
-This is further adds to its appeal, as it requires less time and effort to create new workflows, but also means that other users should be easily able to debug errors themselves and adapt the workflows as they see fit.
+This further adds to its appeal, as creators require less time and effort to write new workflows, but also users should be able to easily debug errors themselves and adapt the workflows as they see fit.
 
-Using the CGAT framework, analysis pipelines were constructed for dscRNA-seq pseudoalignment analysis, scRNA velocity analysis and tRNA-seq analysis.
+Using the CGAT framework, analysis pipelines were constructed for dscRNA-seq pseudoalignment analysis, tRNA-seq analysis, scRNA velocity analysis and virus detection in scRNA-seq data.
 
 \subsection{Benchmarks}
 
-Benchmarks were conducted to assess the performance of these pipelines.
+Benchmarks were conducted to assess the performance of several pipelines.
 A combination of simulated and real data was used to assess performance.
 Simulated data allows comparison of the output of a given method to a known `ground-truth'.
 This is a key strength of using simulated data as you can directly compare to known scores or values, and quantitatively assess the accuracy of a method.
 For transcriptomic data, often the known ground truth data is a counts matrix, either gene x sample for bulk methods or gene x cell for single-cell methods.
-Additionally, simulated data can be used as lightweight data for testing, as opposed to using large real-world data. However, using simulated data poses several limitations.
+Additionally, simulated data can be used as lightweight data for testing, as opposed to using large real-world data.
+However, using simulated data poses several limitations.
 The model under which the simulated data were generated can alter the results of the benchmark and favour certain methods over others.
 For example, a benchmark was performed for 12 different scRNA-seq simulation methods, across 35 different datasets\cite{cao2021benchmark}.
 The study observed differing results for each method across four evaluative categories (data property estimation, biological signals, scalability and applicability\cite{cao2021benchmark}, indicating that the method of simulating data can affect the performance of a model in a benchmark.
@@ -430,9 +430,9 @@ Passaging in cell culture, sample processing and drug treatment can induce rapid
 Furthermore, CD138\textsuperscript{-} MM cells have been reported to have more proliferative potential than CD138\textsuperscript{+} MM cells and that they play an important role in regulating bone marrow stromal cells\cite{reid2010characterisation, wu2015cd138}.
 Matsui et al. (2004) reported the existence of CD138\textsuperscript{-} MM `stem cells', which had greater clonogenic potential than CD138\textsuperscript{+} MM cells and phenotypically resembled postgerminal center B cells\cite{matsui2004characterization}.
 A decrease in CD138 expression has also been observed during the course of treatment in some MM patients\cite{kawano2012multiple}.
-Therefore, by separating cells based on CD138 expression, information on a whole subpopulation of MM cells is lost.
+Therefore, by separating cells based on CD138 expression, information on a whole subpopulation of MM cells may be lost.
 Results will be skewed towards CD138\textsuperscript{+} MM cells.
-With the large heterogeneity seen in MM and acquired-drug resistance theories regarding MRD and clonal evolution, the entire MM cell population must be investigated to get an accurate picture of the whole MM landscape.
+Due to the large heterogeneity seen in MM, and the role of MRD and clonal evolution in acquired-drug resistance-- the entire MM cell population must be investigated to get an accurate picture of the whole MM landscape.
 
 Bansal et al. (2021) highlighted issues with sorting PCs using CD138, beyond the scope of losing heterogeneous CD138\textsuperscript{-} MM populations.
 The group investigated the impact of CD138\textsuperscript{+} magnetic bead-based selection compared to WBM processing on BM plasma cell surface markers using FCM\cite{bansal2021impact}.
@@ -455,7 +455,7 @@ Previously, machine learning (ML) approaches have been applied to bulk RNA seque
 ML classifiers based on scRNA-seq datasets would likely have more power and stronger predictive capabilities than classifiers built using bulk RNA-seq data, due to the underlying heterogeneity of the patient data and the high dimensionality of scRNA-seq data.
 In recent years there have been applications of scRNA-seq based ML predictions and classifications in cancer.
 scRNA-seq datasets have been used for binary and pan cancer classification of certain breast and skin cancers\cite{mahin2022panclassif}.
-ML techniques have been applied to scRNA-seq datasets to predict drug resistance and characterise inter- and intra-tumour heterogeneity in MM\cite{kashif2021predicting, johnson2019development}.
+ML techniques have also been applied to scRNA-seq datasets to predict drug resistance and characterise inter- and intra-tumour heterogeneity in MM\cite{kashif2021predicting, johnson2019development}.
 However, these studies looked at CD138\textsuperscript{+} PCs only and did not consider the immune microenvironment.
 I expect there to be numerous applications of ML and deep learning methods to MM scRNA-seq data in the coming years, as the price of single-cell sequencing lowers and more computational biologists move into the field.
 However, I do believe the WBM niche should be included in MM classifiers and predictive tools to fully utilise all knowledge available and capture as many MM features as possible to inform the underlying models.
