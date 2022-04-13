@@ -497,18 +497,45 @@ This is especially true for myeloma cells, secreting large amounts of M protein.
 %Additionally, tumours are usually extremely proline-rich.
 Therefore, it is surprising that ProRS inhibitors seem to be non-selective for MM cells over MM patients' non-malignant myeloid cells.
 
-Differential expression and pathway enrichment analysis was performed for NCP26 and HF treatment in the myeloid clusters, to explore the transcriptional effect of ProRS inhibition in myeloid cells.
-Cell cycle arrest, apoptosis and ER-stress responses were enriched in ProRS inhibitor treated samples.
-This indicates that the loss of cells in the myeloid cell cluster is due to cell death.
-
-
 % only BM macrophages. associated with MM. Blood Macrophages might be different
 %These results suggest that macrophages protect MM cells from apoptosis via inhibiting Bcl-XL-dependent caspase activation ??
 % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3570938/
 
 \subsubsection{Pathway analysis}
-Inflammation etc. etc.
-Non-canonical functionality etc. etc.
+Differential expression and pathway enrichment analysis was performed for NCP26 and HF treatment in monocyte/macrophages.
+Cell cycle arrest, apoptosis, programmed cell death and stress responses were enriched in ProRS inhibitor treated samples (Figure \ref{fig:myeloid_pathway_naive} and Figure \ref{fig:myeloid_pathway_relapsed}).
+This indicates that the loss of cells in the myeloid cell cluster is due to cell death.
+%%  myeloid pathway naive
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/myeloid/myeloid_naive_pathway.pdf}
+\caption[scRNA-seq myeloid cell pathway analysis- newly diagnosed MM]{Pathway analysis of ProRS inhibitor treatment in monocytes/macrophages in newly-diagnosed MM.
+a-c) Halofuginone treatment vs DMSO.
+d-f) NCP26 treatment vs DMSO.
+a) and d) Gene-set enrichment analysis (GSEA) dotplot of top enriched pathways.
+b) and e) XGR gene ontology biological processes (GOBP) of top upregulated genes ($\log_{2}FC >1$).
+c) and f) XGR gene ontology biological processes (GOBP) of top downregulated genes ($\log_{2}FC < -1$).
+}
+\label{fig:myeloid_pathway_naive}
+\end{figure}
+%%
+
+%%  myeloid pathway relapsed subset
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{figures/Results/single_cell/myeloid/myeloid_relapse_pathway_subset.pdf}
+\caption[scRNA-seq myeloid cell pathway analysis- relapsed MM]{Pathway analysis of ProRS inhibitor treatment in monocytes/macrophages in relapsed MM.
+a) Gene-set enrichment analysis (GSEA) dotplot of top enriched pathways for 5\si{\micro\Molar} NCP26 treatment vs DMSO.
+b) XGR gene ontology biological processes (GOBP) pathway analysis of top upregulated genes (($\log_{2}FC >1$) for 1\si{\micro\Molar} NCP26 treatment vs DMSO.
+c) XGR GOBP pathway analysis of top downregulated genes ($\log_{2}FC < -1$) for 1\si{\micro\Molar} NCP26 treatment vs DMSO.
+}
+\label{fig:myeloid_pathway_relapsed}
+\end{figure}
+%%
+Immune and inflammatory responses were modulated following ProRS inhibition in myeloid cells.
+Neutrophil degranulation, secretory granule, lysosome, chemotaxis and migration pathways were suppressed in myeloid cells.
+Additionally, mitochondria-related pathways were suppressed, such as oxidative phosphorylation, the electron transport chain and mitochondrial membrane components.
+This may indicate some mitochondrial dysfunction in myeloid cells following ProRS inhibition.
 
 
 \section{Discussion}
@@ -520,7 +547,7 @@ However, it has also been shown in DE and composition analyses that ProRS inhibi
 Additionally, in the relapsed dataset, MM cell cluster 9 was resistant to ProRS inhibitor treatment at the given drug concentrations.
 
 \subsection{Effect on myeloid cells}
-From the results it is clear that, at the given concentrations,  NCP26 and HF treatment adversely affected myeloid cells.
+From the results it is clear that, at the given concentrations,  NCP26 and HF treatment adversely affected monocytes and macrophages.
 ProRS inhibition elicited a strong transcriptional response, and the myeloid cell cluster was significantly reduced following treatment.
 Additionally, from DE analysis and pathway enrichment analysis, genes involved in apoptotic mechanisms and cell cycle arrest were enriched, indicating that the reduction of cells in the myeloid cluster was due to cell death.
 
@@ -541,6 +568,14 @@ The authors demonstrated that HF treatment did not affect the cell viability of 
 However, cell viability was investigated with concentrations of HF ranging from 10\si{\pico\Molar} to 100\si{\nano\Molar}, so perhaps myeloid death is reserved for higher doses of HF treatment.
 The scRNA-seq experiments used 1\si{\micro\Molar} HF, so this may be the concentration levels required to observe ProRS inhibitory effects on myeloid cells.
 Additionally, the monocytes/macrophages originated from mice not humans, and without the immune microenvironment remodelling seen in MM\@.
+
+Previously, the proteasome inhibitor MG132 was shown to induce macrophage apoptosis\cite{wang2021proteasome}.
+A number of proteasome inhibitors have been approved for use in multiple myeloma, in both newly-diagnosed and relapsed MM, and they are regarded as part of the cornerstone for modern MM treatment.
+Macrophage apoptosis has not been a barrier in the use of PIs in MM, therefore ProRS inhibitors causing myeloid cell death may not limit their usage in clinical MM\@.
+As discussed in the previous chapter, amino acid depletion has been implicated in the mechanism of action of proteasome inhibitors.
+Wang et al. (2021) asserted that macrophages apoptosis following MG132 treatment was due to promoting ROS production and mitochondrial dysfunction\cite{wang2021proteasome}.
+As shown above, ProRS inhibition in myeloid cells resulted in suppression of several mitochondrial pathways, as well as induction of oxidative stress.
+
 
 % https://onlinelibrary.wiley.com/doi/10.1002/jbt.22894
 PI, MG132, shown to induce macrophage apoptosis by promoting the production of ROS and mitochondrial dysfunction.
@@ -598,4 +633,5 @@ more time, test drugs on myeloma patient PBMCs, and split into immune cell type
 
 
 \section{Future directions}
+
 Investigate potency and dose response in PBMCs from MM patients, separated by cell type using FACs??
