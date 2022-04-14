@@ -582,67 +582,73 @@ HF has also been shown numerous times to reduce inflammation, pro-inflammatory c
 Previously, GCN2 has been shown to have an important role in myeloid cell homeostasis and immune function.
 It has been hypothesised that targeting amino acid metabolism and GCN2 function in myeloid cells could show great clinical potential\cite{liu2014role}.
 
-% cellular oxidation?
-% Inversely the effects may not be cytotoxicity
 % Interesting to see if other aaRS inhibitors had same effect on myeloid cells.
 % Could it be macrophages that have negative impact on treatment anyway? Good thing then.
 
-\subsection{Resistant relapsed MM cluster}
+Furthermore, HF and NCP26 inhibit the proline domain of the bifucntional aaRS EPRS\@.
+EPRS is a member of the MSC.
+EPRS is released from the MSC in myeloid cells upon IFN-$\gamma$ stimulation, which causes a two-step phosphorylation of two serines in the linker region of human EPRS\cite{arif2009two}.
+EPRS combines with other proteins (NSAP1, L13a and GAPDH) to form the GAIT complex, which represses translation of numerous inflammatory-related transcripts\cite{arif2018gait}.
+IFN-$\gamma$ signalling has been implicated in the mechanism of action of ProRS inhibitors\cite{cheng2012halofugine}.
+Therefore, this non-canonical functionality of EPRS could play a role in ProRS inhibition's mechanism of action, and could potentially partially exlpain the cytotoxic-selectivity of HF and NCP26 for myeloid cells.
+For example, the formation of the GAIT complex could plausibly affect availability of ProRS for its canonical function.
 
-
-\subsection{Whole bone marrow scRNA-seq}
+\subsection{Relapsed resistant MM cluster}
 
 Clusters 4 and 9 in the relapsed MM dataset were identified as MM clusters using gene expression data and inferCNV analysis.
 From inferCNV, both clusters were found to have myeloma-defining chromosome 13 deletions.
 The cells in cluster 9 were shown to express very little or no \textit{CD138}.
 Therefore, if CD138\textsuperscript{+} PC enrichment techniques were used, this MM cell population would likely not have been sequenced and thereby not included in the analysis.
-Cluster 9 was found to be mostly resistant to NCP26 and HF treatment.
 
-Stem cell CD138- MM cells, resistant to drugs.
-More research include whole BM niche, not just CD138+ fraction.
-MM classifier can simplify process of MM identification.
+As discussed in Section \ref{subsec:mm_class_diss}, CD138\textsuperscript{-} MM cells have been reported to have a higher proliferative potential than CD138\textsuperscript{+} plasma cells.
+Often the presence of CD138\textsuperscript{-} MM cells is also associated with poor prognosis.
+A decrease in CD138 expression is seen in MM patients relapsed/progressive disease compared with untreated MM patients\cite{kawano2012multiple}.
+This was corroborated by our scRNA-seq data, whereby there was no CD138\textsuperscript{-} MM cell population in the newly-diagnosed MM dataset, but there was for the relapsed MM dataset.
+Decreased CD138 expression has previously been associated with reduced sensitivity to the MM drug, lenalidomide\cite{kawano2012multiple}.
+Cluster 9 in the relapsed dataset (with no or little \textit{CD138} expression) was found to be largely resistant to NCP26 and HF treatment at the gieven concentrations.
+Whereas CD138\textsuperscript{+} cluster 4 was sensitive to ProRS inhibition.
+This suggests that CD138\textsuperscript{-} MM cells may have increased resistance to anti-MM drugs.
+Previous scRNA-seq studies, researching resistance pathways in MM, separated CD138\textsuperscript{+} cells prior to sequencing\cite{cohen2021identification}.
+Thereby, the researchers missed vital clonal MM populations, which may have been contributing greatly to MRD, clonal evolution and resistant mechanisms in MM\@.
+More MM researches, especially those interested in drug resistance mechanisms, should sequence the whole BM niche, not just the CD138\textsuperscript{+} fraction.
+The MM classifiers generated in Chapter 4 can simplify the process of MM cell identification computationally, so that researchers are less reliant on CD138\textsuperscript{+} enrichment techniques.
+% Also if just sequenced MM cells (CD138+) would miss effects on myeloid cells.
 
-Drugs showed little effect on cluster 9. Could be key to MRD and clonogenic. Naive patient showed large CD138+ MM expression. Difference between naive and relapse
-Argument for sequencing whole BM niche.
-Also if just sequenced MM cells (CD138+) would miss effects on myeloid cells.
-
-Myeloid stuff, off target non-canonical functionality
-
-Alternative splicing...
-(paper: The
-7 complexity of ProRS inhibitor responses and connection to Myc-mediated proliferation and
-8 survival is further highlighted by regulation of RNA splicing and RNA binding proteins such as
-9 HNRNPK (54), as observed in the patient derived myeloma samples, linking post-transcriptional
-10 and translational processes as an important axis to regulate the phenotypic responses.)
-
-https://www.mdpi.com/1422-0067/19/2/545/htm
-Borrelidin ThrRS threonyl-tRNA synthetase
-In colon tumor cells, the spliceosome-associated protein FBP21 (formin binding protein 21) was the target of borrelidin
-
-% Future- tRNA-seq optimise
-
-Reduction in CD138 (SDC1), essential survival factor?? regulating its bone
-7 marrow localisation and microenvironment interactions.. CD138- myeloma though
-Abrogates syntheis. ref 65 in paper
-
-Resistant cells, resistance mechanisms to GCN2 related stressors??
-
-more time tRNA optimise
-more time, test drugs on myeloma patient PBMCs, and split into immune cell type
-
+% Alternative splicing...
+%(paper: The
+%7 complexity of ProRS inhibitor responses and connection to Myc-mediated proliferation and
+%8 survival is further highlighted by regulation of RNA splicing and RNA binding proteins such as
+%9 HNRNPK (54), as observed in the patient derived myeloma samples, linking post-transcriptional
+%10 and translational processes as an important axis to regulate the phenotypic responses.)
+%
+%https://www.mdpi.com/1422-0067/19/2/545/htm
+%Borrelidin ThrRS threonyl-tRNA synthetase
+%In colon tumor cells, the spliceosome-associated protein FBP21 (formin binding protein 21) was the target of borrelidin
+%
+%
+%Reduction in CD138 (SDC1), essential survival factor?? regulating its bone
+%7 marrow localisation and microenvironment interactions.. CD138- myeloma though
+%Abrogates syntheis. ref 65 in paper
+%
+%Resistant cells, resistance mechanisms to GCN2 related stressors??
 
 \section{Future directions}
 The effects of ProRS inhibition in myeloid cells should be examined in more detail.
 Preferential selectivity for MM cells should be confirmed using dose response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types. % FACS?
-It would be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other pathologies.
+It would be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other disease pathologies.
 Moreover, the mechanism underlying cell death in myeloid cells should be elucidated.
 Mitochondrial dysfunction and immune suppression should be investigated.
+% HOw would i investigate
 
+The effectiveness of other tRNA synthetase inhibitors should be tested in MM\@.
+This could present a whole new fleet of therapeutics in MM\@.
+Moreover, some could be more effective or appropriate in MM, with different characteristics or side-effect profiles.
+aaRSs with other non-canonical functions may present differently.
+For example, EPRS as a member of the MSC
 
-Other tRNA synthetase inhibitors tested in MM\@.
-
-Prolyl-tRNA synthetase (ProRS) is an enzyme which catalyzes the coupling of tRNA\textsuperscript{pro}s to proline, therefore the effect of ProRS inhibitors on tRNAs was of great interest.
-A tRNA-seq analysis pipeline (tRNAnalysis) was developed to analyse tRNA-seq data (Section \ref{sec:trna_method}).
+Prolyl-tRNA synthetase (ProRS) is an enzyme which catalyzes the coupling of tRNA\textsuperscript{pro} to proline, therefore the effect of ProRS inhibitors on tRNAs is of great interest.
+Additionally, transfer RNA-derived small RNAs (tDRs) have been shown to play pivotal roles in stress responses\cite{li2022distinct}.
+A tRNA-seq analysis pipeline (tRNAnalysis) was developed to analyse tRNA-seq data (Section \ref{sec:trna_methods}).
 Bulk RNA-seq and tRNA-seq were performed to see the transcriptional effect on tRNAs and tRNA synthetases in MM cells following a short exposure to ProRS inhibitors.
 AMO-1 cells were treated with DMSO, NCP26, HF and ProSA for three and six hours.
 Enough RNA was harvested to perform bulk RNA-seq and tRNA-seq experiments in parallel.
