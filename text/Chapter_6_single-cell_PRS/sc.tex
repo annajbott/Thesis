@@ -556,11 +556,11 @@ This is a significantly lower concentration of HF than used in the scRNA-seq exp
 However, it must also be noted that Leiba et al. (2012) did not separate PBMCs into their respective subtypes prior to performing the cytotoxicity assays.
 As demonstrated in this chapter, HF treatment has very little effect on B, T and NK cells.
 Monocytes only make up approximately 5-10\% of the cells found in PBMCs- therefore, the effect of HF on myeloid cells could have been missed due to the minimal effects on the other cell types making up the majority of PBMCs.
-Furthermore, the control PBMCs originated from healthy donors and not from the immune microenvironment of MM patients.
-The immune microenvironment of MM patients has been shown to be substantially altered and impaired compared to healthy individuals\cite{de2013analysis}, meaning that using healthy PBMCs as a control for the selectivity of HF is not appropriate.
+Furthermore, the control PBMCs originated from healthy donors and not from MM patients.
+The immune microenvironment of MM patients has been shown to be substantially altered and impaired compared to healthy individuals\cite{de2013analysis}, meaning that using healthy PBMCs as a control for the selectivity of HF may not be appropriate.
 To truly determine the cytotoxic selectivity of ProRS inhibition for MM cells and myeloid cells, cytotoxic assays must be performed in parallel for MM cells and myeloid cells originating from MM patients.
 
-Wang et al. (2020) investigated the use of Halofuginone to treat the inflammatory disease chronic periodontitis\cite{wang2020halofuginone}.
+Wang et al. (2020) investigated the use of halofuginone to treat the inflammatory disease chronic periodontitis\cite{wang2020halofuginone}.
 Using a mouse model, they demonstrated that HF treatment significantly reduced the expression levels of pro-inflammatory cytokines, for example IL-1$\beta$, IL-6 and TNF-$\alpha$.
 HF treatment was also shown to reduce the total percent of infiltrating immune cells and myeloid cells in gingival tissues when compared with those in control, PBS-treated mice.
 The percentage of myeloid cells making up the CD45\textsuperscript{+} fraction of cells in gingival tissue was reduced by approximately 40\%, following HF treatment.
@@ -575,13 +575,12 @@ Macrophage apoptosis has not been a barrier in the use of PIs in MM, therefore P
 As discussed in the previous chapter, amino acid depletion has been implicated in the mechanism of action of proteasome inhibitors.
 Wang et al. (2021) asserted that macrophages apoptosis following MG132 treatment was due to promoting ROS production and mitochondrial dysfunction\cite{wang2021proteasome}.
 As shown above, ProRS inhibition in myeloid cells resulted in suppression of several mitochondrial pathways, as well as induction of oxidative stress.
+Therefore, mitochondrial dysfunction could play a role in why myeloid cells are adversely affected by ProRS inhibition, selectively over other immune cell types.
 
+HF has also been shown numerous times to reduce inflammation, pro-inflammatory cytokines and inflammatory pathology.
 
-% https://onlinelibrary.wiley.com/doi/10.1002/jbt.22894
-PI, MG132, shown to induce macrophage apoptosis by promoting the production of ROS and mitochondrial dysfunction.
-% proteasome inhibition induced cell oxidative stress in macrophages.
-Might not limit ProRS inhibitor application
-
+Previously, GCN2 has been shown to have an important role in myeloid cell homeostasis and immune function.
+It has been hypothesised that targeting amino acid metabolism and GCN2 function in myeloid cells could show great clinical potential\cite{liu2014role}.
 
 % cellular oxidation?
 % Inversely the effects may not be cytotoxicity
@@ -595,7 +594,7 @@ Might not limit ProRS inhibitor application
 
 Clusters 4 and 9 in the relapsed MM dataset were identified as MM clusters using gene expression data and inferCNV analysis.
 From inferCNV, both clusters were found to have myeloma-defining chromosome 13 deletions.
-The cells belonging to cluster 9 were shown to express very little or no \textit{CD138}.
+The cells in cluster 9 were shown to express very little or no \textit{CD138}.
 Therefore, if CD138\textsuperscript{+} PC enrichment techniques were used, this MM cell population would likely not have been sequenced and thereby not included in the analysis.
 Cluster 9 was found to be mostly resistant to NCP26 and HF treatment.
 
@@ -633,5 +632,28 @@ more time, test drugs on myeloma patient PBMCs, and split into immune cell type
 
 
 \section{Future directions}
+The effects of ProRS inhibition in myeloid cells should be examined in more detail.
+Preferential selectivity for MM cells should be confirmed using dose response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types. % FACS?
+It would be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other pathologies.
+Moreover, the mechanism underlying cell death in myeloid cells should be elucidated.
+Mitochondrial dysfunction and immune suppression should be investigated.
 
-Investigate potency and dose response in PBMCs from MM patients, separated by cell type using FACs??
+
+Other tRNA synthetase inhibitors tested in MM\@.
+
+Prolyl-tRNA synthetase (ProRS) is an enzyme which catalyzes the coupling of tRNA\textsuperscript{pro}s to proline, therefore the effect of ProRS inhibitors on tRNAs was of great interest.
+A tRNA-seq analysis pipeline (tRNAnalysis) was developed to analyse tRNA-seq data (Section \ref{sec:trna_method}).
+Bulk RNA-seq and tRNA-seq were performed to see the transcriptional effect on tRNAs and tRNA synthetases in MM cells following a short exposure to ProRS inhibitors.
+AMO-1 cells were treated with DMSO, NCP26, HF and ProSA for three and six hours.
+Enough RNA was harvested to perform bulk RNA-seq and tRNA-seq experiments in parallel.
+Bulk RNA-seq was performed using methodology outlined in Section \ref{sec:bulk_lib_prep}.
+tRNA-seq libraries were constructed following QuantM tRNA-seq methodology\cite{pinkard2020quantitative}.
+Adaptations to the protocol were made for use in the Oppermann lab (Section \ref{sec:quantm}).
+However, after following a week-long protocol, the libraries sequenced were of very poor quality and read assignment was extremely low.
+From personal correspondence with the authors, several mistakes were made in the published protocol, where previous iterations of the protocol were published by mistake, including errors in the sequence of the custom primers, which lead to lower yield.
+Also certain requirements were omitted from the method, including vital sequencing details.
+Previously, other labs have tried to replicate QuantM, however were also unsuccessful<CITE>
+If more time was available, I would have optimised the QuantM tRNA-seq methodology for use in the Oppermann lab.
+Then the resulting data would have been analysed using tRNAnalysis.
+
+
