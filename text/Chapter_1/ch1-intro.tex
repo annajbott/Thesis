@@ -2,6 +2,10 @@
 
 %\minitoc
 
+
+%% To do:
+% MM MGUS SMM immune paper, ribosome, sanger sequencing
+
 \section{Overview}
 Multiple myeloma (MM) is an incurable cancer of plasma cells.
 Multiple myeloma accounts for 1-2\% of all cancers and 10\% of all hematological malignancies\cite{international2003criteria}.
@@ -10,10 +14,10 @@ Over the last two decades, several classes of drugs have been approved for treat
 These are now standard drugs in the treatment of MM, subsequently a drastic improvement in survival rates has been seen--- median survival time for newly diagnosed MM patients has almost doubled in the last 10 years\cite{kazandjian2016look}.
 However, MM still remains an incurable disease, with patients eventually relapsing and becoming resistant to drugs they have previously been treated with.
 Drug resistance is one of the biggest barriers in the treatment of MM.
-Therefore, the generation of novel compounds effective against MM is incredibly important to extend progression-free survival of patients and work towards finding a cure to MM\@.
+Therefore, the generation of novel compounds effective against MM is important to extend progression-free survival of patients and work towards finding a cure to MM\@.
 This thesis aims to identify novel drugs effective against MM, which are capable of overcoming drug resistance to conventional MM therapies.
 It also aims to characterise the transcriptional landscape of MM, following treatment with these novel compounds, to ascertain the mechanism of action in MM and identify any potential side effects of treatment.
-Additionally, MM is very heterogeneous disease with prominent interactions with the surrounding immune microenvironment, therefore MM cells must be examined at the single-level along with other cells residing in the bone marrow niche, to fully capture the heterogeneity and immune interactions we see in myeloma.
+Additionally, MM is a heterogeneous disease with prominent interactions with the surrounding immune microenvironment, therefore MM cells must be examined at the single-level along with other cells residing in the bone marrow niche, to fully capture the heterogeneity and immune interactions we see in myeloma.
 
 This introduction will give a brief overview of the immune system, multiple myeloma (MM), and current MM treatments.
 The genome, epigenome, transcriptome and proteome will be introduced, followed by a review of the technological advancements and informatics tools used to decode them.
@@ -26,7 +30,7 @@ This thesis employs multi-omics techniques to assess the effectiveness and mecha
 MM is a cancer of terminally differentiated B lymphocytes (a type of white blood cell which acts as part of the adaptive immune system to fight infection).
 In chapter \ref{ch:6-sc} single-cell RNA-sequencing is applied to MM bone marrow samples;
 different cellular components of the immune system are identified.
-Therefore, firstly, a brief introduction will be given into the different facets of the immune system.
+Therefore, a brief introduction will be given into the different facets of the immune system.
 
 \subsection{The function of the immune system}
 Humans are exposed to millions of potential pathogens every day and would die without defences to be able to protect themselves from infection.
@@ -55,7 +59,7 @@ Numerous dendritic cell phenotypes exist, they can be derived from lymphoid and 
 Stem cells are precursor cells which can give rise to at least one type of differentiated (mature) cell, with the capability of indefinite self-renewal.
 HSCs divide to either generate more HSCs (self-renewal) or committed progenitor cells.
 HSCs are thought to go through stages of progressive restrictive commitments, until they eventually become fully differentiated blood cells such as NK cells, T cells and macrophages (Figure \ref{fig:HSC_differentiation}).
-Firstly, HSCs lose self-renewal capacity, they then commit to either a myeloid or lymphoid fate.
+Firstly, HSCs lose self-renewal capacity, then commit to either a myeloid or lymphoid fate.
 Myeloid progenitors give rise to monocytes, macrophages, granulocytes (neutrophils, eosinophils, basophils), mast cells, megakaryocytes and erythrocytes (red blood cells).
 Lymphoid progenitors give rise to natural killer (NK) cells, T cells and B cells.
 Both myeloid progenitors and lymphoid progenitors can produce dendritic cells (DCs)\cite{alberts2007molecularstem}.
@@ -83,7 +87,7 @@ During evolution, vertebrates have also developed adaptive immune responses, in 
 Adaptive immune responses are specific to the pathogen that induced the response.
 Adaptive immunity is dependent on millions of B cells and T cells clones.
 Each clone shares a unique cell-surface receptor that can bind to a specific pathogen antigen.
-These receptors are incredibly antigen selective, they can distinguish between optical isomers of the same molecule, and proteins differing by one single amino acid.
+These receptors are antigen selective, they can distinguish between stereo isomers of the same molecule, and proteins differing by one single amino acid.
 Two classes of adaptive immune responses exist: antibody responses, co-ordinated by B cells, and cell mediated immune responses, co-ordinated by T cells\cite{alberts2007molecularimmune}.
 %The success of the adaptive immune system is dependent on the ability to respond to a diverse number of different antigenic stimuli and the long-term effectiveness of this response.
 %
@@ -129,14 +133,14 @@ IgA and IgM are shown in their dimer and pentamer polymer formations, however ot
 \label{fig:immunoglobulins_diagram}\end{figure}
 %%
 
-Some Igs in circulation are found in polymer formations of multiple Ig units, such as as dimers or pentamers.
+Some Igs in circulation are found in polymer formations of multiple Ig units, such as dimers or pentamers.
 A single Ig unit consists  of two identical heavy chains and two identical light chains (Figure \ref{fig:immunoglobulins_diagram}a).
 Each heavy and light chain has a constant region and a variable region.
 Heavy chains consist of one variable domain, and three or four constant domains.
 Light chains consist of one variable domain and one constant domain.
 Constant regions are found at the C-terminal end of Igs, and are a constant sequence for each given chain type.
 Variable regions are found at the N-terminal end of Igs.
-The variables region of the heavy and light chain forms the antigen-binding sites of Igs.
+The variable regions of the heavy and light chain form the antigen-binding sites of Igs.
 The amino acid sequence variation of variable domains confer diversity for antigen-binding.
 Both chains also contain hypervariable regions, which come in direct contact with antigens.
 These domains are frequently mutated to allow for even more diversity of antigen binding\cite{schroeder2010structure}.
@@ -196,12 +200,12 @@ The enzyme AID is required for this process.
 Not many of the Igs that undergo hypermutation will have a stronger affinity for the antigen present.
 However, B cells produce BCRs and antibodies, both of which contain the same antigen-binding site.
 The B cells with a higher affinity antigen-binding site for the given antigen, will be preferentially stimulated at their BCRs.
-This is in turn means that clones with increased affinity will preferentially proliferate and survive over other B cells with worse affinity (similar to how evolution and natural selection works in population genetics).
+This in turn means that clones with increased affinity will preferentially proliferate and survive over other B cells with less affinity (similar to how evolution and natural selection works in population genetics).
 Most other B cells in the germinal centre will undergo apoptosis and die.
 After numerous repeated cycles of mutation and selection, the remaining effector B cell clones will have improved Ig affinity 10--5000 fold for the antigen during the course of the immune response\cite{mishra2018insights}.
 
 \subsubsection{Class switching}
-Class switching often occurs after somatic hypermutation has taken place, however they are independent processes, and B cells can class switch without having already undergone somatic hypermutation\cite{mak2014b}.
+Class switching often occurs after somatic hypermutation has taken place, however they are independent processes, and B cells can class-switch without having already undergone somatic hypermutation\cite{mak2014b}.
 Various cytokines produced by activated T helper cells, such as IFN$\gamma$ produced by T\textsubscript{H}1 cells, IL-4 and IL-5 produced by T\textsubscript{H}2 cells and IL-21 produced by T\textsubscript{FH}, can promote B cell class/isotype switching.
 Class switching allows effector B cells to produce the secondary class of Igs: IgG, IgA and IgE\@.
 Class switching is dependent on the mechanism `switch recombination', where the constant heavy chain region undergoes a number of DNA cutting/rejoining events that bring any of the secondary Igs constant heavy chain exons adjacent to heavy VDJ exon\cite{mak2014b}.
@@ -211,7 +215,7 @@ In the early stages of an immune response, IgM is the main circulating antibody.
 After a lag period, IgG becomes the main circulating antibody in the blood\cite{alberts2007molecularimmune}.
 
 The Ig isotypes have distinct immune functionality and tissue distribution.
-For example, the tail of IgG molecules can bind to macrophages and neutrophils, aiding in phagocytosis of microorganisms, it is also the only Ig that can cross the placenta; IgE molecules can bind to mast cells and basophils, and play a large role in allergic reactions and parasitic infections; IgA molecules are the main antibody in bodily secretions\cite{alberts2007molecularimmune}.
+For example, a portion of IgG molecules can bind to macrophages and neutrophils, aiding in phagocytosis of microorganisms, it is also the only Ig that can cross the placenta; IgE molecules can bind to mast cells and basophils, and play a large role in allergic reactions and parasitic infections; IgA molecules are the main antibody in bodily secretions\cite{alberts2007molecularimmune}.
 By each Ig class retaining the same antigen-binding site, this means that antigen-specificity can be distributed amongst the various isotypes.
 Therefore, a pathogen can be fought using an array of each isotype's biological properties\cite{xu2012immunoglobulin}.
 
@@ -230,7 +234,7 @@ Upon second exposure to an antigen, these cell types speed up the secondary immu
 Existing memory B cells, which already possess high-affinity receptors for the given antigen, are expanded for immediate differentiation into short-lived plasma cells that can secrete high affinity antibodies.
 Human memory B cells can be split up into three main categories: IgM\textsuperscript{+} only, IgM\textsuperscript{+}IgD\textsuperscript{+}, and class switched IgG\textsuperscript{+} and IgA\textsuperscript{+}\cite{palm2019remembrance}.
 IgG\textsuperscript{+} memory B cells are more likely to differentiate into plasma cells following re-infection.
-Immunological memory is the basis for the success of vaccinations, where previous exposure to a weakened/dead microorganism or its protein/toxins stimulates an immune response and `readies' the body for if it encounters the full disease.
+Immunological memory is the basis for the success of vaccinations, where previous exposure to a weakened/dead microorganism or its protein/toxin stimulates an immune response and `readies' the body for if it encounters the full disease.
 %A secondary immune response to an antigen (either due to vaccination or previous infection), will often have a shorter lag period than a primary immune response, as there are pre-existing B and/or T cells with specificity for the antigen.
 %There is evidence that LLPCs as well as memory B cells contribute to immunological memory and fast and effective responses to repeat antigen contact\cite{ionescu2019memory}.
 %%%%%%
@@ -241,7 +245,7 @@ Immunological memory is the basis for the success of vaccinations, where previou
 \subsection{Multiple myeloma cells}
 Multiple myeloma (MM) is a malignancy of terminally differentiated plasma cells.
 It is characterised by aberrant proliferation of clonal, long-lived plasma cells in the bone marrow\cite{anderson2011pathogenesis}.
-The large accumulation of MM cells in the bone marrow, crowd out healthy cells.
+The large accumulation of MM cells in the bone marrow, displace healthy cells.
 Under normal conditions, plasma cells produce antibodies that fight infection as part of the adaptive immune system.
 However malignant plasma cells (MM cells) produce large amounts of abnormal antibodies that are unable to fight infection, coined `paraproteins' or `M proteins' (Figure \ref{fig:m_spike}).
 %
@@ -257,7 +261,7 @@ The large quantities of a single type of antibody (M protein) produced by MM cel
 \end{figure}
 %%
 Only one type of Ig is overproduced by a MM patient.
-The type of Ig overproduced varies patient to patient.
+The type of Ig overproduced varies from patient to patient.
 Paraproteins can either be whole Igs or just the light chain ($\kappa$ or $\lambda$) part of an Ig, or more rarely, just the heavy chain (Figure \ref{fig:immunoglobulins_diagram}a).
 A patient's myeloma type is named after the abnormal Ig isotype they are making.
 IgG is the most common type, followed by IgA and light-chain-only myeloma.
@@ -266,7 +270,7 @@ Increased IgM can also be seen in other B cell malignancies such as Waldenstrom'
 
 Malignant MM cells vary from healthy plasma cells considerably.
 The transformation from healthy plasma cell to MM cell is a complex multi-step process, involving numerous genomic, epigenomic, transcriptomic, proteomic and metabolic changes\cite{de2002comparison, caprio2020epigenetic, chanukuppa2021proteomic, el2018metabolic}.
-Examples of such genomic changes include, a rearrangement of the 14q32 locus (where the Ig heavy chain is located)\cite{nishida1997ig} in approximately 60\% of patients, as well as rearrangements in c-MYC, cyclin D1, FGFR3 and cyclin D3\cite{de2002comparison}.
+Examples of such genomic changes include, a rearrangement of the 14q32 locus (where the Ig heavy chain gene is located)\cite{nishida1997ig} in approximately 60\% of patients, as well as rearrangements in c-MYC, cyclin D1, FGFR3 and cyclin D3\cite{de2002comparison}.
 Fluorescence in situ hybridization (FISH) testing is often performed on upon MM diagnosis and at time of relapse, to detect certain genetic alterations and aid in risk stratification of patients\cite{swerdlow2008classification}.
 Deletions of chromosome 13 and mutations in NRAS and KRAS are also frequently seen in MM\@.
 Gene expression changes in MM cells include loss of CD19 expression and aberrant CD56 expression.
@@ -290,9 +294,8 @@ Five-year survival rate of MM patients is approximately 49\%, whilst approximate
 %While there have been many successful medicines developed for myeloma, they all suffer from the development of drug resistance.
 
 %2
-\subsection{Presentation}
+\subsection{Presentation of precursor states}
 %3
-\subsubsection{Precursor states}
 All cases of MM are preceded by asymptomatic precursor states, monoclonal gammopathy of unknown significance (MGUS) and smouldering multiple myeloma (SMM).
 However, only some patients with SMM or MGUS progress to active MM.
 
@@ -302,7 +305,7 @@ Progression risk of MGUS into symptomatic MM is about 1\% per year, whilst progr
 %
 
 %3
-\subsubsection{Active MM}
+\subsection{Presentation of active MM}
 There are multiple classifications of active MM.
 The International Myeloma Working Group's definition\cite{rajkumar2014international} is as follows:
 Greater than 10\% clonal plasma cells located in the bone marrow and one or more myeloma-defining event or biomarker of malignancy.
@@ -355,6 +358,7 @@ This consists of the proteasome inhibitor bortezomib (brand name Velcade), the I
 More commonly in the UK on the NHS, bortezomib (Velcade), thalidomide and dexamethasone (known as VTd) is used as an initial treatment.
 Recently, the regimen DVTd has been introduced in the UK, which is the above triplet combined with the anti-CD38 monoclonal antibody daratumumab (Darzalex).
 DVTd has been shown to improve progression-free survival and response rates in MM patients compared to VTd.
+Additionally, any MM patients who are eligible (based on frailty, age, organ function and comorbidities) receive high-dose chemotherapy followed by autologous stem cell transplantation (HDT-ASCT).
 
 % Timeline of treatment options
 \input{text/Chapter_1/treatment_table.tex}
@@ -363,7 +367,7 @@ DVTd has been shown to improve progression-free survival and response rates in M
 Proteasome inhibitors have contributed greatly to the improved prognosis of MM since their introduction into treatment regimes.
 The first-in-class proteasome inhibitor bortezomib (Velcade\textsuperscript{\textregistered}; BTZ) was approved by the FDA in 2003 as a single-agent for injection of relapsed MM\cite{kane2003velcade}.
 Since then it has been approved for use in combination therapies.
-Bortezomib in combination with melphalan-prednisone proved to be superior to the previous standard of care for patients ineligible for HDT-ASCT of melphalan-prednisone alone, increasing time until tumour progression\cite{san2008bortezomib}.
+Bortezomib in combination with melphalan-prednisone proved to be superior to the previous standard of care for patients ineligible for HDT-ASCT of melphalan-prednisone alone, increasing progression free survival\cite{san2008bortezomib}.
 The combination of bortezomib, dexamethasone and thalidomide  was also shown to be superior to previous standard of care for patients prior to ASCT\cite{moreau2012proteasome}.
 In 2010, bortezomib was approved as a frontline therapy for treatment-naive MM patients.
 Since then, two more proteasome inhibitors have been approved, carfilzomib (CFZ) and ixazomib.
@@ -376,7 +380,7 @@ In relapsed patients, often treatment choice depends on prior therapy and record
 
 \subsubsection{The ubiquitin-proteasome system}
 Proteasome inhibitors work by blocking the action of the proteasome in the cell.
-Misfolded proteins can be harmful to a cell, so the combined activity of molecular chaperones, which aid in protein folding, and the ubiquitin-proteasome system (UPS), which acts to digest misfolded proteins, is needed to prevent massive protein aggregation.
+Misfolded proteins can be harmful to a cell, so the combined activity of molecular chaperones, which aid in protein folding, and the ubiquitin-proteasome system (UPS), which acts to digest misfolded proteins, is needed to prevent aberrant protein aggregation.
 Unneeded, misfolded or damaged proteins are tagged with lysine-48-linked poly-ubiquitin chains, marking them for degradation by the proteasome (Figure \ref{fig:26s_proteasome_structure}).
 The proteasome is sometimes described as a complex `protein destruction machine'.
 The proteasome consists of the 20S core particle, a central hollow cylinder, and the 19S regulatory caps associated with each end of the cylinder.
@@ -423,8 +427,8 @@ NF$\kappa$B is a key transcription factor in many cancers, contributing to overa
 NF$\kappa$B has been shown to promote tumour cell proliferation, anti-apoptotic and angiogenic factors\cite{kale2012molecular}.
 
 \subsection{Drug resistance in multiple myeloma}
-Although the standard therapeutics are extremely effective at killing MM cells initially, long-term treatment inevitably results in a drug-resistant relapse.
-Drug resistance is one of the biggest barriers in the treatment of MM\@.
+Although the standard therapeutics are effective at killing MM cells initially, long-term treatment inevitably results in a drug-resistant relapse.
+Drug resistance is one of the biggest barriers in the treatment of MM, as in many other cancers.
 Patients follow a pattern of peaks and troughs of treatment cycles, remission and relapse, until all therapies have little effect (Figure \ref{fig:treatment_cycles}).
 %% Treatment cycles
 \begin{figure}[htb]
@@ -447,16 +451,14 @@ Many studies have shown MRD negativity is positively associated with prolonged p
 
 
 \subsubsection{Clonal evolution}
-MM was originally thought to follow a linear pattern of evolution over time.
-Whereas MM actually displays clonal evolution and intra-clonal heterogeneity, similar to `Darwinian' natural selection: individual clones compete for the same microenvironmental `niche' and limited resources, with anti-MM therapies acting as environmental selective pressure.
+MM was originally thought to follow a linear pattern of evolution over time, however MM actually displays clonal evolution and intra-clonal heterogeneity, similar to `Darwinian' natural selection: individual clones compete for the same microenvironmental `niche' and limited resources, with anti-MM therapies acting as environmental selective pressure.
 Three seminal papers from 2012 elucidated the clonal element of MM disease progression using time-course analyses of primary MM samples\cite{egan2012whole, keats2012clonal, walker2012intraclonal}.
 These studies revealed substantial heterogeneity within tumour clones from the same patient (intra-patient heterogeneity).
 Egan et al. (2012) collected DNA from a single MM patient over a five-year period, covering their initial diagnosis, first relapse, second relapse, and end-stage secondary plasma cell leukemia, and performed whole genome sequencing (WGS) on the samples\cite{egan2012whole}.
 The group observed genomic sequence variants that were only detectable at alternating time points, suggesting the `waxing and waning' of different independent clones over time and treatment-courses, which rose and fell in dominance\cite{egan2012whole}.
 Walker et al. (2012) further corroborated this finding and demonstrated intra-patient heterogeneity by identifying clonal and subclonal RAS mutations using whole exome sequencing (WES); this was also confirmed at the single-cell level\cite{walker2012intraclonal}\@.
 It has since been shown that intra-patient heterogeneity is present at premalignant phases of MM (MGUS and SMM)\@.
-On average, three to six major subclones are uniformly present at each stage of MM\cite{furukawa2020molecular}.
-Although, this still might be a conservative estimate.
+On average, three to six major subclones are uniformly present at each stage of MM\cite{furukawa2020molecular}, although, this still might be a conservative estimate.
 MM bone marrow aspirates are taken from a single site, usually the back of the hip bone.
 Spatial genomic heterogeneity within MM, means there are probably far greater than six subclones present in a MM patient at one time, distributed across the whole body\cite{rasche2017spatial}.
 
@@ -513,7 +515,7 @@ anti-cancer drug resistance.
 By increasing the arsenal of drugs available to treat MM, the time until patients become refractory and no longer respond to treatment could be prolonged.
 Therapeutics with a novel mechanism of action are likely to be more effective for MM patients who have undergone several treatment cycles than drugs belonging to the same class as drugs they have previously been treated with.
 Novel therapeutics would have less overlap of mechanism of action with existing drugs, therefore there would be less cross-resistance.
-However, MM typically affects elderly people and after exposure to multiple previous treatment cycles, often RRMM patients are frailer and have more suppressed bone marrows.
+However, MM typically affects elderly people and after exposure to multiple previous treatment cycles, often relapsed and refractory MM (RRMM) patients are more frail and have more suppressed bone marrows.
 Therefore, it is important for therapies that are intended to treat RRMM patients are tolerable and not excessively immunosuppressive for patients.
 
 A future aim for the treatment of MM is to implement a personalised, targeted approach to an individual patient's MM in the clinic.
@@ -521,7 +523,7 @@ In theory, this would be achieved by characterising a patient's clonal architect
 This could be achieved by targeting a highly conserved mutation (early in branching events) or a mutation of a specifically resistant/malignant clone, or by assessing many other factors.
 For example, the Horizon 2020 project aims to clinically validate MMPredict, a microarray-test that can genetic subtype MM patients and predict their treatment response based on gene-expression profiling\cite{horizon2020}.
 The inter- and intra-patient heterogeneity seen in MM could make it a very promising candidate for personalised medicine.
-Although, due to the very nature of MM's genomic instability and ability to evolve resistance, targeting only one subclone or genetic variant is always likely to fail.
+Although, due to the very nature of MM's genomic instability and ability to evolve resistance, targeting only one subclone or genetic variant is likely to fail.
 Personalised patient treatment is quite far away from the clinic in MM, but the prospect is quite exciting.
 
 %
@@ -607,7 +609,7 @@ Histone modifications also regulate DNA processes, such as repair, replication a
 Chromatin immunoprecipitation sequencing (ChIP-seq) can be used to investigate and measure various post-translational histone modifications.
 
 Chromatin remodelling is the process of modifying chromatin architecture to regulate the accessibility of DNA.
-Gene expression is regulated by allowing certain gene regions better access to transcription machinery.
+Gene expression is regulated by allowing certain gene regions better access to the transcription machinery.
 This is achieved by ATP-dependent chromatin-remodelling complexes moving, ejecting or restructuring nucleosomes.
 Assay for transposase-accessible chromatin sequencing (ATAC-seq) can be used to identify accessible DNA regions.
 
@@ -634,7 +636,7 @@ Traditionally microarrays were used to measure gene expression.
 Now RNA-seq (outlined in section  \ref{subsec:rna-seq-intro}) is more commonly used to study gene expression and the transcriptome.
 Depending on the library preparation, different types of RNAs can be selected for or excluded, to study different RNA molecules.
 
-\subsection{The proteome}\label{subsec:translation}
+\subsection{mRNA translation}\label{subsec:translation}
 The proteome is the entire set of proteins that is or can be expressed by an organism.
 mRNAs are translated into protein molecules.
 mRNA is made up of only four different nucleotides, but proteins are made up of 20 amino acids, therefore a direct one-to-one function matching nucleotides to amino acids is impossible.
@@ -648,9 +650,9 @@ Codons on mRNA do not directly recognize their given amino acid, they require tR
 tRNAs possess an anticodon, a set of three nucleotides complementary to a given codon.
 Firstly, tRNAs are coupled to their cognate amino acid.
 This reaction is catalysed by aminoacyl-tRNA synthetase (aaRS) enzymes.
-aaRSs attach amino acids to the 3' end of tRNA.
+aaRSs attach amino acids to the 3' end of tRNA\@.
 Most cells have a specific aaRS for each amino acid.
-Once the tRNA is charged with the correct amino acid, the tRNA molecule binds to its complementary codon on mRNA\@.
+Once the tRNA is charged with the correct amino acid, the tRNA molecule binds to its complementary codon on mRNA during protein synthesis at the ribosome.
 Subsequent aminoacylated tRNA molecules bind to mRNA codons.
 A polypeptide chain grows by stepwise addition of amino acid to the C-terminal end.
 The formation of the new peptide bond between amino acids releases the tRNA molecule.
@@ -668,7 +670,7 @@ Sequencing is the process of determining the sequence of nucleotides of nucleic 
 Over the last half-century, large numbers of researchers and vast sums of money have been applied to facilitate the techniques and technologies to decode DNA and RNA molecules' nucleotide sequence\cite{heather2016sequence}.
 Over this time, massive technological innovations have been developed.
 The most commonly used `first-generation' DNA-sequencing technology, Sanger sequencing, was developed in 1977\cite{sanger1977dna}.
-In Sanger sequencing, or the `chain termination method', chain-termination PCR is performed with a mix of regular nucleotides (deoxynucleotide triphosphates; dNTPs) and fluorescently-labelled, chain-terminating dNTPs (dideoxynucleotide triphosphates; ddNTPs), using the DNA of interest as a template.
+In Sanger sequencing, or the `chain termination method', chain-termination PCR is performed with a mix of regular nucleotides (deoxynucleotide triphosphates; dNTPs) and fluorescently-or radiolabelled, chain-terminating dNTPs (dideoxynucleotide triphosphates; ddNTPs), using the DNA of interest as a template.
 During the extension step of PCR, when DNA polymerase incorporates a ddNTP randomly, extension ceases.
 This creates greater than a million copies of the DNA sequence of interest, all terminated at random lengths by the ddNTPs.
 Capillary gel electrophoresis is then used to separate the extension products by size.
@@ -679,7 +681,7 @@ The whole project took approximately 13 years to complete, and was reported to h
 
 Sanger sequencing dominated the sequencing world for over 30 years, until the advent of `Next-generation sequencing' (NGS; now being dubbed `second-generation sequencing', with the advent of newer technologies).
 NGS differs from its predecessors in that it is highly scalable and massively parallel.
-With NGS you can rapidly sequence the entire human genome in one day, for just under \$5000.
+With NGS one can rapidly sequence the entire human genome in one day, for under \$5000.
 It is quicker and cheaper than traditional Sanger sequencing, and has progressed data output from the kilobase range up to potentially multiple terabases per run.
 Today, the largest and most commonly used NGS sequencing technology platform is Illumina, who own around 80\% of the global sequencing market.
 NGS can be used to study the transcriptome, using RNA-seq techniques (Section \ref{subsec:rna-seq-intro}); the epigenome, using techniques such as ChIP-seq or ATAC-seq; or the genome using techniques such as whole genome sequencing (WGS).
@@ -687,7 +689,7 @@ NGS can be used to study the transcriptome, using RNA-seq techniques (Section \r
 Recently, long-read technologies are becoming more prominent in the sequencing field.
 Illumina short-read sequencing limits read length to between 50 and 300 base pairs (bp)\@.
 This read length is too short to detect more than 70\% of human genome structural variation.
-Moreover, some of the most mutation-prone regions of the genome are inaccessible due to repeating or GC-heavy content, limiting sequence coverage and leaving large regions of the genome critically understudied\cite{logsdon2020long}.
+Moreover, some of the most mutation-prone regions of the genome are inaccessible due to repetitive sequences or GC-rich content, limiting sequence coverage and leaving large regions of the genome critically understudied\cite{logsdon2020long}.
 Long-read technologies are capable of generating continuous sequences ranging from 10 kilobases to several megabases, enabling the sequencing of full-length transcripts.
 The two main emerging long-read technologies are PacBio single-molecule real-time (SMRT) sequencing\cite{wenger2019accurate} and Oxford Nanopore Technologies (ONT) sequencing\cite{ip2015minion, jain2016oxford}, together marking the birth of `third-generation sequencing' (TGS).
 Both PacBio and ONT sequencing sequence single DNA molecules, rather than a pool of PCR-amplified fragments.
