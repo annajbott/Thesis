@@ -1,10 +1,12 @@
 \chapter{\label{ch:3-methods}Methods}
 
 %\minitoc
+% To do:
+% ask jim where we buy BTZ, CFZ
 
 \section{Cell culture}
 \subsection{AMO-1 cells}
-AMO-1 cells, plasma cells from a 64-year old female myeloma patient, were used as a model cell-line for multiple myeloma.
+AMO-1 cells, plasma cells derived from a 64-year old female myeloma patient, were used as a model cell-line for multiple myeloma. %\cite{cellosaurus2022}
 Proteasome inhibitor-sensitive AMO-1 cells are referred to as WT cells.
 Bortezomib resistant (aBTZ) and carfilzomib resistant cells (aCFZ), believed to be AMO-1 cells were generated and gifted by the Driessen lab\cite{soriano2016proteasome}.
 After typing these cells, they were found to be a mix of AMO-1 cells and L363 cells.
@@ -15,7 +17,7 @@ All media was replaced with fresh media every two to three weeks, or prior to pe
 
 \subsection{L363 cells}
 After typing the cells gifted by the Driessen lab, they were found to be a mix of AMO-1 MM cells and L363 MM cells.
-In-house PI-resistant cell lines were produced by Dr James Dunford by continual and escalating drug exposure of drug-sensitive (WT) AMO-1 cells.
+In-house PI-resistant cell lines were produced by Dr James Dunford by continued and escalating drug exposure of drug-sensitive (WT) AMO-1 cells.
 However after these cells were typed, they were found to be L363 cells.
 This was due to the drug exposure selecting the L363 contaminate population over the AMO-1 cells, due to their natural increased resistance to PI, compared to AMO-1 cells.
 Once this mistake made by our collaborators was noticed, WT L363 cells were purchased.
@@ -24,7 +26,7 @@ Cells were passaged when they reached approximately 1.5-2 million cells per \ml{
 L363 cells are suspension cells and were split twice a week to approximately 0.5 million cells per \ml{}.
 All media was replaced with fresh media every two to three weeks, or prior to performing experiments with the cells.
 
-L363 cells resistant to NCP26 (NCP26R) were also developed by Dr James Dunford by continual and escalating drug exposure of WT L363 cells to NCP26.
+L363 cells resistant to NCP26 (NCP26R) were also developed by Dr James Dunford by continued and escalating drug exposure of WT L363 cells to NCP26.
 
 \section{Compounds}
 
@@ -33,11 +35,39 @@ Stock concentrations of proteasome inhibitors, bortezomib (BTZ) and carfilzomib 
 
 \subsection{ProRS inhibitors}
 The synthesis of NCP22 (T-3767758) is detailed in \cite{adachi2017discovery}.
-NCP26 was synthesised by collaborators as a novel inhibitor of ProRS enzymes, synthesis detailed in \cite{tyediscovery2021} (currently under review).
-ProRS inhibitors: halofuginone (MAZ1392; HF) and halofuginol (MAZ1805) were purchased from..
-ProRS inhibitors NCP26 and NCP22 were kindly donated by Swiss lab... NAME
-ProSA
-WHERE OBTAINED??
+NCP26 was synthesised by collaborator,  Dr Ralph Mazitschek, co-discoverer of HFG mechanism, as a novel inhibitor of ProRS enzymes, synthesis detailed in \cite{tyediscovery2021} (currently under review).
+ProRS inhibitors: halofuginone (MAZ1392; HF) and halofuginol (MAZ1805), NCP26 and NCP22 were provided by Dr Mazitschek.
+The chemical structures of these compounds are shown in Figure \ref{fig:chem_structures}.
+
+% Chemical structures
+\begin{figure}[ht]
+%1
+\centering
+\begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{figures/Methods/HF_structure.png}
+    \caption{Halofuginone}
+\end{subfigure}
+%2
+\begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{figures/Methods/halofuginol_structure.png}
+    \caption{Halofuginol}
+\end{subfigure}
+%
+\medskip
+%3
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=0.8\textwidth]{figures/Methods/NCP26_structure.png}
+    \caption{NCP26}
+\end{subfigure}
+%4
+\begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=0.8\textwidth]{figures/Methods/NCP22_structure.png}
+    \caption{NCP22}
+\end{subfigure}
+\caption[ProRS inhibitor chemical structures]{ProRS inhibitor chemical structures.
+}
+\label{fig:chem_structures}
+\end{figure}
 
 %% TRIM24 structure
 %\begin{figure}[htb]
@@ -50,18 +80,19 @@ WHERE OBTAINED??
 
 \section{Assays}
 \subsection{Cell viability assays}
-10X presto blue was added in a 1:10 ratio to cells in suspension and incubated at 37\C{} for two to three hours.
-Plates were read [DETAILS OF MACHINE AND PROTOCOL, e.g. wavelength]
+10X presto blue was added directly to the cell media in a 1:10 ratio and incubated at 37\C{} for two to three hours.
+The fluorescence was measured at 560 nm excitation and 590 nm emission on FLUOstar OMEGA (BMG Labtech, Offenburg, Germany).
 
-\subsection{Dose response curves}\label{subsec:method_doseresponse}
-90\ul{} of cells in fresh media were seeded into 96-well plates a day prior to treatment with compound.
+\subsection{Dose-response curves}\label{subsec:method_doseresponse}
+90\ul{} of cells in fresh media were seeded in single wells into 96-well plates a day prior to treatment with compound.
 A total of 20,000 cells were seeded into each well.
 No cells were placed in edge wells, to avoid edge effects.
 The following day, media 0\% viability controls were placed in the first and last row.
 Drug concentrations were made up 1000x the desired final concentration.
 Drugs were diluted once in media (usually 1 in 100), then into the final plate with seeded cells (usually in 10), depending on the experiment.
 All drug concentrations/combinations were performed in triplicate.
-Cells were treated with DMSO in triplicate as 100\% viability controls.
+Cells were treated with 0.1\% DMSO final concentration in triplicate as 100\% viability controls.
+Throughout experiments, DMSO concentration was kept the same for every sample.
 
 \section{Bulk RNA-seq}\label{sec:bulk_lib_prep}
 \subsection{RNA extraction}\label{subsec:rna_extraction}
@@ -77,7 +108,7 @@ The RNA concentration was quantified using a NanoDrop ND-1000 Spectrophotometer 
 \subsection{RNA library preparation}
 Samples were normalised to 100\si{\ng} and made up to 50\ul{} with nuclease-free water.
 NEBNext\textsuperscript{\textregistered} Ultra II directional RNA library prep kit for Illumina\textsuperscript{\textregistered} with TruSeq indexes was used to prepare RNA libraries, following the manufacturer's protocol.
-Samples were plated onto eppendorf DNA lobind 96 well plates.
+Samples were plated onto Eppendorf DNA lobind 96 well plates.
 A VIAFLO robot was used to reduce time spent on washes and precipitations.
 Volumes were adjusted for elution steps to account for the dead volume of the robot.
 Prior to any steps involving the VIAFLO robot, thermocycler, or incubations on the magnetic rack, plates were sealed tightly with foil lids, briefly vortexed and then centrifuged for < 10 seconds at 100g.
@@ -86,14 +117,14 @@ Oligo dT Beads were washed appropriately, then 10\ul{} of oligo dT Beads (manufa
 Following polyA selection and first and second strand synthesis, cDNA was purified using 1.8X solid-phase reversible immobilisation (SPRI)
 beads.
 Purified cDNA was eluted in 55\ul{} 0.1X TE Buffer.
-The cDNA was then end-prepped and adaptor ligated.
+The cDNA was then end-prepared and adaptor ligated.
 The cDNA was diluted 50-fold in the adaptor dilution buffer (as 100ng starting RNA was used).
 PCR amplification was carried out using 11 PCR cycles (the manufacturer's protocol recommends 12-13 for 100ng starting RNA), in order to minimise PCR duplicates.
 
 \subsection{Pre-sequencing preparation}\label{subsec:preseq}
 The molarities of the libraries were determined by electrophoresis on an Agilent 22000 TapeStation (Agilent, USA) and High Sensitivity D1000 ScreenTape (Agilent, USA).
 The samples were then pooled according to their peak molarity.
-The pooled library was quantified using an Agilent 22000 TapeStation (Agilent, USA) and High Sensitivity D1000 ScreenTape (Agilent, USA).
+The pooled library was again quantified using an Agilent 22000 TapeStation (Agilent, USA) and High Sensitivity D1000 ScreenTape (Agilent, USA).
 If significant adaptor-dimers were present, then an extra clean-up using 1.2X SPRI beads was performed.
 The pooled library was then denatured and diluted ready for sequencing.
 In short, 10\ul{} of the approximately 2\si{\nano\Molar} library was denatured with 0.2N 10\ul{} NaOH.
@@ -111,12 +142,12 @@ Sequencing of the resultant libraries was performed on the NextSeq 500 (Illumina
 \subsubsection{Cell encapsulation}
 The Drop-Seq protocol\cite{macosko2015highly} was followed for single-cell RNA-seq sample preparation.
 Cells were loaded into a microfluidics cartridge.
-Nadia, an automated microfluidics device (Dolomite Bio, UK), performed cell capture, cell lysis and reverse transcription.
+Cell capture, cell lysis and reverse transcription was performed on a Nadia instrument, an automated microfluidics device (Dolomite Bio, UK)
 Reverse transcription reactions were performed using ChemGene beads.
 
 \subsubsection{Library preparation}
 Beads were collected from the device and cDNA amplification was performed.
-The beads were treated with Exo-I prior to PCR.
+The beads were treated with Exo-I nuclease prior to PCR.
 The amplified, purified cDNA then underwent tagmentation reactions.
 A TapeStation (Agilent, USA) was used to assess library quality.
 The samples were pooled together and split across multiple sequencing runs.
@@ -136,7 +167,7 @@ Cells were treated with 700\si{\nano\Molar} NCP26, 300\si{\nano\Molar} Halofugin
 Controls were treated with equal volumes of DMSO.
 Cells were collected at time = 0, time = 3 hours or time = 6 hours.
 Samples were centrifuged at 300g for 5 minutes, the supernatant was discarded and the pellets were resuspended in 300\ul{} of Trizol.
-RNA was extracted as above (section \ref{subsec:rna_extraction}) and quantified using a nanodrop.
+RNA was extracted as above (Section \ref{subsec:rna_extraction}) and quantified using a nanodrop.
 Concentrations ranged from  189.7\si{\ng}/\ul{} to 398.85\si{\ng}/\ul{}.
 
 QuantM tRNA-seq as outlined in \cite{pinkard2020quantitative} was used for library preparation with significant adaptations made to the protocol.
@@ -147,7 +178,7 @@ Samples were not demethylated.
 \subsection{Annealing and ligating adapters}
 The samples were transferred to LoBind PCR plates, and 10\si{\pico\Molar} of 3` adaptor and 2.5\si{\pico\Molar} of each 5' adaptor (A, U, C and G) were added (1\ul{} of mix that is 10\si{\micro\Molar} for 3` and 2.5\si{\micro\Molar} for 5`).
 The plate was incubated at 95\C{} for 2 minutes in a thermocycler.
-1\ul{} of 5x annealing buffer (table \ref{tab:5x_annealing_buffer}) was added to each sample and the plate was incubated at 37\C{} for 15 minutes.
+1\ul{} of 5x annealing buffer (Table \ref{tab:5x_annealing_buffer}) was added to each sample and the plate was incubated at 37\C{} for 15 minutes.
 % Annealing buffer
 \begin{table}[ht]
 \centering
@@ -171,7 +202,7 @@ Nuclease-free water & 9200 \\ \hline
 Ligation of the adapters to the tRNA was performed.
 0.5\ul{} T4 RNA ligase 2 (NEB), 1\ul{} 10x reaction buffer and 3.2\ul{} nuclease-free water was added to each 5.3\ul{} of sample, to total a final volume of 10\ul{} (0.5U/\ul{}).
 The plate was placed in a thermocycler and incubated at 37\C{} for an hour, and then 4\C{} for an hour.
-The ligated samples were then transferred to 1.5\ml{} eppendorfs.
+The ligated samples were then transferred to 1.5\ml{} tubes.
 
 \subsection{RNA precipitation}\label{subsec:rna_precip}
 1.5\ul{} GlycoBlue was added to each tube.
@@ -184,7 +215,7 @@ All ethanol was removed with an extra 10 second top speed spin, and 10 minutes o
 
 \subsection{Hybridization of RT primer}
 Samples were resuspended in 10\ul{} nuclease-free water and transferred to a PCR plate.
-1\ul{} 10\si{\micro\Molar} RT primer <PRIMER TABLE of sequences ref AT BOTTOM>, 1\ul{} 10\si{\micro\Molar} dNTP mix, and 1\ul{} nuclease free water was added to each sample.
+1\ul{} 10\si{\micro\Molar} RT primer, 1\ul{} 10\si{\micro\Molar} dNTP mix, and 1\ul{} nuclease free water was added to each sample.
 The PCR plate was placed in a thermocyler and incubated at 70\C{} for 2 minutes.
 
 \subsection{cDNA synthesis}
@@ -192,8 +223,8 @@ cDNA was synthesised using SuperScript IV Reverse Transcriptase (Invitrogen), fo
 4\ul{} 5x SuperScript IV buffer, 1\ul{} 100mM DTT, 1\ul{} SuperScript IV Reverse Transcriptase and 0.25\ul{} RNase Nxgen inhibitor (Lucigen) was added to each sample (totalling 19.25\ul{}).
 The plate was heated in a thermocycler at 55\C{} for an hour.
 19.25\ul{} 0.2N NaOH (final concentration 0.1N) was added to each sample, and heated in a thermocycler at 98\C{} for 20 minutes to hydrolyze RNA.
-The samples were then transferred to 1.5\ml{} eppendorfs.
-Ethanol precipitation was performed overnight (as in section \ref{subsec:rna_precip}), and nucleic acids were resuspended in 12\ul{}.
+The samples were then transferred to 1.5\ml{} tubes.
+Ethanol precipitation was performed overnight (as in Section \ref{subsec:rna_precip}), and nucleic acids were resuspended in 12\ul{}.
 
 \subsection{Separating cDNA libraries}
 Two 18-well 10\% Criterion TBE-Urea Polyacrylamide Gels (Bio-Rad) were used to separate cDNA libraries, following the manufacturer's instructions.
@@ -203,16 +234,15 @@ Two 18-well 10\% Criterion TBE-Urea Polyacrylamide Gels (Bio-Rad) were used to s
 cDNA libraries and ladders were pipetted into their corresponding well and the gels were ran for approximately an hour at 90V.
 Gels were removed and placed back into their plastic tray for staining.
 Gels were covered in excess 1xTBE and 3\ul{} SYBR gold (Invitrogen) was added to each tray and stained for 15 minutes on a mixing tray.
-Gels were excised on 300 (????)\si{\nano\Molar} UV light.
+Gels were excised using UV illumination.
 A clean scalpel was used to cut out gel bands between 75nt and 300nt (the region representing tRNAs).
-Gel fragments were then placed in labelled eppendorfs, trying to limit contamination.
-The eppendorfs were placed in the fridge overnight.
+Gel fragments were then placed in labelled tubes and placed in the fridge overnight.
 
-A 25-gauge needle was used to pierce holes at the bottom of 500\ul{} eppendorfs.
-The pierced 500\ul{} eppendorfs were nested inside 1.5\ml{} eppendorfs, and gel pieces were transferred into their corresponding, labelled nested tube.
-The nested eppendorfs were centrifuged at 18,500g for 5 minutes, until the gel was completely sheared into the bottom tube.
-The 500\ul{} eppendorfs were discarded.
-400\ul{} of DNA extraction buffer (table \ref{tab:extraction_buffer}) was added to each 1.5\ml{} eppendorf and the tubes were frozen on dry ice for 30 minutes.
+A 25-gauge needle was used to pierce holes at the bottom of 500\ul{} tubes.
+The pierced 500\ul{} tubes were nested inside 1.5\ml{} tubes, and gel pieces were transferred into their corresponding, labelled nested tube.
+The nested tubes were centrifuged at 18,500g for 5 minutes, until the gel was completely sheared into the bottom tube.
+The 500\ul{} tubes were discarded.
+400\ul{} of DNA extraction buffer (Table \ref{tab:extraction_buffer}) was added to each 1.5\ml{} tube and frozen on dry ice for 30 minutes.
 The tubes were placed on a rotator overnight at room temperature.
 % extraction buffer
 \begin{table}[ht]
@@ -247,13 +277,13 @@ Samples were resuspended in 12\ul{} nuclease-free water and transferred to a PCR
 The cDNA libraries were circularized using CircLigase II (Lucigen).
 1.5\ul{} 10X reaction buffer, 0.75\ul{} 50\si{\milli\Molar} MnCl\textsubscript{2} and 0.75\ul{} CircLigase II ssDNA Ligase was added to each sample.
 The plate was placed in a thermocycler and incubated at 60\C{} for an hour, followed by 80\C{} for 20 minutes.
-The libraries were transferred to eppendorfs and ethanol precipitation was performed (section \ref{subsec:rna_precip}).
+The libraries were transferred to tubes and ethanol precipitation was performed (Section \ref{subsec:rna_precip}).
 Samples were resuspended in 15\ul{} nuclease-free water and transferred to a LoBind PCR plate.
 
 \subsection{Amplification}
 The circularized cDNA libraries were amplified using NEBnext Ultra II Q5 master mix and custom i5 and i7 primers.
 5\ul{} 10\si{\micro\Molar} PCR primer, 5\ul{} 10\si{\micro\Molar} specific itRNA primer, and 25\ul{} Q5 master mix was added to each sample (a master mix was made up of PCR primer and Q5 master mix).
-The PCR plate was placed in a thermocycler and amplified following the thermocycling conditions in table \ref{tab:my-pcr_tRNA}.
+The PCR plate was placed in a thermocycler and amplified following the thermocycling conditions in Table \ref{tab:my-pcr_tRNA}.
 
 % PCR amplification
 \begin{table}[]
@@ -278,15 +308,15 @@ The amplified libraries were purified using 2\% agarose gels stained with SYBR g
 5\ul{} 10x bluejuice gel loading buffer (Invitrogen) was added to each sample.
 4\ul{} PCR marker, 36\ul{} nuclease-free water and 4\ul{} loading buffer were combined to form the ladders of the gel.
 The gel was ran at 120V for an hour.
-Bands corresponding to cDNA libraries (100bp-250bp) were excised on a UV light box with a clean scalpel and transferred to 2\ml{} eppendorfs.
+Bands corresponding to cDNA libraries (100bp-250bp) were excised on a UV light box with a clean scalpel and transferred to 2\ml{} tubes.
 Gel extraction was performed using the GeneJET gel extraction kit, following the manufacturer's protocol.
 In short, approximately 700\ul{} binding buffer was added to each tube and the gel mixtures were incubated at 55\C{} until dissolved.
 The solubilized gel solutions were added to purification columns and centrifuged at 12,000g for 1 min and the through-flow discarded.
 100\ul{} of binding buffer was added to each column and centrifuged again.
 Two washes with 700\ul{} of wash buffer were performed, followed by an additional spin and air dry to remove any residual ethanol from the columns.
-The collection tubes were discarded and the columns were nested in 1.5\ml{} eppendorfs.
+The collection tubes were discarded and the columns were nested in 1.5\ml{} tubes.
 50\ul{} of elution buffer was added to each column and centrifuged for 2 minutes.
-The columns were discarded and the eppendorfs stored at -20\C{}.
+The columns were discarded and the tubes were stored at -20\C{}.
 
 The libraries were quantified on a tape station (Agilent) and pooled according to their peak molarity.
 The pooled library was then denatured and diluted ready for sequencing (as above in Section \ref{subsec:preseq}).
