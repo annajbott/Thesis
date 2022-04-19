@@ -542,11 +542,11 @@ This may indicate some mitochondrial dysfunction in myeloid cells following ProR
 
 \section{Discussion}
 This chapter has demonstrated the activation of the AAR and apoptotic mechanisms, as well as other anti-MM effects, following ProRS inhibitors in primary MM patient samples, using scRNA-seq.
-In treatment-naive and relapsed patients, HF and NCP26 treatment elicited a strong transcriptional change and substantial cell death in the MM cell cluster, this was demonstrated using composition and DE analyses.
+In newly-diagnosed and relapsed patients, HF and NCP26 treatment elicited a strong transcriptional change and substantial cell death in the MM cell cluster, this was demonstrated using composition and DE analyses.
 This effect was selective for MM cells over NK cells, T cells and B cells.
 This follows the hypothesis that (despite the ubiquity of aaRS enzymes) the translational and M protein burdens of MM cells, means that ProRS inhibition primarily effects MM cells over benign immune counterparts.
 However, it has been shown in DE and composition analyses (of a single RRMM patient) that ProRS inhibition also seems to elicit an effect on myeloid cells.
-Additionally, in the relapsed dataset, MM cell cluster 9 appears to be resistant to ProRS inhibition in a 24 hour treatment at the given drug concentrations.
+Additionally, in the relapsed dataset, MM cell cluster 9 appears to be resistant to ProRS inhibitors for 24 hour treatment at the given drug concentrations.
 
 \subsection{Effect on myeloid cells}
 From the results it is clear that, at the given concentrations,  NCP26 and HF treatment adversely affected monocytes and macrophages.
@@ -579,45 +579,103 @@ Wang et al. (2021) asserted that macrophages apoptosis following MG132 treatment
 As shown above, ProRS inhibition in myeloid cells resulted in suppression of several mitochondrial pathways, as well as induction of oxidative stress.
 Therefore, mitochondrial dysfunction could play a role in why myeloid cells are adversely affected by ProRS inhibition, selectively over other immune cell types.
 
-HF has also been shown numerous times to reduce inflammation, pro-inflammatory cytokines and inflammatory pathology.
 
 Previously, GCN2 has been shown to have an important role in myeloid cell homeostasis and immune function.
 It has been hypothesised that targeting amino acid metabolism and GCN2 function in myeloid cells could show great clinical potential\cite{liu2014role}.
 
-% Interesting to see if other aaRS inhibitors had same effect on myeloid cells.
-% Could it be macrophages that have negative impact on treatment anyway? Good thing then.
+A decrease in the number of functional myeloid cells could lead to myeloid suppression (myelosuppression/ bone marrow suppression), which in turn makes patients more prone to infection.
+As MM is a disease of elderly people, new therapeutics must be tolerable for patients and not excessively immunosuppressive, especially if they are used to treat RRMM patients, who have increased bone marrow suppression.
+Myelosuppression is a common side effects of many cancer therapies, including both chemotherapy and radiation therapy.
+Substantial myelosuppression can also dictate the dosing regimen of a drug- to balance the efficacy of the drug with the associated side effects and infection risk.
 
-Furthermore, HF and NCP26 inhibit the proline domain of the bifucntional aaRS EPRS\@.
-EPRS is a member of the MSC.
+Conversely, a subset of myeloid cells, such as tumour-associated macrophages (TAMs), have been implicated in MM cell survival and protection from drug-induced apoptosis.
+% DEath of myeloid cells could help killing cancer cells then, and delay drug resistance. Good thing? Negative impact on treatment
+% https://pubmed.ncbi.nlm.nih.gov/27976373/
+
+% other therapies suppress bone marrow and kill immune cells.
+% Mouse after 6 weeks no weight loss- healthy other than tumour.
+
+The effects of ProRS inhibition in myeloid cells should be examined in more detail.
+Preferential selectivity for MM cells should be confirmed using dose-response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types. % FACS?
+It would be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other disease pathologies.
+Moreover, the mechanism underlying cell death in myeloid cells should be elucidated.
+The role of mitochondrial dysfunction in ProRS inhibition should be explored.
+Another avenue to investigate could be the suppression of immune/inflammatory pathways seen in myeloid cells following HF and NCP26 treatment.
+Additionally, the non-canonical functionality of EPRS should be investigated.
+HF and NCP26 inhibit the proline domain of the bifucntional aaRS EPRS\@.
+EPRS is a member of the MSC\@.
 EPRS is released from the MSC in myeloid cells upon IFN-$\gamma$ stimulation, which causes a two-step phosphorylation of two serines in the linker region of human EPRS\cite{arif2009two}.
 EPRS combines with other proteins (NSAP1, L13a and GAPDH) to form the GAIT complex, which represses translation of numerous inflammatory-related transcripts\cite{arif2018gait}.
 IFN-$\gamma$ signalling has been implicated in the mechanism of action of ProRS inhibitors\cite{cheng2012halofugine}.
 Therefore, this non-canonical functionality of EPRS could play a role in ProRS inhibition's mechanism of action and could potentially explain the cytotoxic-selectivity of HF and NCP26 for myeloid cells.
 For example, the formation of the GAIT complex could plausibly affect availability of ProRS for its canonical function.
+It would be interesting to see if other aaRS inhibitors, (acting on other aaRSs which do not engage in GAIT complex non-canonical functionality), have a similar effect on MM and myeloid cells to determine if the non-canonical functionality of EPRS plays any role in the mechanism of ProRS inhibitors.
+
 
 \subsection{Relapsed resistant MM cluster}
 
 Clusters 4 and 9 in the relapsed MM dataset were identified as MM clusters using gene expression data and inferCNV analysis.
 From inferCNV, both clusters were found to have myeloma-defining chromosome 13 deletions.
 The cells in cluster 9 were shown to express very little or no \textit{CD138}.
-Therefore, if CD138\textsuperscript{+} PC enrichment techniques were used, this MM cell population would likely not have been sequenced and thereby not included in the analysis.
-
 As discussed in Section \ref{subsec:mm_class_diss}, CD138\textsuperscript{-} MM cells have been reported to have a higher proliferative potential than CD138\textsuperscript{+} plasma cells.
 Often the presence of CD138\textsuperscript{-} MM cells is also associated with poor prognosis.
-A decrease in CD138 expression is seen in MM patients relapsed/progressive disease compared with untreated MM patients\cite{kawano2012multiple}.
+A decrease in CD138 expression is seen in MM patients with relapsed/progressive disease compared with untreated MM patients\cite{kawano2012multiple}.
 This was corroborated by our scRNA-seq data, whereby there was no CD138\textsuperscript{-} MM cell population in the newly-diagnosed MM dataset, but there was for the relapsed MM dataset.
 Decreased CD138 expression has previously been associated with reduced sensitivity to the MM drug, lenalidomide\cite{kawano2012multiple}.
-Cluster 9 in the relapsed dataset (with no or little \textit{CD138} expression) was found to be largely resistant to NCP26 and HF treatment at the given concentrations, whereas CD138\textsuperscript{+} cluster 4 was sensitive to ProRS inhibition.
+Cluster 9 in the relapsed dataset (with no or little \textit{CD138} expression) was found to be largely resistant to 24 hour treatment of NCP26 and HF treatment at the given concentrations, whereas CD138\textsuperscript{+} cluster 4 was sensitive to ProRS inhibition.
 This suggests that CD138\textsuperscript{-} MM cells may have increased resistance to anti-MM drugs.
-Previous scRNA-seq studies, researching resistance pathways in MM, separated CD138\textsuperscript{+} cells prior to sequencing\cite{cohen2021identification}.
-Thereby, the researchers missed vital clonal MM populations, which may have been contributing greatly to MRD, clonal evolution and resistant mechanisms in MM\@.
-More MM researches, especially those interested in drug resistance mechanisms, should sequence the whole BM niche, not just the CD138\textsuperscript{+} fraction.
+However, this experiment only looked at 24-hour ProRS inhibitor treatment, for only two relapsed MM patients.
+Many MM scRNA-seq studies (such as Cohen et al. 2021, which researched MM drug-resistance pathways\cite{cohen2021identification}), use CD138\textsuperscript{+} plasma cell enrichment techniques prior to sequencing.
+
+Thereby, the researchers likely missed clonal MM populations, which may have been contributing greatly to resistant mechanisms in MM\@.
+More MM researchers, especially those interested in drug resistance mechanisms, should sequence the whole BM niche, not just the CD138\textsuperscript{+} fraction.
 The MM classifiers generated in Chapter 4 can simplify the process of MM cell identification computationally, so that researchers are less reliant on CD138\textsuperscript{+} enrichment techniques.
 % Also if just sequenced MM cells (CD138+) would miss effects on myeloid cells.
 
-Differential expression analysis of relapsed MM subclonal clusters (cluster 4 vs cluster 9) reveals signature markers of drug-resistance.
+Differential expression analysis of relapsed MM subclonal clusters (cluster 4 vs cluster 9) revealed signature markers of drug-resistance.
 Genes involved in the IRE1-mediated unfolded protein response pathway were enriched.
-This is a known mechanism action of PIs, therefore it makes sense that the UPR is modulated in patients that have been treated with PIs previously then relapsed. etc. etc.
+This is a known mechanism action of PIs, therefore it makes sense that the UPR is modulated in patients that have been treated with PIs previously then relapsed.
+
+
+\section{Future directions}
+% Summary few sentences
+% then into future work
+NCP26 has the properties of a good chemical tool: its biological target is well-defined (ProRS), it demonstrates selectivity, and $<$ 1\si{\micro\Molar} target potency for cell-based assays.
+
+Drug discovery.
+Pre-clinical validation
+
+The effects of ProRS inhibition in myeloid cells should be examined in more detail.
+Preferential selectivity for MM cells should be confirmed using dose response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types. % FACS?
+It would be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other disease pathologies.
+Moreover, the mechanism underlying cell death in myeloid cells should be elucidated.
+Mitochondrial dysfunction and immune suppression should be investigated.
+% HOw would i investigate
+
+The effectiveness of other tRNA synthetase inhibitors should be tested in MM\@.
+This could present a whole new set of potential therapeutics in MM\@.
+Moreover, some could be more effective or appropriate in MM, with different characteristics or side-effect profiles.
+aaRSs with other non-canonical functions may present differently.
+For example, EPRS as a member of the MSC
+
+Prolyl-tRNA synthetase (ProRS) is an enzyme which catalyzes the coupling of tRNA\textsuperscript{pro} to proline, therefore the effect of ProRS inhibitors on tRNAs is of great interest.
+This will constitute a future area of research to understand the effects of ProRS inhibitors on a molecular level.
+
+
+% Additionally, transfer RNA-derived small RNAs (tDRs) have been shown to play pivotal roles in stress responses\cite{li2022distinct}.
+%A tRNA-seq analysis pipeline (tRNAnalysis) was developed to analyse tRNA-seq data (Section \ref{sec:trna_methods}).
+%Bulk RNA-seq and tRNA-seq were performed to see the transcriptional effect on tRNAs and tRNA synthetases in MM cells following a short exposure to ProRS inhibitors.
+%AMO-1 cells were treated with DMSO, NCP26, HF and ProSA for three and six hours.
+%Enough RNA was harvested to perform bulk RNA-seq and tRNA-seq experiments in parallel.
+%Bulk RNA-seq was performed using methodology outlined in Section \ref{sec:bulk_lib_prep}.
+%tRNA-seq libraries were constructed following QuantM tRNA-seq methodology\cite{pinkard2020quantitative}.
+%Adaptations to the protocol were made for use in the Oppermann lab (Section \ref{sec:quantm}).
+%However, after following a week-long protocol, the libraries sequenced were of very poor quality and read assignment was extremely low.
+%From personal correspondence with the authors, several mistakes were made in the published protocol, where previous iterations of the protocol were published by mistake, including errors in the sequence of the custom primers, which lead to lower yield.
+%Also certain requirements were omitted from the method, including vital sequencing details.
+%Previously, other labs have tried to replicate QuantM, however were also unsuccessful<CITE>
+%If more time was available, I would have optimised the QuantM tRNA-seq methodology for use in the Oppermann lab.
+%Then the resulting data would have been analysed using tRNAnalysis.
 
 
 % Alternative splicing...
@@ -637,36 +695,3 @@ This is a known mechanism action of PIs, therefore it makes sense that the UPR i
 %Abrogates syntheis. ref 65 in paper
 %
 %Resistant cells, resistance mechanisms to GCN2 related stressors??
-
-\section{Future directions}
-The effects of ProRS inhibition in myeloid cells should be examined in more detail.
-Preferential selectivity for MM cells should be confirmed using dose response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types. % FACS?
-It would be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other disease pathologies.
-Moreover, the mechanism underlying cell death in myeloid cells should be elucidated.
-Mitochondrial dysfunction and immune suppression should be investigated.
-% HOw would i investigate
-
-The effectiveness of other tRNA synthetase inhibitors should be tested in MM\@.
-This could present a whole new set of potential therapeutics in MM\@.
-Moreover, some could be more effective or appropriate in MM, with different characteristics or side-effect profiles.
-aaRSs with other non-canonical functions may present differently.
-For example, EPRS as a member of the MSC
-
-Prolyl-tRNA synthetase (ProRS) is an enzyme which catalyzes the coupling of tRNA\textsuperscript{pro} to proline, therefore the effect of ProRS inhibitors on tRNAs is of great interest.
-This will constitute a future area of research to understand the effects of ProRS inhibitors on a molecular level.
-
-% Additionally, transfer RNA-derived small RNAs (tDRs) have been shown to play pivotal roles in stress responses\cite{li2022distinct}.
-%A tRNA-seq analysis pipeline (tRNAnalysis) was developed to analyse tRNA-seq data (Section \ref{sec:trna_methods}).
-%Bulk RNA-seq and tRNA-seq were performed to see the transcriptional effect on tRNAs and tRNA synthetases in MM cells following a short exposure to ProRS inhibitors.
-%AMO-1 cells were treated with DMSO, NCP26, HF and ProSA for three and six hours.
-%Enough RNA was harvested to perform bulk RNA-seq and tRNA-seq experiments in parallel.
-%Bulk RNA-seq was performed using methodology outlined in Section \ref{sec:bulk_lib_prep}.
-%tRNA-seq libraries were constructed following QuantM tRNA-seq methodology\cite{pinkard2020quantitative}.
-%Adaptations to the protocol were made for use in the Oppermann lab (Section \ref{sec:quantm}).
-%However, after following a week-long protocol, the libraries sequenced were of very poor quality and read assignment was extremely low.
-%From personal correspondence with the authors, several mistakes were made in the published protocol, where previous iterations of the protocol were published by mistake, including errors in the sequence of the custom primers, which lead to lower yield.
-%Also certain requirements were omitted from the method, including vital sequencing details.
-%Previously, other labs have tried to replicate QuantM, however were also unsuccessful<CITE>
-%If more time was available, I would have optimised the QuantM tRNA-seq methodology for use in the Oppermann lab.
-%Then the resulting data would have been analysed using tRNAnalysis.
-
