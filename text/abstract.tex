@@ -1,39 +1,33 @@
-%Standardised robust wet-lab and computational single-cell workflows will be established to characterise drug-resistant MM cells
+% to do: NCP26R
 
 Multiple myeloma (MM) is an incurable cancer of plasma cells, with an average five-year survival rate of approximately 50\%.
 Over the last two decades application of MM therapeutics, namely proteasome inhibitors (PI) and immunomodulatory imide drugs (IMiD), have almost doubled median survival time of MM patients.
-However, most patients relapse and become resistant to drugs they previously have been treated with.
+However, most patients will develop drug resistance.
 Acquired anti-cancer drug resistance remains one of the biggest barriers in the treatment of myeloma.
 Therefore, identifying novel therapeutics effective against MM, which are capable of overcoming drug resistance is of the utmost importance.
 
 Recently the prolyl-tRNA synthetase (ProRS) inhibitor, Halofuginone (HF), has been shown to be effective against cancer, including one study demonstrating effectiveness against MM\@.
 Halofuginone is an ATP-dependent, proline and tRNA competitive inhibitor of ProRS\@.
-Recently, a new ProRS inhibitor, NCP26, has been developed.
-NCP26 is a proline uncompetitive, ATP competitive inhibitor of ProRS\@.
+Recently, a new proline uncompetitive, ATP competitive ProRS inhibitor, NCP26, has been developed.
 In this work the application of HF and NCP26 in MM is explored using both MM cell lines and primary MM patient samples.
 HF and NCP26 demonstrated cytotoxicity to both drug-sensitive and proteasome inhibitor (PI)-resistant MM cell lines in a dose dependent manner.
 The anti-MM effects of HF were abrogated in the presence of excess proline, whereas excess proline had no effect on NCP26 treatment.
-Using bulk RNA-seq, HF and NCP26 treatment was shown to activate the amino acid starvation (AAR) response, endoplasmic reticulum (ER) stress and downstream apoptotic signalling pathways in MM cell lines.
-Given the heterogeneity and established bone marrow microenvironment interactions in MM, single-cell RNA-seq (scRNA-seq) was employed to further examine the effects of ProRS inhibition in primary patient bone marrow samples.
-scRNA-seq confirmed the activation of the AAR, ER stress and apoptotic mechanisms in newly-diagnosed and relapsed MM patient cells.
-Using differential expression and composition analyses, HF and NCP26 treatment was also shown to selectively target the MM cell population over the majority of immune cells, including NK cells, B cells and T cells.
-However, HF and NCP26 were also shown to elicit a significant transcriptional change in myeloid cells.
-The proportion of cells in the myeloid cluster was significantly reduced following ProRS inhibition, this loss was shown to be from cell death, as apoptotic and cell cycle arrest pathways were enriched in myeloid cells treated with HF and NCP26.
+Using bulk and single cell RNA-seq, HF and NCP26 treatment was shown to activate the amino acid starvation (AAR) response, endoplasmic reticulum (ER) stress and downstream apoptotic signalling pathways in MM cell lines and primary patient MM cells.
+This response was shown for drug-sensitive and drug-resistant MM cell lines, as well as newly-diagnosed and relapsed MM patients.
+Using differential expression and composition analyses, HF and NCP26 treatment was also shown to selectively target MM cells over the majority of immune cells, including NK cells, B cells and T cells.
+However, HF and NCP26 were also shown to elicit apoptosis in myeloid cells.
 
-It is clear that amino acid tRNA synthetases represent a promising target in cancer and MM\@.
-However, it remains to be elucidated why myeloid cells are sensitive to ProRS inhibition, and if this would be a barrier to ProRS inhibitor treatment in MM\@.
+From this pre-clinical validation of ProRS inhibitors, it is clear that ProRS represents a new, promising target in MM\@.
 
 A number of computational methods were developed to support the experiments conducted in this work.
-A scRNA-seq analysis pipeline was developed and two pseudoalignment methods were benchmarked against each other to decide which to use for future analysis.
-Additionally, a tRNA-seq analysis pipeline was developed for the analysis of small RNAs, predominantly tRNAs.
-Simulated data was generated to test the accuracy of the method using ROC curves and F1 scores.
+scRNA-seq and tRNA-seq analysis pipelines were developed and their performances benchmarked.
 An MM classifier was also built to be able to automate cell type classification of MM patient scRNA-seq samples.
 The whole bone marrow (WBM) MM scRNA-seq datasets from this work were used to train the MM classifier.
-Publically available MM WBM scRNA-seq data was used to evaluate the performance of the MM classifier, compared to manual classification using gene expression data.
-The MM classifier was found to be fairly accurate at labelling MM cells, with an F1 score of 0.78.
+Publically available MM WBM scRNA-seq data was used to evaluate the performance of the MM classifier, and it was found to be fairly accurate at labelling MM cells.
 
 
-
+% Given the heterogeneity and established bone marrow microenvironment interactions in MM, single-cell RNA-seq (scRNA-seq) was employed to further examine the effects of ProRS inhibition in primary patient bone marrow samples.
+%scRNA-seq confirmed the activation of the AAR, ER stress and apoptotic mechanisms in newly-diagnosed and relapsed MM patient cells.
 
 % old shit rip
 %Recently, epigenetic mechanisms have been implicated in both the onset of MM and in the development of drug resistance.
@@ -41,4 +35,3 @@ The MM classifier was found to be fairly accurate at labelling MM cells, with an
 %The model MM cell line, AMO-1 was used in this work.
 %Following an epigenetic compound library screen and bulk RNA-seq, a dual TRIM24/BRPF inhibitor (TRIM24i) was selected to be investigated further as it was shown to kill carfilzomib-resistant AMO-1 cells (aCFZ) in the presence of carfilzomib but had little effect on PI-sensitive (WT) AMO-1 cells, demonstrating that it is capable of re-sensitizing carfilzomib-resistant AMO-1 cells to carfilzomib.
 %Transcriptomic, epigenomic and proteomic changes were studied using an array of `omic' techniques, including bulk and single-cell RNA-Seq, phosphoproteomics, ubiquitinomics, total proteomics, CyTOF and ChIP-Seq (PROBABLY will at some point).
-

@@ -1,6 +1,7 @@
 \chapter{\label{ch:4-Pipelines}Computational method development}
 
 %\minitoc
+% To do: snakemake in discussion
 
 \section{Introduction}
 
@@ -319,7 +320,9 @@ The user can then perform further downstream analysis on the dataset, for exampl
 \section{Discussion}
 
 Before the advent of NGS, the bottleneck in omics experiments was the technology available, which severely limited data acquisition.
-The duration of time for the completion of sequencing projects was very long (for example the 13 years taken to sequence the human genome).
+For example, the Human Genome Project (HGP) was initiated in 1990 and was projected to be completed by 2005 (a 15 year effort).
+Initially the HGP relied on low-throughput sanger sequencing.
+However, the advent of NGS sequencing significantly increased the throughput and led to the completion of the HGP 2 years ahead of time.
 Since the use of NGS and TGS technologies-- with their higher throughput compared to traditional first-gen techniques-- the bottleneck of omics experiments has shifted to data processing and data discovery.
 Over the last two decades, numerous computational methods and tools have been invented to relieve the strain of data processing times.
 
@@ -327,13 +330,15 @@ The ever-increasing volumes of omics-data require data-processing pipelines/work
 Robust and reproducible genomic workflows allow for confidence in interpreting results in meaningful biological context.
 
 The CGAT framework was used to construct computational pipelines for data processing and extraction of biologically meaningful statistical analyses, summaries and visualisations from input data.
-The CGAT-framework was chosen as the base for the computational pipelines in this work because: CGAT-core can handle parallelisation across HPC clusters, it is integrated with the use of Conda environments, it allows for parameterisation of pipelines, it is open-source, and it records detailed logs of progress. Additionally, significant CGAT toolkits are available for specialised bioinformatics tasks.
-The large size of omics data means that many computational biologists use HPC clusters to analyse their data, to reduce computing time. Moreover, most cluster users do not have sudo access rights, therefore must use package and virtual environment managers.
+The CGAT-framework was chosen as the base for the computational pipelines in this work because: CGAT-core can handle parallelisation across HPC clusters, it is integrated with the use of Conda environments, it allows for parameterisation of pipelines, it is open-source, and it records detailed logs of progress.
+Additionally, numerous tools for specialised bioinformatics tasks are available via CGAT Apps\cite{sims2014cgat} (a collection of scripts to aid the analysis of high-throughput sequencing data).
+The large size of omics data means that many computational biologists use HPC clusters to analyse their data, to reduce computing time.
+Moreover, most cluster users do not have sudo access rights, therefore must use package and virtual environment managers.
 Conda integration was an important factor for the pipeline-framework, as other package managers, such as Pip, are mainly for python package installation, whereas Conda is a cross-platform environment manager.
 Many bioinformatic tools are written in R and are easily available on the Bioconda channel of Conda.
 Logging of pipeline progress allows for easy reproducibility of results.
 CGAT pipelines are built on top of Ruffus workflow management.
-Compared with other workflow managers, Ruffus has been rated manager with the highest ease of development, such that it requires the least effort to compose new workflows\cite{leipzig2017review}.
+In a review of bioinformatic pipeline frameworks, Ruffus was rated pipeline framework with the highest ease of development, such that it requires the least effort to develop new workflows\cite{leipzig2017review}.
 This further adds to its appeal, as creators require less time and effort to write new workflows, but also users should be able to easily debug errors themselves and adapt the workflows as they see fit.
 
 Using the CGAT framework, analysis pipelines were constructed for dscRNA-seq pseudoalignment analysis, tRNA-seq analysis, scRNA velocity analysis and virus detection in scRNA-seq data.
