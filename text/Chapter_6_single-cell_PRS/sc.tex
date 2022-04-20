@@ -548,8 +548,30 @@ This follows the hypothesis that (despite the ubiquity of aaRS enzymes) the tran
 However, it has been shown in DE and composition analyses (of a single RRMM patient) that ProRS inhibition also seems to elicit an effect on myeloid cells.
 Additionally, in the relapsed dataset, MM cell cluster 9 appears to be resistant to ProRS inhibitors for 24 hour treatment at the given drug concentrations.
 
+\subsection{Relapsed resistant MM cluster}
+Clusters 4 and 9 in the relapsed MM dataset were identified as MM clusters using gene expression data and inferCNV analysis.
+From inferCNV, both clusters were found to have myeloma-defining chromosome 13 deletions.
+The cells in cluster 9 were shown to express very little or no \textit{CD138}.
+As discussed in Section \ref{subsec:mm_class_diss}, CD138\textsuperscript{-} MM cells have been reported to have a higher proliferative potential than CD138\textsuperscript{+} plasma cells.
+Often the presence of CD138\textsuperscript{-} MM cells is also associated with poor prognosis.
+A decrease in CD138 expression is seen in MM patients with relapsed/progressive disease compared with untreated MM patients\cite{kawano2012multiple}.
+This was corroborated by our scRNA-seq data, whereby there was no CD138\textsuperscript{-} MM cell population in the newly-diagnosed MM dataset, but there was for the relapsed MM dataset.
+Decreased \textit{CD138} expression has previously been associated with reduced sensitivity to the MM drug, lenalidomide\cite{kawano2012multiple}.
+Cluster 9 in the relapsed dataset (with no or little \textit{CD138} expression) was found to be largely resistant to 24 hour treatment of NCP26 and HF treatment at the given concentrations, whereas CD138\textsuperscript{+} cluster 4 was sensitive to ProRS inhibition.
+This suggests that CD138\textsuperscript{-} MM cells may have increased resistance to anti-MM drugs.
+However, this experiment only looked at 24-hour ProRS inhibitor treatment, for only two relapsed MM patients.
+Many MM scRNA-seq studies (such as Cohen et al. 2021, which researched MM drug-resistance pathways\cite{cohen2021identification}), use CD138\textsuperscript{+} plasma cell enrichment techniques prior to sequencing.
+Thereby, the researchers likely missed subclonal MM populations, which may have been contributing greatly to resistant mechanisms in MM\@.
+More MM researchers, especially those interested in drug resistance mechanisms, should sequence the whole BM niche, not just the CD138\textsuperscript{+} fraction.
+The MM classifiers generated in Chapter 4 can simplify the process of MM cell identification computationally, so that researchers are less reliant on CD138\textsuperscript{+} enrichment techniques.
+
+Differential expression analysis of relapsed MM subclonal clusters (cluster 4 vs cluster 9) revealed signature markers of drug-resistance\ref{fig:cluster4_9_pathway}.
+Genes involved in the unfolded protein response pathway were suppressed, as well as ER-associated genes.
+This is a known mechanism action of PIs, therefore it makes sense that the UPR is modulated in patients that have been treated with PIs previously then relapsed.
+The execution of phase of apoptosis was also negatively regulated, indicating cells in cluster 9 are more resistant to apoptotic signals.
+
 \subsection{Effect on myeloid cells}
-From the results it is clear that, at the given concentrations,  NCP26 and HF treatment adversely affected monocytes and macrophages.
+From the results it is clear that, at the given concentrations,  NCP26 and HF 24-hour treatment adversely affected monocytes and macrophages.
 ProRS inhibition elicited a strong transcriptional response, and the myeloid cell cluster was significantly reduced following treatment.
 Additionally, from DE analysis and pathway enrichment analysis, genes involved in apoptotic mechanisms and cell cycle arrest were enriched, indicating that the reduction of cells in the myeloid cluster was due to cell death.
 
@@ -573,39 +595,30 @@ Additionally, the monocytes/macrophages originated from mice not humans, and wit
 
 Previously, the proteasome inhibitor MG132 was shown to induce macrophage apoptosis\cite{wang2021proteasome}.
 A number of proteasome inhibitors have been approved for use in multiple myeloma, in both newly-diagnosed and relapsed MM, and they are regarded as part of the cornerstone for modern MM treatment.
-Macrophage apoptosis has not been a barrier in the use of PIs in MM, therefore ProRS inhibitors causing myeloid cell death may not limit their usage in clinical MM\@.
+Macrophage apoptosis has not been a barrier in the use of PIs in MM, therefore myeloid cell death may not limit the usage of ProRS inhibitors in the clinic.
 As discussed in the previous chapter, amino acid depletion has been implicated in the mechanism of action of proteasome inhibitors.
-Wang et al. (2021) asserted that macrophages apoptosis following MG132 treatment was due to promoting ROS production and mitochondrial dysfunction\cite{wang2021proteasome}.
+Wang et al. (2021) asserted that macrophage apoptosis following MG132 treatment was due to promoting ROS production and mitochondrial dysfunction\cite{wang2021proteasome}.
 As shown above, ProRS inhibition in myeloid cells resulted in suppression of several mitochondrial pathways, as well as induction of oxidative stress.
-Therefore, mitochondrial dysfunction could play a role in why myeloid cells are adversely affected by ProRS inhibition, selectively over other immune cell types.
+Therefore, mitochondrial dysfunction may play a role in the adverse effect of ProRS inhibition on myeloid cells.
 
-
-GCN2 has been shown to have an important role in myeloid cell homeostasis and immune function\cite{halaby2019gcn2,ravishankar2015amino}.
-It has been hypothesised that targeting amino acid metabolism and GCN2 function in myeloid cells could show great clinical potential\cite{liu2014role}.
-One of the many roles of macrophages is clearance of apoptotic cells\cite{gordon2018macrophage}.
-In fact, Ravishankar et al. (2015)
-GCN2 has been suggested to be a critical mediator of apoptosis vs autophagy during inflammation.
-% Thus, GCN2 may be a critical apoptosis/autophagy checkpoint during inflammation. live or die
+GCN2 has been shown to have an important role in myeloid cell homeostasis and immune function\cite{halaby2019gcn2,ravishankar2015amino}, it has also been suggested to be a critical mediator of apoptosis vs autophagy during inflammation.
+Targeting amino acid metabolism and GCN2 function in myeloid cells, has been suggested as a great potential clinical target\cite{liu2014role}.
 One of the many roles of macrophages is clearance of apoptotic cells\cite{gordon2018macrophage}.
 In the presence of apoptotic cells, significant induction of \textit{DDIT3} expression, ATF4 protein, increased phosphorylation of eIF2$\alpha$ and metabolic stress has been observed in macrophages\cite{ravishankar2012tolerance, ravishankar2015amino}.
 This response was not elicited in the absence of GCN2\cite{ravishankar2015amino}, perhaps indicating that the presence of other apoptotic cells (such as apoptotic MM cells) may further activate GCN2 and AAR signalling in myeloid cells.
+If this were the case, it would explain why in isolated toxicity studies no selectivity is shown for myeloid cells, and why myeloid cells are more sensitive to ProRS inhibition than other immune cells.
 
-A decrease in the number of functional myeloid cells could lead to myeloid suppression (myelosuppression/ bone marrow suppression), which in turn makes patients more prone to infection.
-As MM is a disease of elderly people, new therapeutics must be tolerable for patients and not excessively immunosuppressive, especially if they are used to treat RRMM patients, who have increased bone marrow suppression.
-Myelosuppression is a common side effects of many cancer therapies, including both chemotherapy and radiation therapy.
-Substantial myelosuppression can also dictate the dosing regimen of a drug- to balance the efficacy of the drug with the associated side effects and infection risk.
-
-Conversely, a subset of myeloid cells, such as tumour-associated macrophages (TAMs), have been implicated in MM cell survival and protection from drug-induced apoptosis.
-So perhaps if these TAMs are killed by HF and NCP26 this could actually have a positive impact on treatment by removing the protection and delaying drug resistance onset.
-% DEath of myeloid cells could help killing cancer cells then, and delay drug resistance. Good thing? Negative impact on treatment
-% https://pubmed.ncbi.nlm.nih.gov/27976373/
-
+% Conversely, a subset of myeloid cells, such as tumour-associated macrophages (TAMs), have been implicated in MM cell survival, protection from drug-induced apoptosis, and drug resistance mechanisms.
+%So perhaps if these TAMs are killed by HF and NCP26 this could actually have a positive impact on treatment by removing the protection and delaying drug resistance onset.
+%% DEath of myeloid cells could help killing cancer cells then, and delay drug resistance. Good thing? Negative impact on treatment
+%% https://pubmed.ncbi.nlm.nih.gov/27976373/
 % other therapies suppress bone marrow and kill immune cells.
 % Mouse after 6 weeks no weight loss- healthy other than tumour.
 
 The effects of ProRS inhibition in myeloid cells should be examined in more detail.
-Preferential selectivity of ProRS inhibitors for MM cells should be confirmed using dose-response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types. % FACS?
-This should be performed with and without apoptotic cells present.
+The degree of myeloid suppression from ProRS inhibition should be investigated in CD14+ cells collected from numerous MM patient blood samples (less invasive than bone marrow samples).
+Preferential selectivity of ProRS inhibitors for MM cells should be confirmed using dose-response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types.
+These experiments should be performed with and without apoptotic cells present.
 It would also be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other disease pathologies.
 Moreover, the mechanism underlying cell death in myeloid cells should be elucidated.
 The role of mitochondrial dysfunction in ProRS inhibition should be explored.
@@ -620,71 +633,52 @@ Therefore, this non-canonical functionality of EPRS could play a role in ProRS i
 For example, the formation of the GAIT complex could plausibly affect availability of ProRS for its canonical function.
 It would be interesting to see if other aaRS inhibitors, (acting on other aaRSs which do not engage in GAIT complex non-canonical functionality), have a similar effect on MM and myeloid cells to determine if the non-canonical functionality of EPRS plays any role in the mechanism of ProRS inhibitors.
 
-
-\subsection{Relapsed resistant MM cluster}
-
-Clusters 4 and 9 in the relapsed MM dataset were identified as MM clusters using gene expression data and inferCNV analysis.
-From inferCNV, both clusters were found to have myeloma-defining chromosome 13 deletions.
-The cells in cluster 9 were shown to express very little or no \textit{CD138}.
-As discussed in Section \ref{subsec:mm_class_diss}, CD138\textsuperscript{-} MM cells have been reported to have a higher proliferative potential than CD138\textsuperscript{+} plasma cells.
-Often the presence of CD138\textsuperscript{-} MM cells is also associated with poor prognosis.
-A decrease in CD138 expression is seen in MM patients with relapsed/progressive disease compared with untreated MM patients\cite{kawano2012multiple}.
-This was corroborated by our scRNA-seq data, whereby there was no CD138\textsuperscript{-} MM cell population in the newly-diagnosed MM dataset, but there was for the relapsed MM dataset.
-Decreased CD138 expression has previously been associated with reduced sensitivity to the MM drug, lenalidomide\cite{kawano2012multiple}.
-Cluster 9 in the relapsed dataset (with no or little \textit{CD138} expression) was found to be largely resistant to 24 hour treatment of NCP26 and HF treatment at the given concentrations, whereas CD138\textsuperscript{+} cluster 4 was sensitive to ProRS inhibition.
-This suggests that CD138\textsuperscript{-} MM cells may have increased resistance to anti-MM drugs.
-However, this experiment only looked at 24-hour ProRS inhibitor treatment, for only two relapsed MM patients.
-Many MM scRNA-seq studies (such as Cohen et al. 2021, which researched MM drug-resistance pathways\cite{cohen2021identification}), use CD138\textsuperscript{+} plasma cell enrichment techniques prior to sequencing.
-
-Thereby, the researchers likely missed clonal MM populations, which may have been contributing greatly to resistant mechanisms in MM\@.
-More MM researchers, especially those interested in drug resistance mechanisms, should sequence the whole BM niche, not just the CD138\textsuperscript{+} fraction.
-The MM classifiers generated in Chapter 4 can simplify the process of MM cell identification computationally, so that researchers are less reliant on CD138\textsuperscript{+} enrichment techniques.
-% Also if just sequenced MM cells (CD138+) would miss effects on myeloid cells.
-
-Differential expression analysis of relapsed MM subclonal clusters (cluster 4 vs cluster 9) revealed signature markers of drug-resistance.
-Genes involved in the IRE1-mediated unfolded protein response pathway were enriched.
-This is a known mechanism action of PIs, therefore it makes sense that the UPR is modulated in patients that have been treated with PIs previously then relapsed.
-
+A decrease in the number of functional myeloid cells could lead to myeloid suppression (myelosuppression/ bone marrow suppression/ immunosupression), which in turn makes patients more susceptible to infection.
+As MM is a disease of elderly people, new therapeutics must be tolerable for patients and not excessively immunosuppressive, especially if they are used to treat RRMM patients, who have increased bone marrow suppression.
+Substantial myelosuppression can also dictate the dosing regimen of a drug- to balance the efficacy of the drug with the associated side effects and infection risk.
+However, from in-vivo MM xenograft murine models\cite{bottpreclinical2022}, the mice tolerated NCP26 treatment well, with no signs of overt toxicity such as body weight loss.
+This indicates that the effect of ProRS inhibition on myeloid cells may not even be an issue in-vivo.
+Furthermore, myelosuppression is a common side effects of many other cancer therapies, especially in the treatment of hematologic malignancies.
+Therefore, it would be unlikely that ProRS inhibitor myeloid cell killing would constrain its clinical use in MM\@.
 
 \section{Future directions}
 % Summary few sentences
 % then into future work
-NCP26 has the properties of a good chemical tool: its biological target is well-defined (ProRS), it demonstrates selectivity, and $<$ 1\si{\micro\Molar} target potency for cell-based assays.
+This work has demonstrated the effectiveness of ProRS inhibition in MM using both MM cell lines and primary patient BM samples, and accordingly presents a novel therapeutic target of interest in MM\@.
+Further pre-clinical validation of aaRS inhibition in MM is required.
+The aim of pre-clinical studies is to demonstrate the effectiveness of a target in models of a disease prior to moving to human testing.
+These models aim to recapitulate the disease as accurately as possible, and in the case of MM, provide insights on the interactions between malignant cells and the surrounding microenvironment.
+The scRNA-seq experiments in this work constitute samples from four MM patients, two of whom are newly-diagnosed and two of whom have relapsed.
+Considering MM is an extremely heterogeneous disease, this small sample size does not reflect the total variation seen in MM in the wider population.
+Additionally, only acute treatment of ProRS inhibitors over 24 hour and 48 hour periods was studied.
+More scRNA-seq experiments should be performed with varying dosing conditions, with BM samples from many more patients.
 
-Drug discovery.
-Pre-clinical validation
+In the clinic, treatment cycles often last between four and six months.
+Our scRNA-seq methodology is limited by the duration human BM samples last in culture.
+Various models
 
-The effects of ProRS inhibition in myeloid cells should be examined in more detail.
-Preferential selectivity for MM cells should be confirmed using dose response experiments, using MM cells and MM patient-derived immune cells, separated into their constituent cell types. % FACS?
-It would be interesting to see if the effect of ProRS inhibition on myeloid cells extends to healthy individuals or other disease pathologies.
-Moreover, the mechanism underlying cell death in myeloid cells should be elucidated.
-Mitochondrial dysfunction and immune suppression should be investigated.
-% HOw would i investigate
+
+Therefore, other techniques should be applied that represent longer duration of treatment.
+
+
+Mice studies good, 6 weeks of treatment seen
+Each mouse model has its own strength weaknesses. E.g. scid used in this work by collaborators\cite{rossi2018mouse}
+
+Severe combined immunodeficient (SCID) mice have a genetic immune deficiency that means they lack B and T cells, allowing for xenoengraftment of human tissue
+
+
+Additionally, a lead compound should be developed for ProRS inhibition, that shares NCP26's proline-uncompetitive mode of action.
+NCP26 has the properties of a good chemical tool: its biological target is well-defined (ProRS), it demonstrates selectivity, and it has $<$ 1\si{\micro\Molar} target potency for cell-based assays.
+However, drugs which are used in the clinic often have many other requirements in terms of their pharmacokinetics, pharmacodynamics, and bioavailability.
+
 
 The effectiveness of other tRNA synthetase inhibitors should be tested in MM\@.
 This could present a whole new set of potential therapeutics in MM\@.
 Moreover, some could be more effective or appropriate in MM, with different characteristics or side-effect profiles.
 aaRSs with other non-canonical functions may present differently.
-For example, EPRS as a member of the MSC
 
 Prolyl-tRNA synthetase (ProRS) is an enzyme which catalyzes the coupling of tRNA\textsuperscript{pro} to proline, therefore the effect of ProRS inhibitors on tRNAs is of great interest.
 This will constitute a future area of research to understand the effects of ProRS inhibitors on a molecular level.
-
-
-% Additionally, transfer RNA-derived small RNAs (tDRs) have been shown to play pivotal roles in stress responses\cite{li2022distinct}.
-%A tRNA-seq analysis pipeline (tRNAnalysis) was developed to analyse tRNA-seq data (Section \ref{sec:trna_methods}).
-%Bulk RNA-seq and tRNA-seq were performed to see the transcriptional effect on tRNAs and tRNA synthetases in MM cells following a short exposure to ProRS inhibitors.
-%AMO-1 cells were treated with DMSO, NCP26, HF and ProSA for three and six hours.
-%Enough RNA was harvested to perform bulk RNA-seq and tRNA-seq experiments in parallel.
-%Bulk RNA-seq was performed using methodology outlined in Section \ref{sec:bulk_lib_prep}.
-%tRNA-seq libraries were constructed following QuantM tRNA-seq methodology\cite{pinkard2020quantitative}.
-%Adaptations to the protocol were made for use in the Oppermann lab (Section \ref{sec:quantm}).
-%However, after following a week-long protocol, the libraries sequenced were of very poor quality and read assignment was extremely low.
-%From personal correspondence with the authors, several mistakes were made in the published protocol, where previous iterations of the protocol were published by mistake, including errors in the sequence of the custom primers, which lead to lower yield.
-%Also certain requirements were omitted from the method, including vital sequencing details.
-%Previously, other labs have tried to replicate QuantM, however were also unsuccessful<CITE>
-%If more time was available, I would have optimised the QuantM tRNA-seq methodology for use in the Oppermann lab.
-%Then the resulting data would have been analysed using tRNAnalysis.
 
 
 % Alternative splicing...
