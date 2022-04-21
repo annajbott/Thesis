@@ -655,31 +655,39 @@ More scRNA-seq experiments should be performed with varying dosing conditions, w
 In the clinic, treatment cycles often last between four and six months.
 Our scRNA-seq methodology is limited by the duration human BM samples last in culture.
 The in-vivo murine model used in \cite{bottpreclinical2022} to test NCP26 demonstrated that NCP26 was well tolerated for up to six weeks-- a significantly longer continuous exposure time than we managed for scRNA-seq.
-However mouse models aren't without their limitations.
+However, mouse models aren't without their limitations.
 For example, severe combined immunodeficient (SCID) mice (as used in \cite{bottpreclinical2022}) have a genetic immune deficiency that means they lack B and T cells, allowing for xenoengraftment of human tissue.
 This means that the effect of compounds on B cells and T cells cannot be monitored.
-Moreover, subcutaneous injection of MM cells means that the MM cells proliferate in the absence of the bone marrow microenvironment\cite{rossi2018mouse}, which supports malignant plasma cells development, migration, proliferation, differentiation and drug resistance.
+Moreover, subcutaneous injection of MM cells means that the MM cells proliferate in the absence of the bone marrow microenvironment\cite{rossi2018mouse}, which supports the development, migration, proliferation and differentiation of malignant plasma cells, as well as contributing to acquired anti-cancer drug resistance.
 Thereby, not modelling a key factor in MM pathology.
 However, this model does allow for easy monitoring and measuring of tumour size during treatment.
 Each mouse model platform has its own strength and weakness, so it is important to select the right model for each specific pre-clinical research question.
 Recently, in a pre-print by Khan et al. (2022) a new step-wise, directed-differentiation protocol was described to generate 3D, vascularised BM organoid structures, which capture key features of human BM (stroma, lumen-forming sinusoidal vessels and myeloid cells)\cite{khan2022human}.
-This platform supports growth of primary cells from blood cancer patients and would allow for mechanistic studies of MM cells and their interactions within a human BM-like milieu\cite{khan2022human}.
-MM cells that had been cryopreserved and thawed prior to use were shown to rapidly lose viability when plated in-vitro, however, were sustained by the organoid platform for more than 10 days.
-This platform would allow for investigation of ProRS inhibitors within a MM BM microenvironment, for longer exposure time than our previous methodology would allow.\\
+This platform supports growth of primary cells from blood cancer patients and would allow for ex-vivo mechanistic studies of MM cells and their interactions within a human BM-like milieu\cite{khan2022human}.
+MM cells that had been cryopreserved and thawed prior to use were shown to rapidly lose viability when plated in-vitro, however, were sustained by the organoid platform for more than 10 days\cite{khan2022human}.
+Several other 3D ex-vivo BM niche models for MM have been proposed\cite{jakubikova2016novel,ferrarini20173d}.
+Utilisation of these platforms would allow for investigation of ProRS inhibitors within a MM BM microenvironment (with all relevant immune cells), for longer exposure time than our previous methodology would allow.
 
-\noindent
-A lead compound should be developed to target ProRS, that shares NCP26's proline-uncompetitive mode of action.
+Prior to clinical application of ProRS inhibitors, a lead compound should be developed to target ProRS, that shares NCP26's proline-uncompetitive mode of action.
 NCP26 has the properties of a good chemical tool: its biological target is well-defined (ProRS), it demonstrates selectivity, and it has $<$ 1\si{\micro\Molar} target potency for cell-based assays.
 However, drugs which are used in the clinic have many other requirements in terms of their pharmacokinetics, pharmacodynamics, and bioavailability.
+Therefore, a compound is required which targets ProRS, but also has drug-like properties.
+NCP26 was well tolerated in a murine model, so might be a good drug candidate for clinical use, however its pharmacokinetic and pharmacodynamic properties need further investigation.
 
-
-The effectiveness of other tRNA synthetase inhibitors should be tested in MM\@.
-This could present a whole new set of potential therapeutics in MM\@.
+Borrelidin, (ThrRS inhibitor)  and CysSA, (cysteinyl adenylate substrate analogue) were both shown to reduce proliferative activity of several MM cell lines\cite{bottpreclinical2022}.
+The effectiveness of other aminoacyl tRNA synthetase inhibitors should also be tested in MM\@.
+This could present a whole new set of potential therapeutics to treat MM\@.
 Moreover, some could be more effective or appropriate in MM, with different characteristics or side-effect profiles.
-aaRSs with other non-canonical functions may present differently.
+aaRSs with different non-canonical functions could present differently.
+Compound screens for all known aaRS inhibitors should be conducted across numerous MM cell lines.
 
 Prolyl-tRNA synthetase (ProRS) is an enzyme which catalyzes the coupling of tRNA\textsuperscript{pro} to proline, therefore the effect of ProRS inhibitors on tRNAs is of great interest.
-This will constitute a future area of research to understand the effects of ProRS inhibitors on a molecular level.
+Additionally, transfer RNA-derived small RNAs (tDRs) have been shown to play pivotal roles in stress responses\cite{li2022distinct}.
+tRNA-seq should be performed for ProRS inhibitor treated MM cells and ProRS inhibitor resistant cell lines.
+tRNAnalysis introduced in Chapter \ref{ch:4-Pipelines} would then be used to analyse the resulting data.
+tRNA charging should also be investigated for ProRS inhibitors, to confirm the mechanism of action upstream of GCN2 phosphorylation and activation of \textit{ATF4} target genes.
+The proportion of charged and uncharged tRNAs for ProRS inhibitor treated MM cells could be calculated by performing a qPCR-based experiment.
+This constitutes a future area of research to understand the effects of ProRS inhibitors on a molecular level.
 
 
 % Alternative splicing...
