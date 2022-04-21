@@ -33,7 +33,7 @@ This was to minimise the number of cells being labelled as `intermediate' where 
 % UMAP- build classifiers.
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/workflow_generation/classifier_building.pdf}
+\includegraphics[width=\textwidth]{figures/workflow_generation/classifier_building.pdf}
 \caption[Classifier annotation building]{Cell type annotation for classifier building.
 Cell type classifications were made broader than the detailed annotation in given in Chapter \ref{ch:6-sc}.
 a) Newly-diagnosed (naive) MM dataset.
@@ -49,21 +49,30 @@ In order to test the performance of the MM classifiers, publically available MM 
 The test data comprised one PBMC sample from a relapsed and refractory MM (RRMM) patient, which contained both MM and immune cells (GEO accession number \textit{GSE188632}).
 The deposited counts matrix was processed using the clustering and annotation modules of the scRNA-seq analysis workflow outlined in Section \ref{subsec:updated_scrna}.
 
+% UMAP clustering public
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/workflow_generation/MM_classifier_umap_clustering_public.pdf}
+\caption[Public scRNA-seq data UMAP clustering]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) UMAP clustering. 16 distinct cell clusters were identified using Seurat.
+}
+\label{fig:mm_class_umap_clustering}
+\end{figure}
+%
+%
 % UMAP clutsifyr and scClassify HCA PBMC
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_umap_HCA_joint.pdf}
-\caption[Public scRNA-seq data clustering and annotation]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references: from healthy tissue.
-a) UMAP clustering.
-b) Clustifyr annotation performed with the HumanCellAtlas (HCA) reference.
-c) scClassify annotation performed with the joint PBMC model as training data.
+\includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_umap_HCA_joint2.pdf}
+\caption[Public scRNA-seq data annotation (HCA and PBMC model)]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references: from healthy tissue.
+a) Clustifyr annotation performed with the HumanCellAtlas (HCA) reference.
+b) scClassify annotation performed with the joint PBMC model as training data.
 }
 \label{fig:mm_class_umap_annotate}
 \end{figure}
 %
-16 distinct cell clusters were identified using Seurat (Figure \ref{fig:mm_class_umap_annotate}a).
+16 distinct cell clusters were identified using Seurat (Figure \ref{fig:mm_class_umap_clustering}).
 Firstly, the data was annotated using scClassify and clustifyr with healthy tissue references.
-A PBMC model reference was used with scClassify and a HumanCellAtlas (HCA) reference with clustifyr (Figures \ref{fig:mm_class_umap_annotate}b and \ref{fig:mm_class_umap_annotate}c).
+A PBMC model reference was used with scClassify and a HumanCellAtlas (HCA) reference with clustifyr (Figures \ref{fig:mm_class_umap_annotate}a and \ref{fig:mm_class_umap_annotate}b).
 Both packages labelled the majority of cell clusters as monocytes or other myeloid cell types.
 Clustifyr-HCA assigned clusters 4, 5, 11 and 13 as NK cells, whilst scClassify-PBMC assigned clusters 5 and 13 as T cells and cluster 11 as NK cells.
 Clusters 7 and 10 were left unassigned using clustifyr-HCA annotation, whilst clusters 4, 7, 9 and 10 were labelled as B cells by scClassify-PBMC.

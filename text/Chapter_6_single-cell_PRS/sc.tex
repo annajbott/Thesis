@@ -74,20 +74,31 @@ scClassify was performed using a pre-trained scClassify model, based on seven pe
 As the reference datasets were based on healthy tissue, they were unable to label pathological cells, like MM cells.
 Myeloma cells were identified manually using a range of known markers, for example: \textit{CD38}, \textit{CD138}, \textit{SLAMF7} and \textit{BCMA} (Table \ref{tab:annotation_markers}).
 
-% Pre RBC dimplots
+% Pre RBC dimplots naive
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/RBC_removal_all_experiments.pdf}
-    \caption[Erythrocyte removal from scRNA-seq datasets]{UMAP dimension plots following integration of samples from experiment 1 and 2 (treatment naive patients), and samples from patients 3 and 4 in experiment 3 (relapsed MM).
-    [a-d] Experiment 1 and 2-newly diagnosed MM patients.
-    [e-h] Experiment 3, patients 3 and 4- relapsed MM patients.
-     [a, b, e, f] Integrated UMAP plots before erythrocyte cell and gene removal. Erythrocyte clusters are circled in a) and e).
-     [c, d, g, h] UMAP plots following removal of erythrocyte cell clusters and genes and re-integration of samples.
-     [b, d, f, h] show the composition of each dataset by experiment or patient.}
-    \label{fig:umap_RBC}
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/RBC_removal_all_experiments_naive.pdf}
+    \caption[Erythrocyte removal- newly diagnosed MM]{UMAP clustering following integration of samples from experiment 1 and 2 (treatment naive patients).
+    a) and b) Pre erythrocyte cluster and gene removal. Erythrocyte clusters are circled.
+    c) and d) Post erythrocyte removal and re-integration of samples.
+    a) and c) UMAP clustering.
+    b) and d) The composition of each dataset by experiment number.}
+    \label{fig:umap_RBC_naive}
 \end{figure}
 
-Experiment 2 was found to have a high erythrocyte population (Figure \ref{fig:umap_RBC}a and b).
+% Pre RBC dimplots relapsed
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/RBC_removal_all_experiments_relapsed.pdf}
+    \caption[Erythrocyte removal- relapsed MM]{UMAP clustering following integration of samples from experiment 1 and 2 (treatment naive patients), and samples from patients 3 and 4 in experiment 3 (relapsed MM).
+    a) and b) Pre erythrocyte cluster and gene removal. Erythrocyte clusters are circled.
+    c) and d) Post erythrocyte removal and re-integration of samples.
+    a) and c) UMAP clustering.
+    b) and d) The composition of each dataset by patient number.}
+    \label{fig:umap_RBC_relapsed}
+\end{figure}
+
+Experiment 2 was found to have a high erythrocyte population (Figure \ref{fig:umap_RBC_naive}a and b).
 In addition, other cell types were found to be expressing erythrocyte-specific genes, for example MM cells expressing numerous haemoglobin subunit genes.
 Many of the variable features that Seurat uses for clustering and dimension reduction were made up of these erythrocyte-specific and haemoglobin genes.
 The high expression of these genes was found to be affecting the integration of the two experiments together.
@@ -100,9 +111,9 @@ After the integrated Seurat object had the erythrocyte genes and cells removed, 
 Seurat's SCTransform with reference datasets and Harmony (using a multi-covariate model, accounting for each different sample and the two different experiments) were used to re-integrate all samples.
 Harmony integration was found to integrate clusters across patients and experiments better than using Seurat's SCTransform.
 The Harmony-integrated datasets were taken forwards and used for cell type annotation and further downstream analyses.
-Better integration was achieved after removing erythrocytes and erythrocyte-specific genes (Figure \ref{fig:umap_RBC}d).
+Better integration was achieved after removing erythrocytes and erythrocyte-specific genes (Figure \ref{fig:umap_RBC_naive}d).
 
-A large erythrocyte component was also found for patient 4 in the relapsed dataset (Figures \ref{fig:umap_RBC}e and \ref{fig:umap_RBC}f).
+A large erythrocyte component was also found for patient 4 in the relapsed dataset (Figures \ref{fig:umap_RBC_relapsed}a and \ref{fig:umap_RBC_relapsed}b).
 The same corrective workflow outlined above for the treatment-naive dataset was applied to the relapsed dataset, removing the erythrocyte cluster and erythrocyte-specific genes and re-integrating using Harmony with samples and patients as covariates.
 
 The total number of cells after each data processing step for each patient and experiment is summarised in Table \ref{tab:cells_passing}.
@@ -270,7 +281,7 @@ At 48 hours there is substantial cell killing, therefore the 24-hour time point 
 %%  DE barchart
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
+\includegraphics[width=\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
 \caption[DEGs per cell type- newly-diagnosed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
 Cell type annotation corresponding to Figure \ref{fig:full_anno_naive}.
 Experiment 1 and experiment 2 denote separate experiments, each containing BM samples from different newly-diagnosed MM patients.}
@@ -365,7 +376,6 @@ Additionally, NCP26 and HF treatment reduced expression of \textit{IGKC} and \te
 Previously these genes have been implicated in MM outcome.
 % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6771956/
 
-% Effect on other cell populations- e.g. monocytes, why does it affect monocytes
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
@@ -424,7 +434,7 @@ Next, differential gene expression was investigated for the relapsed MM patients
 %%  DE barchart relapse
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/Results/single_cell/relapse_DEGs_barchart.pdf}
+\includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_DEGs_barchart.pdf}
 \caption[DEGs per cell type- relapsed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for a relapsed MM patient (patient 4 only) treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
 Cell type annotation corresponding to Figure \ref{fig:full_anno_relapse}.}
 \label{fig:relapse_deg_bar}
@@ -539,7 +549,7 @@ Neutrophil degranulation, secretory granule, lysosome, chemotaxis and migration 
 Additionally, mitochondria-related pathways were suppressed, such as oxidative phosphorylation, the electron transport chain and mitochondrial membrane components.
 This may indicate some mitochondrial dysfunction in myeloid cells following ProRS inhibition.
 
-
+\clearpage
 \section{Discussion}
 This chapter has demonstrated the activation of the AAR and apoptotic mechanisms, as well as other anti-MM effects, following ProRS inhibitors in primary MM patient samples, using scRNA-seq.
 In newly-diagnosed and relapsed patients, HF and NCP26 treatment elicited a strong transcriptional change and substantial cell death in the MM cell cluster, this was demonstrated using composition and DE analyses.
