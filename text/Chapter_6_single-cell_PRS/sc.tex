@@ -78,7 +78,7 @@ Myeloma cells were identified manually using a range of known markers, for examp
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/RBC_removal_all_experiments.pdf}
-    \caption[Erythrocyte removal from integrated scRNA-seq datasets]{UMAP dimension plots following integration of samples from experiment 1 and 2 (treatment naive patients), and samples from patients 3 and 4 in experiment 3 (relapsed MM).
+    \caption[Erythrocyte removal from scRNA-seq datasets]{UMAP dimension plots following integration of samples from experiment 1 and 2 (treatment naive patients), and samples from patients 3 and 4 in experiment 3 (relapsed MM).
     [a-d] Experiment 1 and 2-newly diagnosed MM patients.
     [e-h] Experiment 3, patients 3 and 4- relapsed MM patients.
      [a, b, e, f] Integrated UMAP plots before erythrocyte cell and gene removal. Erythrocyte clusters are circled in a) and e).
@@ -141,7 +141,7 @@ Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} illustrate 
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_naive.pdf}
-    \caption[MM cluster manual annotation- newly diagnosed MM]{Manual annotation of multiple myeloma (MM) cell clusters in experiment 1 and 2 (newly-diagnosed patients) using known MM biological markers.
+    \caption[MM cluster identification- newly diagnosed MM]{Manual annotation of multiple myeloma (MM) cell clusters in experiment 1 and 2 (newly-diagnosed patients) using known MM biological markers.
     a) UMAP feature plots of MM marker expression.
     Grey indicates no expression and purple indicates expression.
     b) A dot plot of the percentage of cells expressing a given marker and the average expression (for each cluster).
@@ -153,7 +153,7 @@ Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} illustrate 
 \begin{figure}[p]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_relapsed2.pdf}
-    \caption[MM cluster manual annotation- relapsed MM]{Manual annotation of MM cell clusters in experiment 3 (relapsed MM) using known biological markers.
+    \caption[MM cluster identification- relapsed MM]{Manual annotation of MM cell clusters in experiment 3 (relapsed MM) using known biological markers.
     a) UMAP feature plots of MM marker expression.
     b) A dot plot of the percentage of cells expressing a given marker and the average expression (for each cluster).
     c) Violin plots of gene expression for each cluster. }
@@ -222,7 +222,7 @@ The inferCNV results confirmed the gene expression-based identification of clust
 \begin{figure}[hpt]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_full_annotation.pdf}
-\caption[Newly-diagnosed MM scRNA-seq full annotation]{Fully annotated UMAP clustering analysis of two newly-diagnosed multiple myeloma (MM) patients.
+\caption[scRNA-seq full annotation- newly-diagnosed MM]{Fully annotated UMAP clustering analysis of two newly-diagnosed multiple myeloma (MM) patients.
 The MM cell population (circled) consists of three distinct clusters.}
 \label{fig:full_anno_naive}
 \end{figure}
@@ -244,7 +244,7 @@ Together with dose response curves and cell death assays, this suggests that Hal
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/sc_composition_naive2_barchart.pdf}
-\caption[scRNA-seq composition analysis- newly diagnosed MM]{Composition analysis of newly diagnosed MM.
+\caption[Composition analysis- newly diagnosed MM]{Composition analysis of newly diagnosed MM.
     a) UMAP cell composition plots separated by treatment condition.
     b) Dot plot showing proportion of cells in each cluster for each sample.
     c) Dot plot showing proportion of cells in each cell class for each sample (as labelled in Figure \ref{fig:full_anno_naive}).
@@ -271,7 +271,7 @@ At 48 hours there is substantial cell killing, therefore the 24-hour time point 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
-\caption[scRNA-seq DEGs per cell type- newly-diagnosed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
+\caption[DEGs per cell type- newly-diagnosed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
 Cell type annotation corresponding to Figure \ref{fig:full_anno_naive}.
 Experiment 1 and experiment 2 denote separate experiments, each containing BM samples from different newly-diagnosed MM patients.}
 \label{fig:naive_deg_bar}
@@ -308,7 +308,7 @@ Pathway enrichment analysis was performed for the top 200 upregulated and top 20
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_mm_pathway_analysis.pdf}
-\caption[scRNA-seq MM cluster pathway analysis (newly-diagnosed MM)]{Pathway analysis (Gene ontology biological processes; GOBP) of the MM cluster.
+\caption[MM cluster pathway analysis- newly-diagnosed MM]{Pathway analysis (Gene ontology biological processes; GOBP) of the MM cluster.
     a) and b) Halofuginone treatment.
     c) and d) NCP26 treatment.
 a) and c) GOBP pathway analysis performed using top 200 upregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2FC}>0$) ranked by fold change.
@@ -327,7 +327,7 @@ Figure \ref{fig:naive_aar_vln_ftp} shows a more detailed exploration of AAR gene
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_aar_vln_ftp.pdf}
-\caption[scRNA-seq differentially expressed AAR genes- newly diagnosed patients]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
+\caption[Differentially expressed AAR genes- newly diagnosed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
     a) Violin plots showing expression of selected AAR genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
 Feature plots are split into three panels based on treatment condition (DMSO, Halofuginone and NCP26).
@@ -350,7 +350,7 @@ HF has previously been shown to cause cell cycle arrest and to accumulate cells 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_pathological_vln_ftp.pdf}
-\caption[scRNA-seq differentially expressed MM markers- newly diagnosed patients]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly diagnosed patients treated with ProRS inhibitors for 24 hours.
+\caption[Differentially expressed MM markers- newly diagnosed MM]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly diagnosed patients treated with ProRS inhibitors for 24 hours.
     a) Violin plots showing expression of selected genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of MM pathological marker \textit{CD138} and apoptotic marker \textit{TNFRSF10B}.
 The myeloma cell population is circled in the first panel.
@@ -377,7 +377,7 @@ Substantial transcriptional difference are apparent between the relapsed patient
 \begin{figure}[hpt]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_full_annotation.pdf}
-\caption[Relapsed MM scRNA-seq full annotation]{Fully annotated UMAP clustering analysis of two relapsed multiple myeloma (MM) patients.
+\caption[scRNA-seq full annotation- relapsed MM]{Fully annotated UMAP clustering analysis of two relapsed multiple myeloma (MM) patients.
 15 distinct clusters were identified.
 Two subclones of MM were identified (circled; clusters 4 and 9).}
 \label{fig:full_anno_relapse}
@@ -397,7 +397,7 @@ Cluster composition analysis for relapsed MM by treatment is shown in Figure \re
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/sc_composition_relapse_barchart.pdf}
-\caption[scRNA-seq composition analysis- relapsed MM]{Composition analysis of relapsed MM cells treated for 24 hours with ProRS inhibitors.
+\caption[Composition analysis- relapsed MM]{Composition analysis of relapsed MM cells treated for 24 hours with ProRS inhibitors.
     a) UMAP cell composition plots separated by treatment condition.
     b) Dot plot showing proportion of cells in each cluster for each sample.
     c) Dot plot showing proportion of cells in each cell class for each sample (as labelled in Figure \ref{fig:full_anno_relapse}).
@@ -425,7 +425,7 @@ Next, differential gene expression was investigated for the relapsed MM patients
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/Results/single_cell/relapse_DEGs_barchart.pdf}
-\caption[scRNA-seq DEGs per cell type- relapsed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for a relapsed MM patient (patient 4 only) treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
+\caption[DEGs per cell type- relapsed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for a relapsed MM patient (patient 4 only) treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
 Cell type annotation corresponding to Figure \ref{fig:full_anno_relapse}.}
 \label{fig:relapse_deg_bar}
 \end{figure}
@@ -451,7 +451,7 @@ Pathway analysis could not be performed for MM cluster 9, as there were too few 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_mm_pathway_analysis.pdf}
-\caption[scRNA-seq MM cluster pathway analysis (relapsed MM)]{Pathway analysis (Gene ontology biological processes; GOBP) of MM cluster 4 in RRMM dataset.
+\caption[MM cluster pathway analysis- relapsed MM]{Pathway analysis (Gene ontology biological processes; GOBP) of MM cluster 4 in RRMM dataset.
 GOBP pathway analysis performed using top 200 upregulated or downregulated DEGs for ProRS inhibitor (1\si{\micro\Molar} Halofuginone and 1\si{\micro\Molar} or 5\si{\micro\Molar}  NCP26) treatment compared to DMSO control treatment for MM cluster 4.
 }
 \label{fig:relapse_mm_pathway_analysis}
@@ -470,7 +470,7 @@ Figure \ref{fig:relapse_aar_vln_ftp} shows AAR gene expression in relapsed myelo
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_aar_vln_ftp.pdf}
-\caption[scRNA-seq differentially expressed AAR genes- relapsed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
+\caption[Differentially expressed AAR genes- relapsed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
     a) Violin plots- AAR gene expression in MM cell cluster 4.
     b) Violin plots- AAR gene expression in MM cell cluster 9.
     c) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{DDIT3} and \textit{GADD34}.
@@ -511,7 +511,7 @@ This indicates that the loss of cells in the myeloid cell cluster is due to cell
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/myeloid/myeloid_naive_pathway.pdf}
-\caption[scRNA-seq myeloid cell pathway analysis- newly diagnosed MM]{Pathway analysis of ProRS inhibitor treatment in monocytes/macrophages in newly-diagnosed MM.
+\caption[Myeloid cell pathway analysis- newly diagnosed MM]{Pathway analysis of ProRS inhibitor treatment in monocytes/macrophages in newly-diagnosed MM.
 a-c) Halofuginone treatment vs DMSO.
 d-f) NCP26 treatment vs DMSO.
 a) and d) Gene-set enrichment analysis (GSEA) dotplot of top enriched pathways.
@@ -526,7 +526,7 @@ c) and f) XGR gene ontology biological processes (GOBP) of top downregulated gen
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/myeloid/myeloid_relapse_pathway_subset.pdf}
-\caption[scRNA-seq myeloid cell pathway analysis- relapsed MM]{Pathway analysis of ProRS inhibitor treatment in monocytes/macrophages in relapsed MM.
+\caption[Myeloid cell pathway analysis- relapsed MM]{Pathway analysis of ProRS inhibitor treatment in monocytes/macrophages in relapsed MM.
 a) Gene-set enrichment analysis (GSEA) dotplot of top enriched pathways for 5\si{\micro\Molar} NCP26 treatment vs DMSO.
 b) XGR gene ontology biological processes (GOBP) pathway analysis of top upregulated genes (($\log_{2}FC >1$) for 1\si{\micro\Molar} NCP26 treatment vs DMSO.
 c) XGR GOBP pathway analysis of top downregulated genes ($\log_{2}FC < -1$) for 1\si{\micro\Molar} NCP26 treatment vs DMSO.

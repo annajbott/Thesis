@@ -66,7 +66,7 @@ Multiple comparisons are accounted for by performing the Benjamini-Hochberg corr
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/workflow_generation/flowchart_sc.pdf}
-\caption[scRNA-Seq pseudoalignment pipeline flowchart]{Flowchart outlining scRNA-Seq pseudoalignment pipeline.}
+\caption[scRNA-Seq pseudoalignment pipeline outline]{Flowchart outlining scRNA-Seq pseudoalignment pipeline.}
 \label{fig:flowchart_scRNA}
 \end{figure}
 %%
@@ -118,7 +118,7 @@ Following barcode error correction, the final whitelist contained 4340 cells, al
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/workflow_generation/alevin_knee_plot.png}
-    \caption[Benchmark Salmon Alevin Knee Plot]{Alevin knee plot.
+    \caption[Salmon Alevin knee plot]{Alevin knee plot.
     This plot displays the number of times each cell barcode is observed, in decreasing order.
     Finding a `knee' in this plot determines a threshold for the initial whitelist of CBs, which are unlikely to be empty droplets.}
     \label{fig:alevin_knee}
@@ -134,7 +134,7 @@ Therefore, using the inflection point of the rotated knee plot was found to be t
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/workflow_generation/bus_knee_plot.png}
-    \caption[Benchmark Kallisto Bus Rotated Knee Plot]{Kallisto BUS rotated knee plot.
+    \caption[Kallisto BUS rotated knee plot]{Kallisto BUS rotated knee plot.
     This plot shows the number of distinct UMIs against the rank of the barcode.
     The Pachter lab transpose the x- and y-axis on their knee plot, so that the x-axis displays distinct UMIs and the y-axis displays ranked cell barcodes, according to the number of corresponding UMIs to each CB. This is supposed to be more intuitive, having the number of distinct UMIs as the independent variable rather than cell barcode rank, as number of UMIs determine the cell barcode rank.}
     \label{fig:bus_knee}
@@ -207,7 +207,7 @@ F1 scores were calculated for each gene across each cell.}
     \caption{F1 score histogram}
     \label{fig:f1_hist}
 \end{subfigure}
-\caption[Distribution of F1 scores]{F1 score distributions.
+\caption[F1 score distribution]{F1 score distributions.
     \ref{fig:f1_westoby} shows the F1 score for each gene expressed across all 4339 cells.
     The black bar denotes the mean F1 score for each cell.
     F1 scores of 0 have been removed.}
@@ -232,7 +232,7 @@ F1 scores were calculated for each gene across each cell.}
     \caption{tSNE}
     \label{fig:benchmark_tsne}
 \end{subfigure}
-\caption[Benchmark Clustering Analysis]{Clustering analysis of the simulated data.
+\caption[Clustering analysis benchmark]{Clustering analysis of the simulated data.
 18 clusters are present in the ground truth data and Alevin and BUS processed data.
 Integrated clustering was performed using Seruat3\cite{stuart2019comprehensive}, using both Uniform Manifold Approximation and Projection (UMAP) and  t-distributed Stochastic Neighbor Embedding (tSNE) dimension reduction techniques.}
 \label{fig:benchmark_clustering}

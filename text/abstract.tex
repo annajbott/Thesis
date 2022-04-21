@@ -1,4 +1,3 @@
-% to do: NCP26R
 
 Multiple myeloma (MM) is an incurable cancer of plasma cells, with an average five-year survival rate of approximately 50\%.
 Over the last two decades application of MM therapeutics, namely proteasome inhibitors (PI) and immunomodulatory imide drugs (IMiD), have almost doubled median survival time of MM patients.
@@ -12,15 +11,17 @@ Recently, a new proline uncompetitive, ATP competitive ProRS inhibitor, NCP26, h
 In this work the application of HF and NCP26 in MM is explored using both MM cell lines and primary MM patient samples.
 HF and NCP26 demonstrated cytotoxicity to both drug-sensitive and proteasome inhibitor (PI)-resistant MM cell lines in a dose dependent manner.
 The anti-MM effects of HF were abrogated in the presence of excess proline, whereas excess proline had no effect on NCP26 treatment.
-Using bulk and single cell RNA-seq, HF and NCP26 treatment was shown to activate the amino acid starvation (AAR) response, endoplasmic reticulum (ER) stress and downstream apoptotic signalling pathways in MM cell lines and primary patient MM cells.
-This response was shown for drug-sensitive and drug-resistant MM cell lines, as well as newly-diagnosed and relapsed MM patients.
-Using differential expression and composition analyses, HF and NCP26 treatment was also shown to selectively target MM cells over the majority of immune cells, including NK cells, B cells and T cells.
+Using bulk RNA-seq, HF and NCP26 treatment was shown to activate the amino acid starvation (AAR) response, endoplasmic reticulum (ER) stress and downstream apoptotic signalling pathways in MM cell lines.
+NCP26 resistant MM cells also showed significant suppression of ER-associated elements, as well as reduced expression of \textit{ATF4} (the master regulator of amino acid metabolism)).
+Single-cell RNA- seq (scRNA-seq) was employed to further examine the effects of ProRS inhibition in primary patient bone marrow samples.
+scRNA-seq confirmed the activation of the AAR, ER stress and apoptotic mechanisms in newly-diagnosed and relapsed MM patient cells.
+From differential expression and composition analyses, HF and NCP26 treatment was shown to selectively target MM cells over the majority of immune cells, including NK cells, B cells and T cells.
 However, HF and NCP26 were also shown to elicit apoptosis in myeloid cells.
 
 From this pre-clinical validation of ProRS inhibitors, it is clear that ProRS represents a new, promising target in MM\@.
 
 A number of computational methods were developed to support the experiments conducted in this work.
-scRNA-seq and tRNA-seq analysis pipelines were developed and their performances benchmarked.
+scRNA-seq and tRNA-seq analysis pipelines were developed and their performances were benchmarked.
 An MM classifier was also built to be able to automate cell type classification of MM patient scRNA-seq samples.
 The whole bone marrow (WBM) MM scRNA-seq datasets from this work were used to train the MM classifier.
 Publically available MM WBM scRNA-seq data was used to evaluate the performance of the MM classifier, and it was found to be fairly accurate at labelling MM cells.
