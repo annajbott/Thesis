@@ -32,12 +32,12 @@ To truly understand the complexities of MM and treatment of MM, interactions bet
 This chapter uses MM patient-derived bone marrow (BM), from both newly-diagnosed and relapsed patients, to investigate the transcriptional effects of ProRS on MM cells and their surrounding immune microenvironment.
 
 \subsection{Experiment overviews}\label{subsec:scrna_experiment}
-Three single-cell experiments, comprising samples from four MM patients, were performed to explore the effect of various compounds (including Halofuginone and NCP26) on MM patient tissue.
+Three single-cell experiments, comprising samples from four MM patients, were performed to explore the effect of various compounds (including halofuginone and NCP26) on MM patient tissue.
 The BM samples for experiments 1 and 2 were obtained from two treatment-naive, newly-diagnosed MM patients.
 Experiment 3 comprised samples from two relapsed MM patients, therefore both presenting with a degree of acquired anti-cancer drug resistance.
-For experiment 1, BM samples were treated for 24 hours with 1\si{\micro\Molar} Casin, GSK-J4, Halofuginone, NCP26, SGC-GAK, Verteporfin or a DMSO control, totalling 7 samples.
-For experiment 2, BM samples were treated with with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours; 1\si{\micro\Molar} SGC-GAK, Halofuginone, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 samples.
-For experiment 3, BM samples from patient 3 and 4 were treated for 24 hours with either a DMSO control, 1\si{\micro\Molar} Halofuginone, 1\si{\micro\Molar} NCP26 or 5\si{\micro\Molar} NCP26, totalling 8 samples.
+For experiment 1, BM samples were treated for 24 hours with 1\si{\micro\Molar} Casin, GSK-J4, halofuginone, NCP26, SGC-GAK, Verteporfin or a DMSO control, totalling 7 samples.
+For experiment 2, BM samples were treated with with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours; 1\si{\micro\Molar} SGC-GAK, halofuginone, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 samples.
+For experiment 3, BM samples from patient 3 and 4 were treated for 24 hours with either a DMSO control, 1\si{\micro\Molar} halofuginone, 1\si{\micro\Molar} NCP26 or 5\si{\micro\Molar} NCP26, totalling 8 samples.
 
 Following compound treatment, scRNA-seq library preparation was performed by Dr Martin Philpott as outlined in Section \ref{subsec:10x_method}.
 % <GENEWIZ experiment 3 >
@@ -55,7 +55,7 @@ Treatment-naive patient samples (from experiments 1 and 2- patients 1 and 2) wer
 Experiments 1 and 2 contained numerous samples that were not of interest to this project.
 Yet, all samples originated from MM patient tissue, therefore all 18 samples were included in the analysis pipeline, and were included in integration and annotation steps.
 These samples were included to increase the granularity of the data, and allow for easier annotation of clusters.
-Accordingly, downstream analysis was only performed for DMSO, Halofuginone and NCP26 samples.
+Accordingly, downstream analysis was only performed for DMSO, halofuginone and NCP26 samples.
 
 \subsection{Analysis overview}
 
@@ -249,7 +249,7 @@ Cluster composition analysis by treatment condition is shown in Figure \ref{fig:
 Halofuginone treatment at both 24 and 48 hours reduced the proportion of cells in the MM cluster (p<0.00001) compared to DMSO, for both experiment 1 and 2.
 NCP26 treatment at 24 hours reduced the proportion of cells in the MM cluster (p<0.00001), for both experiment 1 and 2.
 HF and NCP26 treatment increased the proportion of cells in the CD4+ T cell, CD8+ T cell and B cell clusters.
-Together with dose response curves and cell death assays, this suggests that Halofuginone and NCP26 are selectively killing MM cells to a higher degree than other cell types.
+Together with dose response curves and cell death assays, this suggests that halofuginone and NCP26 are selectively killing MM cells to a higher degree than other cell types.
 
 %%  UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
@@ -268,8 +268,8 @@ Together with dose response curves and cell death assays, this suggests that Hal
 Halofuginone treatment and 48-hour NCP26 treatment were also found to reduce the proportion of cells in the monocyte and neutrophil cluster (p<0.00001), indicating they may have some undesirable off-target effects on myeloid cells.
 
 All of the compounds were used at a concentration of 1\si{\micro\Molar}.
-This is approximately 10 times the concentration of Halofuginone's IC\textsubscript{50} value on MM cell lines and two times NCP26's IC\textsubscript{50} value.
-As you can see, large number of cells were killed by Halofuginone treatment at both 24 and 48 hours.
+This is approximately 10 times the concentration of halofuginone's IC\textsubscript{50} value on MM cell lines and two times NCP26's IC\textsubscript{50} value.
+As you can see, large number of cells were killed by halofuginone treatment at both 24 and 48 hours.
 Therefore, the effects seen on the myeloid cells could be due to high dosing of the ProRS inhibitors.
 
 \subsubsection{Differential expression}
@@ -296,7 +296,7 @@ However, 2016 and 1485 genes were DE in the monocyte cluster following NCP26 tre
 This reflects the composition analysis, where the proportion of cells in the monocyte cluster was markedly reduced.
 This could indicate that NCP26 is not selective for MM cells over myeloid cells.
 
-In MM cells, 73 genes were DE following Halofuginone treatment in experiment 1, and 1318 genes in experiment 2.
+In MM cells, 73 genes were DE following halofuginone treatment in experiment 1, and 1318 genes in experiment 2.
 In the composition analysis (Figure \ref{fig:composition_naive}), we saw very few cells remaining in the MM cluster for experiment 1 following HF treatment.
 Due to the low cell number, there is less statistical power and diversity across the cells, therefore you would likely see fewer statistically significant DEGs for this cluster.
 Unlike NCP26 treatment, for 24 hour 1\si{\micro\Molar} HF treatment we see a large number of DEGs in B, T and NK cell clusters.
@@ -305,16 +305,16 @@ HF is approximately five times more potent than NCP26.
 This fits with composition analysis, where HF treatment largely reduced the proportion of cells in the myeloid and MM clusters.
 
 At lower doses (i.e. NCP26 at 1\si{\micro\Molar}) of ProRS inhibition we see clear evidence of greater transcriptional effects on MM cells and monocytes over other immune subtypes.
-However at higher doses (i.e. Halofuginone at 1\si{\micro\Molar}) we see substantial cell killing of MM cells and monocytes and larger transcriptional effects on other immune subtypes.
-This together with the composition analysis, demonstrates that NCP26 and Halofuginone are selective for MM cells over most immune cells, except for myeloid cells.
+However at higher doses (i.e. halofuginone at 1\si{\micro\Molar}) we see substantial cell killing of MM cells and monocytes and larger transcriptional effects on other immune subtypes.
+This together with the composition analysis, demonstrates that NCP26 and halofuginone are selective for MM cells over most immune cells, except for myeloid cells.
 However, this could be a problem with the doses used for treatment.
-1\si{\micro\Molar} is almost 10 times greater than Halofuginone's IC\textsubscript{50} and two times greater than NCP26's IC\textsubscript{50}.
-This experiment should be performed at a lower concentration to ascertain if NCP26 and Halofuginone are more selective for MM cells or monocytes.
+1\si{\micro\Molar} is almost 10 times greater than halofuginone's IC\textsubscript{50} and two times greater than NCP26's IC\textsubscript{50}.
+This experiment should be performed at a lower concentration to ascertain if NCP26 and halofuginone are more selective for MM cells or monocytes.
 Ideally, the experiment would be performed over the course of three days at a lower concentration, as in our cell line studies.
 However, human bone marrow samples do not last very well in extended culture under conditions employed in this study, therefore acute exposure (24 hr) was the preferred method for this experiment.
 
 \subsubsection{Pathway analysis}
-Pathway enrichment analysis was performed for the top 200 upregulated and top 200 downregulated DEGs in the MM cluster, following Halofuginone and NCP26 treatment (Figure \ref{fig:naive_mm_pathway_analysis}).
+Pathway enrichment analysis was performed for the top 200 upregulated and top 200 downregulated DEGs in the MM cluster, following halofuginone and NCP26 treatment (Figure \ref{fig:naive_mm_pathway_analysis}).
 %%  SC MM pathway analysis-- might need to up font size
 \begin{figure}[htb]
 \centering
@@ -328,9 +328,9 @@ b) and d) GOBP pathway analysis performed using top 200 downregulated DEGs (p\te
 \end{figure}
 %%
 
-For NCP26 and Halofuginone treatment of MM cells, pathways related to ER-stress and apoptosis were enriched.
+For NCP26 and halofuginone treatment of MM cells, pathways related to ER-stress and apoptosis were enriched.
 The unfolded protein response- another member of the ISR, which shares many effectors with AAR- was also enriched.
-This supports our bulk RNA-seq results that the amino acid starvation response is activated following NCP26 and Halofuginone treatment of MM cells.
+This supports our bulk RNA-seq results that the amino acid starvation response is activated following NCP26 and halofuginone treatment of MM cells.
 
 Figure \ref{fig:naive_aar_vln_ftp} shows a more detailed exploration of AAR gene expression in MM cells and surrounding immune cells.
 %
@@ -339,9 +339,9 @@ Figure \ref{fig:naive_aar_vln_ftp} shows a more detailed exploration of AAR gene
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_aar_vln_ftp.pdf}
 \caption[Differentially expressed AAR genes- newly diagnosed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
-    a) Violin plots showing expression of selected AAR genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
+    a) Violin plots showing expression of selected AAR genes in the MM population following DMSO, halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
-Feature plots are split into three panels based on treatment condition (DMSO, Halofuginone and NCP26).
+Feature plots are split into three panels based on treatment condition (DMSO, halofuginone and NCP26).
 The myeloma cell population is circled in the first panel.}
 \label{fig:naive_aar_vln_ftp}
 \end{figure}
@@ -362,7 +362,7 @@ HF has previously been shown to cause cell cycle arrest and to accumulate cells 
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_pathological_vln_ftp.pdf}
 \caption[Differentially expressed MM markers- newly diagnosed MM]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly diagnosed patients treated with ProRS inhibitors for 24 hours.
-    a) Violin plots showing expression of selected genes in the MM population following DMSO, Halofuginone and NCP26 treatment.
+    a) Violin plots showing expression of selected genes in the MM population following DMSO, halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of MM pathological marker \textit{CD138} and apoptotic marker \textit{TNFRSF10B}.
 The myeloma cell population is circled in the first panel.
 Halofugione and NCP26 treatment reduce \textit{CD138} expression and increase \textit{TNFRSF10B} expression in the MM clusters.}
@@ -421,7 +421,7 @@ NCP26 treatment reduced the proportion of cells in the MM cluster (p<0.01).
 % Effect of NCP26 on other clusters. myeloid
 There is insufficient evidence (p>0.05) to conclude if HF treatment affected the proportion of cells in MM cluster 4.
 However, HF significantly reduced the proportion of cells in the myeloid and B cell clusters.
-This perhaps indicates that in relapsed MM, Halofuginone is not selective for myeloma cells over other immune cells.
+This perhaps indicates that in relapsed MM, halofuginone is not selective for myeloma cells over other immune cells.
 This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma.
 \textit{PYCR1} (catalyzes the conversion of P5C to proline) expression has been shown to be increased in MM cells in relapsed/refractory MM patients\cite{oudaert2022pyrroline}, therefore relapsed MM patients may have increased proline concentration in MM cells than treatment-naive MM patients.
 Neither ProRS inhibitor reduced the proportion of cells in MM cluster 9.
@@ -462,7 +462,7 @@ Pathway analysis could not be performed for MM cluster 9, as there were too few 
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_mm_pathway_analysis.pdf}
 \caption[MM cluster pathway analysis- relapsed MM]{Pathway analysis (Gene ontology biological processes; GOBP) of MM cluster 4 in RRMM dataset.
-GOBP pathway analysis performed using top 200 upregulated or downregulated DEGs for ProRS inhibitor (1\si{\micro\Molar} Halofuginone and 1\si{\micro\Molar} or 5\si{\micro\Molar}  NCP26) treatment compared to DMSO control treatment for MM cluster 4.
+GOBP pathway analysis performed using top 200 upregulated or downregulated DEGs for ProRS inhibitor (1\si{\micro\Molar} halofuginone and 1\si{\micro\Molar} or 5\si{\micro\Molar}  NCP26) treatment compared to DMSO control treatment for MM cluster 4.
 }
 \label{fig:relapse_mm_pathway_analysis}
 \end{figure}
@@ -645,7 +645,7 @@ It would be interesting to see if other aaRS inhibitors, (acting on other aaRSs 
 A decrease in the number of functional myeloid cells could lead to myeloid suppression (myelosuppression/ bone marrow suppression/ immunosupression), which in turn makes patients more susceptible to infection.
 As MM is a disease of elderly people, new therapeutics must be tolerable for patients and not excessively immunosuppressive, especially if they are used to treat RRMM patients, who have increased bone marrow suppression.
 Substantial myelosuppression can also dictate the dosing regimen of a drug- to balance the efficacy of the drug with the associated side effects and infection risk.
-However, from in-vivo MM xenograft murine models\cite{bottpreclinical2022}, the mice tolerated NCP26 treatment well, with no signs of overt toxicity such as body weight loss.
+However, from in-vivo MM xenograft murine models\cite{bottpreclinical2022}, the mice tolerated NCP26 treatment well, with no signs of overt toxicity such as weight loss.
 This indicates that the effect of ProRS inhibition on myeloid cells may not even be an issue in-vivo.
 Furthermore, myelosuppression is a common side effects of many other cancer therapies, especially in the treatment of hematologic malignancies.
 Therefore, it would be unlikely that ProRS inhibitor myeloid cell killing would constrain its clinical use in MM\@.
