@@ -8,39 +8,39 @@
 
 \section{Overview}
 Multiple myeloma (MM) is an incurable cancer of plasma cells.
-Multiple myeloma accounts for 1-2\% of all cancers and 10\% of all hematological malignancies\cite{international2003criteria}.
+MM accounts for 1-2\% of all cancers and 10\% of all hematological malignancies\cite{international2003criteria}.
 In 2020, it was estimated that the total worldwide incidence of MM was 160,000\cite{ludwig2020multiple}.
-Over the last two decades, several classes of drugs have been approved for treatment in MM, including proteasome inhibitors (PIs), Immunomodulatory imide drugs (IMiDs) and monoclonal antibodies.
-These are now standard drugs in the treatment of MM, subsequently a drastic improvement in survival rates has been seen--- median survival time for newly diagnosed MM patients has almost doubled in the last 10 years\cite{kazandjian2016look}.
+Over the last two decades, several classes of drugs have been approved for treatment in MM, including proteasome inhibitors (PIs), immunomodulatory imide drugs (IMiDs) and monoclonal antibodies.
+These are now standard drugs in the treatment of MM, and subsequently a drastic improvement in survival rates has been seen--- median survival time for newly diagnosed MM patients has almost doubled in the last 10 years\cite{kazandjian2016look}.
 However, MM still remains an incurable disease, with patients eventually relapsing and becoming resistant to drugs they have previously been treated with.
-Drug resistance is one of the biggest barriers in the treatment of MM.
+Drug resistance is one of the biggest barriers in the treatment of MM\@.
 Therefore, the generation of novel compounds effective against MM is important to extend progression-free survival of patients and work towards finding a cure to MM\@.
 This thesis aims to identify novel drugs effective against MM, which are capable of overcoming drug resistance to conventional MM therapies.
 It also aims to characterise the transcriptional landscape of MM, following treatment with these novel compounds, to ascertain the mechanism of action in MM and identify any potential side effects of treatment.
-Additionally, MM is a heterogeneous disease with prominent interactions with the surrounding immune microenvironment, therefore MM cells must be examined at the single-level along with other cells residing in the bone marrow niche, to fully capture the heterogeneity and immune interactions we see in myeloma.
+MM is a heterogeneous disease with prominent interactions with the surrounding immune microenvironment.
+Therefore, MM cells must be examined at the single-level along with other cells residing in the bone marrow niche, to fully capture the heterogeneity and immune interactions we see in myeloma.
 
 This introduction will give a brief overview of the immune system, multiple myeloma (MM), and current MM treatments.
 The genome, epigenome, transcriptome and proteome will be introduced, followed by a review of the technological advancements and informatics tools used to decode them.
 Chapter 2 introduces the enzyme class: aminoacyl tRNA synthetases (aaRS) and reviews literature regarding their role in disease and the application of therapeutics targeting enzymes in this class.
-Next, literature surrounding the drug Halofuginone, a Prolyl-tRNA synthetase (ProRS) inhibitor, is reviewed and its application in MM is considered.
+Next, literature surrounding the drug halofuginone, a Prolyl-tRNA synthetase (ProRS) inhibitor, is reviewed and its application in MM is considered.
 
 % 1
 \section{The immune system}
 This thesis employs multi-omics techniques to assess the effectiveness and mechanism of action of novel therapeutics in multiple myeloma.
 MM is a cancer of terminally differentiated B lymphocytes (a type of white blood cell which acts as part of the adaptive immune system to fight infection).
-In chapter \ref{ch:6-sc} single-cell RNA-sequencing is applied to MM bone marrow samples;
-different cellular components of the immune system are identified.
+In chapter \ref{ch:6-sc} single-cell RNA-sequencing is applied to MM bone marrow samples and the different cellular components of the immune system are discussed.
 Therefore, a brief introduction will be given into the different facets of the immune system.
 
 \subsection{The function of the immune system}
 Humans are exposed to millions of potential pathogens every day and would die without defences to be able to protect themselves from infection.
 These defences can be innate or adaptive.
 An example of an innate defence is the skin acting as a physical barrier between the outside world and the body.
-Innate responses are non-specific and relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required- called the adaptive immune response\cite{alberts2007molecularimmune}.
+Innate responses are non-specific and relied upon as the first line of defence, however sometimes a more sophisticated, specialised response is required-- called the adaptive immune response\cite{alberts2007molecularimmune}.
 %Another example of an innate defence is non-specific engulfing (phagocytosis) of foreign pathogens by macrophages (a type of white blood cell).
 Both innate and adaptive immune responses rely on cells produced by the hematopoietic system.
 Hematopoiesis is the process in which the body produces blood\cite{alberts2007molecularstem}.
-Postnatally the major hematopoietic organs are bone marrow, lymph nodes, the spleen and the thymus.
+Postnatally, the major hematopoietic organs are bone marrow, lymph nodes, the spleen and the thymus.
 
 \subsection{Hematopoietic stem cell differentiation}
 All blood cells originate from multipotent hematopoietic stem cells (HSCs), located in the bone marrow (BM).
@@ -49,7 +49,7 @@ All blood cells originate from multipotent hematopoietic stem cells (HSCs), loca
 %% Immune cell figure
 \begin{figure}[htb]
 \centering\includegraphics[width=\textwidth]{figures/Introduction/immune_cells.pdf}
-\caption[Hematopoietic system cell differentiation]{Hematopoietic stem cell (HSC) cell differentiation.
+\caption[Hematopoietic system cell differentiation]{Hematopoietic stem cell (HSC) differentiation.
 Multipotent HSCs divide and either self-renew or commit to common myeloid or common lymphoid progenitor cells.
 The committed progenitor cells then further commit to progressive restrictive progenitors, then finally differentiated cells such as B cells, T cells, macrophages and erythrocytes.
 In adult mammals, all cells shown develop in the bone marrow, except for T cells, which develop in the thymus, and macrophages, which develop from blood monocytes.
@@ -175,8 +175,8 @@ IgM and IgD BCRs on a single mature naive B cell all contain identical antigen-b
 To fully differentiate, B cells require antigen stimulation.
 Upon antigen stimulation, mature naive B cells are activated to differentiate into either Ig-secreting effector B cells (plasma cells) or memory B cells.
 Terminally differentiated plasma cells are the final effectors of the B cell lineage.
-Plasma cell differentiation involves the loss of expression of many genes, such as CD19, CD20 and increased expression of plasma cell markers, such as CD138 and CD38.
-Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in antibody secretion upregulated, including \textit{XBP-1} and \textit{CHOP}, to enable the production of copious amounts of antibody\cite{shapiro2004plasma}.
+Plasma cell differentiation involves the loss of expression of many genes, such as \textit{CD19}, \textit{CD20} and increased expression of plasma cell markers, such as \textit{CD138} and \textit{CD38}.
+Plasma cells have an extensive rough endoplasmic reticulum (ER), and have numerous genes involved in antibody secretion upregulated, including \textit{XBP1} and \textit{CHOP}, to enable the production of copious amounts of antibody\cite{shapiro2004plasma}.
 Antibodies recognise and bind to the specific foreign antigen on the pathogen which stimulated their production.
 Binding of antibodies to antigens renders the virus or microbial toxin inactive as it blocks their ability to bind to host cells.
 Additionally, antibody binding makes it easier for phagocytic cells to ingest the pathogen\cite{alberts2007molecularimmune}.
@@ -200,7 +200,7 @@ The enzyme AID is required for this process.
 Not many of the Igs that undergo hypermutation will have a stronger affinity for the antigen present.
 However, B cells produce BCRs and antibodies, both of which contain the same antigen-binding site.
 The B cells with a higher affinity antigen-binding site for the given antigen, will be preferentially stimulated at their BCRs.
-This in turn means that clones with increased affinity will preferentially proliferate and survive over other B cells with less affinity (similar to how evolution and natural selection works in population genetics).
+This in turn means that clones with increased affinity will preferentially proliferate and survive over other B cells with lesser affinity (similar to how evolution and natural selection works in population genetics).
 Most other B cells in the germinal centre will undergo apoptosis and die.
 After numerous repeated cycles of mutation and selection, the remaining effector B cell clones will have improved Ig affinity 10--5000 fold for the antigen during the course of the immune response\cite{mishra2018insights}.
 
@@ -245,7 +245,7 @@ Immunological memory is the basis for the success of vaccinations, where previou
 \subsection{Multiple myeloma cells}
 Multiple myeloma (MM) is a malignancy of terminally differentiated plasma cells.
 It is characterised by aberrant proliferation of clonal, long-lived plasma cells in the bone marrow\cite{anderson2011pathogenesis}.
-The large accumulation of MM cells in the bone marrow, displace healthy cells.
+The large accumulation of MM cells displace healthy cells in the bone marrow.
 Under normal conditions, plasma cells produce antibodies that fight infection as part of the adaptive immune system.
 However malignant plasma cells (MM cells) produce large amounts of abnormal antibodies that are unable to fight infection, coined `paraproteins' or `M proteins' (Figure \ref{fig:m_spike}).
 %
@@ -253,10 +253,11 @@ However malignant plasma cells (MM cells) produce large amounts of abnormal anti
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Introduction/M_spike.pdf}
-\caption[SPEP M spike]{Diagram of serum protein electrophoresis (SPEP) for a normal individual and for a multiple myeloma (MM) patient.
-Based on their electrical charge, SPEP separates all the proteins in the blood.
-A large peak is recorded for albumin (the most abundant protein in the blood), followed by lower levels of the other proteins, grouped into areas labelled $\alpha1$ and $\alpha2$, then a $\beta$ region, and then a $\gamma$ region, which represents where antibodies lie on the graph.
-The large quantities of a single type of antibody (M protein) produced by MM cells cause a distinct `M spike' in the antibody protein region of the graph ($\gamma$ region).}
+\caption[SPEP M spike]{Diagram of serum protein electrophoresis (SPEP) for a healthy individual and for a multiple myeloma (MM) patient.
+Based on proteins' electrical charge, size and shape, SPEP separates proteins in blood.
+A large peak is recorded for albumin (the most abundant protein in blood), followed by lower levels of the other proteins, grouped into $\alpha1$, $\alpha2$,$\beta$ and $\gamma$ regions.
+Antibodies are located in the $\gamma$ region.
+The large quantities of a single type of antibody (M protein) produced by MM cells cause a distinct, narrow `M spike' in the $\gamma$ region.}
 \label{fig:m_spike}
 \end{figure}
 %%
@@ -270,23 +271,23 @@ Increased IgM can also be seen in other B cell malignancies such as Waldenstrom'
 
 Malignant MM cells vary from healthy plasma cells considerably.
 The transformation from healthy plasma cell to MM cell is a complex multi-step process, involving numerous genomic, epigenomic, transcriptomic, proteomic and metabolic changes\cite{de2002comparison, caprio2020epigenetic, chanukuppa2021proteomic, el2018metabolic}.
-Examples of such genomic changes include, a rearrangement of the 14q32 locus (where the Ig heavy chain gene is located)\cite{nishida1997ig} in approximately 60\% of patients, as well as rearrangements in c-MYC, cyclin D1, FGFR3 and cyclin D3\cite{de2002comparison}.
+Examples of such genomic changes include a rearrangement of the 14q32 locus (where the Ig heavy chain gene is located)\cite{nishida1997ig} in approximately 60\% of patients, as well as rearrangements in \textit{MYC}, \textit{CCND1}, \textit{FGFR3} and \textit{CCND3}\cite{de2002comparison}.
 Fluorescence in situ hybridization (FISH) testing is often performed on upon MM diagnosis and at time of relapse, to detect certain genetic alterations and aid in risk stratification of patients\cite{swerdlow2008classification}.
-Deletions of chromosome 13 and mutations in NRAS and KRAS are also frequently seen in MM\@.
-Gene expression changes in MM cells include loss of CD19 expression and aberrant CD56 expression.
+Deletions of chromosome 13 and mutations in \textit{NRAS} and \textit{KRAS} are also frequently seen in MM\@.
+Gene expression changes in MM cells include loss of \textit{CD19} expression and aberrant \textit{CD56} expression.
 DNA methylation and histone modifications have also been indicated as crucial regulators of MM pathogenesis.
 
 \subsection{MM microenvironment}
 MM cells typically grow within the bone marrow (BM).
 This is often referred to as their BM niche or BM microenvironment.
-The surrounding microenvironment plays a large role in supporting the progression of MM.
+The surrounding microenvironment plays a large role in supporting the progression of MM\@.
 The BM microenvironment is comprised of a cellular compartment (immune cells, endothelial cells, osteoblasts, osteoclasts and stromal cells) and a non-cellular compartment (the extracellular matrix (ECM), cytokines, chemokines and growth factors)\cite{manier2012bone, kawano2015targeting}.
 MM cells interact with their surrounding environment.
 These interactions influence the migration, differentiation, survival, proliferation, and response to therapies of MM cells.
 
 %2
 \subsection{Epidemiology}
-Multiple myeloma accounts for 1-2\% of all cancers and has the second highest incidence of hematological malignancies, after non-Hodgkin's lymphoma\cite{international2003criteria}.
+MM accounts for 1-2\% of all cancers and has the second highest incidence of hematological malignancies, after non-Hodgkin's lymphoma\cite{international2003criteria}.
 MM is rare in individuals under the age of 40, with a median age of 70 at time of diagnosis\cite{tsang2019multiple, palumbo2011multiple}.
 MM is more prevalent in males than females and is around twice as common in black populations than in Caucasian or Asian populations\cite{nhsmyeloma}.
 The average incidence rate is approximately 1-6 cases per 100,000 individuals\cite{tsang2019multiple, palumbo2011multiple, teras20162016}, with the highest age-standardised incidence rates in the regions of Australasia, North America, and Western Europe\cite{cowan2018global}.
@@ -297,39 +298,39 @@ Five-year survival rate of MM patients is approximately 49\%, whilst approximate
 \subsection{Presentation of precursor states}
 %3
 All cases of MM are preceded by asymptomatic precursor states, monoclonal gammopathy of unknown significance (MGUS) and smouldering multiple myeloma (SMM).
-However, only some patients with SMM or MGUS progress to active MM.
+However, only some patients with SMM or MGUS progress to active MM\@.
 
 MGUS is a pre-malignant condition where patients have the presence of monoclonal immunoglobulins in their blood or urine, $<$10\% clonal plasma cells in their bone marrow, but lack any myeloma-related end-organ damage\cite{van2018mgus}.
-Patients with SMM have between 10 and 60\% clonal plasma cells in their bone marrow, serum monoclonal immunoglobulin of $\ge$3 g/dL, and like MGUS, have no signs of end-organ damage\cite{rajkumar2015smoldering}.
+Patients with SMM have between 10\% and 60\% clonal plasma cells in their bone marrow, serum monoclonal immunoglobulin of $\ge$3 g/dL, and like MGUS, have no signs of end-organ damage\cite{rajkumar2015smoldering}.
 Progression risk of MGUS into symptomatic MM is about 1\% per year, whilst progression risk of SMM to MM is higher, at around 10\% per year for the first 5 years, after which it decreases\cite{korde2011monoclonal, kyle2007clinical}.
 %
 
 %3
 \subsection{Presentation of active MM}
-There are multiple classifications of active MM.
+There are multiple classifications of active MM\@.
 The International Myeloma Working Group's definition\cite{rajkumar2014international} is as follows:
-Greater than 10\% clonal plasma cells located in the bone marrow and one or more myeloma-defining event or biomarker of malignancy.
+greater than 10\% clonal plasma cells located in the bone marrow and one or more myeloma-defining event or biomarker of malignancy.
 Myeloma defining events consist of evidence of end-organ damage that can be attributed to the surplus of M protein and clonal plasma cells, namely the CRAB features:
 %
 % List of myeloma events (CRAB)
 \begin{itemize}
-  \item Hypercalcemia
+  \item Hypercalcemia (C)
     \begin{itemize}
         \item Increased serum calcium
         \item Symptoms include: excessive thirst, nausea, constipation, tiredness, loss of appetite, excessive urination and confusion
     \end{itemize}
-  \item Renal dysfunction
+  \item Renal dysfunction (R)
     \begin{itemize}
         \item Increased serum creatinine levels
         \item Symptoms include: nausea, loss of appetite and weight loss, dehydration, tiredness and lack of energy, swollen feet and hands
     \end{itemize}
-  \item Anaemia
+  \item Anaemia (A)
     \begin{itemize}
         \item Anaemia of unknown cause
         \item Decreased hemoglobin levels
         \item Symptoms include: breathlessness and tiredness
     \end{itemize}
-    \item Bone lesions
+    \item Bone lesions (B)
       \begin{itemize}
         \item Unexplained and persistent bone pain (often in the back, shoulders, hips or ribs)
         \item Osteolytic lesions found using skeletal radiography, computerized tomography (CT) or positron emission tomography (PET)-CT scans
@@ -348,24 +349,24 @@ It is currently unclear what causes the malignant transformation between precurs
 Certain factors have been identified as risk factors, including point mutations in genes such as \textit{NRAS}, \textit{KRAS} and \textit{MYC}; chromosomal copy number variations, for example deletion of chromosome 13; a large array of up-regulated transcription factors, such as \textit{MYC}; and numerous changes to the immune system\cite{korde2011monoclonal, mccachren2021co}.
 The shift from MGUS and SMM to active MM is extremely complex, multiple stages of transformations are undergone and the genetic landscape changes considerably over the course of the disease.
 
-\subsection{Treatment of multiple myeloma}\label{subsec:mm_treatment}
+\subsection{Treatment of MM}\label{subsec:mm_treatment}
 Multiple myeloma may be an incurable disease, however it is treatable.
 In fact, in the last decade median survival time for newly diagnosed MM patients has almost doubled\cite{kazandjian2016look}.
 Novel therapeutic advances have contributed to this improvement (Table \ref{tab:treatment_history}).
 Myeloma is usually treated with a combination of drugs, often comprising a corticosteriod, a proteasome inhibitor, and an immunomodulatory drug (IMiD).
 A common regimen, approved in the USA, European Union and UK for untreated myeloma is the triplet VRd regimen.
 This consists of the proteasome inhibitor bortezomib (brand name Velcade), the IMiD lenalidomide (brand name Revlimid), and the corticosteroid dexamethasone.
-More commonly in the UK on the NHS, bortezomib (Velcade), thalidomide and dexamethasone (known as VTd) is used as an initial treatment.
+More commonly in the UK (via the NHS), bortezomib (Velcade), thalidomide and dexamethasone (known as VTd) is used as an initial treatment for MM\@.
 Recently, the regimen DVTd has been introduced in the UK, which is the above triplet combined with the anti-CD38 monoclonal antibody daratumumab (Darzalex).
 DVTd has been shown to improve progression-free survival and response rates in MM patients compared to VTd.
-Additionally, any MM patients who are eligible (based on frailty, age, organ function and comorbidities) receive high-dose chemotherapy followed by autologous stem cell transplantation (HDT-ASCT).
+Additionally, any MM patients who are eligible (based on frailty, age, organ function and comorbidities) receive high-dose chemotherapy followed by autologous stem cell transplantation (HDT-ASCT) as standard treatment.
 
 % Timeline of treatment options
 \input{text/Chapter_1/treatment_table.tex}
 
 \subsubsection{Proteasome inhibitors}
 Proteasome inhibitors have contributed greatly to the improved prognosis of MM since their introduction into treatment regimes.
-The first-in-class proteasome inhibitor bortezomib (Velcade\textsuperscript{\textregistered}; BTZ) was approved by the FDA in 2003 as a single-agent for injection of relapsed MM\cite{kane2003velcade}.
+The first-in-class proteasome inhibitor bortezomib (Velcade; BTZ) was approved by the FDA in 2003 as a single-agent for injection of relapsed MM\cite{kane2003velcade}.
 Since then it has been approved for use in combination therapies.
 Bortezomib in combination with melphalan-prednisone proved to be superior to the previous standard of care for patients ineligible for HDT-ASCT of melphalan-prednisone alone, increasing progression free survival\cite{san2008bortezomib}.
 The combination of bortezomib, dexamethasone and thalidomide  was also shown to be superior to previous standard of care for patients prior to ASCT\cite{moreau2012proteasome}.
@@ -376,14 +377,14 @@ Additionally, CFZ and BTZ have different side effect profiles.
 BTZ treatment displays side effects such as peripheral neuropathy (PNP).
 PNP has been reported in up to 30\% of MM patients treated with BTZ-based regimens\cite{mushtaq2018efficacy}.
 CFZ treatment has lower rates of PNP, however is associated with significant incidence of cardiovascular adverse events (heart failure, hypertension, ischemia, and arrhythmias)\cite{waxman2018carfilzomib}.
-In relapsed patients, often treatment choice depends on prior therapy and recorded comorbidities and side effect profiles of the MM patient.
+In relapsed MM patients, treatment choice often depends on prior therapy, recorded comorbidities and side effect profiles of the patient\@.
 
 \subsubsection{The ubiquitin-proteasome system}
 Proteasome inhibitors work by blocking the action of the proteasome in the cell.
 Misfolded proteins can be harmful to a cell, so the combined activity of molecular chaperones, which aid in protein folding, and the ubiquitin-proteasome system (UPS), which acts to digest misfolded proteins, is needed to prevent aberrant protein aggregation.
 Unneeded, misfolded or damaged proteins are tagged with lysine-48-linked poly-ubiquitin chains, marking them for degradation by the proteasome (Figure \ref{fig:26s_proteasome_structure}).
-The proteasome is sometimes described as a complex `protein destruction machine'.
-The proteasome consists of the 20S core particle, a central hollow cylinder, and the 19S regulatory caps associated with each end of the cylinder.
+The proteasome is described as a complex `protein destruction machine'.
+The proteasome consists of a 20S core particle, a central hollow cylinder, and 19S regulatory caps associated with each end of the cylinder.
 The 19S regulatory caps perform substrate recognition, deubiquitination, unfolding and threading of the protein substrate into the 20S core.
 The core is made up of four stacked heptameric ring structures.
 The outer rings are responsible for docking to the 19S cap and for acting as a gate to the inner rings. The inner rings consist of seven $\beta$ subunits, containing inward-facing protease active sites for degrading proteins\cite{kleiger2014perilous, alberts2007molecular} (Figures \ref{fig:26s_proteasome_structure} and  \ref{fig:proteasome_beta_subunits}).
@@ -402,17 +403,20 @@ The outer rings are responsible for docking to the 19S cap and for acting as a g
     \caption{$\beta$-subunits of an inner ring of the 20S core particle }
     \label{fig:proteasome_beta_subunits}
 \end{subfigure}
-    \caption[Structure of the proteasome]{Structure of the proteasome. \ref{fig:26s_proteasome_structure} shows the structure of the 26S proteasome, comprised of the 19S regulatory caps and 20S core particle.
+    \caption[Structure of the proteasome]{Structure of the proteasome.
+    a) The structure of the 26S proteasome, comprised of the 19S regulatory caps and 20S core particle.
     A misfolded protein tagged with a poly-ubiquitin chain is recognised by the 19s regulatory cap, which cleaves the ubiquitins from the protein and threads the protein through to the core, where it is degraded into small peptides.
     The 20S core particle is made up of two outer rings of $\alpha$-subunits and two inner rings of $\beta$-subunits.
-    \ref{fig:proteasome_beta_subunits} shows the $\beta$-subunit arrangement in one of the inner rings of the 20s particle.
+    b) The $\beta$-subunit arrangement of an inner ring of the 20s particle.
     $\beta1$ (caspase-like), $\beta2$ (trypsin-like) and $\beta5$ (chymotrypsin-like) are the proteolytically active subunits.
-    Proteasome inhibitors are designed to primarily inhibit $\beta5$.}
+    Proteasome inhibitors are designed to primarily inhibit $\beta5$ subunits.}
 \label{fig:proteasome_and_beta}
 \end{figure}
 
-\subsubsection{PI Mechanism of action}
-Of the seven proteasome $\beta$ subunits, only $\beta1$, $\beta3$ and $\beta5$ are proteolytically active (Figure \ref{fig:proteasome_beta_subunits}). Proteasome inhibitors are designed to target $\beta5$ as it has been shown as the rate limiting protease for proteasomal protein turnover\cite{besse2019proteasome}. Bortezomib reversibly co-inhibits $\beta5$ and $\beta1$ subunits, whilst carfilzomib irreversibly binds to $\beta5$, with greater selectivity than bortezomib, and at higher doses binds to $\beta2$ as well\cite{besse2019proteasome}.
+\subsubsection{PI mechanism of action}
+Of the seven proteasome $\beta$ subunits, only $\beta1$, $\beta3$ and $\beta5$ are proteolytically active (Figure \ref{fig:proteasome_beta_subunits}).
+PIs are designed to target $\beta5$ as it has been shown as the rate limiting protease for proteasomal protein turnover\cite{besse2019proteasome}.
+Bortezomib reversibly co-inhibits $\beta5$ and $\beta1$ subunits, whilst carfilzomib irreversibly binds to $\beta5$, with greater selectivity than bortezomib, and at higher doses binds to $\beta2$ as well\cite{besse2019proteasome}.
 
 The precise downstream effects of $\beta$ subunit proteasome inhibition are not fully understood, however the unfolded protein response (UPR), NF-$\kappa$B signalling, JNK signalling, apoptotic factors and p53 are thought to be involved in the anti-MM effects\cite{kubiczkova2014proteasome}.
 Specifically, the action of the UPR has been demonstrated as an important mechanism in the anti-MM effect of PIs.
@@ -426,7 +430,7 @@ Inhibition of the proteasome increases levels of I$\kappa$B$\alpha$, thereby abo
 NF$\kappa$B is a key transcription factor in many cancers, contributing to overall tumour growth and chemoresistance.
 NF$\kappa$B has been shown to promote tumour cell proliferation, anti-apoptotic and angiogenic factors\cite{kale2012molecular}.
 
-\subsection{Drug resistance in multiple myeloma}
+\subsection{Drug resistance in MM}
 Although the standard therapeutics are effective at killing MM cells initially, long-term treatment inevitably results in a drug-resistant relapse.
 Drug resistance is one of the biggest barriers in the treatment of MM, as in many other cancers.
 Patients follow a pattern of peaks and troughs of treatment cycles, remission and relapse, until all therapies have little effect (Figure \ref{fig:treatment_cycles}).
@@ -435,7 +439,7 @@ Patients follow a pattern of peaks and troughs of treatment cycles, remission an
 \centering
 \includegraphics[width=\textwidth]{figures/Introduction/treatment_cycles.pdf}
 \caption[MM treatment cycles]{MM treatment cycles and disease progression over time.
-All MM patients begin with precursor states Monoclonal Gammopathy of Unknown Significance (MGUS) and/or smouldering multiple myeloma (SMM) prior to a malignant transformation to symptomatic/active MM.
+All MM patients begin with precursor states monoclonal gammopathy of unknown significance (MGUS) and/or smouldering multiple myeloma (SMM) prior to a malignant transformation to symptomatic/active MM\@.
 Patients undergo cycles of treatment, remission and relapse until eventually becoming relapsed and refractory (RRMM) and no longer responsive to treatment.
 }
 \label{fig:treatment_cycles}
@@ -491,7 +495,7 @@ By the time patients are multi-drug refractory, almost all MM patients have a br
 
 The clonal heterogeneity seen in MM makes treatment complex.
 Each individual clone has potentially different clinical behaviour, for example some clones will be more proliferative than others, and associated with an early relapse.
-Additionally, some clones may have different sensitivity to individual therapeutics to other clones.
+Additionally, some clones may have different sensitivity to specific therapies compared to other clones.
 This highlights the rationale of using a combinatorial approach for treatment.
 Some agents may be more effective on certain subclones than others, and other agents more effective on other subclones.
 Therefore, agents are combined to try and achieve a deeper treatment response and reduce residual disease.
@@ -499,23 +503,23 @@ However, this approach also means that the clones that remain are more likely to
 Combining a higher number of drugs could result in a more complete remission, however the added toxicity of the agents limits this.
 Ideally, clonal dominance would be assessed after each relapse, as the dominance of clones is constantly changing.
 Agents that were effective in a previous treatment cycle may become effective again, if the resistant clone has become less dominant in the balance of clones\cite{brioli2014impact}.
-However, in practice, this is rarely done as sequencing is not yet mainstream enough to be routine in the clinic.
+However, in practice, this is rarely performed, as sequencing is not yet mainstream enough to be routine in the clinic.
 
 \subsubsection{Overcoming drug resistance}
-In order to overcome resistance and increase overall survival of MM patients, the molecular mechanisms of resistance to existing anti-MM agents need to be better understood.
+The molecular mechanisms underlying drug resistance development need to be better understood for standard MM treatments.
 This  will aid in the design of novel therapies and inform better use of existing therapies.
 Previous studies on proteasome drug resistance have been performed and certain mechanisms and genes have been identified.
-For example, point mutations have been noted in the \textit{PSMB5} gene (coding for the $\beta5$ subunit of the proteasome), as well as and over-expression of the $\beta5$ subunit\cite{robak2018drug}.
+For example, point mutations have been noted in the \textit{PSMB5} gene (coding for the $\beta5$ subunit of the proteasome), as well as over-expression of the $\beta5$ subunit\cite{robak2018drug}.
 Other upregulated genes have been identified, for example \textit{ABCB1}, coding for P-glycoprotein, responsible for pumping various substrates out of the cell, also referred to as multidrug resistant protein 1.
 \textit{XBP1}, involved in the UPR, has been seen to be downregulated in PI resistance\cite{robak2018drug}.
-Although many genes have been identified to be differentially expressed in drug resistant MM, the mechanism is not fully elucidated and further research is imperative in the progression of treatment for multiple myeloma.
+Although many genes have been identified to be differentially expressed in drug resistant MM, the mechanism is not fully elucidated and further research is imperative in the progression of MM treatment.
 
 Another avenue to improve MM survival, would be to identify novel therapeutics effective against MM, which are capable of overcoming acquired
 anti-cancer drug resistance.
 By increasing the arsenal of drugs available to treat MM, the time until patients become refractory and no longer respond to treatment could be prolonged.
 Therapeutics with a novel mechanism of action are likely to be more effective for MM patients who have undergone several treatment cycles than drugs belonging to the same class as drugs they have previously been treated with.
 Novel therapeutics would have less overlap of mechanism of action with existing drugs, therefore there would be less cross-resistance.
-However, MM typically affects elderly people and after exposure to multiple previous treatment cycles, often relapsed and refractory MM (RRMM) patients are more frail and have more suppressed bone marrows.
+However, MM typically affects elderly people and after exposure to numerous rounds of treatment cycles, often relapsed and refractory MM (RRMM) patients are more frail and have more suppressed bone marrows.
 Therefore, it is important for therapies that are intended to treat RRMM patients are tolerable and not excessively immunosuppressive for patients.
 
 A future aim for the treatment of MM is to implement a personalised, targeted approach to an individual patient's MM in the clinic.
@@ -530,13 +534,13 @@ Personalised patient treatment is quite far away from the clinic in MM, but the 
 \afterpage{\clearpage} % flush out floats before this. Very different section
 %
 \section{Transcriptomics, proteomics and epigenomics}
-It has been shown that changes in the genome, transcriptome, epigenome and proteome all contribute to disease progression and drug resistance in MM.
+It has been shown that changes in the genome, transcriptome, epigenome and proteome all contribute to disease progression and drug resistance in MM\@.
 Therefore, to sufficiently investigate the multiple layers driving MM and to assess the effectiveness of new therapeutics, a multi-omics approach must be employed.
 
 \subsection{DNA and the genome}\label{subsec:dna}
 The genome is the genetic material of an organism, it consists of deoxyribonucleic acid (DNA).
 DNA consists of two polynucleotide chains (or strands), running anti-parallel to each other, held together in a double helix structure by hydrogen bonds.
-Nucleotides are composed of a five-carbon sugar (deoxyribose for DNA), attached to one or more phosphate group (a single phosphate group in the case of DNA) and a nitrogenous base.
+Nucleotides are composed of a five-carbon sugar (deoxyribose for DNA), attached to one or more phosphate groups (a single phosphate group in the case of DNA) and a nitrogenous base.
 Nucleotides are covalently linked to form an alternating sugar-phosphate backbone, with bases extending from each sugar towards the inside of the double helix.
 Nucleotides contain four different types of bases: adenine (A), cytosine (C), guanine (G) and thymine (T).
 The two DNA chains are held together by hydrogen bonds via complementary base pairing between the bases of the strands, A pairing with T and G pairing with C\@.
@@ -568,14 +572,14 @@ Human cells contain 23 pairs of chromosomes.
     \caption{DNA packaging}
     \label{fig:DNA_packaging}
 \end{subfigure}
-    \caption[DNA stucture and packaging.]{a) shows the DNA nucleotides and the DNA double helix structure.
+    \caption[DNA stucture and packaging.]{a) Deoxyribonucleic acid (DNA) nucleotides and double helix structure.
     DNA consists of two polynucleotide chains.
     Nucleotides are covalently linked to one another, forming a sugar-phosphate backbone.
     They contain one of four bases adenine (A), cytosine (C), guanine (G) and thymine (T).
     DNA strands are held together by hydrogen bonds between complementary base pairs, A pairing with T and G pairing with C\@.
     Sections of DNA are are often read by their sequence of bases from the 5' direction to the 3' direction.
-    b) shows how chromosomal DNA is packaged in the cell.
-    DNA wraps 1.65 times around an octomer of histone proteins, to form a stucture called a nucleosome.
+    b) Chromosomal DNA packaging in the cell.
+    DNA wraps 1.65 times around an octomer of histone proteins, to form a structure called a nucleosome.
     Nucleosomes are linked by linker DNA to form a structure that resembles `beads on a string'.
     Nucleosomes fold to create chromatin fiber.
     This is turn forms loops and coils tighter and tighter until it makes up the single chromatids of chromosomes.
@@ -621,7 +625,7 @@ The transcriptome is the set of all RNA transcripts of an individual.
 RNA is a nucleic acid similar to DNA. Like DNA it has a sugar-phosphate backbone and 4 different types of bases attached to each sugar.
 However, unlike DNA, RNA is single-stranded, it contains the sugar ribose in place of deoxyribose, and the nucleotide uracil (U) in place of thymine (T).
 
-Despite the chemical differences between DNA and RNA, they are essentially written in the `same language' and one-to-one mapping of nucleotides can be performed.
+Despite the chemical differences between DNA and RNA, they are essentially written in the `same language' and one-to-one mapping of nucleotides can be achieved.
 Transcription begins with the unwinding and opening of a small part of the DNA double helix, so bases are exposed.
 One strand of DNA acts as a template and the RNA chain is formed by complementary base pairing with the template.
 RNA polymerases catalyse the reaction of forming phosphodiester bonds between nucleotides, forming the RNA chain.
@@ -642,7 +646,7 @@ mRNAs are translated into protein molecules.
 mRNA is made up of only four different nucleotides, but proteins are made up of 20 amino acids, therefore a direct one-to-one function matching nucleotides to amino acids is impossible.
 Instead, the sequence of mRNA is read in groups of three consecutive nucleotides, called a codon.
 The three positions of a codon, and each position with four possible base options (A, C, U and G), gives a total of 64 different permutations (i.e. 4\textsuperscript{3}).
-Therefore, some combinations map to the same amino acid (many-to-one function), or signal to terminate translation of the current protein, named a stop codon.
+Therefore, some combinations map to the same amino acid (many-to-one function), or signal to terminate translation of the current protein (known as a stop codon).
 This genetic code directs the translation from mRNA to protein.
 To ensure accuracy, translation takes place in the ribosome.
 The ribosome is a complex macromolecular catalytic machine with one large and one small subunit, made up of ribosomal RNAs (rRNAs) and more than 50 different ribosomal proteins\cite{alberts2007molecular}.
@@ -674,7 +678,7 @@ Over the last half-century, large numbers of researchers and vast sums of money 
 Over this time, massive technological innovations have been developed.
 The most commonly used `first-generation' DNA-sequencing technology, Sanger sequencing, was developed in 1977\cite{sanger1977dna}.
 Sanger sequencing or the `chain termination method', utilised radiolabelled partially digested fragments.
-For Sanger sequencing performed at present (the polymerase chain reaction [PCR] was not invented until 1985), chain-termination PCR is performed with a mix of regular nucleotides (deoxynucleotide triphosphates; dNTPs) and fluorescently-or radiolabelled, chain-terminating dNTPs (dideoxynucleotide triphosphates; ddNTPs), using the DNA of interest as a template (PCR was not invented until 1985).
+For Sanger sequencing performed at present (the polymerase chain reaction [PCR] was not invented until 1985), chain-termination PCR is performed with a mix of regular nucleotides (deoxynucleotide triphosphates; dNTPs) and fluorescently-or radiolabelled, chain-terminating dNTPs (dideoxynucleotide triphosphates; ddNTPs), using the DNA of interest as a template.
 During the extension step of PCR, when DNA polymerase incorporates a ddNTP randomly, extension ceases.
 This creates greater than a million copies of the DNA sequence of interest, all terminated at random lengths by the ddNTPs.
 Capillary electrophoresis is then used to separate the extension products by size.
@@ -683,9 +687,9 @@ By reading the gel bands from smallest to largest, the 5' to 3' sequence of the 
 Sanger sequencing was used by the Human Genome Project, an international research effort to determine the DNA sequence of the entire human genome\cite{pennisi2001human}.
 The whole project took approximately 13 years to complete, and was reported to have cost \$3 billion.
 
-Sanger sequencing dominated the sequencing world for over 30 years, until the advent of `Next-generation sequencing' (NGS; now being dubbed `second-generation sequencing', with the advent of newer technologies).
+Sanger sequencing dominated the sequencing world for over 30 years, until the advent of `next-generation sequencing' (NGS; now being dubbed `second-generation sequencing', with the advent of newer technologies).
 NGS differs from its predecessors in that it is highly scalable and massively parallel.
-With NGS one can rapidly sequence the entire human genome in one day, for approximately \$5000.
+Using NGS, one can rapidly sequence the entire human genome in one day, for approximately \$5000.
 It is quicker and cheaper than traditional Sanger sequencing, and has progressed data output from the kilobase range up to potentially multiple terabases per run.
 Today, the largest and most commonly used NGS sequencing technology platform is Illumina, who own around 80\% of the global sequencing market.
 NGS can be used to study the transcriptome, using RNA-seq techniques (Section \ref{subsec:rna-seq-intro}); the epigenome, using techniques such as ChIP-seq or ATAC-seq; or the genome using techniques such as whole genome sequencing (WGS).
@@ -732,24 +736,24 @@ The libraries are then amplified using PCR and cleaned-up, ready for sequencing.
 \subsubsection{Single-cell RNA-seq}
 Single-cell RNA-seq (scRNA-seq) measures gene expression for each individual cell across a population of cells and therefore provides information on clonal diversity that may be lost when pooling cells into bulk samples.
 Since its inception in 2009\cite{tang2009mrna}, there have been numerous scRNA-seq techniques developed, such as SMART-seq2\cite{picelli2013smart}, Drop-seq\cite{macosko2015highly}, STRT\cite{islam2011characterization}, scCOLOR-seq\cite{philpott2021nanopore} and inDrops\cite{klein2015droplet}.
-scRNA-seq library preparation shares many steps with bulk RNA-seq workflow, however preliminary steps are required to isolate single cells and barcode reads that originated from the cell.
+scRNA-seq library preparation shares many steps with bulk RNA-seq workflow, however preliminary steps are required to isolate single cells and to barcode reads that originated from each given cell.
+%
+For droplet-based scRNA-seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
+Drop-Seq, a dscRNA-seq method, is outlined in Figure \ref{fig:dropseq}.
 %% Diagram of drop-seq
-\begin{figure}[hb]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/Introduction/drop_seq.png}
-\caption[Drop-seq schematic]{Outline of Drop-seq, a droplet-based scRNA-seq method.
+\caption[Drop-Seq schematic]{Outline of Drop-Seq, a droplet-based scRNA-seq method.
 A microfluidic device combines two aqueous flows, one containing cells and the other containing barcoded primer beads suspended in lysis buffer.
 The two aqueous channels flow across an oil channel to form aqueous droplets surrounded by oil.
-Relatively few droplets contain both a cell and a bead.
+Few droplets contain both a cell and a bead (to avoid doublets, whereby droplets contain two or more cells).
 Following droplet formation, the cell is lysed and its mRNAs are released, which then hybridise to the primers on the bead surface.
 A reagent is added to break up the droplets and the beads are collected and washed.
 The mRNAs are reverse-transcribed into cDNAs, generating a set of ``STAMPS'' (single-cell transcriptomes attached to microparticles) and template switching is used to introduce a PCR handle.
 The barcoded STAMPS can then be amplified using PCR.}
 \label{fig:dropseq}\end{figure}
 %%
-For droplet-based scRNA-seq (dscRNA-seq) methods, single cells are isolated using microfluidic devices by individually encapsulating them in aqueous droplets contained in oil.
-Below, a dscRNA-seq method, Drop-seq, is outlined (Figure \ref{fig:dropseq}).
-
 
 % \subsection{ATAC-seq}
 
@@ -780,7 +784,7 @@ This thesis aims to identify novel therapeutics with anti-MM properties, capable
 Chapter \ref{ch:1-intro}: General introduction of the adaptive immune system, multiple myeloma (MM) and treatment of MM, as well as an introduction into the multiple layers of information underpinning life: the genome, transcriptome, epigenome and proteome, and the different multi-omic techniques that can be employed to investigate them.
 
 \noindent
-Chapter \ref{ch:2-litreview}: Literature review introducing aminoacyl-tRNA synthetases (aaRS), the roles they play in disease and therapeutics targeting aaRSs, focusing on the prolyl-tRNA synthetase inhibitor, Halofuginone (HF) and its applications, particularly in multiple myeloma.
+Chapter \ref{ch:2-litreview}: Literature review introducing aminoacyl-tRNA synthetases (aaRS), the roles they play in disease and therapeutics targeting aaRSs, focusing on the prolyl-tRNA synthetase inhibitor, halofuginone (HF) and its applications, particularly in MM\@.
 
 \noindent
 Chapter \ref{ch:3-methods}: Experimental materials and methodology used in this work.

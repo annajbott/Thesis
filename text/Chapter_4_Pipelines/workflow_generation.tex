@@ -28,8 +28,8 @@ There are many available pipelining frameworks, for example Snakemake\cite{koste
 For this work, a series of computational pipelines and workflows were generated.
 Ruffus and CGAT-core\cite{cribbs2019cgat} were used as the backbone for the pipelines developed.
 
-\section{scRNA-Seq pseudoalignment pipeline}\label{sec:scRNA_pipeline}
-Fewer pipelines exist for single-cell RNA-seq analysis than for bulk RNA-Seq.
+\section{scRNA-seq pseudoalignment pipeline}\label{sec:scRNA_pipeline}
+Fewer pipelines exist for single-cell RNA-seq analysis than for bulk RNA-seq.
 For the Chromium 10X Genomics platform, most of the processing and analysis is automated by Cell Ranger;
 however for other technologies, the workflow is not as well defined.
 A single-cell analysis pipeline was constructed with the aim to produce an easy-to-use, robust and reproducible workflow that works for Drop-Seq as well as 10X technology, which utilises pseudoalignment rather than traditional mapping methods.
@@ -66,7 +66,7 @@ Multiple comparisons are accounted for by performing the Benjamini-Hochberg corr
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/workflow_generation/flowchart_sc.pdf}
-\caption[scRNA-Seq pseudoalignment pipeline outline]{Flowchart outlining scRNA-Seq pseudoalignment pipeline.}
+\caption[scRNA-seq pseudoalignment pipeline outline]{Flowchart outlining scRNA-seq pseudoalignment pipeline.}
 \label{fig:flowchart_scRNA}
 \end{figure}
 %%
@@ -92,7 +92,7 @@ The valid cell barcode list (whitelist) for 10X chemistry was used (\textit{737K
 Minnow was ran with an error rate of 0.001 and with 12 simulated PCR cycles.
 Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix.
 
-The ground-truth counts matrix was converted to a Single Cell Experiment object (SCE) and the simulated reads were used as input for the scRNA-Seq pseudoalignment pipeline.
+The ground-truth counts matrix was converted to a Single Cell Experiment object (SCE) and the simulated reads were used as input for the scRNA-seq pseudoalignment pipeline.
 The resulting count matrices outputted by Salmon Alevin and Kallisto BUS were converted into SCEs, subset and reordered so that they all contained the same cells and genes, in the same order.
 The Salmon Alevin and Kallisto BUS produced SCEs could then be compared to the ground truth SCE.
 
@@ -100,7 +100,7 @@ The Salmon Alevin and Kallisto BUS produced SCEs could then be compared to the g
 %The simulated counts matrix was randomly assigned cell barcodes and ensembl gene names for the column and rownames respectively, and then used as input for Minnow\cite{sarkar2019minnow} as `ground-truth' data.
 %Minnow generates droplet-based scRNA-seq simulated reads, working backwards from a known counts matrix to generating raw sequencing files from which the counts matrix could have originated.
 %Minnow accounts for core experimental dscRNA-seq characteristics, such as PCR amplification bias, barcode sequencing errors, the presence of doublets and ambiguously mapped reads, to try and emulate a realistic set of sequencing reads consistent with the provided counts matrix.
-%The simulated reads were used as input for the scRNA-Seq pseudoalignment pipeline and the resulting count matrices outputted by Salmon Alevin and Kallisto BUS were compared to the `ground-truth' data.
+%The simulated reads were used as input for the scRNA-seq pseudoalignment pipeline and the resulting count matrices outputted by Salmon Alevin and Kallisto BUS were compared to the `ground-truth' data.
 
 \subsubsection{Run time}
 The simulated reads consisted of 434 million reads.
@@ -185,7 +185,7 @@ Alevin seemed to produce more lower F1 scores than BUS\@.
     \includegraphics[width=\textwidth]{figures/workflow_generation/F1_bar.png}
     \caption{F1 Score}
 \end{subfigure}
-\caption[Kallisto BUS and Salmon Alevin gene expression performance metrics]{Kallisto BUS and Salmon Alevin gene expression performance metrics. Precision, recall and F1 scores.
+\caption[Kallisto BUS and Salmon Alevin gene expression prediction performance]{Kallisto BUS and Salmon Alevin gene expression performance metrics. Precision, recall and F1 scores.
 Measure of accuracy for the tools ability to predict gene expression.
 Expression classified by 0 or 1.
 Undefined scores have been removed.
