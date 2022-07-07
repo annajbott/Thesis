@@ -55,12 +55,12 @@ Kallisto BUS\cite{melsted2018barcode} has been developed as an analysis tool and
 Salmon Alevin\cite{srivastava2019alevin} has also been developed for single-cell RNA-seq analysis.
 
 \subsubsection{Pipeline outline}
-Kallisto BUS or Salmon Alevin performs pseudoalignment and generation of a cell-by-gene expression counts matrix.
+Kallisto BUS and/or Salmon Alevin perform pseudoalignment and generation of a cell-by-gene expression counts matrix.
 Quality control is performed using Scater\cite{mccarthy2017scater} and alevinQC.
 Clustering is performed using Seurat3\cite{stuart2019comprehensive} and Monocle\cite{trapnell2014dynamics}.
 Clusters are projected onto tSNE and UMAP plots.
 Differentially expressed genes are identified by performing non-parametric Wilcoxon tests on $\log_2 TPM$ expression values and Fisher's exact test for comparing expressing cell frequency, these $p$ values combined using Fisher's method.
-Multiple comparisons are accounted for by performing the Benjamini-Hochberg correction to adjust the false discovery rate.
+Multiple comparisons are accounted for by performing the Benjamini-Hochberg correction to adjust the false discovery rate (FDR).
 
 %% Flow diagram- pipeline outline
 \begin{figure}[htbp]
@@ -111,14 +111,16 @@ Using the bustools `count' command to create a counts matrix may have further re
 \subsubsection{Cell barcode handling}
 The ground-truth data contained 4340 cells.
 Alevin determined a threshold for the initial whitelist (a set of CBs that likely represent non-empty droplets) by finding a `knee' in the knee plot shown in Figure \ref{fig:alevin_knee}.
-This initial whitelist contained 5261 cell barcodes, each observed at least 191 times.
+A knee plot is standard for scRNA-seq quality control.
+Cells are ordered by the number of distinct UMIs observed and a threshold is determined for considering which cells are valid for analysis.
+For Salmon Alevin this initial whitelist based on the `knee' contained 5261 cell barcodes, each observed at least 191 times.
 Following barcode error correction, the final whitelist contained 4340 cells, all of which corresponded to the same CBs as the ground-truth data.
 
 % alevin knee
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/workflow_generation/alevin_knee_plot.png}
-    \caption[Salmon Alevin knee plot]{Alevin knee plot.
+    \caption[Salmon Alevin knee plot]{Salmon Alevin knee plot.
     This plot displays the number of times each cell barcode is observed, in decreasing order.
     Finding a `knee' in this plot determines a threshold for the initial whitelist of CBs, which are unlikely to be empty droplets.}
     \label{fig:alevin_knee}
@@ -136,13 +138,14 @@ Therefore, using the inflection point of the rotated knee plot was found to be t
     \includegraphics[width=0.5\textwidth]{figures/workflow_generation/bus_knee_plot.png}
     \caption[Kallisto BUS rotated knee plot]{Kallisto BUS rotated knee plot.
     This plot shows the number of distinct UMIs against the rank of the barcode.
-    The Pachter lab transpose the x- and y-axis on their knee plot, so that the x-axis displays distinct UMIs and the y-axis displays ranked cell barcodes, according to the number of corresponding UMIs to each CB. This is supposed to be more intuitive, having the number of distinct UMIs as the independent variable rather than cell barcode rank, as number of UMIs determine the cell barcode rank.}
+    The Pachter lab transpose the x- and y-axis on their knee plot, so that the x-axis displays distinct UMIs and the y-axis displays ranked cell barcodes, according to the number of corresponding UMIs to each CB.
+    The group state that this is more intuitive for users, as the total UMI count determines the cell barcode rank, and therefore it is more logical to have UMI count as the independent variable on the x-axis.}
     \label{fig:bus_knee}
 \end{figure}
 
 \subsubsection{Gene expression predictive accuracy}
-To quantify each tool's accuracy of gene expression, precision, recall and an F1 score were calculated for each gene.
-The F1 score is a measure of a test's accuracy, it is the harmonic mean of precision and recall:
+To quantify each tool's accuracy of gene expression, precision, recall and F1 scores were calculated for each gene.
+F1 score is a measure of a test's accuracy, it is the harmonic mean of precision and recall:
 % F1 score equation
 \begin{equation}
 \begin{aligned}
@@ -159,11 +162,12 @@ F_{1} & = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{precision + recall
 \input{text/Chapter_4_Pipelines/carol_fp_tp.tex}
 
 No expression was denoted by 0, and expression by 1.
-When recall or precision was undefined, i.e. a gene in Alevin/BUS matrix or the ground-truth matrix was not expressed by any cell, F score was defined as 0.
+When recall or precision was undefined, i.e. a gene in Alevin/BUS matrix or the ground-truth matrix was not expressed by any cell, F1 score was defined as 0.
 
-The mean F1 scores for Alevin and BUS processed data (Figure \ref{fig:precision_recall_f1_bar}) were extremely similar to each other with scores of 0.93 and 0.95, this was due to the large number of F1 scores equal to 1.
+The mean F1 scores for Salmon Alevin and Kallisto BUS processed data (Figure \ref{fig:precision_recall_f1_bar}) were 0.93 and 0.95, respectively.
+These F1 scores are extremely similar to each other, this is due to a large number of F1 scores equalling 1.
 Figure \ref{fig:westoby_histogram} shows the distribution of F1 scores more clearly.
-Alevin seemed to produce more lower F1 scores than BUS\@.
+For this dataset Salmon Alevin seemed to produce more lower F1 scores than Kallisto BUS\@.
 
 % Barcharts. Precision recall and F1 score
 \begin{figure}[h]
@@ -185,11 +189,10 @@ Alevin seemed to produce more lower F1 scores than BUS\@.
     \includegraphics[width=\textwidth]{figures/workflow_generation/F1_bar.png}
     \caption{F1 Score}
 \end{subfigure}
-\caption[Kallisto BUS and Salmon Alevin gene expression prediction performance]{Kallisto BUS and Salmon Alevin gene expression performance metrics. Precision, recall and F1 scores.
+\caption[Kallisto BUS and Salmon Alevin gene expression prediction performance]{Kallisto BUS and Salmon Alevin gene expression performance metrics.
 Measure of accuracy for the tools ability to predict gene expression.
-Expression classified by 0 or 1.
-Undefined scores have been removed.
-F1 scores were calculated for each gene across each cell.}
+Gene expression classified by 0 or 1.
+Precision, recall and F1 scores were calculated for each gene across each cell and mean scores were calculated for both pseudoaligner tools.}
 \label{fig:precision_recall_f1_bar}
 \end{figure}
 %
@@ -198,19 +201,21 @@ F1 scores were calculated for each gene across each cell.}
 %1
 \begin{subfigure}{0.5\textwidth}
     \includegraphics[width=\textwidth]{figures/workflow_generation/f1_westoby.png}
-    \caption{F1 Score scatter graph}
+    \caption{Scatter}
     \label{fig:f1_westoby}
 \end{subfigure}
 %2
 \begin{subfigure}{0.5\textwidth}
     \includegraphics[width=\textwidth]{figures/workflow_generation/f1_histogram.png}
-    \caption{F1 score histogram}
+    \caption{Histogram}
     \label{fig:f1_hist}
 \end{subfigure}
 \caption[F1 score distribution]{F1 score distributions.
-    \ref{fig:f1_westoby} shows the F1 score for each gene expressed across all 4339 cells.
-    The black bar denotes the mean F1 score for each cell.
-    F1 scores of 0 have been removed.}
+    F1 scores of 0 have been removed.
+    a) F1 score scatter for each gene expressed across all 4339 cells.
+    The black bar denotes the mean F1 score.
+    F1 scores of 0 have been removed.
+    b) Histogram of F1 scores.}
 \label{fig:westoby_histogram}
 \end{figure}
 
@@ -234,12 +239,12 @@ F1 scores were calculated for each gene across each cell.}
 \end{subfigure}
 \caption[Clustering analysis benchmark]{Clustering analysis of the simulated data.
 18 clusters are present in the ground truth data and Alevin and BUS processed data.
-Integrated clustering was performed using Seruat3\cite{stuart2019comprehensive}, using both Uniform Manifold Approximation and Projection (UMAP) and  t-distributed Stochastic Neighbor Embedding (tSNE) dimension reduction techniques.}
+Integrated clustering was performed using Seruat 3\cite{stuart2019comprehensive}, using both Uniform Manifold Approximation and Projection (UMAP) and  t-distributed Stochastic Neighbor Embedding (tSNE) dimension reduction techniques.}
 \label{fig:benchmark_clustering}
 \end{figure}
 
-Clustering analysis was performed to visualise how well the tools processed the single-cell data and how clusters compared to ground-truth data.
-Seurat3 integrative analysis was performed so that the clusters of each sample could be directly compared.
+Clustering analysis was performed to visualise how well the tools processed the scRNA-seq data and how clusters compared to ground-truth data.
+Seurat 3 integrative analysis was performed so that the clusters of each sample could be directly compared.
 Figure \ref{fig:benchmark_clustering} shows clustering of Alevin, BUS and ground-truth clustered data, using UMAP and tSNE dimension reductions.
 18 clusters are present in all three of the data sets.
 Visual analysis suggests that the two dscRNA-seq quantification tools compare well to the ground-truth and capture most aspects of the data.
@@ -250,7 +255,7 @@ From the benchmark it seems as if both tools are fit for purpose and can accurat
 %\subsection{Comparison to published data using other methods..}
 
 \subsection{Updated scRNA-seq pipeline}\label{subsec:updated_scrna}
-Following the bench-mark it was decided that Kallisto BUS and BUStools would be used to analyse single-cell data.
+Following the benchmark it was decided that Kallisto BUS and BUStools would be used to analyse scRNA-seq data.
 This was due to its faster run-time and higher F1 scores.
 The analysis pipeline has been updated continually throughout the project.
 The updated workflow is outlined in Figure \ref{fig:updated_sc_workflow}.
@@ -273,17 +278,17 @@ Often manual annotation by the user (using known biological markers) is required
 The user can then perform further downstream analysis on the annotated integrated dataset, for example differential expression analysis and composition analysis.
 
 % updated scRNA-seq workflow figure
-\begin{figure}[p]
+\begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/workflow_generation/sc_workflow.pdf}
 \caption[Updated scRNA-seq workflow]{Outline of updated scRNA-seq workflow.
 Each black arrow denotes an independent pipeline.
 Following sequencing raw FASTQ files are processed by Kallisto BUS and BUStools and cell x gene count matrices are produced for each sample.
 Quality control (QC) is performed, based on a number of parameter thresholds.
-QC often requires user supervision to fun-tune the process.
+QC often requires user supervision to fine-tune the process.
 Seurat is then used to perform dimensionality reduction techniques and cluster samples individually.
 Harmony and Seurat are implemented to perform sample integration.
-The integrated dataset can then be annotated by cell type using packages cClassfiy, singleR or clustfyr, in combination with a reference dataset or model.
+The integrated dataset can then be annotated by cell type using packages scClassfiy, singleR or clustfyr, in combination with a reference dataset or model.
 The user can then perform further downstream analysis on the dataset, for example differential expression analysis.
 }
 \label{fig:updated_sc_workflow}
@@ -315,14 +320,15 @@ The user can then perform further downstream analysis on the dataset, for exampl
 \input{text/Chapter_4_Pipelines/tRNA_methods.tex}
 
 %\afterpage{\clearpage}
+% Classifier
 \input{text/Chapter_4_Pipelines/MM_classifier.tex}
 
 \section{Discussion}
 
 Before the advent of NGS, the bottleneck in omics experiments was the technology available, which severely limited data acquisition.
 For example, the Human Genome Project (HGP) was initiated in 1990 and was projected to be completed by 2005 (a 15 year effort).
-Initially the HGP relied on low-throughput sanger sequencing.
-However, the advent of NGS sequencing significantly increased the throughput and led to the completion of the HGP 2 years ahead of time.
+Initially the HGP relied on low-throughput Sanger sequencing.
+However, the advent of NGS sequencing significantly increased the throughput and led to the completion of the HGP two years ahead of time.
 Since the use of NGS and TGS technologies-- with their higher throughput compared to traditional first-gen techniques-- the bottleneck of omics experiments has shifted to data processing and data discovery.
 Over the last two decades, numerous computational methods and tools have been invented to relieve the strain of data processing times.
 
@@ -334,7 +340,7 @@ The CGAT-framework was chosen as the base for the computational pipelines in thi
 Additionally, numerous tools for specialised bioinformatics tasks are available via CGAT Apps\cite{sims2014cgat} (a collection of scripts to aid the analysis of high-throughput sequencing data).
 The large size of omics data means that many computational biologists use HPC clusters to analyse their data, to reduce computing time.
 Moreover, most cluster users do not have sudo access rights, therefore must use package and virtual environment managers.
-Conda integration was an important factor for the pipeline-framework, as other package managers, such as Pip, are mainly for python package installation, whereas Conda is a cross-platform environment manager.
+Conda integration was an important factor for the pipeline-framework, as other package managers, such as Pip, are mainly for Python package installation, whereas Conda is a cross-platform environment manager.
 Many bioinformatic tools are written in R and are easily available on the Bioconda channel of Conda.
 Logging of pipeline progress allows for easy reproducibility of results.
 CGAT pipelines are built on top of Ruffus workflow management.
@@ -354,7 +360,7 @@ Additionally, simulated data can be used as lightweight data for testing, as opp
 However, using simulated data poses several limitations.
 The model under which the simulated data were generated can alter the results of the benchmark and favour certain methods over others.
 For example, a benchmark was performed for 12 different scRNA-seq simulation methods, across 35 different datasets\cite{cao2021benchmark}.
-The study observed differing results for each method across four evaluative categories (data property estimation, biological signals, scalability and applicability\cite{cao2021benchmark}, indicating that the method of simulating data can affect the performance of a model in a benchmark.
+The study observed differing results for each method across four evaluative categories (data property estimation, biological signals, scalability and applicability), indicating that the method of simulating data can affect the performance of a model in a benchmark\cite{cao2021benchmark}.
 Often authors of a new method or tool perform a benchmark themselves, boasting its superiority over previous methods, without using a systematic assessment procedure (trialling numerous simulated datasets, with varying parameter values), this can lead to biases in their published results-- this is known as the self-assessment trap\cite{mangul2019systematic}.
 
 Secondly, simulated data is unable to capture true experimental variability, and will always be less complex than real-world data\cite{mangul2019systematic}.
@@ -367,41 +373,42 @@ This complexity is present in experimental datasets.
 
 \subsection{scRNA-seq analysis benchmark}
 MM is an extremely heterogeneous disease, with numerous interactions with the surrounding immune microenvironment.
-Therefore, to best examine MM and the effects of therapeutics, single-cell techniques are required, including scRNA-seq to study the transcriptome at the single cell level.
+Therefore, to best examine MM and the effects of therapeutics, single-cell techniques are required, including scRNA-seq to study the transcriptome at the single-cell level.
 To be able to interpret results from scRNA-seq data, a robust and reproducible scRNA-seq analysis pipeline was required.
 
 It has previously been shown using simulated data, that pseudoalignment/ lightweight mapping strategies demonstrate similar accuracy to traditional mapping strategies such as STAR and Bowtie2, yet provide massive improvements in computing time and memory usage.
 Therefore, it was decided that only lightweight mapping strategies would be implemented in the scRNA-seq analysis pipeline.
-The pipeline was written with the ability for the user too choose either Kallisto BUStools or Salmon Alevin for pseudoalignment.
+The pipeline was written with the ability for the user to choose either Kallisto BUStools or Salmon Alevin for pseudoalignment.
 However, for consistency in the lab's analysis workflow, only one tool would be used for all future scRNA-seq data.
 To determine which lightweight mapping method to use, a benchmark was conducted using simulated scRNA seq reads.
 From this benchmark Kallisto BUS/BUStools was determined more accurate and faster than Salmon Alevin.
 This result has been confirmed by subsequent benchmarks\cite{you2021benchmarking, melsted2019modular, melsted2019barcode}.
 
 More recently, the Patro lab have introduced a reimplementation of Salmon Alevin, called Salmon-Alevin-Fry (SAF)\cite{sarkar2020accurate}.
-SAF outputs a file similar to the BUS file, with the aim of quicker compute time and less memory usage.
+SAF outputs a file similar to a BUS file, with the aim of quicker compute time and less memory usage.
 The Pachter lab (the lab responsible for Kallisto) performed a benchmark of the new SAF framework against Kallisto BUStools\cite{booeshaghi2021benchmarking}.
 To avoid the self-assessment trap, both programmes were ran using the developer recommended settings, and compared over many datasets, across a variety of organisms and tissues.
 The group used real-world data to compare the methods.
 They achieved this by processing the same experimental reads with both SAF and Kallisto BUStools and then combining the SAF processed cells and Kallisto BUStools processed cells together into one dataset.
-After dimensionality reduction, the distance between identical cells either processed by SAF or BUS was examined and compared to the next nearest cell.
+After dimensionality reduction, the distance between identical (`doppelganger') cells either processed by SAF or BUS was examined and compared to the next nearest cell.
 The group found that gene expression differences between SAF and Kallisto were negligible for clustering analysis and irrelevant for downstream analysis.
 They also found that even with the updated SAF framework, Salmon-Alevin-Fry remained significantly slower and required more memory to run than Kallisto BUStools.
 This confirms the results of the benchmark conducted in this work and the subsequent decision to use Kallisto BUStools as the lightweight mapper of choice for scRNA-seq analysis.
 
 The benchmark performed in this work used precision, recall and F1 scores to assess accuracy.
 These scores use binary classifications, therefore the benchmark only looked at the accuracy of `Expressed' vs `Not expressed' for every gene, across every cell.
-This was considered an appropriate measure of accuracy, as the fraction of zeros (cells not expressing a given gene) in a scRNA-seq experiment is extremely high, sometimes exceeding 90\%\cite{linderman2022zero}.
+This was considered an appropriate measure of accuracy, as the fraction of zeros (cells not expressing a given gene) in a dscRNA-seq experiment is extremely high, sometimes exceeding 90\%\cite{linderman2022zero}.
 However, the benchmark does not give any information about abundance quantification accuracy.
-As such, one of the methods outputting a count value of 1 vs another method outputting a count of 1000 would be considered as the same by the benchmark (i.e. expressed), even though they are clearly very different counts biologically.
-Srivastava et al. (2020) investigated the transcript abundance quantification performance of traditional mapping and alignment strategies Bowtie2 and STAR compared to the quasi-mapping (pseudoalignment) method Salmon\cite{srivastava2020alignment}.
+As such, in a scenario where one of the methods outputted a count value of 1 vs another method outputting a count of 1000 would be considered as the same by the benchmark (i.e. expressed), even though they are clearly very different counts biologically.
+As such, a scenario in which one method outputted a count of 1, and another method outputted a count of 1000 for a given gene, the benchmark would consider this the same result for both methods (i.e. gene expressed), even though they are clearly very different counts biologically.
+Srivastava et al. (2020) investigated the transcript abundance quantification performance of traditional mapping and alignment strategies Bowtie2 and STAR compared to the pseudoalignment method Salmon\cite{srivastava2020alignment}.
 The group calculated Spearman correlation of quantification estimates by each alignment method compared to Polyester simulated scRNA-seq ground-truth data.
 
-To demonstrate the application of the pipeline and its effectiveness on MM data, a more comprehensive benchmark could be performed by implementing some of the strategies summarised above.
+To demonstrate the application of the pipeline and its effectiveness for MM data, a more comprehensive benchmark could be performed by implementing some of the strategies summarised above.
 For simulated data: as well as assessing accuracy of expression vs no expression, gene abundance quantification accuracy should be examined using Spearman correlation statistics.
 Real world data should also be included, to assess how methods perform with added experimental complexity and heterogeneity.
 Since no ground-truth data is available, it becomes more challenging to analyse accuracy.
-The strategy implemented in \cite{booeshaghi2021benchmarking} could be generalised to include all traditional mapping and lightweight mapping technique.
+The strategy implemented in \cite{booeshaghi2021benchmarking} could be generalised to include all traditional mapping and lightweight mapping techniques.
 This could be performed by processing a real-world dataset using the numerous mapping/alignment methods, then combining them together into one counts dataset, so that for each biological cell there are numerous `doppelganger' cells each processed by a different method.
 Following dimensionality reduction of this matrix, you would expect the `doppelganger' cells originating from the same biological cell to cluster together.
 L1 distances from the centroid of these clusters could then be calculated for all of the methods, across every cell in the dataset, to give an overall score for each method and to see how much each method agrees with one another.

@@ -65,7 +65,7 @@ The deposited counts matrix was processed using the clustering and annotation mo
 \includegraphics[width=\textwidth]{figures/workflow_generation/MM_classifier_umap_HCA_joint2.pdf}
 \caption[Public scRNA-seq data annotation (HCA and PBMC model)]{Public scRNA-seq data (GEO accession number \textit{GSE188632}) clustering and annotation using references: from healthy tissue.
 a) Clustifyr annotation performed with the HumanCellAtlas (HCA) reference.
-b) scClassify annotation performed with the joint PBMC model as training data.
+b) scClassify annotation performed with the joint PBMC model.
 }
 \label{fig:mm_class_umap_annotate}
 \end{figure}
@@ -138,7 +138,7 @@ To quantify each model's accuracy of classifying MM cells, precision, recall and
 \centering
 \includegraphics[width=0.5\textwidth]{figures/workflow_generation/precision_recall_f1_barchart.png}
 \caption[MM classifier accuracy]{MM cell classifier performance.
-Precision, recall and F1 scores for the three models ability to accurately label MM cells; where true positive indicates a cell from the MM clusters (4, 7, 9 and 10) being labelled as `MM\char`_cell' by the model, false positive- a cell from any non-MM cluster being assigned the `MM\char`_cell' label, false negative- a cell from one of the MM clusters being assigned any label other than `MM\char`_cell'.
+Precision, recall and F1 scores for the three models' ability to accurately label MM cells; where true positive indicates a cell from the MM clusters (4, 7, 9 and 10) being correctly labelled as `MM\char`_cell' by the model, false positive-- a cell from any non-MM cluster being incorrectly assigned the `MM\char`_cell' label, false negative-- a cell from one of the MM clusters being incorrectly assigned a label other than `MM\char`_cell'.
 }
 \label{fig:mm_class_accuracy_bar}
 \end{figure}

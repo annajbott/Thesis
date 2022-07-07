@@ -60,8 +60,8 @@ Using the nomenclature first proposed by Selitsky et al. (2015), if the primary 
 The frequency of read end site relative to the tRNA length is calculated and plotted as bar graphs for each tRNA cluster type.
 For quantitative measurement of tRNA differences between groups of samples, tRNAnalysis implements DESeq2 to perform differential expression analysis\cite{love2014moderated}.
 Finally, given there can be large sequence variations between tRNAs from different tissues as a consequence of RNA modifications\cite{hoffmann2018accurate, vilmi2005sequence, lin2019trnaviz}, any nucleotide misincorporations in the mapped reads are determined.
-In order to accurately distinguish sequencing errors for true mismatches, \textit{samtools mpileup} is employed to collate summary information in the mapped bam file and then likelihoods of misincorporation are calculated.
-This information is stored in a bcf file that is then parsed by \textit{bcftools call}, which performs variant calling for each tRNA sequence\cite{li2009sequence}.
+In order to accurately distinguish sequencing errors for true mismatches, \texttt{samtools mpileup} is employed to collate summary information in the mapped bam file and then likelihoods of misincorporation are calculated.
+This information is stored in a bcf file that is then parsed by \texttt{bcftools call}, which performs variant calling for each tRNA sequence\cite{li2009sequence}.
 The output is then stored as a vcf file and normalised for indels, then filtered for sequencing depth.
 
 \subsubsection{Downstream analyses and visualisation}
@@ -89,10 +89,11 @@ The precision was 0.92, recall 0.64 and F1 score 0.76 using a p-value of 0.05, d
 \centering
 \includegraphics[width=\textwidth]{figures/workflow_generation/trna_f1_roc.pdf}
 \caption[tRNAnalysis performance metrics]{tRNAnalysis performance metrics.
-Simulated data ground truth counts matrix compared to tRNAnalysis-processed data.
-Classifying for whether a feature is differentially expressed or not by varying the $\log_{2}FC$ threshold.
-a) Receiver Operator Curve (ROC) showing the accuracy of tRNAnalysis to perform differential expression. (Area Under the Curve (AUC), 0.91).
-b: Recall and precision.
+Comparison of ground truth counts matrix from simulated data vs counts matrix obtained from tRNAnalysis-processed data.
+Classifying feature differential expression, varying the $\log_{2}FC$ threshold.
+a) Receiver Operator Curve (ROC).
+Area under the curve (AUC)  of 0.91.
+b) Recall and precision.
 c) F1 score.}
 \label{fig:trna_f1_roc}
 \end{figure}
