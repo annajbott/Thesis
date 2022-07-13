@@ -4,21 +4,21 @@
 
 \section{Introduction}
 Although MM treatment has improved significantly in the last 20 years, MM remains an incurable disease.
-MM patients relapse and become resistant to drugs they have previously been treated with.
+MM patients relapse and become resistant to drugs with which they have previously been treated.
 Therefore, research into novel therapeutics that can overcome multi-drug resistance and can be used to treat relapsed patients is of great importance.
 
-New analogues of Febrifugine derivatives are being actively researched for the treatment of many diseases, including numerous cancers\cite{halo2012clin, halo2012clin2}.
+New analogues of febrifugine derivatives are being actively researched for the treatment of many diseases, including numerous cancers\cite{halo2012clin, halo2012clin2}.
 Febrifugine is the biologically active component of the herb \textit{Dichroa febrifuga}, which is considered one of the fundamental herbs in traditional Chinese medicine\cite{koepfli1949alkaloids}.
 Febrifugine is a quinazolinone alkaloid, which has been shown to possess strong anti-malarial properties.
-One such Febrifugine derivative, halofuginone (HF), has previously been shown to inhibit TH\textsubscript{17} cell differentiation, by activating the amino acid response (AAR)\cite{sundrud2009halofuginone}.
-Halofuginone inhibits the ProRS activity of the enzyme glutamyl-prolyl tRNA synthetase (EPRS)\cite{keller2012halofuginone}.
-EPRS is a bifunctional aminoacyl-tRNA synthetase (AARS) and catalyses the aminoacylation of glutamic acid and proline tRNA species (such that it charges its cognate tRNAs with glutamic acid and proline).
-Halofuginone and Febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utilisation of proline during translation\cite{keller2012halofuginone}.
+One such febrifugine derivative, halofuginone (HF), has previously been shown to inhibit TH\textsubscript{17} cell differentiation, by activating the amino acid starvation response (AAR)\cite{sundrud2009halofuginone}.
+Halofuginone inhibits the ProRS activity of the enzyme glutamyl-prolyl-tRNA synthetase (EPRS)\cite{keller2012halofuginone}.
+EPRS is a bifunctional aminoacyl-tRNA synthetase (aaRS) and catalyses the aminoacylation of glutamic acid and proline tRNA species (such that it charges its cognate tRNAs with glutamic acid and proline).
+Halofuginone and febrifugine compete with proline at the prolyl-tRNA synthetase active site of EPRS, specifically targeting utilisation of proline during translation\cite{keller2012halofuginone}.
 This results in an accumulation of uncharged tRNA\textsuperscript{pro}s, giving the same cellular environment as if the cell were proline deficient, triggering the AAR to respond to the apparent proline deprived state.
 
-AARSs are essential in protein synthesis.
-Human cancer cells often have an increased rate of protein synthesis, this is especially true in multiple myeloma, creating huge amounts of non-functional paraprotein, therefore are more reliant on aaRSs.
-As discussed in Chapter \ref{ch:2-litreview}, HF has previously shown anti-MM activity in-vitro and in-vivo\cite{leiba2012halofuginone}.
+aaRSs are essential in protein synthesis.
+Human cancer cells often have an increased rate of protein synthesis, this is especially true in MM cells, which create huge amounts of non-functional paraprotein, and are therefore more reliant on aaRS activity.
+As discussed in Chapter \ref{ch:2-litreview}, HF has previously shown anti-MM activity in vitro and in vivo\cite{leiba2012halofuginone}.
 HF induced cytotoxicity and apoptosis in numerous MM cell-lines and primary MM cells.
 HF was also shown to inhibit MM growth and prolong survival in a mouse xenograft MM model.
 However, the mechanism by which HF exerted its affect was not elucidated, and it is not clear if the AAR plays a role in HF's effectiveness in MM\@.
@@ -27,7 +27,7 @@ It has also been shown that HF's anti-MM effect can be reduced in the presence o
 Proline is abundant in many tumours, which may result from upregulated matrix metalloproteinases (MMPs) degrading collagen in the extracellular matrix (ECM), and/or increased conversion of glutamine to proline compared to normal cells\cite{liu2013mirna}.
 Elevated proline levels have been noted in the BM of MM patients\cite{fei2021metabolic}.
 This increased proline concentration means that HF has a limited efficacy especially in situations of increased proline levels.
-This has ben observed as mechanism of HF resistance, for example in Plasmodium falciparum\cite{fagbami2019adaptive}.
+This has ben observed as mechanism of HF resistance, for example in \textit{Plasmodium falciparum}\cite{fagbami2019adaptive}.
 
 % Ralph drug drawing
 \begin{figure}[ht]
@@ -48,21 +48,21 @@ Aminoacylation is an ATP-dependent process, therefore blocking ATP binding inhib
 These molecules are attractive targets due to their mechanism of action and potentially alleviate some of the issues associated with HF treatment.
 
 
-This chapter uses MM cell-line models to assess the effectiveness of these ProRS inhibitors and uses bulk-RNA-seq to capture the transcriptional landscape following ProRS inhibitor treatment and ProRS inhibitor resistance.
+This chapter uses MM cell-line models to assess the effectiveness of these ProRS inhibitors and uses bulk RNA-seq to capture the transcriptional landscape following ProRS inhibitor treatment and ProRS inhibitor resistance.
 
 % Flush figures
 \clearpage
 
 \section{Cell-based assay results}
 \subsection{Cell line validation}
-In this chapter, two MM cell lines are used.
+In this chapter, two MM cell lines were used.
 Low-passage-number AMO-1 (henceforth referred to as wild type; WT) cells, which are sensitive to various MM treatments, and carfilzomib-resistant L363 (henceforth referred to as CFZr) cells.
 Dose response curves for the two cell lines treated with proteasome inhibitors (PIs), carfilzomib and bortezomib, were generated to confirm the PI-resistance of CFZr cells and PI-sensitivity of WT cells (Figure \ref{fig:dose_carf_bort}).
 % dose response figure
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/Results/dose_response/carf_bort_wt_cfzr.pdf}
-\caption[Carfilzomib and bortezomib dose response curves]{Multiple myeloma (MM) cell lines, AMO-1 (WT) and Carfilzomib-resistant L363 CFZr, treated with carfilzomib (CFZ) and bortezomib (BTZ).
+\caption[Carfilzomib and bortezomib dose response curves]{Multiple myeloma (MM) cell lines, AMO-1 (WT) and carfilzomib-resistant L363 CFZr, treated with carfilzomib (CFZ) and bortezomib (BTZ).
 MM cell lines were treated for 48 hours with a range of concentrations (approximately 1\si{\nano\Molar}-1\si{\micro\Molar}) of proteasome inhibitors (PI).
 a) AMO-1 (WT cells).
 b) Carfilzomib-resistant L363 cells (CFZr).}
@@ -83,18 +83,18 @@ This mimics clinical MM well, as patients are treated with carfilzomib as a seco
 Together, this validates that AMO-1 (WT) cells and L363 CFZr cells are suitable cell models for PI-sensitive and PI-resistant MM\@.
 
 \subsection{Halofuginone and NCP26 are cytotoxic to drug sensitive and drug resistant MM cell lines in a dose-dependent manner}\label{subsec:pro_cell_viability}
-The effect of the ProRS inhibitors NCP22, NCP26, MAZ1805 (Halofuginol) and MAZ1392 (Halofuginone; HF) on cell viability was investigated using the MM cell lines AMO-1 and L363 CFZ-r.
+The effect of the ProRS inhibitors NCP22, NCP26, MAZ1805 (halofuginol) and MAZ1392 (halofuginone; HF) on cell viability was investigated using the MM cell lines AMO-1 and L363 CFZr.
 The cell lines were treated with a range of concentrations of each compound (3.9\si{\nano\Molar}- 1\si{\micro\Molar}).
-Cell viability was assessed using presto-blue assays (Section \ref{subsec:method_doseresponse}), and dose response curves were generated (Figures \ref{fig:dose}a and \ref{fig:dose}c).
+Cell viability was assessed using presto blue assays (Section \ref{subsec:method_doseresponse}), and dose response curves were generated (Figures \ref{fig:dose}a and \ref{fig:dose}c).
 Halofuginone and NCP26 reduced cell viability of PI-sensitive AMO-1 cells and carfilzomib resistant L363 cells in a dose-dependent fashion.
-For this concentration range, MAZ1805 and NCP22 seemed to have little effect on cell viability of WT or CFZ-r cells, and IC\textsubscript{50} values were unable to be calculated.
+For this concentration range, MAZ1805 and NCP22 seemed to have little effect on cell viability of WT or CFZr cells, and IC\textsubscript{50} values were unable to be calculated.
 Halofuginone was found to be more potent than NCP26.
 %
 % dose response figure
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/dose_response/MAZ_ncp_wt_cfz.pdf}
-\caption[ProRS inhibitors dose response curves]{Multiple myeloma (MM) cell lines treated with ProRS inhibitors- MAZ1392 (Halofuginone), MAZ1805, NCP26 and NCP22.
+\caption[ProRS inhibitors dose response curves]{Viability of MM cell lines treated with ProRS inhibitors- MAZ1392 (halofuginone), MAZ1805, NCP26 and NCP22.
 MM cell lines were treated for 48 hours with a range of concentrations (3.91\si{\nano\Molar}-1\si{\micro\Molar}) of ProRS inhibitors.
 a) and c) Dose response curves.
 a and b) WT AMO-1 cells.
@@ -104,7 +104,7 @@ b) and d) Proportion of cells viable after 48 hours of 1\si{\micro\Molar} treatm
 \end{figure}
 %%
 
-For WT AMO-1 cells, halofuginone had an IC\textsubscript{50} of 141.8nM and NCP26 an IC\textsubscript{50} of 502nM. For CFZ-r cells, halofuginone had an IC\textsubscript{50} of 1185nM and NCP26's IC\textsubscript{50} was ambiguous, a higher stock concentration would be required for calculation.
+For WT AMO-1 cells, halofuginone had an IC\textsubscript{50} of 141.8nM and NCP26 an IC\textsubscript{50} of 502nM. For CFZr cells, halofuginone had an IC\textsubscript{50} of 1185nM and NCP26's IC\textsubscript{50} was ambiguous, a higher stock concentration would be required for calculation.
 Figure \ref{fig:dose}b and \ref{fig:dose}d show the proportion of viable cells following 48 hours of treatment of the ProRS inhibitors.
 WT AMO-1 cells were found to be more sensitive to NCP26 and halofuginone treatment than carfilzomib resistant L363 cells.
 This may indicate some acquired cross-resistance built up from carfilzomib exposure or inherent resistance in the L363 cell line over the AMO-1 cell line.
@@ -113,10 +113,10 @@ This may indicate some acquired cross-resistance built up from carfilzomib expos
 Drug combinations have proved effective in MM in recent years, for example the combination of bortezomib, lenalidomide, and dexamethasone (VRd).
 Drugs are often used in combination so that outcomes are improved (synergistic efficacy) or to reduce off-target effects and toxicity by minimizing the doses of the drugs (synergistic potency)\cite{meyer2019quantifying}.
 
-To assess if NCP26 and carfilzomib work together synergistically, AMO-1 cells were treated with varying concentrations of NCP26 and Carfilzomib for 72 hours, then presto blue assays were performed to determine cell viability.
+To assess if NCP26 and carfilzomib work together synergistically, AMO-1 cells were treated with varying concentrations of NCP26 and carfilzomib for 72 hours, then presto blue assays were performed to determine cell viability.
 As shown by dose response curves in Figure \ref{fig:synergy}a and the response matrix in Figure \ref{fig:synergy}b, NCP26 and carfilzomib elicit a stronger cytotoxic effect together than each agent individually.
 SynergyFinder\cite{zheng2021synergyfinder} was used to calculate the compounds' synergy scores (-4.66 ZIP; -4.18 Loewe; -5.53 Bliss).
-From these values it is unlikely that NCP26 and Carfilzomib work together synergistically.
+From these values it is unlikely that NCP26 and carfilzomib work together synergistically.
 NCP26 and carfilzomib seem to have an additive effect together, or slight antagonistic effect.
 %%%
 % synergy figure
@@ -125,8 +125,8 @@ NCP26 and carfilzomib seem to have an additive effect together, or slight antago
 \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/synergy.pdf}
 \caption[NCP26 and carfilzomib synergy]{Investigating synergy between NCP26 and carfilzomib.
 AMO-1 cells were treated with varying concentration combinations of NCP26 and carfilzomib for 72 hours, then cell viability was determined using presto blue assays.
-\textbf{A)} Dose response curves for NCP26 with different carfilzomib concentrations.
-\textbf{B)} Matrix view of NCP26 and Carfilzomib concentration responses.
+a) Dose response curves for NCP26 with different carfilzomib concentrations.
+b) Matrix view of NCP26 and carfilzomib concentration responses.
 }
 \label{fig:synergy}
 \end{figure}
@@ -149,7 +149,7 @@ Indeed, with the promising results in Figure \ref{fig:dose}d, HF and NCP26 have 
 \subsection{Experiment overview}
 The transcriptome of drug-sensitive and PI-resistant MM cells following treatment with four ProRS inhibitors was investigated using bulk RNA-seq.
 PI-sensitive WT AMO-1 cells and carfilzomib resistant L363 cells (CFZr) were used.
-Cells were treated for 6 and 24 hours with a DMSO control, or 1\si{\micro\Molar} of a ProRS inhibitor (MAZ1392 (Halofuginone), NCP26, NCP22 and MAZ1805 (Halofuginol)), or 100\si{\nano\Molar} carfilzomib (AMO-1 WT cells only).
+Cells were treated for 6 and 24 hours with a DMSO control, or 1\si{\micro\Molar} of a ProRS inhibitor (MAZ1392 [halofuginone], NCP26, NCP22 and MAZ1805 (halofuginol)), or 100\si{\nano\Molar} carfilzomib (AMO-1 WT cells only).
 CFZr cells were treated in the presence of 100\si{\nano\Molar} carfilzomib.
 Samples were prepared for sequencing as in Section \ref{sec:bulk_lib_prep}.
 The computational workflow for bulk RNA-seq analysis is outlined in Section \ref{subsec:bulk_data_pro}.
@@ -161,7 +161,7 @@ The computational workflow for bulk RNA-seq analysis is outlined in Section \ref
 \centering
 \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_maz_ncp_wt_cfz.pdf}
 \caption[Bulk RNA-seq sample clustering]{Bulk RNA-seq sample clustering.
-WT AMO-1 cells and CFZr L363 cells treated for 6 or 24 hours with a DMSO control, 100nM carfilzomib or 1uM of a ProRS inhibitor (MAZ1392/Halofuginone, MAZ1805/Halofuginol, NCP26 and NCP22).
+WT AMO-1 cells and CFZr L363 cells treated for 6 or 24 hours with a DMSO control, 100nM carfilzomib or 1uM of a ProRS inhibitor (MAZ1392/halofuginone, MAZ1805/halofuginol, NCP26 and NCP22).
 Clustering analysis of sample-sample distances (a, c and e) and principal component analysis (PCA; b, d and f).
 a) and b) both cell types (WT and CFZr) displayed; c) and d) WT AMO-1 only; e) and f) CFZr samples only.
 }
@@ -169,10 +169,10 @@ a) and b) both cell types (WT and CFZr) displayed; c) and d) WT AMO-1 only; e) a
 %%
 
 Figure \ref{fig:clustering_bulk} shows clustering analysis.
-Figure \ref{fig:clustering_bulk}a and \ref{fig:clustering_bulk}b show the samples distinctly separate into respective cell types, and this makes up the majority (69\%) of the variance in the dataset.
-Therefore, the different cell types (WT and CFZr) were separated and analysed individually (Figures \ref{fig:clustering_bulk} c-f).
+Figure \ref{fig:clustering_bulk}a and \ref{fig:clustering_bulk}b show that the samples distinctly separate into their respective cell types, and this makes up the majority (69\%) of the variance in the dataset.
+Therefore, the different cell types (WT and CFZr) were separated and analysed individually (Figures \ref{fig:clustering_bulk}c-f).
 
-The less active compounds from the ProRS inhibitor dose response curves, MAZ1805 and NCP22, cluster closely with the DMSO-treated controls.
+The less active compounds (as demonstrated by ProRS inhibitor dose response curves; Figure \ref{fig:dose}), MAZ1805 and NCP22, cluster closely with the DMSO-treated controls.
 The more active inhibitors, NCP26 and halofuginone, cluster separately from DMSO controls and less active inhibitors, indicating they have elicited a stronger transcriptional response.
 At 6 hours NCP26 and halofuginone cluster closely together.
 At 24 hours NCP26 and halofuginone separate more.
@@ -186,13 +186,13 @@ This could suggest an initial difference in mechanism of action and transcriptio
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/bulk_clustering_PCs_analysed.pdf}
-\caption[PCA pathway enrichment]{PCA pathway enrichment.
-Pathway enrichment analysis performed using REACTOME of top contributing genes from principal component analysis (PCA).
-A) WT AMO-1 dataset with carfilzomib-treated samples removed.
+\caption[PCA pathway enrichment]{principal component analysis (PCA) pathway enrichment.
+Pathway enrichment analysis performed using REACTOME of top contributing genes from PCA.
+a) WT AMO-1 dataset with carfilzomib-treated samples removed.
 PC1 seems to account for the separation between DMSO controls/ less active compounds and the more active ProRS inhibitors (NCP26 and halofuginone).
 Genes contributing positively towards PC1 are upregulated in NCP26 and halofuginone compared to DMSO controls and less active compounds.
 Enriched pathways from top genes in PC1 shown beneath PCA plot.
-B) CFZr L363 dataset.
+b) CFZr L363 dataset.
 PC2 seems to account for the separation between DMSO controls/ less active compounds and the more active ProRS inhibitors (NCP26 and halofuginone).
 Genes contributing negatively towards PC2 (down arrow), are upregulated in NCP26/ halofuginone compared to controls.
 Pathways enriched from top genes in PC2 shown beneath PCA plot.}
@@ -235,6 +235,8 @@ Genes highly differentially expressed by the ProRS inhibitors are coloured and a
 Numerous genes involved in stress response pathways can be seen to be upregulated following NCP26 and halofuginone treatment, including \textit{TRIB3}, \textit{JUN} and \textit{ATF3}.
 Additionally, various histone genes are upregulated.
 Some genes involved in cell cycle progression, such as \textit{CDKN1A}, are downregulated following ProRS inhibition.
+Interestingly, \textit{PYCR1} (a gene which encodes for an enzyme in the final step of the conversion of glutamine into proline) was found to be upregulated following NCP26 and HF treatment at 6 and 24 hours.
+This could be an attempt by the MM cells to make more proline to overcome the apparent `proline-deficiency'.
 
 Transcriptional changes for 6 hours of exposure to NCP26 were compared with proteomic changes for the same treatment condition (Figure \ref{fig:proteomic_rna_scatter}).
 Proteomic data was supplied by collaborators: Keiji Kurata, Teru Hideshima and Ken C Anderson (Dana-Farber Cancer Institute; DFCI).
@@ -243,9 +245,9 @@ Proteomic data was supplied by collaborators: Keiji Kurata, Teru Hideshima and K
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/WT/rna_vs_proteomics_ncp26_6h_scatter.pdf}
-\caption[Proteomics vs RNA-seq scatterplot- WT cells]{Scatterplot of proteomic and RNA-seq datasets depicting changes after 6 hr NCP26 exposure to AMO-1 cells.
+\caption[Proteomics vs RNA-seq scatterplot- WT cells]{Scatterplot of proteomic and RNA-seq datasets depicting changes after 6hr NCP26 exposure to AMO-1 cells.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) in both RNA-seq and proteomic datasets.
-Folllowing NCP26 treatment, TRIB3 and INHBE (both \textit{ATF4} targets) were the proteins with the highest increase in abundance ($\log_{2}$FC = 0.64 and INHBE  $\log_{2}$FC = 0.58) in the proteomic dataset and both were significantly upregulated in the RNA-seq dataset.
+Folllowing NCP26 treatment, TRIB3 and INHBE (both \textit{ATF4} targets) were the proteins with the highest increase in abundance ($\log_{2}$FC = 0.64 and $\log_{2}$FC = 0.58) in the proteomic dataset and both were significantly upregulated in the RNA-seq dataset.
 I analysed proteomic data supplied by Keiji Kurata, Teru Hideshima and Ken C Anderson (Dana-Farber Cancer Institute; DFCI).
 }
 \label{fig:proteomic_rna_scatter}
@@ -272,11 +274,11 @@ The effects of NCP26 and halofuginone treatment on the amino acid starvation res
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/WT/wt_halo_ncp26_aar_heatmap.pdf}
-\caption[Amino acid starvation response genes heatmap- WT cells]{Amino acid starvation response (AAR) genes heatmap for WT cells.
-Differentially expressed genes (DEGs) from WT AMO-1 cells intersected with genes involved in the AAR.
+\caption[Amino acid starvation response genes heatmap- WT cells]{Heatmap of amino acid starvation response (AAR) genes for WT cells treated with NCP26 and halofuginone.
+Differentially expressed genes (DEGs) that are involved in the AAR.
 A list of known AAR genes was compiled by collating AAR genesets from the Molecular Signatures Database (MSigDb).
 The colour scale shows $\log_{2}$ fold change of expression for each treated sample, compared to its DMSO time control.
-Red indicates an upregulated gene and blue a downregulated gene.
+Red indicates an upregulated gene and blue indicates a downregulated gene.
 }
 \label{fig:wt_aar_heatmap}
 \end{figure}
@@ -293,7 +295,7 @@ Genes coding for aminoacyl tRNA synthetases were also seen to be upregulated, su
 \centering
 \includegraphics[width=\textwidth]{figures/Results/Transcriptomics/WT/wt_aaRS1_barchart.pdf}
 \caption[Cytoplasmic aaRS gene expression change- WT cells]{Cytoplasmic aaRS gene expression change.
-Log2 fold change for ProRS inhibitor/carfilzomib treated samples compared to DMSO controls.
+$\log_{2}$ fold change for ProRS inhibitor/carfilzomib treated samples compared to DMSO controls.
 Stars indicate significance at adjusted p-value < 0.05.
 \textit{EPRS1} (the target of NCP26 and halofuginone) is highlighted in red.
 }
@@ -303,23 +305,21 @@ Stars indicate significance at adjusted p-value < 0.05.
 In total, nine cytoplasmic aaRS genes were overexpressed (p\textsubscript{adj} <0.05) after 6 hours of ProRS inhibition, and 14 cytoplasmic aaRS genes were overexpressed after 24 hours (Figure \ref{fig:wt_ARS1}).
 \textit{EPRS1} was upregulated following NCP26 and halofuginone treatment, at 6 and 24 hours.
 \textit{QARS1}, \textit{KARS1} and \textit{FARSA} (coding for the alpha subunit of FARS1) were found to be the most downregulated cytoplasmic aaRS genes, following ProRS inhibition.
-Mitochondrial aaRS gene expression changes following ProRS inhibition is shown in Figure \ref{fig:ARS2_barchart}.
+Mitochondrial aaRS gene expression changes are shown in Figure \ref{fig:ARS2_barchart}.
 % indicating tumour suppressive role??
 
 A list of 287 unique genes activated by \textit{ATF4} was compiled from the genesets: `REACTOME ATF4 activates genes in response to endoplasmic reticulum stress' and `ATF4 Q2' (genes having at least one occurrence of the transcription factor binding site V.ATF4 Q2 in the regions spanning up to 4 kb around their transcription starting sites).
-Figure \ref{fig:wt_atf4_heatmap} shows a heatmap for ATF4 activated genes and genes DE by NCP26 and halofuginone.
-Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and halofuginone.
-Of the 287 genes in the list, 165 genes were differentially expressed with NCP26 or halofuginone treatment.
-Interestingly \textit{PYCR1} (a gene which encodes for an enzyme in the final step of the conversion of glutamine into proline) was found to be upregulated following NCP26 and HF treatment at 6 and 24 hours.
-This could be an attempt by the MM cells to make more proline to overcome the apparent `proline-deficiency'.
+Figure \ref{fig:wt_atf4_heatmap} shows a heatmap for DE \textit{ATF4} activated genes.
+Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and HF.
+Of the 287 genes in the list, 165 genes were DE with NCP26 or HF treatment.
 
 
 % ATF4 heatmap
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/WT/wt_halo_ncp26_atf4_heatmap.pdf}
-\caption[\textit{ATF4} activated genes heatmap- WT cells]{Heatmap of \textit{ATF4}activated genes for WT cells treated with NCP26 and halofuginone.
-Differentially expressed genes (DEGs) from WT AMO-1 cells intersected with \textit{ATF4} activated genes.
+\caption[\textit{ATF4} activated genes heatmap- WT cells]{Heatmap of \textit{ATF4} activated genes for WT cells treated with NCP26 and halofuginone.
+Differentially expressed genes (DEGs) \textit{ATF4} activated genes.
 A list of genes activated by the transcription factor \textit{ATF4} was compiled by collating genesets from the Molecular Signatures Database (MSigDb).
 The colour scale shows $\log_{2}$ fold change of expression for each treated sample, compared to its DMSO time control.
 Red indicates an upregulated gene and blue a downregulated gene.
@@ -332,7 +332,7 @@ Taken together, it is clear that following HF and NCP26 treatment of AMO-1 MM ce
 
 %% vs carfilzomib
 \subsubsection{ProRS inhibitors vs carfilzomib}
-Since their first use in MM, 30 years ago, the mechanism of action of proteome inhibitors has been extensively studied and well described by researchers (such as \cite{nunes2017proteasome}).
+Since their first use in MM 30 years ago, the mechanism of action of proteome inhibitors has been extensively studied and well described by researchers (such as \cite{nunes2017proteasome}).
 Figure \ref{fig:clustering_bulk}d demonstrates similarities at 24 hours between the transcriptional effects of ProRS inhibitors and the proteasome inhibitor carfilzomib on AMO-1 cells.
 It also demonstrates ProRS and carfilzomib-treated samples separation at 6 hours, highlighting differences in their initial mechanism of action.
 
@@ -341,8 +341,8 @@ The similarities and differences between ProRS inhibitors and carfilzomib were s
 \begin{figure}[p]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/Transcriptomics/WT/carf_halo_ncp_comparison_figure.pdf}
-\caption[ProRS inhibitors vs carfilzomib- WT cells]{ProRS inhibitors compared with Carfilzomib's mechanism of action.
-a) Venn diagrams showing overlapping differentially expressed genes (DEGs; upregulated or downregulated following treatment)at 6 and 24 hours.
+\caption[ProRS inhibitors vs carfilzomib- WT cells]{ProRS inhibitors compared with carfilzomib's mechanism of action.
+a) Venn diagrams showing overlapping differentially expressed genes (DEGs; upregulated or downregulated following treatment) at 6 and 24 hours.
 b) Scatter plots showing correlation of carfilzomib DEGs against halofuginone or NCP26 DEGs.
 c) Pathway analysis (Gene ontology biological processes; GOBP) for top upregulated genes.
 d) Heatmap of selected differentially expressed genes upon carfilzomib, halofuginone and NCP26 treatment.
@@ -356,15 +356,15 @@ HF shares more overlapping DEGs with CFZ than NCP26.
 This is likely to do with potency and dosing, where both HF and CFZ were used at approximately 10 times their IC\textsubscript{50} value.
 
 Carfilzomib treatment of AMO-1 cells resulted in a pronounced induction of the heat shock response, changes to ubiquitin mediated processes and protein folding, in line with the well-defined cellular changes of proteasome inhibition.
-At 6 hours, some ISR effectors, such as \textit{ATF3} and \textit{JUN}, are upregulated by both carfilzomib and NCP26/Halofuginone treatment.
+At 6 hours, some ISR effectors, such as \textit{ATF3} and \textit{JUN}, were upregulated by both carfilzomib and NCP26/halofuginone treatment.
 %Suggesting that ProRS inhibitors may have a distinct enough mechanism of action to bypass proteasome resistance.
 
 At 24 hours, CFZ and ProRS inhibitor treatment seem to culminate in similar end-stage stress, cell cycle changes and apoptotic mechanisms.
-Both ProRS inhibition and CFZ treatment result in pathway enrichment of `cell cycle arrest', `negative regulation of cell proliferation', `positive regulation of apoptosis process' and `type 1 interferon signalling pathway'.
+Both ProRS inhibition and CFZ treatment resulted in pathway enrichment of `cell cycle arrest', `negative regulation of cell proliferation', `positive regulation of apoptosis process' and `type 1 interferon signalling pathway'.
 %Both HF and CFZ treatment is shown to result in enrichment of angiogenic pathways;
 %this is consistent with other preclinical studies, whereby HF induced anti-angiogenic effects.
-Figure \ref{fig:wt_carf_compare}d shows a heatmap of NCP26, halofuginone and CFZ for $\log_{2}FC$ compared to DMSO controls at 6 and 24 hours for selected genes, belonging to various pathways/ classes.
-NCP26 and halofuginone demonstrate similar effects on myeloma markers as CFZ, such as downregulating the MM pathological marker \textit{SDC1/ CD138}.
+Figure \ref{fig:wt_carf_compare}d shows a heatmap of NCP26, HF and CFZ for $\log_{2}FC$ compared to DMSO controls at 6 and 24 hours for selected genes, belonging to various pathways/ classes.
+NCP26 and HF demonstrated similar effects on MM markers as CFZ, such as downregulating the MM pathological marker \textit{SDC1/ CD138}.
 CFZ is an established anti-MM therapy approved in the clinic, therefore this is a promising sign for the effectiveness of ProRS inhibitors in MM\@.
 
 
@@ -377,14 +377,14 @@ CFZ is an established anti-MM therapy approved in the clinic, therefore this is 
 \afterpage{\clearpage}
 \subsection{Carfilzomib-resistant MM cells}
 
-For CFZr L363 cells at 6 hours, 1165 genes were DE for NCP26 treated-samples, 2424 DEGs for halofuginone, 222 DEGs for MAZ1805, and 0 DE genes for NCP22-treated samples compared to DMSO control samples.
-At 24 hours, 852 DEGs for NCP26-treated samples, 256 DEGs for halofuginone, no genes were DE for MAZ1805 and NCP22 compared to DMSO controls.
+For CFZr L363 cells at 6 hours, 1165 genes were DE for NCP26 treated-samples, 2424 DEGs for HF, 222 DEGs for MAZ1805, and 0 DE genes for NCP22-treated samples compared to DMSO control samples.
+At 24 hours, 852 DEGs for NCP26-treated samples, 256 DEGs for HF, no genes were DE for MAZ1805 and NCP22 compared to DMSO controls.
 %
 % DE volcano scatter WT %
 \begin{figure}[bht]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_de_volcano_scatter.pdf}
-\caption[Differentially expressed genes- CFZr cells]{Differentially expressed genes (DEGs) for halofuginone and NCP26 treated CFZr L363 cells at 6 and 24 hours.
+\caption[Differentially expressed genes- CFZr cells]{Differentially expressed genes (DEGs) for HF and NCP26 treated CFZr L363 cells at 6 and 24 hours.
 Scatter plot of genes for 6 hours treated vs 24 hours treated.
 Red points indicate genes which are differentially expressed (p\textsubscript{adj} < 0.01) at both 6 and 24 hours.
 Volcano plots are also shown.
@@ -395,42 +395,43 @@ Top DEGs are annotated with HGNC symbols.
 \label{fig:cfz_de}
 \end{figure}
 %%
-DEGs for NCP26 and halofuginone treatment are shown in Figure \ref{fig:cfz_de}.
+DEGs for NCP26 and HF treatment are shown in Figure \ref{fig:cfz_de}.
 Numerous genes involved in the AAR can be seen to be upregulated following NCP26 and halofuginone treatment, including \textit{TRIB3}, \textit{ATF3}, \textit{CHAC1}, \textit{INHBE}, \textit{PSAT1}, \textit{ASNS} and \textit{SESN2};
 Amino acid transporters \textit{SLC7A11} and \textit{SLC6A9}, and tRNA aminoacyl synthetase \textit{WARS1} are also upregulated.
 
 \subsubsection{Pathway enrichment analysis}
-Pathway enrichment analysis was performed for the top DE genes for NCP26 and halofuginone treated samples compared to DMSO controls (Figure \ref{fig:cfz_pathway}).
+Pathway enrichment analysis was performed for the top DE genes for NCP26 and HF treated samples compared to DMSO controls (Figure \ref{fig:cfz_pathway}).
 Multiple pathways relating to endoplasmic reticulum stress and apoptosis were enriched following ProRS inhibition.
-`Cellular response to amino acid starvation' was enriched, along with `amino acid transport', indicating that NCP26/Halofuginone likely activate the amino acid starvation response in the CFZ resistant MM cells.
+`Cellular response to amino acid starvation' was enriched, along with `amino acid transport', indicating that NCP26 and HF likely activate the amino acid starvation response in the CFZ resistant MM cells.
 Additionally the pathway `response to unfolded protein' was enriched.
-The unfolded protein response is part of the integrated stress response so shares many of the same effectors as the AAR, such as \textit{DDIT3/CHOP}.
+The unfolded protein response is part of the integrated stress response so shares many of the same effectors as the AAR, such as \textit{DDIT3} (CHOP).
 
 % Pathway analysis %
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/Results/Transcriptomics/CFzr/CFZ_pathway_analysis-eps-converted-to.pdf}
-\caption[Pathway enrichment analysis- CFZr cells]{Pathway analysis for ProRS inhibitor treated CFZr cells at 24 hours.
-Gene ontology biological processes (GOBP) was performed for the top DE genes.
+\caption[Pathway enrichment analysis- CFZr cells]{Pathway analysis (Gene ontology biological processes; GOBP) performed for top DE genes at 24 hours.
 }
 \label{fig:cfz_pathway}
 \end{figure}
 %
 The amino acid response was investigated more closely for the PI-resistant cell line.
-Figure \ref{fig:cfz_aar_heatmap} shows a heatmap of DEGs for NCP26/Halofuginone treated CFZr cells at 6 or 24 hours, which are known members of the AAR (collated from MSigDbl- as above).
+Figure \ref{fig:cfz_aar_heatmap} shows a heatmap of DEGs for NCP26/HF treated CFZr cells at 6 or 24 hours, which are known members of the AAR (collated from MSigDbl-- as above).
 
 % AAR heatmap
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Results/Transcriptomics/CFzr/cfz_halo_ncp26_aar_heatmap.pdf}
-\caption[Amino acid starvation response genes heatmap- CFZr cells]{Amino acid starvation response (AAR) genes heatmap for CFZr cells.
-Differentially expressed genes (DEGs) from CFZr AMO-1 cells intersected with genes involved in the AAR.
+\caption[Amino acid starvation response genes heatmap- CFZr cells]{Heatmap of amino acid starvation response (AAR) for CFZr cells treated with ProRS NCP26 and halofuginone.
+Differentially expressed genes (DEGs) that are involved in the AAR.
 A list of known AAR genes was compiled by collating AAR genesets from the Molecular Signatures Database (MSigDb).
+The scale denotes $\log{2}$ fold change vs each sample's corresponding control.
+Red indicates upregulated genes and blue indicates downregulated genes.
 }
 \label{fig:cfz_aar_heatmap}
 \end{figure}
 %%
-A strong response of the AAR can be seen following NCP26 and halofuginone treatment.
+A strong response of the AAR can be seen following NCP26 and HF treatment.
 The transcription factors \textit{CEBPG}, \textit{CEBPB}, \textit{ATF3}, \textit{DDIT3} are strongly upregulated, along with amino acid transporter \textit{SLC7A11}.
 Other AAR genes are strongly upregulated with ProRS inhibitor treatment, such as \textit{ASS1}, \textit{ASNS}, \textit{CHAC1}, \textit{PSAT1}, \textit{PPP1R15A/GADD34}and \textit{TRIB3}.
 
@@ -447,10 +448,10 @@ Stars indicate significance at adjusted p-value < 0.05.
 \end{figure}
 %%
 In total, 13 cytoplasmic aaRS genes were overexpressed (p\textsubscript{adj} <0.05) after 6 hours of ProRS inhibition, and 12 cytoplasmic aaRS genes were overexpressed after 24 hours in CFZr cells (Figure \ref{fig:cfz_ARS1}).
-Like in WT cells, \textit{EPRS1} was upregulated following NCP26 and halofuginone treatment, at 6 and 24 hours.
+Like in WT cells, \textit{EPRS1} was upregulated following NCP26 and HF treatment, at 6 and 24 hours.
 \textit{WARS1} and \textit{GARS1} were strongly overexpressed following ProRS inhibition.
 Similar to treatment of WT AMO-1 cells, \textit{QARS1}, \textit{KARS1}, \textit{FARSA} and \textit{VARS1} did not follow the trend and gene expression of these genes was found to be downregulated in ProRS inhibitor treated samples.
-Perhaps this indicates a tumour suppressive role of these aminoacyl tRNA synthetases.
+Perhaps this indicates a tumour suppressive role of these aminoacyl-tRNA synthetases.
 
 % ATF4 heatmap
 \begin{figure}[p]
@@ -466,10 +467,9 @@ Red indicates an upregulated gene and blue a downregulated gene.
 \end{figure}
 %%
 
-A list of 287 unique genes activated by \textit{ATF4} was compiled from the genesets: `REACTOME ATF4 activates genes in response to endoplasmic reticulum stress' and `ATF4 Q2' (genes having at least one occurrence of the transcription factor binding site V.ATF4 Q2 in the regions spanning up to 4 kb around their transcription starting sites).
-Figure \ref{fig:cfz_atf4_heatmap} shows a heatmap for ATF4 activated genes and genes DE by NCP26 and halofuginone in CFZr cells.
-Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and halofuginone.
-Of the 287 genes activated by \textit{ATF4} in the list, 157 genes were differentially expressed with NCP26 or halofuginone treatment.
+Figure \ref{fig:cfz_atf4_heatmap} shows a heatmap for ATF4 activated genes (as above) and genes DE by NCP26 and HF in CFZr cells.
+Numerous \textit{ATF4} targets can be seen to be differentially expressed following ProRS inhibition with NCP26 and HF.
+Of the 287 genes activated by \textit{ATF4} in the list, 157 genes were differentially expressed with NCP26 or HF treatment.
 This indicates that many \textit{ATF4} downstream targets are being mediated, indicating that \textit{ATF4} has high transcriptional activity.
 
 CFZ-resistant L363 cells show a similar engagement of the AAR and activation of \textit{ATF4}-mediated genes as PI-sensitive AMO-1 cells, following NCP26/HF treatment.
@@ -499,14 +499,14 @@ The differences between the two cell groups made up most of the variance in the 
 a) Volcano plot. Blue points indicate downregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC < -1$).
 Red points indicate upregulated DEGs (p\textsubscript{adj} < 0.01 \& $\log_{2}FC > 1$).
 Top DEGs are annotated with HGNC symbols.
-b) Log2FC of cytoplasmic aaRS genes.
+b) $\log_{2}$FC of cytoplasmic aaRS genes.
 Stars indicate differential expression (p\textsubscript{adj}<0.05).
 \textit{EPRS1} is upregulated in NCP26R cells.
 }
 \label{fig:NCP26R_DE}
 \end{figure}
 %%
-The Log2FC for cytoplasmic aaRS genes is shown in Figure \ref{fig:NCP26R_DE}b.
+The $\log_{2}$FC for cytoplasmic aaRS genes is shown in Figure \ref{fig:NCP26R_DE}b.
 Nine out of 20 aaRS genes were upregulated (p\textsubscript{adj} <0.05) in NCP26-resistant cells, including \textit{EPRS1}.
 Four aaRS genes were downregulated (p\textsubscript{adj} <0.05), including \textit{QARS1} and \textit{VARS1}, which were also downregulated following ProRS inhibitor treatment.
 \textit{PYCR1}, \textit{PYCR2} and \textit{PYCR3} (genes which encode for the three enzymes in the final step of the conversion of glutamine into proline) were found to be downregulated in NCP26R cells.
@@ -517,7 +517,7 @@ Next, pathway enrichment analysis was performed using the packages ClusterProfil
 \centering
 \includegraphics[width=\textwidth]{figures/Results/Transcriptomics/NCP26R/NCP26R_pathway.pdf}
 \caption[Pathway enrichment analysis- NCP26R cells]{Pathway enrichment analysis for NCP26R L363 cells vs L363 controls.
-a) Gene set enrichment analysis using biological processes (BP), molecular function (MF), and cellular compartment (CC) gene ontology (GO) annotations. Genes ordered by $\log_{2}FC$ values.
+a) Gene set enrichment analysis (GSEA) using biological processes (BP), molecular function (MF), and cellular compartment (CC) gene ontology (GO) annotations. Genes ordered by $\log_{2}FC$ values.
 b) XGR GOBP enrichment analysis for top downregulated DEGs (p\textsubscript{adj} < 0.05 \& $\log_{2}FC < -1$).
 c) XGR GOCC enrichment analysis for top downregulated DEGs (p\textsubscript{adj} < 0.05 \& $\log_{2}FC < -1$).
 }
@@ -527,18 +527,18 @@ c) XGR GOCC enrichment analysis for top downregulated DEGs (p\textsubscript{adj}
 Chromatin remodelling and assembly, DNA packaging, and nucleosome organization and assembly pathways were enriched in NCP26R cells.
 Numerous histone genes were upregulated in NCP26R cells.
 ER-associated pathways were found to be suppressed in NCP26R cells, including `integral component of lumenal side of endoplasmic reticulum membrane', `ER to Golgi transport vesicle membrane', `endoplasmic reticulum lumen'.
-This may indicate transcriptional changes are made to ER-associated genes to overcome and become more resistant to ER-stress produced by ProRS inhibition.
+This may indicate transcriptional changes are made to ER-associated genes to overcome and become more resistant to ER stress produced by ProRS inhibition.
 Antigen binding and MHC class II protein complex pathways were also suppressed in NCP26R cells, as well as components of the ECM and plasma membrane.
 Some members of the UPR and ISR were enriched in NCP26R cells.
 
-NCP26R cells had a number of differentially expressed genes that relate to ER structure and function.
+NCP26R cells had a number of DEGs that relate to ER structure and function.
 Given the known involvement of ER stress and the ISR in NCP26's mechanism of action, transcriptional changes to the amino acid starvation response were explored.
 % AAR heatmap NCP26R
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/Results/Transcriptomics/NCP26R/NCP26R_aar_heatmap.pdf}
-\caption[Amino acid starvation response genes heatmap- NCP26R cells]{Amino acid starvation response (AAR) genes heatmap for NCP26R cells.
-Differentially expressed genes (DEGs) for NCP26R L363 cells vs control L363 cells intersected with genes involved in the AAR.
+\caption[Amino acid starvation response genes heatmap- NCP26R cells]{Heatmap of amino acid starvation response (AAR) genes for NCP26R cells.
+Differentially expressed genes (DEGs) involved in the AAR.
 A list of known AAR genes was compiled by collating AAR genesets from the Molecular Signatures Database (MSigDb).
 Normalised gene counts are shown for each sample.
 }
@@ -554,13 +554,13 @@ Previously, it has been shown that \textit{ATF4} knockdown (but not \textit{ATF3
 \textit{CHAC1} was also downregulated in NCP26R cells.
 Overexpression of \textit{CHAC1} has been implicated in ER stress, oxidative stress and apoptosis\cite{crawford2015human}.
 \textit{EIF2A} (coding for eiF2$\alpha$) is also downregulated in NCP26R cells.
-Phosphorylation of eiF2$\alpha$ by GCN2 or PERK (sensors of AAR and UPR, respectively) results in ATF4 activation.
+Phosphorylation of eiF2$\alpha$ by GCN2 or PERK (sensors of AAR and UPR, respectively) results in \textit{ATF4} activation.
 \textit{FAS}, which encodes TNF receptor superfamily member 6, a receptor involved in the induction of apoptosis, was downregulated in NCP26R cells.
 Moreover \textit{CDKN1A} and \textit{MIOS} were downregulated in NCP26R cells compared to controls, yet are upregulated following ProRS inhibition in CFZr cells.
-As mentioned, a well-known function of \textit{CDKN1A} is to arrest cell cycle progression, it is also though to be instrumental in the execution of apoptosis following caspase activation.
+As mentioned, a well-known function of \textit{CDKN1A} is to arrest cell cycle progression, it is also thought to be instrumental in the execution of apoptosis following caspase activation.
 % Interestingly \textit{GCN1} expression was upregulated in NCP26R cells, yet was downregulated following ProRS inhibition in CFZr cells.
 
-These transcriptional changes in NCP26R cells, indicate that greater ProRS inhibition is required in this cell line to overcome reduced EIF2A, CHAC1 and ATF4 expression and to tip the balance of ER stress from pro-survival to pro-death signalling.
+These transcriptional changes in NCP26R cells, indicate that greater ProRS inhibition is required in this cell line to overcome reduced \textit{EIF2A}, \textit{CHAC1} and \textit{ATF4} expression and to tip the balance of ER stress from pro-survival to pro-death signalling.
 These adaptations further corroborate the involvement of the AAR in the mechanism of action and effectiveness of ProRS inhibitors in multiple myeloma.
 %NPRL2, tumour suppressor
 %Nprl2, is a putative tumor suppressor gene that inhibits cell growth and enhances sensitivity to numerous anticancer drugs including cisplatin
@@ -573,18 +573,18 @@ These adaptations further corroborate the involvement of the AAR in the mechanis
 % flush figures
 \afterpage{\clearpage}
 \section{Discussion}
-Using in-vitro MM cell models, this chapter has demonstrated  the capability of ProRS inhibitors to kill drug-sensitive and drug-resistant MM cells.
+Using in vitro MM cell models, this chapter has demonstrated  the capability of ProRS inhibitors to kill drug-sensitive and drug-resistant MM cells.
 This chapter has also confirmed that the AAR is activated in MM cell lines following ProRS inhibition, using bulk RNA-seq.
-ProRS inhibition activates \textit{ATF4} (the master regulator of amino acid metabolism) and upregulates its downstream targets, including aminoacyl tRNA synthetases, amino acid transporters, and pro-apoptotic mediators including \textit{DDIT3}.
+ProRS inhibition activates \textit{ATF4} (the master regulator of amino acid metabolism) and upregulates its downstream targets, including aminoacyl-tRNA synthetases, amino acid transporters, and pro-apoptotic mediators including \textit{DDIT3}.
 A general shift towards lower protein abundance can also be seen following ProRS inhibitor treatment of MM cells, a hallmark of the amino acid starvation response to halt global protein synthesis.
 It has also been demonstrated by collaborators that NCP26 and HF elicit GCN2 and eIF2$\alpha$ phosphorylation in a dose-dependent manner (Figure \ref{fig:sup_western}).
 During amino acid depletion, GCN2 acts as a cellar sensor by binding uncharged tRNAs and autophosphorylating.
-Activated GCN2 then phosphorylates eIF2-$\alpha$\cite{battu2017amino}.
+Activated GCN2 then phosphorylates eIF2$\alpha$\cite{battu2017amino}.
 Therefore, GCN2 and eIF2$\alpha$ phosphorylation indicates canonical activation of the amino acid starvation response by HF and NCP26.
 Additionally, NCP26R cells, which had built up resistance to ProRS inhibition, showed decreased expression of \textit{ATF4} and \textit{EIF2A}.
 Previously, \textit{ATF4} knockdown (but not \textit{ATF3}) has been shown to render tumour cells resistant to amino acid starvation\cite{cheng2018arginine}.
 NCP26R cells also showed significant suppression of ER-associated elements.
-These transcriptional changes to overcome apoptosis by NCP26 treatment further highlight the AAR and ER-stress as mechanisms by which ProRS inhibition kills MM cells.
+These transcriptional changes to overcome apoptosis by NCP26 treatment further highlight the AAR and ER stress as mechanisms by which ProRS inhibition kills MM cells.
 
 \subsection{HF vs NCP26}
 Excess proline addition has been shown to have no effect on NCP26 treatment of MM cells (up to 20\si{\milli\Molar} of proline), whereas HF's anti-MM effects have been shown to be abrogated by excess proline (Figure \ref{fig:sup_proline_excess}).
@@ -594,7 +594,7 @@ Therefore, metabolic reprogramming to increase intracellular proline levels woul
 As MM cells and the MM bone marrow already possess higher proline levels than normal cells, this could render the effectiveness of HF in MM very short-lived, and patients could become resistant very quickly.
 NCP26 has demonstrated strong anti-MM effects, whilst not being susceptible to the metabolic liability of a proline supplementation resistance mechanism.
 Additionally, NCP26 has demonstrated a stark difference between EC\textsubscript{50} values of AMO-1 cells and healthy PBMCs (greater than 10-fold)\cite{bottpreclinical2022}, while the EC\textsubscript{50}s between HF and PBMCs were much closer.
-Further, NCP26 inhibition in MM in-vivo murine models was tolerated without signs of overt toxicity such as weight loss and was effective in reducing tumour growth\cite{bottpreclinical2022}.
+Further, NCP26 inhibition in MM in vivo murine models was tolerated without signs of overt toxicity such as weight loss and was effective in reducing tumour growth\cite{bottpreclinical2022}.
 This indicates that NCP26 will likely have a much wider therapeutic window than HF, and not exhibit as many of the dose-limiting toxicities and side-effects.
 This would allow for compounds with a similar mode of action for higher dosing in patients and more effective killing of MM cells, and potentially kill even the most malignant and resistant subclones.
 NCP26 treatment should perhaps also be considered for diseases currently being treated with HF, such as Kaposi's sarcoma, autoimmune diseases or fibrotic diseases such as scleroderma.
@@ -605,12 +605,12 @@ Proteasome inhibition leads to fewer ubiquitin-tagged proteins being degraded, s
 This increases ER stress, activating the integrated stress response and causing the UPR to switch from a homeostatic, pro-survival system to a pro-apoptotic pathway\cite{kubiczkova2014proteasome, wallington2018resistance}.
 The UPR shares many mediators with the AAR, for example \textit{ATF4} and \textit{DDIT3}.
 Therefore, it may be expected that the mechanisms overlap for ProRS inhibition to overcome PI-driven resistance mechanisms.
-However, it was shown in-vitro that HF and NCP26 reduce the cell viability of carfilzomib-resistant L363 cells in a dose dependent manner (Figure \ref{fig:dose}).
+However, it was shown in vitro that HF and NCP26 reduce the cell viability of carfilzomib-resistant L363 cells in a dose dependent manner (Figure \ref{fig:dose}).
 Accordingly, the underlying mechanisms must be sufficiently distinct for ProRS inhibition to kill PI-resistant cells.
 
 Interestingly, amino acid depletion has been implicated in the mechanism of action of proteasome inhibitors\cite{suraweera2012failure}.
 A study from 2012 demonstrated that treatment of mammalian cells with proteasome inhibitors MG-132 and bortezomib depleted the amino acid pool by decreasing the levels of asparagine/aspartate and cysteine to lethal levels\cite{suraweera2012failure}.
-Using western blots, PI treatment was shown to induce the ISR-- evident by eIF2$\alpha$ phosphorylation and expression of ATF4, DDIT3 and GADD34.
+Using western blots, PI treatment was shown to induce the ISR-- evident by eIF2$\alpha$ phosphorylation and expression of \textit{ATF4}, \textit{DDIT3} and \textit{GADD34}.
 PI treatment was also shown to phosphorylate and activate GCN2.
 Supplementation with cysteine and/or asparagine markedly increased cell viability following PI treatment.
 Cysteine supplementation mostly abrogated the induction of the ISR, without affecting polyubiquitinated protein levels.
@@ -625,8 +625,8 @@ However, the group did not use any MM cell lines or primary MM patient samples i
 A higher concentration of PI is required to kill healthy cells or non-myeloma cells than myeloma cells, as there is lower baseline ER stress.
 Therefore, the mechanism of action of PIs in myeloma cells may be different to that of healthy cells or for different cancer cell lines.
 For example, NF$\kappa$B signalling is well established in multiple myeloma pathology, and has been implicated in the mechanism of action of PIs; other cell lines without extensive NF$\kappa$B signalling may not react the same way to PI treatment as MM cells.
-Additionally, due to the massive amount of paraprotein produced by MM cells, they already have increased strain on the proteasome and increased ER-stress.
-Furthermore, the group did not investigate other possible explanations for the induction of the ISR, for example they could have explored the expression of PERK, ATF6 or IRE-1, signal activators of the unfolded protein response, another branch of the ISR\@.
+Additionally, due to the massive amount of paraprotein produced by MM cells, they already have increased strain on the proteasome and increased ER stress.
+Furthermore, the group did not investigate other possible explanations for the induction of the ISR, for example they could have explored the expression of \textit{PERK}, \textit{ATF6} or \textit{IRE-1}, signal activators of the unfolded protein response, another branch of the ISR\@.
 %The ISR could be activated by numerous converging signalling pathways, following PI treatment.
 
 % It is an interesting finding that proteasome inhibition has been associated with amino acid depletion, however the study must be considered in context.
@@ -644,11 +644,11 @@ Despite evidence of PIs depleting the amino acid pool and amino acid depletion s
 They were found to have an additive effect, if not moderate antagonism together.
 This supports a previous MM study where HF and bortezomib were found to be moderately antagonistic in combination\cite{leiba2012halofuginone}.
 This may reflect that their mechanisms of action are too similar, whereby both inhibitor classes induce stress responses and pro-apoptotic mechanisms via \textit{DDIT3}.
-Perhaps this makes having both PIs and ProRS inhibitors in combination redundant, however, as demonstrated in Section \ref{subsec:pro_cell_viability} ProRS inhibitors are capable of overcoming PI-resistance in-vitro.
+Perhaps this makes having both PIs and ProRS inhibitors in combination redundant, however, as demonstrated in Section \ref{subsec:pro_cell_viability} ProRS inhibitors are capable of overcoming PI-resistance in vitro.
 Therefore, ProRS inhibitors could be used as a replacement for PIs in triplet therapies, once MM patients have amassed significant resistance to PIs.
-Alternatively, as ProRS inhibitors are capable of overcoming PI-resistance, their additive effect could be beneficial for maximising the number of MM subclones killed and prolonging time until relapse
+Alternatively, as ProRS inhibitors are capable of overcoming PI-resistance, their additive effect could be beneficial for maximising the number of MM subclones killed and prolonging time until relapse.
 Full safety profiles of ProRS inhibitors would need to be performed in MM, as both a single-agent and in combination, for both newly-diagnosed patients and for relapsed patients.
-Relapsed MM patients become more immunocompromised as treatment progresses, so this could perhaps be a barrier in using ProRS inhibitors in RRMM.
+Relapsed MM patients become more immunocompromised as treatment progresses, so this could perhaps be a barrier in using ProRS inhibitors in RRMM\@.
 % NCP26 > HF
 
 \subsection{Targeting amino acid metabolism}
@@ -658,7 +658,7 @@ Proline, is the only proteogenic secondary amino acid and has its own metabolic 
 Proline metabolism is connected with glutamine metabolism.
 Cancer cells tend to convert more glutamine to proline compared to healthy cells.
 Additionally, the bone marrow of MM patients is very proline-rich and hypoxic.
-Hypoxia has been shown to increase proline production in-vitro.
+Hypoxia has been shown to increase proline production in vitro.
 Proline can be used by cancer cells as an energy source under conditions of nutrient stress\cite{phang2008metabolism}.
 
 The conversion of glutamine to proline consists of several steps.
@@ -667,7 +667,7 @@ Three PYCRs have been identified: PYCR1, PYCR2 and PYCR3.
 In a recent paper, Oudaert et al. (2022) investigated PYCR enzymes as potential therapeutic targets in MM\cite{oudaert2022pyrroline}.
 The group found that PYCR1 and PYCR2 mRNA expression correlates with an inferior overall survival in MM, and MM cells from RRMM patients express significantly higher levels of PYCR1\@.
 Small molecule PYCR1 inhibitor, pargyline, reduced proline production, MM cell viability and proliferation and increased apoptosis.
-Pargyline increased bortezomib-mediated apoptosis in-vitro and enhanced bortezomib sensitivity to reduce tumour burden in a murine model.
+Pargyline increased bortezomib-mediated apoptosis in vitro and enhanced bortezomib sensitivity to reduce tumour burden in a murine model.
 However, pargyline as a single agent did not alter tumour load.
 PYRC1 inhibition and silencing resulted in increased CHOP (protein encoded by \textit{DDIT3}) expression, and decreased protein synthesis-- suggesting the activation of integrated stress pathways, and possibly the AAR.
 Inhibiting PYCR1 reduces proline production and its concentration, perhaps this could result in proline depletion and AAR activation, which could be responsible for some of the cytotoxic effects from PYRC1 inhibition.
@@ -678,12 +678,12 @@ Oudaert's paper supports our work on ProRS inhibition (which mimics amino acid d
 However, the anti-MM cytotoxic effects seen from ProRS inhibition seem to be far greater than from PYCR1 inhibition as presented by Oudaert et al. (2022).
 For example, NCP26 treatment alone showed significant anti-tumour activity in a MM mouse model, without significant body weight loss\cite{bottpreclinical2022}.
 This could indicate the superiority of the activation of ISR pathways by mimicking proline depletion, whereas PYCR1 inhibition only reduces the concentration of proline sourced from P5C, and not dietary proline or the abundance of proline located in pre-existing proteins which can be catabolised by the proteasome.
-It would be interesting to see how altering factors of proline metabolism would affect ProRS inhibition, or if HF/NCP26 and pargyline exhibited any synergy effects.
+It would be interesting to see how altering factors of proline metabolism would affect ProRS inhibition, or if HF/NCP26 and pargyline exhibited any synergistic effects together.
 
 In a manuscript currently under review, it was shown by our group (carried out by Dr James Dunford) that numerous inhibitors targeting ProRS, as well as other aaRSs induce significant anti-proliferative effects across multiple MM cell lines (Figure \ref{fig:sup_cell_line_aaRS})\cite{bottpreclinical2022}.
 Borrelidin, a natural threonyl-tRNA synthetase (ThrRS) inhibitor and CysSA, an aminoacyl adenylate substrate analogue, both reduced proliferative activity of MM cell lines.
-This shows that the anti-MM effects of Halofuginone and NCP26 may not be specific to only ProRS inhibition, and the anti-MM effects may extend to inhibitors of other aaRSs too.
-Cheng et al. (2018) demonstrated that arginine starvation, induced typical ER stress and oxidative stress markers and killed tumour cells\cite{cheng2018arginine}.
+This shows that the anti-MM effects of HF and NCP26 may not be specific to only ProRS inhibition, and the anti-MM effects may extend to inhibitors of other aaRSs too.
+Cheng et al. (2018) demonstrated that arginine starvation induced typical ER stress and oxidative stress markers and killed tumour cells\cite{cheng2018arginine}.
 These data further support aaRSs as targets of great importance in MM, and the rationale to develop inhibitors to target them.
 A full screen of known aaRS inhibitors and substrate analogues against MM would be beneficial, to identify more agents capable of killing MM cells, some of which could be more effective against MM\@.
 In \cite{suraweera2012failure}, MG-132 and bortezomib treatment caused depletion of asparagine/aspartate and cysteine levels, yet proline levels remained fairly constant.
