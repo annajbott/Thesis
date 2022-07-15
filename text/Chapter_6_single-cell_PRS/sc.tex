@@ -1,13 +1,9 @@
 \chapter{Single-cell RNA-seq analysis of ProRS inhibitors}\label{ch:6-sc}
 
-%\minitoc
-% To do: finish future work and myeloid disscussion
-% final summary???
-
 \section{Introduction}
 MM cells grow within the bone marrow and are supported as they grow by their microenvironment.
-The MM microenvironment comprises a cellular compartment (composed of immune cells, endothelial cells, osteoblasts, osteoclasts and stromal cells) and a non-cellular compartment (composed of the extracellular matrix (ECM), cytokines, chemokines and growth factors)\cite{manier2012bone, kawano2015targeting} with significant interactions between malignant plasma cells and the surrounding microenvironment.
-The bone marrow microenvironment has been suggested to play a supportive role in migration, proliferation, differentiation and drug resistance of malignant plasma cells\cite{ho2020role, manier2012bone}.
+The MM microenvironment comprises a cellular compartment (composed of immune cells, endothelial cells, osteoblasts, osteoclasts and stromal cells) and a non-cellular compartment (composed of the extracellular matrix [ECM], cytokines, chemokines and growth factors)\cite{manier2012bone, kawano2015targeting} with significant interactions between malignant plasma cells and the surrounding microenvironment.
+The BM microenvironment has been suggested to play a supportive role in migration, proliferation, differentiation and drug resistance of malignant plasma cells\cite{ho2020role, manier2012bone}.
 There is evidence linking the tumour microenvironment to progression of MGUS to active MM, for example significant matrix remodelling has been observed between the bone marrow of healthy individuals, MGUS and MM patients\cite{kawano2015targeting}.
 Therefore, to get an accurate picture of MM, information must be acquired about the surrounding niche.
 
@@ -22,22 +18,22 @@ Seminal papers from Melnekoff et al. (2017)\cite{melnekoff2017single} and Lederg
 Melnekoff et al. (2017) demonstrated the clonal heterogeneity within MM using samples that were collected from eight relapsed MM patients.
 The group performed t-SNE clustering analysis and the samples separated into eight transcriptionally distinct clones, each corresponding to a different patient.
 This highlights the inter-patient differences of MM\@.
-Ledergor et al. (2018) performed a similar study to evaluate clonal heterogeneity within MM but also had a set of controls with which to compare the MM group.
+Ledergor et al. (2018) performed a similar study to evaluate clonal heterogeneity within MM but also included a set of healthy controls with which to compare the MM group.
 They found that MM patients have greater inter-individual transcriptional variation, where each MM patient possessed a unique and individual plasma cell transcriptional program.
 They also showed substantial intra-tumour heterogeneity (subclonal structures) of plasma cells in a third of their MM patient cohort.
 These papers established the importance of using single-cell techniques to study MM, as to not miss the underlying clonal heterogeneity.
-However, both of these papers focussed solely on plasma cells and did not look at the surrounding bone marrow microenvironment.
-To truly understand the complexities of MM and treatment of MM, interactions between plasma cells and the bone marrow niche must also be explored using single-cell techniques.
+However, both of these papers focussed solely on plasma cells and did not look at the surrounding BM microenvironment.
+To truly understand the complexities of MM and treatment of MM, interactions between plasma cells and the BM niche must also be explored using single-cell techniques.
 
-This chapter uses MM patient-derived bone marrow (BM), from both newly-diagnosed and relapsed patients, to investigate the transcriptional effects of ProRS on MM cells and their surrounding immune microenvironment.
+This chapter uses MM patient-derived BM, from both newly-diagnosed and relapsed patients, to investigate the transcriptional effects of ProRS on MM cells and their surrounding immune microenvironment.
 
 \subsection{Overview of experiments}\label{subsec:scrna_experiment}
-Three single-cell experiments, comprising samples from four MM patients, were performed to explore the effect of various compounds (including halofuginone and NCP26) on MM patient tissue.
-The BM samples for experiments 1 and 2 were obtained from two treatment-naive, newly-diagnosed MM patients.
+Three single-cell experiments, comprising samples from four MM patients, were performed to explore the effect of various compounds (including HF and NCP26) on MM patient tissue.
+The BM samples for experiments 1 and 2 were obtained from two treatment-na\"ive, newly-diagnosed MM patients.
 Experiment 3 comprised samples from two relapsed MM patients, therefore both presenting with a degree of acquired anti-cancer drug resistance.
-For experiment 1, BM samples were treated for 24 hours with 1\si{\micro\Molar} Casin, GSK-J4, halofuginone, NCP26, SGC-GAK, Verteporfin or a DMSO control, totalling 7 samples.
-For experiment 2, BM samples were treated with with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours; 1\si{\micro\Molar} SGC-GAK, halofuginone, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 samples.
-For experiment 3, BM samples from patient 3 and 4 were treated for 24 hours with either a DMSO control, 1\si{\micro\Molar} halofuginone, 1\si{\micro\Molar} NCP26 or 5\si{\micro\Molar} NCP26, totalling 8 samples.
+For experiment 1, BM samples were treated for 24 hours with 1\si{\micro\Molar} Casin, GSK-J4, HF, NCP26, SGC-GAK, Verteporfin or a DMSO control, totalling 7 samples.
+For experiment 2, BM samples were treated with with 1\si{\micro\Molar} CAMKK2, CLK or CSNK2 for 24 hours; 1\si{\micro\Molar} SGC-GAK, HF, NCP26 or a DMSO control for 24 and 48 hours, totalling 11 samples.
+For experiment 3, BM samples from patient 3 and 4 were treated for 24 hours with either a DMSO control, 1\si{\micro\Molar} HF, 1\si{\micro\Molar} NCP26 or 5\si{\micro\Molar} NCP26, totalling 8 samples.
 
 Following compound treatment, scRNA-seq library preparation was performed by Dr Martin Philpott as outlined in Section \ref{subsec:10x_method}.
 % <GENEWIZ experiment 3 >
@@ -46,31 +42,31 @@ Following compound treatment, scRNA-seq library preparation was performed by Dr 
 \section{Data processing}
 For multiple scRNA-seq datasets to be analysed together and compared, integration of datasets is required.
 Integration methods identify `anchors' across datasets-- cells that are in matched biological state, these cells can then be used to correct for technical variation and batch effects.
-Initially, all four patient samples (naive and relapsed) were processed and integrated together.
-However, integration was found to be poor between treatment-naive and relapsed patient samples.
+Initially, all four patient samples (newly-diagnosed and relapsed) were processed and integrated together.
+However, integration was found to be poor between treatment-na\"ive and relapsed patient samples.
 The transcriptome of MM patients has been shown to change considerably following successive rounds of treatment cycles, therefore this could explain the poor integration of BM samples from patients at different points in disease progression.
 That is, the datasets were too different to identify good anchors between them.
-Treatment-naive patient samples (from experiments 1 and 2- patients 1 and 2) were integrated and analysed together and relapsed patient samples (from experiment 3- patients 3 and 4) were integrated and analysed together.
+Treatment-na\"ive patient samples (from experiments 1 and 2-- patients 1 and 2) were integrated and analysed together and relapsed patient samples (from experiment 3-- patients 3 and 4) were integrated and analysed together.
 
 Experiments 1 and 2 contained numerous samples that were not of interest to this project.
-Yet, all samples originated from MM patient tissue, therefore all 18 samples were included in the analysis pipeline, and were included in integration and annotation steps.
+Yet, all samples originated from MM patient tissue, therefore all 18 samples were processed by the analysis pipeline, up to and including integration and annotation steps.
 These samples were included to increase the granularity of the data, and allow for easier annotation of clusters.
-Accordingly, downstream analysis was only performed for DMSO, halofuginone and NCP26 samples.
+Accordingly, downstream analysis was only performed for DMSO, HF and NCP26 samples.
 
 \subsection{Analysis overview}
 
-The single cell analysis pipeline outlined in Section \ref{subsec:updated_scrna} was used to process the scRNA-seq data.
+The single-cell analysis pipeline outlined in Section \ref{subsec:updated_scrna} was used to process the scRNA-seq data.
 Kallisto BUS/ BUStools was used to pseudoalign reads and quantify gene expression.
 Next, quality control and filtering of the samples was performed (as per Section \ref{subsec:updated_scrna}), then clustering was performed using Seurat, followed by integration using Seurat and Harmony.
 Using the Seurat SCTransform normalisation method of integration, the two experiments were too large to integrate across all samples.
 Therefore, a reference-based approach was taken, whereby a subset of samples were selected (based on their cell richness and relevance to the research question) and listed as `reference datasets' for SCTransform normalisation.
-Harmony integration was also implemented, using `Patient Number' and `Experiment Number' as additional covariates.
+Harmony integration was also implemented, using `Patient number' and `Experiment number' as additional covariates.
 
 Cell type annotation was performed with several automated packages (singleR, clustifyr and scClassify), and then fine-tuned manually using a list of known biological markers.
 No MM classifier or reference was available when performing this analysis (the MM classifier in Section \ref{sec:MM_classifier} was built using these datasets).
 Therefore, healthy human references were used for annotation.
 The HumanCellAtlas (HCA) database was used to inform singleR and clustifyr annotation.
-scClassify was performed using a pre-trained scClassify model, based on seven peripheral blood mononuclear cell (PBMC) scRNA-seq datasets (including data from 10Xv2, 10Xv3, smartSeq, celSeq, dropSeq and inDrops).
+scClassify was performed in conjunction with a pre-trained scClassify model, based on seven peripheral blood mononuclear cell (PBMC) scRNA-seq datasets (including data from 10Xv2, 10Xv3, smartSeq, celSeq, dropSeq and inDrops).
 As the reference datasets were based on healthy tissue, they were unable to label pathological cells, like MM cells.
 Myeloma cells were identified manually using a range of known markers, for example: \textit{CD38}, \textit{CD138}, \textit{SLAMF7} and \textit{BCMA} (Table \ref{tab:annotation_markers}).
 
@@ -78,7 +74,7 @@ Myeloma cells were identified manually using a range of known markers, for examp
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/RBC_removal_all_experiments_naive.pdf}
-    \caption[Erythrocyte removal- newly diagnosed MM]{UMAP clustering following integration of samples from experiment 1 and 2 (treatment naive patients).
+    \caption[Erythrocyte removal- newly diagnosed MM]{UMAP clustering following integration of samples from experiment 1 and 2 (treatment-na\"ive MM patients).
     a) and b) Pre erythrocyte cluster and gene removal. Erythrocyte clusters are circled.
     c) and d) Post erythrocyte removal and re-integration of samples.
     a) and c) UMAP clustering.
@@ -90,7 +86,7 @@ Myeloma cells were identified manually using a range of known markers, for examp
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/RBC_removal_all_experiments_relapsed.pdf}
-    \caption[Erythrocyte removal- relapsed MM]{UMAP clustering following integration of samples from experiment 1 and 2 (treatment naive patients), and samples from patients 3 and 4 in experiment 3 (relapsed MM).
+    \caption[Erythrocyte removal- relapsed MM]{UMAP clustering following integration of samples from patients 3 and 4 in experiment 3 (relapsed MM patients).
     a) and b) Pre erythrocyte cluster and gene removal. Erythrocyte clusters are circled.
     c) and d) Post erythrocyte removal and re-integration of samples.
     a) and c) UMAP clustering.
@@ -114,7 +110,7 @@ The Harmony-integrated datasets were taken forwards and used for cell type annot
 Better integration was achieved after removing erythrocytes and erythrocyte-specific genes (Figure \ref{fig:umap_RBC_naive}d).
 
 A large erythrocyte component was also found for patient 4 in the relapsed dataset (Figures \ref{fig:umap_RBC_relapsed}a and \ref{fig:umap_RBC_relapsed}b).
-The same corrective workflow outlined above for the treatment-naive dataset was applied to the relapsed dataset, removing the erythrocyte cluster and erythrocyte-specific genes and re-integrating using Harmony with samples and patients as covariates.
+The same corrective workflow outlined above for the treatment-na\"ive dataset was applied to the relapsed dataset, removing the erythrocyte cluster and erythrocyte-specific genes and re-integrating using Harmony with samples and patients as covariates.
 
 The total number of cells after each data processing step for each patient and experiment is summarised in Table \ref{tab:cells_passing}.
 \input{text/Chapter_6_single-cell_PRS/cells_passing_table.tex}
@@ -135,7 +131,7 @@ R packages clustifyr and scClassify were used to aid in cell type annotation of 
     The output of automated packages clustifyr and scClassify is used to aid cell type annotation.
     Clustifyr assigns a cell type to each cell cluster, whilst scClassify assigns a cell type to each individual cell.
     Clustifyr was used in conjunction with the HumanCellAtlas reference.
-    scClassify was ran using a pre-trained model trained on seven PBMC single cell RNA-seq datasets.
+    scClassify was ran using a pre-trained model trained on seven PBMC single-cell RNA-seq datasets.
     Both references originate from healthy data, therefore neither are able to identify the myeloma cell population.}
     \label{fig:annotation_automated}
 \end{figure}
@@ -147,7 +143,7 @@ Both packages either incorrectly labelled the MM cluster as B cells or were unab
 Thus, the MM clusters had to be identified manually using MM biological knowledge.
 Section \ref{sec:MM_classifier} constructs a MM classifier reference to overcome this problem for future MM scRNA-seq datasets.
 
-Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} illustrate MM cell identification for the naive and relapsed datasets, respectively, using gene expression of certain MM markers.
+Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} illustrate MM cell identification for the treatment-na\"ive and relapsed datasets, respectively, using gene expression of certain MM markers.
 % MM markers vln, feature and dotplots
 \begin{figure}[p]
     \centering
@@ -214,7 +210,7 @@ The inferCNV results also demonstrate that there are different genetic MM subclo
 This fits with the <FISH - ask martin for ORBID> data for the relapsed patients, whereby they had chromosome 13 deletions...
 Therefore, it can be concluded that clusters 4 and 9 are subclonal MM populations.
 
-InferCNV was also employed for the naive dataset (Figure \ref{fig:inferCNV_naive}) to check for CNVs.
+InferCNV was also employed for the treatment-na\"ive dataset (Figure \ref{fig:inferCNV_naive}) to check for CNVs.
 The inferCNV results confirmed the gene expression-based identification of clusters 2, 7 and 13 as the MM cell population.
 
 % appendix annotation for other clusters - ?
@@ -381,7 +377,7 @@ Previously these genes have been implicated in MM outcome.
 \clearpage
 \subsection{Relapsed MM}
 Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the integrated relapsed MM patient samples.
-Substantial transcriptional difference are apparent between the relapsed patients and the treatment-naive patients, in both their myeloma cells and their immune microenvironment.
+Substantial transcriptional difference are apparent between the relapsed patients and the treatment-na\"ive patients, in both their myeloma cells and their immune microenvironment.
 15 distinct clusters were identified.
 %% Final annotation relapse
 \begin{figure}[hpt]
@@ -423,7 +419,7 @@ There is insufficient evidence (p>0.05) to conclude if HF treatment affected the
 However, HF significantly reduced the proportion of cells in the myeloid and B cell clusters.
 This perhaps indicates that in relapsed MM, halofuginone is not selective for myeloma cells over other immune cells.
 This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma.
-\textit{PYCR1} (catalyzes the conversion of P5C to proline) expression has been shown to be increased in MM cells in relapsed/refractory MM patients\cite{oudaert2022pyrroline}, therefore relapsed MM patients may have increased proline concentration in MM cells than treatment-naive MM patients.
+\textit{PYCR1} (catalyzes the conversion of P5C to proline) expression has been shown to be increased in MM cells in relapsed/refractory MM patients\cite{oudaert2022pyrroline}, therefore relapsed MM patients may have increased proline concentration in MM cells than treatment-na\"ive MM patients.
 Neither ProRS inhibitor reduced the proportion of cells in MM cluster 9.
 
 \subsubsection{Differential expression}
@@ -490,7 +486,7 @@ The myeloma subclones are circled in the first panel.
 \label{fig:relapse_aar_vln_ftp}
 \end{figure}
 %%
-AAR gene expression in MM cluster 4 follows the typical patterns of ProRS inhibition, as seen in the naive dataset and bulk RNA-seq data, increased expression of \textit{ATF3}, \textit{GADD34}, \textit{GADD45A}, \textit{DDIT3} and amino acid transporters, and decreased expression of some AAR-related genes such as \textit{DDIT4}.
+AAR gene expression in MM cluster 4 follows the typical patterns of ProRS inhibition, as seen in the treatment-na\"ive dataset and bulk RNA-seq data, increased expression of \textit{ATF3}, \textit{GADD34}, \textit{GADD45A}, \textit{DDIT3} and amino acid transporters, and decreased expression of some AAR-related genes such as \textit{DDIT4}.
 However, the other myeloma subclone (cluster 9) does not display the typical AAR transcriptional changes following ProRS inhibitor treatment, as seen in previous data.
 For example, the expression of some AAR genes, such as \textit{ATF3}, \textit{GADD34} and \textit{SLC38A2}, was increased in cluster 9 following NCP26 treatment, however many other AAR gene expression levels were unaffected by ProRS inhibitor treatment.
 Additionally, the expression of some AAR genes was the inverse to previous data, for example ProRS inhibition caused upregulation of \textit{DDIT4} and \textit{FAU} in cluster 9, where previously HF and NCP26 treatment was shown to cause downregulation of these genes in MM cells.
@@ -501,7 +497,7 @@ In fact, as seen in Figure \ref{fig:composition_relapse}e, HF and NCP26 treatmen
 \subsection{ProRS inhibitor effect on myeloid cells}
 % look up INF-gamma etc. VEGFA
 From differential expression analysis HF and NCP26 treatment seem to have a large transcriptional effect on myeloid cells, especially monocytes/macrophages.
-Composition analysis also revealed that ProRS inhibition significantly reduced the proportion of cells in myeloid clusters, in both naive and relapsed MM scRNA-seq datasets.
+Composition analysis also revealed that ProRS inhibition significantly reduced the proportion of cells in myeloid clusters, in both treatment-na\"ive and relapsed MM scRNA-seq datasets.
 Feature plots and violin plots demonstrated that amino acid starvation response effector genes, such as \textit{DDIT3} and \textit{ATF3} were upregulated in monocytes.
 However, myeloid cells are non-malignant.
 ProRS inhibitors were originally thought of as good potential candidates as anti-cancer drugs because tumour cells produce large amounts of protein, and are therefore heavily dependent on translational machinery, like tRNA-synthetase enzymes.
