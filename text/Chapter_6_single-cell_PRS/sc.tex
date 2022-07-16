@@ -120,14 +120,15 @@ Patients 1, 2 and 4 have sufficient cell numbers to perform downstream analysis,
 
 \subsection{Annotation of re-integrated data}\label{subsec:sc_annotate}
 % automated annoation, scclasify, clustifyr
-R packages clustifyr and scClassify were used to aid in cell type annotation of the integrated datasets, the result of this annotation can be seen in Figure \ref{fig:annotation_automated}.
+R packages clustifyr and scClassify were used to aid in cell type annotation of the integrated datasets.
+The result of this annotation can be seen in Figure \ref{fig:annotation_automated}.
 %%
 %%% Figure automated package annotation
 \begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/automated_markers_ABCD.pdf}
     \caption[Automated annotation of scRNA-seq data]{Automated annotation of scRNA-seq cell clusters, using the R packages clustifyr and scClassify in combination with reference datasets.
-    [a, b] newly-diagnosed MM, [c, d] relapsed MM.
+    [a, b] Newly-diagnosed MM, [c, d] relapsed MM.
     The output of automated packages clustifyr and scClassify is used to aid cell type annotation.
     Clustifyr assigns a cell type to each cell cluster, whilst scClassify assigns a cell type to each individual cell.
     Clustifyr was used in conjunction with the HumanCellAtlas reference.
@@ -139,7 +140,7 @@ R packages clustifyr and scClassify were used to aid in cell type annotation of 
 Automated annotation using computational methods gives a good starting point for more detailed manual annotation.
 Currently, these methods are not a complete substitute for manual annotation using biological knowledge of cell markers.
 Both cell-type references originate from healthy tissue, therefore the myeloma cluster could not be identified using clustifyr and scClassify with these healthy references alone.
-Both packages either incorrectly labelled the MM cluster as B cells or were unable to assign any cell type to the myeloma cluster with any confidence and labelled it unassigned.
+Both packages either incorrectly labelled the MM cluster as B cells or were unable to assign any cell type to the myeloma cluster with any confidence and labelled it `unassigned'.
 Thus, the MM clusters had to be identified manually using MM biological knowledge.
 Section \ref{sec:MM_classifier} constructs a MM classifier reference to overcome this problem for future MM scRNA-seq datasets.
 
@@ -150,7 +151,7 @@ Figures \ref{fig:mm_markers_naive} and \ref{fig:mm_markers_relapsed} illustrate 
     \includegraphics[width=\textwidth]{figures/Results/single_cell/data_processing/markers_naive.pdf}
     \caption[MM cluster identification- newly diagnosed MM]{Manual annotation of multiple myeloma (MM) cell clusters in experiment 1 and 2 (newly-diagnosed patients) using known MM biological markers.
     a) UMAP feature plots of MM marker expression.
-    Grey indicates no expression and purple indicates expression.
+    Grey indicates no expression and purple indicates gene expression.
     b) A dot plot of the percentage of cells expressing a given marker and the average expression (for each cluster).
     c) Violin plots of gene expression for each cluster.}
     \label{fig:mm_markers_naive}
@@ -179,7 +180,7 @@ Both clusters 9 and 12 seem to belong to a B-cell lineage.
 Cluster 12 shows increased \textit{CD20} expression, indicating they could be mature B cells.
 However, clusters 4, 9 and 12 all have an increased expression of \textit{IGKC}, compared to non-B cell clusters.
 Indicating that perhaps, all B-cell clusters (4, 9 and 12) in the relapsed dataset, may be in fact MM cells.
-It has previously been shown that MM possess a level of plasticity, that could allow de-differentiation into other cell lineages\cite{kotouvcek2014myeloma}, this may account for the \textit{CD20} expression of cluster 12.
+It has previously been shown that MM cells possess a level of plasticity, that could allow de-differentiation into other cell lineages\cite{kotouvcek2014myeloma}, this may account for the \textit{CD20} expression of cluster 12.
 
 Due to the uncertainty of cell-type identity in the relapsed dataset based on MM marker gene expression alone, inferCNV\cite{patel2014single, infercnv2014} was employed to detect large-scale chromosomal copy number variations (CNVs) and help inform annotation.
 The raw counts expression matrix of the relapsed, integrated Seurat object was used as input for inferCNV\@.
@@ -207,7 +208,6 @@ A Cutoff value of 0.1 was used for the analysis, to account for the sparsity of 
 Figure \ref{fig:inferCNV_relapse} shows the inferCNV results for the relapsed dataset.
 Myeloma-defining CNVs were seen in both cluster 4 and cluster 9, including chromosome 13 deletion and duplications of chromosomes 11 and 19.
 The inferCNV results also demonstrate that there are different genetic MM subclones within the population, as cluster 4 alone shows regional gain of chromosomes 3, 7, 9 and 16.
-This fits with the <FISH - ask martin for ORBID> data for the relapsed patients, whereby they had chromosome 13 deletions...
 Therefore, it can be concluded that clusters 4 and 9 are subclonal MM populations.
 
 InferCNV was also employed for the treatment-na\"ive dataset (Figure \ref{fig:inferCNV_naive}) to check for CNVs.
@@ -238,14 +238,14 @@ The MM cell population (circled) consists of three distinct clusters.}
 Figure \ref{fig:full_anno_naive} shows final cell-type annotation for the newly-diagnosed MM integrated dataset.
 18 distinct clusters were identified using Seurat embeddings.
 The expected major immune clusters were identified (such as B cells, T cells, NK cells and myeloid cells.)
-Using the established MM biological markers (shown in Figure \ref{fig:mm_markers_naive}), three distinct MM clusters (2, 7 and 13) were identified.
+Using the established MM biological markers (Figure \ref{fig:mm_markers_naive}), three distinct MM clusters (2, 7 and 13) were identified.
 
 \subsubsection{Composition}
 Cluster composition analysis by treatment condition is shown in Figure \ref{fig:composition_naive}.
 Halofuginone treatment at both 24 and 48 hours reduced the proportion of cells in the MM cluster (p<0.00001) compared to DMSO, for both experiment 1 and 2.
 NCP26 treatment at 24 hours reduced the proportion of cells in the MM cluster (p<0.00001), for both experiment 1 and 2.
 HF and NCP26 treatment increased the proportion of cells in the CD4+ T cell, CD8+ T cell and B cell clusters.
-Together with dose response curves and cell death assays, this suggests that halofuginone and NCP26 are selectively killing MM cells to a higher degree than other cell types.
+Together with dose response curves and cell death assays, this suggests that HF and NCP26 are selectively killing MM cells to a higher degree than other cell types.
 
 %%  UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
@@ -261,24 +261,24 @@ Together with dose response curves and cell death assays, this suggests that hal
 \end{figure}
 %%
 
-Halofuginone treatment and 48-hour NCP26 treatment were also found to reduce the proportion of cells in the monocyte and neutrophil cluster (p<0.00001), indicating they may have some undesirable off-target effects on myeloid cells.
+HF treatment and 48-hour NCP26 treatment were also found to reduce the proportion of cells in the monocyte and neutrophil cluster (p<0.00001), indicating they may have some undesirable off-target effects on myeloid cells.
 
 All of the compounds were used at a concentration of 1\si{\micro\Molar}.
-This is approximately 10 times the concentration of halofuginone's IC\textsubscript{50} value on MM cell lines and two times NCP26's IC\textsubscript{50} value.
-As you can see, large number of cells were killed by halofuginone treatment at both 24 and 48 hours.
+This is approximately 10 times the concentration of HF's IC\textsubscript{50} value on MM cell lines and two times NCP26's IC\textsubscript{50} value.
+As you can see, large number of cells were killed by HF treatment at both 24 and 48 hours.
 Therefore, the effects seen on the myeloid cells could be due to high dosing of the ProRS inhibitors.
 
 \subsubsection{Differential expression}
 % Number of DE genes
 % separate into NCP26 and HF??
-Next, differential gene expression was investigated using Seurat's FindMarkers function.
-At 48 hours there is substantial cell killing, therefore the 24-hour time point will be mainly focussed on.
+Next, differential gene expression was investigated using Seurat's \texttt{FindMarkers} function.
+At 48 hours there was substantial cell killing, therefore the 24-hour time point will be mainly focussed on.
 %
 %%  DE barchart
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_DEGs_barchart.pdf}
-\caption[DEGs per cell type- newly-diagnosed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
+\caption[DEGs per cell type- newly-diagnosed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) by cell type for two newly-diagnosed MM patients treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
 Cell type annotation corresponding to Figure \ref{fig:full_anno_naive}.
 Experiment 1 and experiment 2 denote separate experiments, each containing BM samples from different newly-diagnosed MM patients.}
 \label{fig:naive_deg_bar}
@@ -292,20 +292,20 @@ However, 2016 and 1485 genes were DE in the monocyte cluster following NCP26 tre
 This reflects the composition analysis, where the proportion of cells in the monocyte cluster was markedly reduced.
 This could indicate that NCP26 is not selective for MM cells over myeloid cells.
 
-In MM cells, 73 genes were DE following halofuginone treatment in experiment 1, and 1318 genes in experiment 2.
+In MM cells, 73 genes were DE following HF treatment in experiment 1, and 1318 genes in experiment 2.
 In the composition analysis (Figure \ref{fig:composition_naive}), we saw very few cells remaining in the MM cluster for experiment 1 following HF treatment.
 Due to the low cell number, there is less statistical power and diversity across the cells, therefore you would likely see fewer statistically significant DEGs for this cluster.
-Unlike NCP26 treatment, for 24 hour 1\si{\micro\Molar} HF treatment we see a large number of DEGs in B, T and NK cell clusters.
+Unlike NCP26 treatment, for 24 hour 1\si{\micro\Molar} HF treatment there were many DEGs in B, T and NK cell clusters.
 This likely reflects the differences in potency between NCP26 and HF\@.
 HF is approximately five times more potent than NCP26.
 This fits with composition analysis, where HF treatment largely reduced the proportion of cells in the myeloid and MM clusters.
 
 At lower doses (i.e. NCP26 at 1\si{\micro\Molar}) of ProRS inhibition we see clear evidence of greater transcriptional effects on MM cells and monocytes over other immune subtypes.
-However at higher doses (i.e. halofuginone at 1\si{\micro\Molar}) we see substantial cell killing of MM cells and monocytes and larger transcriptional effects on other immune subtypes.
+However at higher doses (i.e. HF at 1\si{\micro\Molar}) we see substantial cell killing of MM cells and monocytes and larger transcriptional effects on other immune subtypes.
 This together with the composition analysis, demonstrates that NCP26 and halofuginone are selective for MM cells over most immune cells, except for myeloid cells.
 However, this could be a problem with the doses used for treatment.
-1\si{\micro\Molar} is almost 10 times greater than halofuginone's IC\textsubscript{50} and two times greater than NCP26's IC\textsubscript{50}.
-This experiment should be performed at a lower concentration to ascertain if NCP26 and halofuginone are more selective for MM cells or monocytes.
+1\si{\micro\Molar} is almost 10 times greater than HF's IC\textsubscript{50} and two times greater than NCP26's IC\textsubscript{50}.
+This experiment should be performed at a lower concentration to ascertain if NCP26 and HF are more selective for MM cells or monocytes.
 Ideally, the experiment would be performed over the course of three days at a lower concentration, as in our cell line studies.
 However, human bone marrow samples do not last very well in extended culture under conditions employed in this study, therefore acute exposure (24 hr) was the preferred method for this experiment.
 
@@ -318,15 +318,15 @@ Pathway enrichment analysis was performed for the top 200 upregulated and top 20
 \caption[MM cluster pathway analysis- newly-diagnosed MM]{Pathway analysis (Gene ontology biological processes; GOBP) of the MM cluster.
     a) and b) Halofuginone treatment.
     c) and d) NCP26 treatment.
-a) and c) GOBP pathway analysis performed using top 200 upregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2FC}>0$) ranked by fold change.
-b) and d) GOBP pathway analysis performed using top 200 downregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2FC}<0$) ranked by fold change.}
+a) and c) GOBP pathway analysis performed using top 200 upregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2}$FC>0) ranked by fold change.
+b) and d) GOBP pathway analysis performed using top 200 downregulated DEGs (p\textsubscript{adj} < 0.05 and $\log_{2}$FC<0) ranked by fold change.}
 \label{fig:naive_mm_pathway_analysis}
 \end{figure}
 %%
 
-For NCP26 and halofuginone treatment of MM cells, pathways related to ER-stress and apoptosis were enriched.
+For NCP26 and HF treatment of MM cells, pathways related to ER-stress and apoptosis were enriched.
 The unfolded protein response- another member of the ISR, which shares many effectors with AAR- was also enriched.
-This supports our bulk RNA-seq results that the amino acid starvation response is activated following NCP26 and halofuginone treatment of MM cells.
+This supports our bulk RNA-seq results that the amino acid starvation response is activated following NCP26 and HF treatment of MM cells.
 
 Figure \ref{fig:naive_aar_vln_ftp} shows a more detailed exploration of AAR gene expression in MM cells and surrounding immune cells.
 %
@@ -334,18 +334,18 @@ Figure \ref{fig:naive_aar_vln_ftp} shows a more detailed exploration of AAR gene
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_aar_vln_ftp.pdf}
-\caption[Differentially expressed AAR genes- newly diagnosed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
+\caption[Differentially expressed AAR genes- newly diagnosed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patient bone marrow samples).
     a) Violin plots showing expression of selected AAR genes in the MM population following DMSO, halofuginone and NCP26 treatment.
-    b) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
+    b) Feature plots of UMAP clustering, showing gene expression of AAR genes: \textit{ATF3}, \textit{GADD34}, \textit{DDIT3} and \textit{TRIB3}.
 Feature plots are split into three panels based on treatment condition (DMSO, halofuginone and NCP26).
 The myeloma cell population is circled in the first panel.}
 \label{fig:naive_aar_vln_ftp}
 \end{figure}
 %%
-Expression of \textit{ATF4} and its target genes, such as \textit{ATF3}, \textit{DDIT3} and  \textit{GADD34}, was increased in MM cells, following HF and NCP26 treatment (Figure \ref{fig:naive_aar_vln_ftp}).
+Gene expression of \textit{ATF4} and some of its target genes, such as \textit{ATF3}, \textit{DDIT3} and  \textit{GADD34}, were increased in MM cells, following HF and NCP26 treatment (Figure \ref{fig:naive_aar_vln_ftp}).
 tRNA aminoacyl synthetase genes (\textit{WARS1} and \textit{SARS1}) were also over-expressed in MM cells following ProRS inhibitor treatment.
-Figure \ref{fig:naive_aar_vln_ftp}b shows selected AAR genes' expression for the entire UMAP clustering plot, separated by treatment condition.
-HF and NCP26 treatment markedly increased expression of \textit{ATF3} and \textit{TRIB3}, this was localised to MM cells and monocytes.
+Figure \ref{fig:naive_aar_vln_ftp}b shows selected AAR genes' expression across all cell clusters, separated by treatment condition.
+HF and NCP26 treatment markedly increased expression of \textit{ATF3} and \textit{TRIB3} in MM cell and monocyte clusters.
 Increased expression of \textit{DDIT3} and \textit{GADD34} can be seen across a few different clusters, however it is most pronounced in the MM and monocyte clusters.
 Additionally, the apoptotic mediator \textit{TNFRSF10B}, positively regulated by DDIT3, was upregulated in MM cells and monocytes (Figure \ref{fig:naive_path_vln_ftp}b).
 Indicating that, although aaRSs are ubiquitous enzymes and ProRS inhibitors cause some degree of activation of the AAR in all cells, they are cytotoxically more selective for MM cells, and lead to an apoptotic cascade of events, preferentially over other cell types.
@@ -357,11 +357,11 @@ HF has previously been shown to cause cell cycle arrest and to accumulate cells 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/naive_pathological_vln_ftp.pdf}
-\caption[Differentially expressed MM markers- newly diagnosed MM]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly diagnosed patients treated with ProRS inhibitors for 24 hours.
+\caption[Differentially expressed MM markers- newly diagnosed MM]{A selection of differentially expressed multiple myeloma (MM) and cell cycle/apoptotic markers in newly-diagnosed MM patient bone marrow samples treated with ProRS inhibitors for 24 hours.
     a) Violin plots showing expression of selected genes in the MM population following DMSO, halofuginone and NCP26 treatment.
     b) Feature plots of UMAP clustering, showing gene expression of MM pathological marker \textit{CD138} and apoptotic marker \textit{TNFRSF10B}.
 The myeloma cell population is circled in the first panel.
-Halofugione and NCP26 treatment reduce \textit{CD138} expression and increase \textit{TNFRSF10B} expression in the MM clusters.}
+Halofugione and NCP26 treatment reduced \textit{CD138} expression and increased \textit{TNFRSF10B} expression in the MM clusters.}
 \label{fig:naive_path_vln_ftp}
 \end{figure}
 %%
@@ -374,10 +374,12 @@ Previously these genes have been implicated in MM outcome.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Relapsed %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \subsection{Relapsed MM}
 Figure \ref{fig:full_anno_relapse} shows final cell-type annotation for the integrated relapsed MM patient samples.
-Substantial transcriptional difference are apparent between the relapsed patients and the treatment-na\"ive patients, in both their myeloma cells and their immune microenvironment.
+Substantial transcriptional differences are apparent between the relapsed patients and the treatment-na\"ive patients, in both their myeloma cells and their immune microenvironment.
 15 distinct clusters were identified.
 %% Final annotation relapse
 \begin{figure}[hpt]
@@ -390,8 +392,8 @@ Two subclones of MM were identified (circled; clusters 4 and 9).}
 \end{figure}
 %%
 The expected major immune clusters were identified (such as B cells, NK cells, T cells and myeloid cells.)
-Using the established MM biological markers (Figure \ref{fig:mm_markers_relapsed}), and inferCNV results, two distinct MM subclones (cluster 4 and cluster 9) were identified.
-MM cells in cluster 4 were seen to express \textit{CD138} (Figure \ref{fig:mm_markers_relapsed}).
+Using the established MM biological markers (Figure \ref{fig:mm_markers_relapsed}), and inferCNV results (Figure \ref{fig:inferCNV_relapse}), two distinct MM subclones (cluster 4 and cluster 9) were identified.
+MM cells in cluster 4 were seen to express \textit{CD138}.
 However, MM cells in cluster 9 showed little or no \textit{CD138} expression.
 As mentioned in Chapter \ref{ch:4-Pipelines}, these \textit{CD138}\textsuperscript{-} MM cells are likely to have higher proliferative potential than \textit{CD138}\textsuperscript{+} MM cells.
 They are also sometimes regarded to have `stem-cell' like clonogenic properties and to be more resistant to chemotherapy than their \textit{CD138}\textsuperscript{+} counterparts\cite{setiadi2019cd138}.
@@ -403,7 +405,7 @@ Cluster composition analysis for relapsed MM by treatment is shown in Figure \re
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/sc_composition_relapse_barchart.pdf}
-\caption[Composition analysis- relapsed MM]{Composition analysis of relapsed MM cells treated for 24 hours with ProRS inhibitors.
+\caption[Composition analysis- relapsed MM]{Composition analysis of relapsed multiple myeloma (MM) patient cells treated for 24 hours with ProRS inhibitors.
     a) UMAP cell composition plots separated by treatment condition.
     b) Dot plot showing proportion of cells in each cluster for each sample.
     c) Dot plot showing proportion of cells in each cell class for each sample (as labelled in Figure \ref{fig:full_anno_relapse}).
@@ -417,8 +419,8 @@ NCP26 treatment reduced the proportion of cells in the MM cluster (p<0.01).
 % Effect of NCP26 on other clusters. myeloid
 There is insufficient evidence (p>0.05) to conclude if HF treatment affected the proportion of cells in MM cluster 4.
 However, HF significantly reduced the proportion of cells in the myeloid and B cell clusters.
-This perhaps indicates that in relapsed MM, halofuginone is not selective for myeloma cells over other immune cells.
-This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed myeloma.
+This perhaps indicates that in relapsed MM, HF is not selective for myeloma cells over other immune cells.
+This may indicate an advantage of NCP26 and proline non-competitive ProRS inhibitors in relapsed MM\@.
 \textit{PYCR1} (catalyzes the conversion of P5C to proline) expression has been shown to be increased in MM cells in relapsed/refractory MM patients\cite{oudaert2022pyrroline}, therefore relapsed MM patients may have increased proline concentration in MM cells than treatment-na\"ive MM patients.
 Neither ProRS inhibitor reduced the proportion of cells in MM cluster 9.
 
@@ -431,20 +433,20 @@ Next, differential gene expression was investigated for the relapsed MM patients
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_DEGs_barchart.pdf}
-\caption[DEGs per cell type- relapsed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) broken down by cell type for a relapsed MM patient (patient 4 only) treated with ProRS inhibitors (Halofuginone and NCP26) for 24 hours.
-Cell type annotation corresponding to Figure \ref{fig:full_anno_relapse}.}
+\caption[DEGs per cell type- relapsed MM]{Number of differentially expressed genes (DEGs; p\textsubscript{adj}< 0.05) by cell type for a relapsed MM patient (patient 4 only) treated with ProRS inhibitors (halofuginone and NCP26) for 24 hours.
+Cell type annotation corresponds to Figure \ref{fig:full_anno_relapse}.}
 \label{fig:relapse_deg_bar}
 \end{figure}
 %
 1073 genes were DE in MM cluster 4 following 24-hour 1\si{\micro\Molar} HF treatment.
 157 and 801 genes were DE in MM cluster 4 following 24-hour 1\si{\micro\Molar}  and 5\si{\micro\Molar} NCP26 treatment, respectively.
 4, 1, and 3 genes were DE in MM cluster 9 by HF, 1\si{\micro\Molar} NCP26  and 5\si{\micro\Molar} NCP26 treatment, respectively.
-Together with the composition analysis, this indicates that the cluster 9 MM subclone may be more resistant to ProRS inhibition than the other myeloma subclone.
+Together with the composition analysis, this indicates that the cluster 9 MM subclone may be more resistant to ProRS inhibition than the other MM subclone.
 
 The breakdown of DEGs per cell type for NCP26 and HF treatment is shown in Figure \ref{fig:relapse_deg_bar}.
 In contrast to the newly-diagnosed MM data, many of the other immune subtypes are differentially expressed to similar degrees as MM cells by ProRS inhibition.
 Additionally, there were more DEGs for the myeloid cluster than for MM cells for 1\si{\micro\Molar} and 5\si{\micro\Molar}  NCP26 treatment.
-Myeloid cells have fewer DEGs than cluster 4 MM cells for HF treatment, however Figure \ref{fig:composition_relapse} demonstrates a substantial lower proportion of cells in the myeloid cluster for the HF-treated sample, therefore one may not expect as many statistically significant DEGs for the few cells remaining in the cluster.
+Myeloid cells have fewer DEGs than cluster 4 MM cells for HF treatment, however, as seen in Figure \ref{fig:composition_relapse}, there is a substantial lower proportion of cells in the myeloid cluster for the HF-treated sample, therefore one may not expect as many statistically significant DEGs for the few cells remaining in the cluster.
 Under these experimental conditions, it seems NCP26 and HF may not be as selective for MM cells in relapsed MM as they are for newly-diagnosed MM, and that the ProRS inhibitors may not be very effective against some resistant myeloma subclones.
 However, further experiments with varying dosing conditions and samples from multiple relapsed MM patients would be required to validate this.
 
@@ -457,7 +459,7 @@ Pathway analysis could not be performed for MM cluster 9, as there were too few 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_mm_pathway_analysis.pdf}
-\caption[MM cluster pathway analysis- relapsed MM]{Pathway analysis (Gene ontology biological processes; GOBP) of MM cluster 4 in RRMM dataset.
+\caption[MM cluster pathway analysis- relapsed MM]{Pathway analysis (Gene ontology biological processes; GOBP) of multiple myeloma (MM) cluster 4 in the relapsed MM dataset.
 GOBP pathway analysis performed using top 200 upregulated or downregulated DEGs for ProRS inhibitor (1\si{\micro\Molar} halofuginone and 1\si{\micro\Molar} or 5\si{\micro\Molar}  NCP26) treatment compared to DMSO control treatment for MM cluster 4.
 }
 \label{fig:relapse_mm_pathway_analysis}
@@ -470,13 +472,13 @@ Interestingly, for all three treatments, mRNA splicing was enriched, indicating 
 mRNA splicing has been implicated in the mechanism of amino acid starvation before\cite{deval2009amino}, and that the spliceosomal response to amino acid depletion does not require GCN2 activity.
 % look up in data if its ribosomal stuff
 
-Figure \ref{fig:relapse_aar_vln_ftp} shows AAR gene expression in relapsed myeloma cells, as well as the surrounding immune cells.
+Figure \ref{fig:relapse_aar_vln_ftp} shows AAR gene expression in the relapsed patients' MM cells, as well as the surrounding immune cells.
 %
 %%  AAR violin and feature plots
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/Results/single_cell/relapse_aar_vln_ftp.pdf}
-\caption[Differentially expressed AAR genes- relapsed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (newly-diagnosed MM patients).
+\caption[Differentially expressed AAR genes- relapsed MM]{A selection of differentially expressed amino acid starvation response (AAR) genes following 24 hour treatment with ProRS inhibitors (relapsed MM patients).
     a) Violin plots- AAR gene expression in MM cell cluster 4.
     b) Violin plots- AAR gene expression in MM cell cluster 9.
     c) Feature plots of UMAP clustering, showing gene expression of AAR genes \textit{ATF3}, \textit{DDIT3} and \textit{GADD34}.
@@ -486,10 +488,11 @@ The myeloma subclones are circled in the first panel.
 \label{fig:relapse_aar_vln_ftp}
 \end{figure}
 %%
-AAR gene expression in MM cluster 4 follows the typical patterns of ProRS inhibition, as seen in the treatment-na\"ive dataset and bulk RNA-seq data, increased expression of \textit{ATF3}, \textit{GADD34}, \textit{GADD45A}, \textit{DDIT3} and amino acid transporters, and decreased expression of some AAR-related genes such as \textit{DDIT4}.
+AAR gene expression in MM cluster 4 follows the typical patterns of ProRS inhibition, as seen in the treatment-na\"ive dataset and bulk RNA-seq data: increased expression of \textit{ATF3}, \textit{GADD34}, \textit{GADD45A}, \textit{DDIT3} and amino acid transporters, and decreased expression of some AAR-related genes such as \textit{DDIT4}.
 However, the other myeloma subclone (cluster 9) does not display the typical AAR transcriptional changes following ProRS inhibitor treatment, as seen in previous data.
-For example, the expression of some AAR genes, such as \textit{ATF3}, \textit{GADD34} and \textit{SLC38A2}, was increased in cluster 9 following NCP26 treatment, however many other AAR gene expression levels were unaffected by ProRS inhibitor treatment.
-Additionally, the expression of some AAR genes was the inverse to previous data, for example ProRS inhibition caused upregulation of \textit{DDIT4} and \textit{FAU} in cluster 9, where previously HF and NCP26 treatment was shown to cause downregulation of these genes in MM cells.
+For example, the expression of some AAR genes (such as \textit{ATF3}, \textit{GADD34} and \textit{SLC38A2}) was increased in cluster 9 following NCP26 treatment, as we would expect.
+However, the expression of many other AAR genes was unaffected by ProRS inhibitor treatment.
+Additionally, the expression of some AAR genes was the inverse to previous data, for example ProRS inhibition caused upregulation of \textit{DDIT4} and \textit{FAU} in cluster 9, where previously HF and NCP26 treatment has been shown to cause downregulation of these genes in MM cells.
 This could represent a cyto-protective effect of the AAR in the resistant MM subclone rather than a pro-death signalling response.
 In fact, as seen in Figure \ref{fig:composition_relapse}e, HF and NCP26 treatment increased the proportion of cells in MM cluster 9.
 %% Past present tense, sounds shit!!!
@@ -551,7 +554,7 @@ This chapter has demonstrated the activation of the AAR and apoptotic mechanisms
 In newly-diagnosed and relapsed patients, HF and NCP26 treatment elicited a strong transcriptional change and substantial cell death in the MM cell cluster, this was demonstrated using composition and DE analyses.
 This effect was selective for MM cells over NK cells, T cells and B cells.
 This follows the original hypothesis that (despite the ubiquity of aaRS enzymes) aaRSs would make a good target in MM, and aaRS inhibitors would be selective for MM cells over benign immune counterparts, due to translational and paraprotein burden on MM cells.
-However, it has been shown in DE and composition analyses (of a single RRMM patient) that the ProRS inhibitors also seems to elicit apoptosis in myeloid cells.
+However, it has been shown in DE and composition analyses (of a single relapsed MM patient) that the ProRS inhibitors also seems to elicit apoptosis in myeloid cells.
 Additionally, in the relapsed dataset, MM cell cluster 9 appears to be resistant to ProRS inhibitors for 24 hour treatment at the given drug concentrations.
 
 \subsection{Relapsed resistant MM cluster}
@@ -571,7 +574,7 @@ Thereby, the researchers likely missed subclonal MM populations, which may have 
 More MM researchers, especially those interested in drug resistance mechanisms, should sequence the whole BM niche, not just the CD138\textsuperscript{+} fraction.
 The MM classifiers generated in Chapter 4 can simplify the process of MM cell identification computationally, so that researchers are less reliant on CD138\textsuperscript{+} enrichment techniques.
 
-Differential expression analysis of relapsed MM subclonal clusters (cluster 4 vs cluster 9) revealed signature markers of drug-resistance\ref{fig:cluster4_9_pathway}.
+Differential expression analysis of relapsed MM subclonal clusters (cluster 4 vs cluster 9) revealed signature markers of drug-resistance (Figure \ref{fig:cluster4_9_pathway}).
 Genes involved in the unfolded protein response pathway were suppressed, as well as ER-associated genes.
 This is a known mechanism action of PIs, therefore it makes sense that the UPR is modulated in patients that have been treated with PIs previously then relapsed.
 The execution of phase of apoptosis was also negatively regulated, indicating cells in cluster 9 are more resistant to apoptotic signals.
@@ -585,7 +588,7 @@ Previously, Leiba et al. (2012) demonstrated HF's selectivity for MM patients' C
 This is a significantly lower concentration of HF than used in the scRNA-seq experiments (1\si{\micro\Molar}), so this could represent dosing differences.
 However, it must also be noted that Leiba et al. (2012) did not separate PBMCs into their respective subtypes prior to performing the cytotoxicity assays.
 As demonstrated in this chapter, HF treatment has very little effect on B, T and NK cells.
-Monocytes only make up approximately 5-10\% of the cells found in PBMCs- therefore, the effect of HF on myeloid cells could have been missed due to the minimal effects on the other cell types making up the majority of PBMCs.
+Monocytes only make up approximately 5-10\% of the cells found in PBMCs-- therefore, the effect of HF on myeloid cells could have been missed due to the minimal effects on the other cell types making up the majority of PBMCs.
 Furthermore, the control PBMCs originated from healthy donors and not from MM patients.
 The immune microenvironment of MM patients has been shown to be substantially altered and impaired compared to healthy individuals\cite{de2013analysis}, meaning that using healthy PBMCs as a control for the selectivity of HF may not be entirely appropriate.
 To truly determine the cytotoxic selectivity of ProRS inhibition for MM cells and myeloid cells, cytotoxic assays must be performed in parallel for MM cells and myeloid cells originating from MM patients.
@@ -596,7 +599,7 @@ HF treatment was also shown to reduce the total percent of infiltrating immune c
 The percentage of myeloid cells making up the CD45\textsuperscript{+} fraction of cells in gingival tissue was reduced by approximately 40\%, following HF treatment.
 The authors demonstrated that HF treatment did not affect the cell viability of BM-derived osteoclast precursors cells (that is monocytes and macrophages).
 However, cell viability was investigated with concentrations of HF ranging from 10\si{\pico\Molar} to 100\si{\nano\Molar}, so perhaps myeloid death is reserved for higher doses of HF treatment.
-The scRNA-seq experiments used 1\si{\micro\Molar} HF, so this may be the concentration levels required to observe ProRS inhibitory effects on myeloid cells.
+Our scRNA-seq experiments used 1\si{\micro\Molar} HF, so this may be the concentration levels required to observe ProRS inhibitory effects on myeloid cells.
 
 Previously, the proteasome inhibitor MG132 was shown to induce macrophage apoptosis\cite{wang2021proteasome}.
 A number of proteasome inhibitors have been approved for use in multiple myeloma, in both newly-diagnosed and relapsed MM, and they are regarded as part of the cornerstone for modern MM treatment.
@@ -640,9 +643,9 @@ It would be interesting to see if other aaRS inhibitors, (acting on other aaRSs 
 
 A decrease in the number of functional myeloid cells could lead to myeloid suppression (myelosuppression/ bone marrow suppression/ immunosupression), which in turn makes patients more susceptible to infection.
 As MM is a disease of elderly people, new therapeutics must be tolerable for patients and not excessively immunosuppressive, especially if they are used to treat RRMM patients, who have increased bone marrow suppression.
-Substantial myelosuppression can also dictate the dosing regimen of a drug- to balance the efficacy of the drug with the associated side effects and infection risk.
-However, from in-vivo MM xenograft murine models\cite{bottpreclinical2022}, the mice tolerated NCP26 treatment well, with no signs of overt toxicity such as weight loss.
-This indicates that the effect of ProRS inhibition on myeloid cells may not even be an issue in-vivo.
+Substantial myelosuppression can also dictate the dosing regimen of a drug, to balance the efficacy of the drug with the associated side effects and infection risk.
+However, from in vivo MM xenograft murine models\cite{bottpreclinical2022}, the mice tolerated NCP26 treatment well, with no signs of overt toxicity such as weight loss.
+This indicates that the effect of ProRS inhibition on myeloid cells may not even be an issue in vivo.
 Furthermore, myelosuppression is a common side effects of many other cancer therapies, especially in the treatment of hematologic malignancies.
 Therefore, it would be unlikely that ProRS inhibitor myeloid cell killing would constrain its clinical use in MM\@.
 
@@ -660,18 +663,18 @@ More scRNA-seq experiments should be performed with varying dosing conditions, w
 
 In the clinic, treatment cycles often last between four and six months.
 Our scRNA-seq methodology is limited by the duration human BM samples last in culture.
-The in-vivo murine model used in \cite{bottpreclinical2022} to test NCP26 demonstrated that NCP26 was well tolerated for up to six weeks-- a significantly longer continuous exposure time than we managed for scRNA-seq.
+The in vivo murine model used in \cite{bottpreclinical2022} to test NCP26 demonstrated that NCP26 was well tolerated for up to six weeks-- a significantly longer continuous exposure time than we managed for scRNA-seq.
 However, mouse models aren't without their limitations.
 For example, severe combined immunodeficient (SCID) mice (as used in \cite{bottpreclinical2022}) have a genetic immune deficiency that means they lack B and T cells, allowing for xenoengraftment of human tissue.
 This means that the effect of compounds on B cells and T cells cannot be monitored.
-Moreover, subcutaneous injection of MM cells means that the MM cells proliferate in the absence of the bone marrow microenvironment\cite{rossi2018mouse}, which supports the development, migration, proliferation and differentiation of malignant plasma cells, as well as contributing to acquired anti-cancer drug resistance.
+Moreover, subcutaneous injection of MM cells mean that the MM cells proliferate in the absence of the bone marrow microenvironment\cite{rossi2018mouse}, which supports the development, migration, proliferation and differentiation of malignant plasma cells, as well as contributing to acquired anti-cancer drug resistance.
 Thereby, not modelling a key factor in MM pathology.
 However, this model does allow for easy monitoring and measuring of tumour size during treatment.
 Each mouse model platform has its own strength and weakness, so it is important to select the right model for each specific pre-clinical research question.
 Recently, in a pre-print by Khan et al. (2022) a new step-wise, directed-differentiation protocol was described to generate 3D, vascularised BM organoid structures, which capture key features of human BM (stroma, lumen-forming sinusoidal vessels and myeloid cells)\cite{khan2022human}.
-This platform supports growth of primary cells from blood cancer patients and would allow for ex-vivo mechanistic studies of MM cells and their interactions within a human BM-like milieu\cite{khan2022human}.
-MM cells that had been cryopreserved and thawed prior to use were shown to rapidly lose viability when plated in-vitro, however, were sustained by the organoid platform for more than 10 days\cite{khan2022human}.
-Several other 3D ex-vivo BM niche models for MM have been proposed\cite{jakubikova2016novel,ferrarini20173d}.
+This platform supports growth of primary cells from blood cancer patients and would allow for ex vivo mechanistic studies of MM cells and their interactions within a human BM-like milieu\cite{khan2022human}.
+MM cells that had been cryopreserved and thawed prior to use were shown to rapidly lose viability when plated in vitro, however, were sustained by the organoid platform for more than 10 days\cite{khan2022human}.
+Several other 3D ex vivo BM niche models for MM have been proposed\cite{jakubikova2016novel,ferrarini20173d}.
 Utilisation of these platforms would allow for investigation of ProRS inhibitors within a MM BM microenvironment (with all relevant immune cells), for longer exposure time than our previous methodology would allow.
 
 Prior to clinical application of ProRS inhibitors, a lead compound should be developed to target ProRS, that shares NCP26's proline-uncompetitive mode of action.
