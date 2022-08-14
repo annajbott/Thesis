@@ -610,6 +610,8 @@ NCP26 treatment should perhaps also be considered for diseases currently being t
 The capability of HF and NCP26 to overcome resistance in PI-resistant MM (rather than other MM therapies) was investigated due to the similarities in the mechanisms of action of ProRS inhibition and proteasome inhibition.
 Proteasome inhibition leads to fewer ubiquitin-tagged proteins being degraded, subsequently many misfolded proteins accumulate in the ER lumen.
 This increases ER stress, activating the integrated stress response and causing the UPR to switch from a homeostatic, pro-survival system to a pro-apoptotic pathway\cite{kubiczkova2014proteasome, wallington2018resistance}.
+Plasma cells and MM cells have an increased proteasome workload, likely due to the metabolic strain associated with synthesising antibodies and paraprotein, additionally plasma cells have reduced proteasome capacity\cite{bianchi2009proteasome}.
+Together, this predisposes plasma cells to apoptosis from additional ER stressors, and makes them sensitive to proteasome inhibitors\cite{bianchi2009proteasome}.
 The UPR shares many mediators with the AAR, for example \textit{ATF4} and \textit{DDIT3}.
 Therefore, it may be expected that the mechanisms overlap for ProRS inhibition to overcome PI-driven resistance mechanisms.
 However, it was shown in vitro that HF and NCP26 reduce the cell viability of carfilzomib-resistant L363 cells in a dose dependent manner (Figure \ref{fig:dose}).
@@ -632,7 +634,7 @@ However, the group did not use any MM cell lines or primary MM patient samples i
 A higher concentration of PI is required to kill healthy cells or non-myeloma cells than myeloma cells, as there is lower baseline ER stress.
 Therefore, the mechanism of action of PIs in myeloma cells may be different to that of healthy cells or for different cancer cell lines.
 For example, NF$\kappa$B signalling is well established in multiple myeloma pathology, and has been implicated in the mechanism of action of PIs; other cell lines without extensive NF$\kappa$B signalling may not react the same way to PI treatment as MM cells.
-Additionally, due to the massive amount of paraprotein produced by MM cells, they already have increased strain on the proteasome and increased ER stress.
+%Additionally, plasma cells and MM cells have an increased proteasome workload, likely due to the metabolic strain associated with synthesising antibodies and paraprotein\cite{bianchi2009proteasome}, predisposing them to ER stress and apoptosis.
 Furthermore, the group did not investigate other possible explanations for the induction of the ISR, for example they could have explored the expression of \textit{PERK/EIF2AK3}, \textit{ATF6} or \textit{IRE-1}, signal activators of the unfolded protein response, another branch of the ISR\@.
 %The ISR could be activated by numerous converging signalling pathways, following PI treatment.
 
@@ -657,6 +659,35 @@ Alternatively, as ProRS inhibitors are capable of overcoming PI-resistance, thei
 Full safety profiles of ProRS inhibitors would need to be performed in MM, as both a single-agent and in combination, for both newly-diagnosed patients and for relapsed patients.
 Relapsed MM patients become more immunocompromised as treatment progresses, so this could perhaps be a barrier in using ProRS inhibitors in RRMM\@.
 % NCP26 > HF
+
+Conversely, GCN2 inhibition (rather than activation) has also been investigated as an anti-MM therapeutic strategy.
+Using longitudinal dscRNA-seq analyses of V$\kappa$\textsuperscript{*}MYC MM mice, Croucher et al. (2021) found that GCN2 and ISR pathways contributed to molecular malignant programmes underpinning sub-clonal tumour heterogeneity and disease progression in MM\cite{croucher2021longitudinal}.
+They also found that high GCN2 activity was related to early disease, perhaps indicating it as a protective mechanism employed by MM cells to cope with increased cellular stress.
+The group then investigated two publically available datasets of bulk RNA-seq and scRNA-seq MM data, and similarly found a progressive increase in ISR-GCN2 gene signature scores across disease stages from MGUS to active MM\@.
+Further corroborating their hypothesis that GCN2 activation is associated with disease progression in myeloma.
+The group then treated a range of MM cell lines with a small molecule, selective GCN2 inhibitor, GCN2iB, which was shown to reduce cell viability\cite{croucher2021longitudinal}.
+
+Saavedra-Garcia et al. (2021) investigated GCN2 inhibition in proteasome inhibition recovery, using time-course multi-omics techniques and GCN2iB cellular assays\cite{saavedra2021systems}.
+After one hour pulse treatment of MM cell lines with 750\si{\nano\Molar} carfilzomib (to closely replicate typical clinical PI treatment pharmacokinetics), sequential multiple omic techniques were employed at 0, 1, 2, 4, 6, 8, and 10 day time points.
+They found, in-line with previous studies, that levels of most amino acids decreased to below baseline in response to PI treatment, and that GCN2-ATF4 signalling became increasingly reactivated during PI recovery, suggesting a cytoprotective role of the AAR in PI-treated MM cells.
+GCN2iB alone was seen to have a moderately inhibitory effect on the proliferation of some MM cell lines.
+The addition of GCN2iB had no enhancing effect on carfilzomib-induced cell death at time points 2 and 4 days, however was shown to increase cell death on day 7\cite{saavedra2021systems}.
+This demonstrates that GCN2 inhibition disrupts cellular recovery from proteasome inhibition, and that GCN2 signalling may promote the resolution of PI-induced stress in cancer cells.
+For the work in this chapter, cells were exposed in culture for 24-72 hours with ProRS inhibitors and/or carfilzomib.
+It would be interesting to apply the above group's pulse protocol of PI-treatment to our research, to see if it affects our results.
+This could be applied to the ProRS inhibitor-PI synergy investigation (Section \ref{subsec:synergy}), with additional time points up to 7 days, to capture cellular recovery.
+
+We found that mimicking an amino-acid deprived state using ProRS inhibitors, and hence activating GCN2 and the AAR, resulted in anti-MM effects, therefore it is very interesting that other groups found that inhibiting GCN2 and the AAR, also resulted in anti-MM effects.
+GCN2-ATF4 AAR signalling is a complex process, which is part of an even more complex cascade of stress responses.
+The ISR maintains a fine balance between acting as pro-survival system and as a pro-apoptotic system.
+Therefore, it does follow intuitively that exploiting a cancer cell's dependency on this complex stress response, either by activation or inhibition of a key mediator, can have catastrophic effects on the overall cell's survival.
+
+% Stress response clearly complex. Early and late, recovery etc. Push the balance from cyto protective to harmful. Fine balance.
+% AAR problems with protecting cell ?
+
+% GCN2 promotes the resolution of PI-induced stress in cancer cells.
+% single-cell depiction of tumour progression using the Vκ*MYC model of myeloma
+%We suspect that the high level of ISR-GCN2 activity in Vκ*MYC mice with early disease reflects an adaptive mechanism employed by myeloma cells to cope with cellular stress associated with transformation
 
 \subsection{Targeting amino acid metabolism}
 Proline metabolism is thought to be of great importance in tumourigenesis and MM pathology\cite{d2020proline,liu2013mirna}.
