@@ -105,7 +105,8 @@ Other MM scRNA-seq studies have observed similar contamination of erythrocyte sp
 It was decided to remove the erythrocyte clusters (clusters 3, 8, 9, 10, 11 and 16 in newly-diagnosed; clusters 1, 5 and 15 in relapsed) and haemoglobin-related genes or erythrocyte-specific genes that were dominating expression in the integrated dataset.
 After the integrated Seurat object had the erythrocyte genes and cells removed, it was split back up into separate Seurat objects for each sample, and integration and clustering was performed again.
 Seurat's SCTransform with reference datasets and Harmony (using a multi-covariate model, accounting for each different sample and the two different experiments) were used to re-integrate all samples.
-Harmony integration was found to integrate clusters across patients and experiments better than using Seurat's SCTransform.
+By being able to account for the different covariates in the integration, Harmony was found to integrate clusters across patients and experiments better than using Seurat's SCTransform.
+Integration results from Seurat's SCTransform gave clusters that were very distinct for each experiment/patient, whereas Harmony seemed to mix experiments together better.
 The Harmony-integrated datasets were taken forwards and used for cell type annotation and further downstream analyses.
 Better integration was achieved after removing erythrocytes and erythrocyte-specific genes (Figure \ref{fig:umap_RBC_naive}d).
 
@@ -245,7 +246,7 @@ Cluster composition analysis by treatment condition is shown in Figure \ref{fig:
 Halofuginone treatment at both 24 and 48 hours reduced the proportion of cells in the MM cluster (p<0.00001) compared to DMSO, for both experiment 1 and 2.
 NCP26 treatment at 24 hours reduced the proportion of cells in the MM cluster (p<0.00001), for both experiment 1 and 2.
 HF and NCP26 treatment increased the proportion of cells in the CD4+ T cell, CD8+ T cell and B cell clusters.
-Together with dose response curves and cell death assays, this suggests that HF and NCP26 are selectively killing MM cells to a higher degree than other cell types.
+Together with dose response curves and cell death assays, this suggests that HF and NCP26 are selectively killing MM cells to a higher degree than most other cell types.
 
 %%  UMAP cluster composition separated by treatment condition
 \begin{figure}[htb]
@@ -261,7 +262,7 @@ Together with dose response curves and cell death assays, this suggests that HF 
 \end{figure}
 %%
 
-HF treatment and 48-hour NCP26 treatment were also found to reduce the proportion of cells in the monocyte and neutrophil cluster (p<0.00001), indicating they may have some undesirable off-target effects on myeloid cells.
+HF treatment and 24-hour NCP26 treatment were also found to reduce the proportion of cells in the monocyte and neutrophil cluster (p<0.00001), indicating they may have some undesirable effects on other healthy cell types.
 
 All of the compounds were used at a concentration of 1\si{\micro\Molar}.
 This is approximately 10 times the concentration of HF's IC\textsubscript{50} value on MM cell lines and two times NCP26's IC\textsubscript{50} value.
@@ -648,6 +649,16 @@ However, from in vivo MM xenograft murine models\cite{bottpreclinical2022}, the 
 This indicates that the effect of ProRS inhibition on myeloid cells may not even be an issue in vivo.
 Furthermore, myelosuppression is a common side effects of many other cancer therapies, especially in the treatment of hematologic malignancies.
 Therefore, it would be unlikely that ProRS inhibitor myeloid cell killing would constrain its clinical use in MM\@.
+
+On the other hand, as we've seen in MM, ProRS inhibitors are more selective and effective against malignant MM cells than for healthy plasma cells.
+This could also be the case for ProRS inhibitors and malignant myeloid cells versus healthy myeloid cells.
+Given that HF and NCP26 were shown to kill healthy myeloid cells in MM patients, they could be even more effective against malignant myeloid cells.
+Thus, ProRS inhibitors could represent a potential therapeutic for treatment of acute myeloid leukaemia (AML).
+AML is an aggressive cancer of myeloid cells, with poor patient outcomes (with more than 50\% of patients ultimately dying from their disease)\cite{NHSAML,short2018acute}.
+Approximately 3000 new cases of AML are reported each year in the UK\cite{cancerresearchukAMLincidence}.
+Novel therapeutics for AML are required to improve patient outcomes.
+The effectiveness of ProRS inhibitors should be investigated in AML cell lines and AML patient samples, including PBMCs from AML patients to determine selectivity over healthy immune cells.
+If ProRS inhibitors were effective against AML, this could unlock a whole new use-case for this drug class, and improve the prognoses of even more cancer patients.
 
 \section{Future directions}
 % Summary few sentences
